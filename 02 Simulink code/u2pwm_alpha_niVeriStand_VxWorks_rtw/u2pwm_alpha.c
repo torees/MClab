@@ -7,9 +7,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.81
+ * Model version              : 1.84
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 14 14:16:09 2016
+ * C source code generated on : Tue Apr 19 14:45:05 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -256,32 +256,33 @@ static void u2pwm_alpha_output(void)
    *  SignalConversion: '<S1>/TmpSignal ConversionAt SFunction Inport1'
    */
   /* MATLAB Function 'MATLAB Function': '<S1>:1' */
-  if ((rtb_Sum12 > 3200.0) || (rtb_Sum12 < -3200.0)) {
-    /* '<S1>:1:4' */
+  /* '<S1>:1:3' */
+  if ((rtb_Sum12 > 3200.0) || (rtb_Sum12 < -9000.0)) {
     /* '<S1>:1:5' */
-    u2pwm_alpha_B.y = 1.0;
-  } else if ((rtb_Sum13 > 3200.0) || (rtb_Sum13 < -3200.0)) {
     /* '<S1>:1:6' */
+    u2pwm_alpha_B.y = 1.0;
+  } else if ((rtb_Sum13 > 9000.0) || (rtb_Sum13 < -9000.0)) {
     /* '<S1>:1:7' */
-    u2pwm_alpha_B.y = 1.0;
-  } else if ((rtb_Sum11 > 3200.0) || (rtb_Sum11 < -3200.0)) {
     /* '<S1>:1:8' */
+    u2pwm_alpha_B.y = 1.0;
+  } else if ((rtb_Sum11 > 9000.0) || (rtb_Sum11 < -9000.0)) {
     /* '<S1>:1:9' */
-    u2pwm_alpha_B.y = 1.0;
-  } else if ((rtb_Sum8 > 3200.0) || (rtb_Sum8 < -3200.0)) {
     /* '<S1>:1:10' */
+    u2pwm_alpha_B.y = 1.0;
+  } else if ((rtb_Sum8 > 9000.0) || (rtb_Sum8 < -9000.0)) {
     /* '<S1>:1:11' */
-    u2pwm_alpha_B.y = 1.0;
-  } else if ((rtb_Sum9 > 3200.0) || (rtb_Sum9 < -3200.0)) {
     /* '<S1>:1:12' */
-    /* '<S1>:1:13' */
     u2pwm_alpha_B.y = 1.0;
-  } else if ((rtb_Sum10 > 3200.0) || (rtb_Sum10 < -3200.0)) {
+  } else if ((rtb_Sum9 > 9000.0) || (rtb_Sum9 < -9000.0)) {
+    /* '<S1>:1:13' */
     /* '<S1>:1:14' */
+    u2pwm_alpha_B.y = 1.0;
+  } else if ((rtb_Sum10 > 9000.0) || (rtb_Sum10 < -9000.0)) {
     /* '<S1>:1:15' */
+    /* '<S1>:1:16' */
     u2pwm_alpha_B.y = 1.0;
   } else {
-    /* '<S1>:1:17' */
+    /* '<S1>:1:18' */
     u2pwm_alpha_B.y = 0.0;
   }
 
@@ -476,9 +477,9 @@ RT_MODEL_u2pwm_alpha_T *u2pwm_alpha(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : u2pwm_alpha
- * Model version : 1.81
+ * Model version : 1.84
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 14 14:16:08 2016
+ * Source generated on : Tue Apr 19 14:45:05 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -1465,8 +1466,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "u2pwm_alpha";
-static const char* NI_CompiledModelVersion = "1.81";
-static const char* NI_CompiledModelDateTime = "Thu Apr 14 14:16:08 2016";
+static const char* NI_CompiledModelVersion = "1.84";
+static const char* NI_CompiledModelDateTime = "Tue Apr 19 14:45:05 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =

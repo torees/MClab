@@ -2,9 +2,9 @@
  * NI VeriStand Model Framework code generation
  *
  * Model : wrapping
- * Model version : 1.32
+ * Model version : 1.36
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 14 11:10:35 2016
+ * Source generated on : Tue Apr 19 18:43:05 2016
  *========================================================================*/
 
 /*

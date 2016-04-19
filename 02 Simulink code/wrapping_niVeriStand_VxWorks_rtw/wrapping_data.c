@@ -12,9 +12,9 @@
  *
  * Code generation for model "wrapping".
  *
- * Model version              : 1.32
+ * Model version              : 1.36
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 14 11:10:35 2016
+ * C source code generated on : Tue Apr 19 18:43:05 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,239 +27,113 @@
 
 /* Block parameters (auto storage) */
 P_wrapping_T wrapping_P = {
-  -165.0,                              /* Variable: zero_alpha_1
-                                        * Referenced by: '<Root>/alpha_Offset5'
-                                        */
-  -154.0,                              /* Variable: zero_alpha_2
-                                        * Referenced by: '<Root>/alpha_Offset4'
-                                        */
-  -147.0,                              /* Variable: zero_alpha_3
-                                        * Referenced by: '<Root>/alpha_Offset3'
-                                        */
-  -8.0,                                /* Variable: zero_alpha_4
-                                        * Referenced by: '<Root>/alpha_Offset2'
-                                        */
-  165.0,                               /* Variable: zero_alpha_5
-                                        * Referenced by: '<Root>/alpha_Offset6'
-                                        */
-  -12.0,                               /* Variable: zero_alpha_6
-                                        * Referenced by: '<Root>/alpha_Offset1'
-                                        */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_1_m'
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_1_m'
-                                        */
-  6.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_1_m'
-                                        */
-  -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_1_m'
-                                        */
-  1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_1_m'
-                                        */
-  1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_1_m'
-                                        */
-  -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_1_m_out'
-                                        */
-  1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
   1.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_1_m_out'
-                                        */
-  0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_1_m_out'
-                                        */
-  -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_5_m'
-                                        */
-  1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_5_m'
-                                        */
-  1.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_5_m'
-                                        */
-  -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_5_m'
-                                        */
-  1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_5_m'
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
   1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_5_m'
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_2_m'
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_2_m'
-                                        */
-  5.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_2_m'
-                                        */
-  -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_2_m'
-                                        */
-  1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_2_m'
-                                        */
-  1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_2_m'
-                                        */
-  -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_2_m_out'
-                                        */
-  1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_2_m_out'
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
   2.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_2_m_out'
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_2_m_out'
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_2_m_out'
-                                        */
-  0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_2_m_out'
-                                        */
-  -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  2.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_6_m'
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
   1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_6_m'
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_3_m'
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  4.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_3_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
   3.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_3_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_3_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  3.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_4_m'
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
   1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_4_m'
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_4_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_4_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
   4.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_4_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_4_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_4_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
-  0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_4_m_out'
+  1.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_5_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_5_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
   5.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_5_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_5_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_5_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
-  0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_5_m_out'
+  1.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/alpha_6_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_6_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
   6.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_6_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_6_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_6_m_out'
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
-  0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_6_m_out'
+  1.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<S13>/alpha_6'
@@ -388,22 +262,22 @@ P_wrapping_T wrapping_P = {
                                         * Referenced by: '<S13>/Gain5'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/no wrapping'
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/no wrapping'
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
   7.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/no wrapping'
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/no wrapping'
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/no wrapping'
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
   1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/no wrapping'
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<Root>/Memory5'
@@ -537,9 +411,9 @@ P_wrapping_T wrapping_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : wrapping
- * Model version : 1.32
+ * Model version : 1.36
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 14 11:10:35 2016
+ * Source generated on : Tue Apr 19 18:43:05 2016
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 
@@ -552,90 +426,6 @@ typedef struct {
 NI_ParamSizeWidth P_wrapping_T_sizes[] DataSection(".NIVS.defaultparamsizes") =
   {
   { sizeof(P_wrapping_T), 1 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
 
   { sizeof(real_T), 1, 0 },
 

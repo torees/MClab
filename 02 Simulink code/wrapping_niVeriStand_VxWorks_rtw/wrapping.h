@@ -7,9 +7,9 @@
  *
  * Code generation for model "wrapping".
  *
- * Model version              : 1.32
+ * Model version              : 1.36
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 14 11:10:35 2016
+ * C source code generated on : Tue Apr 19 18:43:05 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -813,25 +813,19 @@ typedef struct {
 
 /* Block signals (auto storage) */
 typedef struct {
-  real_T alpha_1_m;                    /* '<Root>/alpha_1_m' */
-  real_T Sum5;                         /* '<Root>/Sum5' */
-  real_T alpha_5_m;                    /* '<Root>/alpha_5_m' */
-  real_T alpha_2_m;                    /* '<Root>/alpha_2_m' */
-  real_T Sum4;                         /* '<Root>/Sum4' */
-  real_T alpha_6_m;                    /* '<Root>/alpha_6_m' */
-  real_T alpha_3_m;                    /* '<Root>/alpha_3_m' */
-  real_T Sum3;                         /* '<Root>/Sum3' */
-  real_T alpha_4_m;                    /* '<Root>/alpha_4_m' */
-  real_T Sum2;                         /* '<Root>/Sum2' */
-  real_T Sum7;                         /* '<Root>/Sum7' */
-  real_T Sum1;                         /* '<Root>/Sum1' */
+  real_T alpha_deg_1;                  /* '<Root>/alpha_deg_1' */
+  real_T nowrapping;                   /* '<Root>/no wrapping' */
+  real_T alpha_deg_2;                  /* '<Root>/alpha_deg_2' */
+  real_T alpha_deg_3;                  /* '<Root>/alpha_deg_3' */
+  real_T alpha_deg_4;                  /* '<Root>/alpha_deg_4' */
+  real_T alpha_deg_5;                  /* '<Root>/alpha_deg_5' */
   real_T alpha_6;                      /* '<S13>/alpha_6' */
   real_T alpha_1;                      /* '<S13>/alpha_1' */
   real_T alpha_2;                      /* '<S13>/alpha_2' */
   real_T alpha_3;                      /* '<S13>/alpha_3' */
   real_T alpha_4;                      /* '<S13>/alpha_4' */
   real_T alpha_5;                      /* '<S13>/alpha_5' */
-  real_T nowrapping;                   /* '<Root>/no wrapping' */
+  real_T alpha_deg_6;                  /* '<Root>/alpha_deg_6' */
   real_T Switch1[6];                   /* '<Root>/Switch1' */
   B_MATLABFunction11_wrapping_T sf_MATLABFunction9;/* '<Root>/MATLAB Function9' */
   B_MATLABFunction_wrapping_T sf_MATLABFunction8;/* '<Root>/MATLAB Function8' */
@@ -849,25 +843,19 @@ typedef struct {
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  real_T alpha_1_m_DWORK1;             /* '<Root>/alpha_1_m' */
-  real_T alpha_1_m_out_DWORK1;         /* '<Root>/alpha_1_m_out' */
-  real_T alpha_5_m_DWORK1;             /* '<Root>/alpha_5_m' */
-  real_T alpha_2_m_DWORK1;             /* '<Root>/alpha_2_m' */
-  real_T alpha_2_m_out_DWORK1;         /* '<Root>/alpha_2_m_out' */
-  real_T alpha_6_m_DWORK1;             /* '<Root>/alpha_6_m' */
-  real_T alpha_3_m_DWORK1;             /* '<Root>/alpha_3_m' */
-  real_T alpha_3_m_out_DWORK1;         /* '<Root>/alpha_3_m_out' */
-  real_T alpha_4_m_DWORK1;             /* '<Root>/alpha_4_m' */
-  real_T alpha_4_m_out_DWORK1;         /* '<Root>/alpha_4_m_out' */
-  real_T alpha_5_m_out_DWORK1;         /* '<Root>/alpha_5_m_out' */
-  real_T alpha_6_m_out_DWORK1;         /* '<Root>/alpha_6_m_out' */
+  real_T alpha_deg_1_DWORK1;           /* '<Root>/alpha_deg_1' */
+  real_T nowrapping_DWORK1;            /* '<Root>/no wrapping' */
+  real_T alpha_deg_2_DWORK1;           /* '<Root>/alpha_deg_2' */
+  real_T alpha_deg_3_DWORK1;           /* '<Root>/alpha_deg_3' */
+  real_T alpha_deg_4_DWORK1;           /* '<Root>/alpha_deg_4' */
+  real_T alpha_deg_5_DWORK1;           /* '<Root>/alpha_deg_5' */
   real_T alpha_6_DWORK1;               /* '<S13>/alpha_6' */
   real_T alpha_1_DWORK1;               /* '<S13>/alpha_1' */
   real_T alpha_2_DWORK1;               /* '<S13>/alpha_2' */
   real_T alpha_3_DWORK1;               /* '<S13>/alpha_3' */
   real_T alpha_4_DWORK1;               /* '<S13>/alpha_4' */
   real_T alpha_5_DWORK1;               /* '<S13>/alpha_5' */
-  real_T nowrapping_DWORK1;            /* '<Root>/no wrapping' */
+  real_T alpha_deg_6_DWORK1;           /* '<Root>/alpha_deg_6' */
   real_T Memory5_PreviousInput;        /* '<Root>/Memory5' */
   real_T Memory4_PreviousInput;        /* '<Root>/Memory4' */
   real_T Memory3_PreviousInput;        /* '<Root>/Memory3' */
@@ -880,25 +868,19 @@ typedef struct {
   real_T alpha_6_DWORK1_b;             /* '<S14>/alpha_6' */
   real_T alpha_4_DWORK1_o;             /* '<S14>/alpha_4' */
   real_T alpha_5_DWORK1_e;             /* '<S14>/alpha_5' */
-  uint8_T alpha_1_m_DWORK2[9];         /* '<Root>/alpha_1_m' */
-  uint8_T alpha_1_m_out_DWORK2[9];     /* '<Root>/alpha_1_m_out' */
-  uint8_T alpha_5_m_DWORK2[9];         /* '<Root>/alpha_5_m' */
-  uint8_T alpha_2_m_DWORK2[9];         /* '<Root>/alpha_2_m' */
-  uint8_T alpha_2_m_out_DWORK2[9];     /* '<Root>/alpha_2_m_out' */
-  uint8_T alpha_6_m_DWORK2[9];         /* '<Root>/alpha_6_m' */
-  uint8_T alpha_3_m_DWORK2[9];         /* '<Root>/alpha_3_m' */
-  uint8_T alpha_3_m_out_DWORK2[9];     /* '<Root>/alpha_3_m_out' */
-  uint8_T alpha_4_m_DWORK2[9];         /* '<Root>/alpha_4_m' */
-  uint8_T alpha_4_m_out_DWORK2[9];     /* '<Root>/alpha_4_m_out' */
-  uint8_T alpha_5_m_out_DWORK2[9];     /* '<Root>/alpha_5_m_out' */
-  uint8_T alpha_6_m_out_DWORK2[9];     /* '<Root>/alpha_6_m_out' */
+  uint8_T alpha_deg_1_DWORK2[9];       /* '<Root>/alpha_deg_1' */
+  uint8_T nowrapping_DWORK2[9];        /* '<Root>/no wrapping' */
+  uint8_T alpha_deg_2_DWORK2[9];       /* '<Root>/alpha_deg_2' */
+  uint8_T alpha_deg_3_DWORK2[9];       /* '<Root>/alpha_deg_3' */
+  uint8_T alpha_deg_4_DWORK2[9];       /* '<Root>/alpha_deg_4' */
+  uint8_T alpha_deg_5_DWORK2[9];       /* '<Root>/alpha_deg_5' */
   uint8_T alpha_6_DWORK2[9];           /* '<S13>/alpha_6' */
   uint8_T alpha_1_DWORK2[9];           /* '<S13>/alpha_1' */
   uint8_T alpha_2_DWORK2[9];           /* '<S13>/alpha_2' */
   uint8_T alpha_3_DWORK2[9];           /* '<S13>/alpha_3' */
   uint8_T alpha_4_DWORK2[9];           /* '<S13>/alpha_4' */
   uint8_T alpha_5_DWORK2[9];           /* '<S13>/alpha_5' */
-  uint8_T nowrapping_DWORK2[9];        /* '<Root>/no wrapping' */
+  uint8_T alpha_deg_6_DWORK2[9];       /* '<Root>/alpha_deg_6' */
   uint8_T alpha_2_DWORK2_h[9];         /* '<S14>/alpha_2' */
   uint8_T alpha_3_DWORK2_f[9];         /* '<S14>/alpha_3' */
   uint8_T alpha_1_DWORK2_m[9];         /* '<S14>/alpha_1' */
@@ -917,239 +899,113 @@ typedef struct {
 
 /* Parameters (auto storage) */
 struct P_wrapping_T_ {
-  real_T zero_alpha_1;                 /* Variable: zero_alpha_1
-                                        * Referenced by: '<Root>/alpha_Offset5'
+  real_T alpha_deg_1_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
-  real_T zero_alpha_2;                 /* Variable: zero_alpha_2
-                                        * Referenced by: '<Root>/alpha_Offset4'
+  real_T alpha_deg_1_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
-  real_T zero_alpha_3;                 /* Variable: zero_alpha_3
-                                        * Referenced by: '<Root>/alpha_Offset3'
+  real_T alpha_deg_1_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
-  real_T zero_alpha_4;                 /* Variable: zero_alpha_4
-                                        * Referenced by: '<Root>/alpha_Offset2'
+  real_T alpha_deg_1_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
-  real_T zero_alpha_5;                 /* Variable: zero_alpha_5
-                                        * Referenced by: '<Root>/alpha_Offset6'
+  real_T alpha_deg_1_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
-  real_T zero_alpha_6;                 /* Variable: zero_alpha_6
-                                        * Referenced by: '<Root>/alpha_Offset1'
+  real_T alpha_deg_1_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_1'
                                         */
-  real_T alpha_1_m_P1;                 /* Expression: width
-                                        * Referenced by: '<Root>/alpha_1_m'
+  real_T nowrapping_P1;                /* Expression: width
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
-  real_T alpha_1_m_P2;                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_1_m'
+  real_T nowrapping_P2;                /* Expression: dtype
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
-  real_T alpha_1_m_P3;                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_1_m'
+  real_T nowrapping_P3;                /* Expression: portnum
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
-  real_T alpha_1_m_P4;                 /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_1_m'
+  real_T nowrapping_P4;                /* Expression: stime
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
-  real_T alpha_1_m_P5;                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_1_m'
+  real_T nowrapping_P5;                /* Expression: stype
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
-  real_T alpha_1_m_P6;                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_1_m'
+  real_T nowrapping_P6;                /* Expression: btype
+                                        * Referenced by: '<Root>/no wrapping'
                                         */
-  real_T alpha_1_m_out_P1;             /* Expression: width
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+  real_T alpha_deg_2_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
-  real_T alpha_1_m_out_P2;             /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+  real_T alpha_deg_2_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
-  real_T alpha_1_m_out_P3;             /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+  real_T alpha_deg_2_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
-  real_T alpha_1_m_out_P4;             /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+  real_T alpha_deg_2_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
-  real_T alpha_1_m_out_P5;             /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+  real_T alpha_deg_2_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
-  real_T alpha_1_m_out_P6;             /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_1_m_out'
+  real_T alpha_deg_2_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_2'
                                         */
-  real_T alpha_5_m_P1;                 /* Expression: width
-                                        * Referenced by: '<Root>/alpha_5_m'
+  real_T alpha_deg_3_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
-  real_T alpha_5_m_P2;                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_5_m'
+  real_T alpha_deg_3_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
-  real_T alpha_5_m_P3;                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_5_m'
+  real_T alpha_deg_3_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
-  real_T alpha_5_m_P4;                 /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_5_m'
+  real_T alpha_deg_3_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
-  real_T alpha_5_m_P5;                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_5_m'
+  real_T alpha_deg_3_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
-  real_T alpha_5_m_P6;                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_5_m'
+  real_T alpha_deg_3_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_3'
                                         */
-  real_T alpha_2_m_P1;                 /* Expression: width
-                                        * Referenced by: '<Root>/alpha_2_m'
+  real_T alpha_deg_4_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
-  real_T alpha_2_m_P2;                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_2_m'
+  real_T alpha_deg_4_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
-  real_T alpha_2_m_P3;                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_2_m'
+  real_T alpha_deg_4_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
-  real_T alpha_2_m_P4;                 /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_2_m'
+  real_T alpha_deg_4_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
-  real_T alpha_2_m_P5;                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_2_m'
+  real_T alpha_deg_4_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
-  real_T alpha_2_m_P6;                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_2_m'
+  real_T alpha_deg_4_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_4'
                                         */
-  real_T alpha_2_m_out_P1;             /* Expression: width
-                                        * Referenced by: '<Root>/alpha_2_m_out'
+  real_T alpha_deg_5_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
-  real_T alpha_2_m_out_P2;             /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_2_m_out'
+  real_T alpha_deg_5_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
-  real_T alpha_2_m_out_P3;             /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_2_m_out'
+  real_T alpha_deg_5_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
-  real_T alpha_2_m_out_P4;             /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_2_m_out'
+  real_T alpha_deg_5_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
-  real_T alpha_2_m_out_P5;             /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_2_m_out'
+  real_T alpha_deg_5_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
-  real_T alpha_2_m_out_P6;             /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_2_m_out'
-                                        */
-  real_T alpha_6_m_P1;                 /* Expression: width
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  real_T alpha_6_m_P2;                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  real_T alpha_6_m_P3;                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  real_T alpha_6_m_P4;                 /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  real_T alpha_6_m_P5;                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  real_T alpha_6_m_P6;                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_6_m'
-                                        */
-  real_T alpha_3_m_P1;                 /* Expression: width
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  real_T alpha_3_m_P2;                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  real_T alpha_3_m_P3;                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  real_T alpha_3_m_P4;                 /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  real_T alpha_3_m_P5;                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  real_T alpha_3_m_P6;                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_3_m'
-                                        */
-  real_T alpha_3_m_out_P1;             /* Expression: width
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  real_T alpha_3_m_out_P2;             /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  real_T alpha_3_m_out_P3;             /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  real_T alpha_3_m_out_P4;             /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  real_T alpha_3_m_out_P5;             /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  real_T alpha_3_m_out_P6;             /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_3_m_out'
-                                        */
-  real_T alpha_4_m_P1;                 /* Expression: width
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  real_T alpha_4_m_P2;                 /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  real_T alpha_4_m_P3;                 /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  real_T alpha_4_m_P4;                 /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  real_T alpha_4_m_P5;                 /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  real_T alpha_4_m_P6;                 /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_4_m'
-                                        */
-  real_T alpha_4_m_out_P1;             /* Expression: width
-                                        * Referenced by: '<Root>/alpha_4_m_out'
-                                        */
-  real_T alpha_4_m_out_P2;             /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_4_m_out'
-                                        */
-  real_T alpha_4_m_out_P3;             /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_4_m_out'
-                                        */
-  real_T alpha_4_m_out_P4;             /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_4_m_out'
-                                        */
-  real_T alpha_4_m_out_P5;             /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_4_m_out'
-                                        */
-  real_T alpha_4_m_out_P6;             /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_4_m_out'
-                                        */
-  real_T alpha_5_m_out_P1;             /* Expression: width
-                                        * Referenced by: '<Root>/alpha_5_m_out'
-                                        */
-  real_T alpha_5_m_out_P2;             /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_5_m_out'
-                                        */
-  real_T alpha_5_m_out_P3;             /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_5_m_out'
-                                        */
-  real_T alpha_5_m_out_P4;             /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_5_m_out'
-                                        */
-  real_T alpha_5_m_out_P5;             /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_5_m_out'
-                                        */
-  real_T alpha_5_m_out_P6;             /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_5_m_out'
-                                        */
-  real_T alpha_6_m_out_P1;             /* Expression: width
-                                        * Referenced by: '<Root>/alpha_6_m_out'
-                                        */
-  real_T alpha_6_m_out_P2;             /* Expression: dtype
-                                        * Referenced by: '<Root>/alpha_6_m_out'
-                                        */
-  real_T alpha_6_m_out_P3;             /* Expression: portnum
-                                        * Referenced by: '<Root>/alpha_6_m_out'
-                                        */
-  real_T alpha_6_m_out_P4;             /* Expression: stime
-                                        * Referenced by: '<Root>/alpha_6_m_out'
-                                        */
-  real_T alpha_6_m_out_P5;             /* Expression: stype
-                                        * Referenced by: '<Root>/alpha_6_m_out'
-                                        */
-  real_T alpha_6_m_out_P6;             /* Expression: btype
-                                        * Referenced by: '<Root>/alpha_6_m_out'
+  real_T alpha_deg_5_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_5'
                                         */
   real_T alpha_6_P1;                   /* Expression: width
                                         * Referenced by: '<S13>/alpha_6'
@@ -1277,23 +1133,23 @@ struct P_wrapping_T_ {
   real_T Gain5_Gain;                   /* Expression: 180/pi
                                         * Referenced by: '<S13>/Gain5'
                                         */
-  real_T nowrapping_P1;                /* Expression: width
-                                        * Referenced by: '<Root>/no wrapping'
+  real_T alpha_deg_6_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
-  real_T nowrapping_P2;                /* Expression: dtype
-                                        * Referenced by: '<Root>/no wrapping'
+  real_T alpha_deg_6_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
-  real_T nowrapping_P3;                /* Expression: portnum
-                                        * Referenced by: '<Root>/no wrapping'
+  real_T alpha_deg_6_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
-  real_T nowrapping_P4;                /* Expression: stime
-                                        * Referenced by: '<Root>/no wrapping'
+  real_T alpha_deg_6_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
-  real_T nowrapping_P5;                /* Expression: stype
-                                        * Referenced by: '<Root>/no wrapping'
+  real_T alpha_deg_6_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
-  real_T nowrapping_P6;                /* Expression: btype
-                                        * Referenced by: '<Root>/no wrapping'
+  real_T alpha_deg_6_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/alpha_deg_6'
                                         */
   real_T Memory5_X0;                   /* Expression: 0
                                         * Referenced by: '<Root>/Memory5'
@@ -1589,9 +1445,9 @@ extern RT_MODEL_wrapping_T *const wrapping_M;
  * NI VeriStand Model Framework code generation
  *
  * Model : wrapping
- * Model version : 1.32
+ * Model version : 1.36
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 14 11:10:35 2016
+ * Source generated on : Tue Apr 19 18:43:05 2016
  *========================================================================*/
 #ifdef NI_ROOTMODEL_wrapping
 

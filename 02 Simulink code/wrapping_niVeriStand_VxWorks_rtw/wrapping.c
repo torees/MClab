@@ -7,9 +7,9 @@
  *
  * Code generation for model "wrapping".
  *
- * Model version              : 1.32
+ * Model version              : 1.36
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 14 11:10:35 2016
+ * C source code generated on : Tue Apr 19 18:43:05 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -114,36 +114,6 @@ static void wrapping_output(void)
   real_T rtb_Gain4;
   real_T rtb_Gain5;
 
-  /* Sum: '<Root>/Sum5' incorporates:
-   *  Constant: '<Root>/alpha_Offset5'
-   */
-  wrapping_B.Sum5 = wrapping_B.alpha_1_m - wrapping_P.zero_alpha_1;
-
-  /* Sum: '<Root>/Sum4' incorporates:
-   *  Constant: '<Root>/alpha_Offset4'
-   */
-  wrapping_B.Sum4 = wrapping_B.alpha_2_m - wrapping_P.zero_alpha_2;
-
-  /* Sum: '<Root>/Sum3' incorporates:
-   *  Constant: '<Root>/alpha_Offset3'
-   */
-  wrapping_B.Sum3 = wrapping_B.alpha_3_m - wrapping_P.zero_alpha_3;
-
-  /* Sum: '<Root>/Sum2' incorporates:
-   *  Constant: '<Root>/alpha_Offset2'
-   */
-  wrapping_B.Sum2 = wrapping_B.alpha_4_m - wrapping_P.zero_alpha_4;
-
-  /* Sum: '<Root>/Sum7' incorporates:
-   *  Constant: '<Root>/alpha_Offset6'
-   */
-  wrapping_B.Sum7 = wrapping_B.alpha_5_m - wrapping_P.zero_alpha_5;
-
-  /* Sum: '<Root>/Sum1' incorporates:
-   *  Constant: '<Root>/alpha_Offset1'
-   */
-  wrapping_B.Sum1 = wrapping_B.alpha_6_m - wrapping_P.zero_alpha_6;
-
   /* Gain: '<S13>/Gain' */
   rtb_Gain = wrapping_P.Gain_Gain * wrapping_B.alpha_1;
 
@@ -163,7 +133,7 @@ static void wrapping_output(void)
   rtb_Gain5 = wrapping_P.Gain5_Gain * wrapping_B.alpha_6;
 
   /* MATLAB Function: '<Root>/MATLAB Function11' */
-  wrapping_MATLABFunction11(rtb_Gain, wrapping_B.Sum5,
+  wrapping_MATLABFunction11(rtb_Gain, wrapping_B.alpha_deg_1,
     &wrapping_B.sf_MATLABFunction11);
 
   /* MATLAB Function: '<Root>/MATLAB Function10' incorporates:
@@ -173,7 +143,7 @@ static void wrapping_output(void)
     wrapping_B.sf_MATLABFunction11.angle_out, &wrapping_B.sf_MATLABFunction10);
 
   /* MATLAB Function: '<Root>/MATLAB Function9' */
-  wrapping_MATLABFunction11(rtb_Gain1, wrapping_B.Sum4,
+  wrapping_MATLABFunction11(rtb_Gain1, wrapping_B.alpha_deg_2,
     &wrapping_B.sf_MATLABFunction9);
 
   /* MATLAB Function: '<Root>/MATLAB Function8' incorporates:
@@ -183,7 +153,7 @@ static void wrapping_output(void)
     wrapping_B.sf_MATLABFunction9.angle_out, &wrapping_B.sf_MATLABFunction8);
 
   /* MATLAB Function: '<Root>/MATLAB Function7' */
-  wrapping_MATLABFunction11(rtb_Gain2, wrapping_B.Sum3,
+  wrapping_MATLABFunction11(rtb_Gain2, wrapping_B.alpha_deg_3,
     &wrapping_B.sf_MATLABFunction7);
 
   /* MATLAB Function: '<Root>/MATLAB Function6' incorporates:
@@ -193,7 +163,7 @@ static void wrapping_output(void)
     wrapping_B.sf_MATLABFunction7.angle_out, &wrapping_B.sf_MATLABFunction6);
 
   /* MATLAB Function: '<Root>/MATLAB Function4' */
-  wrapping_MATLABFunction11(rtb_Gain3, wrapping_B.Sum2,
+  wrapping_MATLABFunction11(rtb_Gain3, wrapping_B.alpha_deg_4,
     &wrapping_B.sf_MATLABFunction4);
 
   /* MATLAB Function: '<Root>/MATLAB Function3' incorporates:
@@ -203,7 +173,7 @@ static void wrapping_output(void)
     wrapping_B.sf_MATLABFunction4.angle_out, &wrapping_B.sf_MATLABFunction3);
 
   /* MATLAB Function: '<Root>/MATLAB Function5' */
-  wrapping_MATLABFunction11(rtb_Gain4, wrapping_B.Sum7,
+  wrapping_MATLABFunction11(rtb_Gain4, wrapping_B.alpha_deg_5,
     &wrapping_B.sf_MATLABFunction5);
 
   /* MATLAB Function: '<Root>/MATLAB Function' incorporates:
@@ -213,7 +183,7 @@ static void wrapping_output(void)
     wrapping_B.sf_MATLABFunction5.angle_out, &wrapping_B.sf_MATLABFunction);
 
   /* MATLAB Function: '<Root>/MATLAB Function2' */
-  wrapping_MATLABFunction11(rtb_Gain5, wrapping_B.Sum1,
+  wrapping_MATLABFunction11(rtb_Gain5, wrapping_B.alpha_deg_6,
     &wrapping_B.sf_MATLABFunction2);
 
   /* MATLAB Function: '<Root>/MATLAB Function1' incorporates:
@@ -430,9 +400,9 @@ RT_MODEL_wrapping_T *wrapping(void)
   wrapping_M->Sizes.numU = (0);        /* Number of model inputs */
   wrapping_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   wrapping_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  wrapping_M->Sizes.numBlocks = (64);  /* Number of blocks */
-  wrapping_M->Sizes.numBlockIO = (32); /* Number of block outputs */
-  wrapping_M->Sizes.numBlockPrms = (168);/* Sum of parameter "widths" */
+  wrapping_M->Sizes.numBlocks = (46);  /* Number of blocks */
+  wrapping_M->Sizes.numBlockIO = (26); /* Number of block outputs */
+  wrapping_M->Sizes.numBlockPrms = (126);/* Sum of parameter "widths" */
   return wrapping_M;
 }
 
@@ -444,9 +414,9 @@ RT_MODEL_wrapping_T *wrapping(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : wrapping
- * Model version : 1.32
+ * Model version : 1.36
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 14 11:10:35 2016
+ * Source generated on : Tue Apr 19 18:43:05 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -655,44 +625,44 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
 {
   int index = 0, count = 0;
 
-  // wrapping/alpha_1_m
+  // wrapping/alpha_deg_1
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&wrapping_B.alpha_1_m, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&wrapping_B.alpha_deg_1, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // wrapping/alpha_5_m
+  // wrapping/no wrapping
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&wrapping_B.alpha_5_m, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&wrapping_B.nowrapping, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // wrapping/alpha_2_m
+  // wrapping/alpha_deg_2
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&wrapping_B.alpha_2_m, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&wrapping_B.alpha_deg_2, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // wrapping/alpha_6_m
+  // wrapping/alpha_deg_3
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&wrapping_B.alpha_6_m, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&wrapping_B.alpha_deg_3, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // wrapping/alpha_3_m
+  // wrapping/alpha_deg_4
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&wrapping_B.alpha_3_m, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&wrapping_B.alpha_deg_4, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // wrapping/alpha_4_m
+  // wrapping/alpha_deg_5
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&wrapping_B.alpha_4_m, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&wrapping_B.alpha_deg_5, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
@@ -739,9 +709,9 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
-  // wrapping/no wrapping
+  // wrapping/alpha_deg_6
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&wrapping_B.nowrapping, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&wrapping_B.alpha_deg_6, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
@@ -756,10 +726,10 @@ int32_t NumInputPorts(void)
 
 int32_t NumOutputPorts(void)
 {
-  return 12;
+  return 6;
 }
 
-double ni_extout[12];
+double ni_extout[6];
 
 /*========================================================================*
  * Function: SetExternalOutputs
@@ -777,48 +747,6 @@ double ni_extout[12];
 void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 {
   int index = 0, count = 0;
-
-  // wrapping/alpha_1_m_out: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum5, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // wrapping/alpha_2_m_out: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum4, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // wrapping/alpha_3_m_out: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum3, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // wrapping/alpha_4_m_out: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum2, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // wrapping/alpha_5_m_out: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum7, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // wrapping/alpha_6_m_out: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum1, 0, 0, 0);
-  } else {
-    index += 1;
-  }
 
   // wrapping/alpha_out/alpha_2: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
@@ -884,24 +812,6 @@ int32_t NI_InitExternalOutputs()
 {
   int index = 0, count = 0;
 
-  // wrapping/alpha_1_m_out: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum5, 0, 0, 0);
-
-  // wrapping/alpha_2_m_out: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum4, 0, 0, 0);
-
-  // wrapping/alpha_3_m_out: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum3, 0, 0, 0);
-
-  // wrapping/alpha_4_m_out: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum2, 0, 0, 0);
-
-  // wrapping/alpha_5_m_out: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum7, 0, 0, 0);
-
-  // wrapping/alpha_6_m_out: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Sum1, 0, 0, 0);
-
   // wrapping/alpha_out/alpha_2: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&wrapping_B.Switch1, 1, 17, 0);
 
@@ -931,62 +841,44 @@ int32_t NI_InitExternalOutputs()
 /* All elements by default (including scalars) have 2 dimensions [1,1] */
 static NI_Parameter NI_ParamList[] DataSection(".NIVS.paramlist") =
 {
-  { 0, "wrapping/alpha_Offset5/Value", offsetof(P_wrapping_T, zero_alpha_1), 26,
-    1, 2, 0, 0 },
+  { 0, "wrapping/alpha_in/Gain/Gain", offsetof(P_wrapping_T, Gain_Gain), 26, 1,
+    2, 0, 0 },
 
-  { 1, "wrapping/alpha_Offset4/Value", offsetof(P_wrapping_T, zero_alpha_2), 26,
-    1, 2, 2, 0 },
+  { 1, "wrapping/alpha_in/Gain1/Gain", offsetof(P_wrapping_T, Gain1_Gain), 26, 1,
+    2, 2, 0 },
 
-  { 2, "wrapping/alpha_Offset3/Value", offsetof(P_wrapping_T, zero_alpha_3), 26,
-    1, 2, 4, 0 },
+  { 2, "wrapping/alpha_in/Gain2/Gain", offsetof(P_wrapping_T, Gain2_Gain), 26, 1,
+    2, 4, 0 },
 
-  { 3, "wrapping/alpha_Offset2/Value", offsetof(P_wrapping_T, zero_alpha_4), 26,
-    1, 2, 6, 0 },
+  { 3, "wrapping/alpha_in/Gain3/Gain", offsetof(P_wrapping_T, Gain3_Gain), 26, 1,
+    2, 6, 0 },
 
-  { 4, "wrapping/alpha_Offset6/Value", offsetof(P_wrapping_T, zero_alpha_5), 26,
-    1, 2, 8, 0 },
+  { 4, "wrapping/alpha_in/Gain4/Gain", offsetof(P_wrapping_T, Gain4_Gain), 26, 1,
+    2, 8, 0 },
 
-  { 5, "wrapping/alpha_Offset1/Value", offsetof(P_wrapping_T, zero_alpha_6), 26,
-    1, 2, 10, 0 },
+  { 5, "wrapping/alpha_in/Gain5/Gain", offsetof(P_wrapping_T, Gain5_Gain), 26, 1,
+    2, 10, 0 },
 
-  { 6, "wrapping/alpha_in/Gain/Gain", offsetof(P_wrapping_T, Gain_Gain), 26, 1,
-    2, 12, 0 },
-
-  { 7, "wrapping/alpha_in/Gain1/Gain", offsetof(P_wrapping_T, Gain1_Gain), 26, 1,
-    2, 14, 0 },
-
-  { 8, "wrapping/alpha_in/Gain2/Gain", offsetof(P_wrapping_T, Gain2_Gain), 26, 1,
-    2, 16, 0 },
-
-  { 9, "wrapping/alpha_in/Gain3/Gain", offsetof(P_wrapping_T, Gain3_Gain), 26, 1,
-    2, 18, 0 },
-
-  { 10, "wrapping/alpha_in/Gain4/Gain", offsetof(P_wrapping_T, Gain4_Gain), 26,
-    1, 2, 20, 0 },
-
-  { 11, "wrapping/alpha_in/Gain5/Gain", offsetof(P_wrapping_T, Gain5_Gain), 26,
-    1, 2, 22, 0 },
-
-  { 12, "wrapping/Memory5/X0", offsetof(P_wrapping_T, Memory5_X0), 26, 1, 2, 24,
+  { 6, "wrapping/Memory5/X0", offsetof(P_wrapping_T, Memory5_X0), 26, 1, 2, 12,
     0 },
 
-  { 13, "wrapping/Memory4/X0", offsetof(P_wrapping_T, Memory4_X0), 26, 1, 2, 26,
+  { 7, "wrapping/Memory4/X0", offsetof(P_wrapping_T, Memory4_X0), 26, 1, 2, 14,
     0 },
 
-  { 14, "wrapping/Memory3/X0", offsetof(P_wrapping_T, Memory3_X0), 26, 1, 2, 28,
+  { 8, "wrapping/Memory3/X0", offsetof(P_wrapping_T, Memory3_X0), 26, 1, 2, 16,
     0 },
 
-  { 15, "wrapping/Memory2/X0", offsetof(P_wrapping_T, Memory2_X0), 26, 1, 2, 30,
+  { 9, "wrapping/Memory2/X0", offsetof(P_wrapping_T, Memory2_X0), 26, 1, 2, 18,
     0 },
 
-  { 16, "wrapping/Memory/X0", offsetof(P_wrapping_T, Memory_X0), 26, 1, 2, 32, 0
+  { 10, "wrapping/Memory/X0", offsetof(P_wrapping_T, Memory_X0), 26, 1, 2, 20, 0
   },
 
-  { 17, "wrapping/Memory1/X0", offsetof(P_wrapping_T, Memory1_X0), 26, 1, 2, 34,
+  { 11, "wrapping/Memory1/X0", offsetof(P_wrapping_T, Memory1_X0), 26, 1, 2, 22,
     0 },
 };
 
-static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 18;
+static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 12;
 static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 {
   1, 1,                                /* Parameter at index 0 */
@@ -1001,156 +893,132 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 9 */
   1, 1,                                /* Parameter at index 10 */
   1, 1,                                /* Parameter at index 11 */
-  1, 1,                                /* Parameter at index 12 */
-  1, 1,                                /* Parameter at index 13 */
-  1, 1,                                /* Parameter at index 14 */
-  1, 1,                                /* Parameter at index 15 */
-  1, 1,                                /* Parameter at index 16 */
-  1, 1,                                /* Parameter at index 17 */
 };
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
 {
-  { 0, "wrapping/alpha_1_m", 0, "", offsetof(B_wrapping_T, alpha_1_m) + (0*
+  { 0, "wrapping/alpha_deg_1", 0, "", offsetof(B_wrapping_T, alpha_deg_1) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 1, "wrapping/Sum5", 0, "", offsetof(B_wrapping_T, Sum5) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 2, "wrapping/alpha_5_m", 0, "", offsetof(B_wrapping_T, alpha_5_m) + (0*
+  { 1, "wrapping/no wrapping", 0, "", offsetof(B_wrapping_T, nowrapping) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 3, "wrapping/alpha_2_m", 0, "", offsetof(B_wrapping_T, alpha_2_m) + (0*
+  { 2, "wrapping/alpha_deg_2", 0, "", offsetof(B_wrapping_T, alpha_deg_2) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 4, "wrapping/Sum4", 0, "", offsetof(B_wrapping_T, Sum4) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 5, "wrapping/alpha_6_m", 0, "", offsetof(B_wrapping_T, alpha_6_m) + (0*
+  { 3, "wrapping/alpha_deg_3", 0, "", offsetof(B_wrapping_T, alpha_deg_3) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 6, "wrapping/alpha_3_m", 0, "", offsetof(B_wrapping_T, alpha_3_m) + (0*
+  { 4, "wrapping/alpha_deg_4", 0, "", offsetof(B_wrapping_T, alpha_deg_4) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 7, "wrapping/Sum3", 0, "", offsetof(B_wrapping_T, Sum3) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 8, "wrapping/alpha_4_m", 0, "", offsetof(B_wrapping_T, alpha_4_m) + (0*
+  { 5, "wrapping/alpha_deg_5", 0, "", offsetof(B_wrapping_T, alpha_deg_5) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 9, "wrapping/Sum2", 0, "", offsetof(B_wrapping_T, Sum2) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 10, "wrapping/Sum7", 0, "", offsetof(B_wrapping_T, Sum7) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 11, "wrapping/Sum1", 0, "", offsetof(B_wrapping_T, Sum1) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 12, "wrapping/alpha_in/alpha_6", 0, "", offsetof(B_wrapping_T, alpha_6) + (0*
+  { 6, "wrapping/alpha_in/alpha_6", 0, "", offsetof(B_wrapping_T, alpha_6) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 13, "wrapping/alpha_in/alpha_1", 0, "", offsetof(B_wrapping_T, alpha_1) + (0*
+  { 7, "wrapping/alpha_in/alpha_1", 0, "", offsetof(B_wrapping_T, alpha_1) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 14, "wrapping/alpha_in/alpha_2", 0, "", offsetof(B_wrapping_T, alpha_2) + (0*
+  { 8, "wrapping/alpha_in/alpha_2", 0, "", offsetof(B_wrapping_T, alpha_2) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 15, "wrapping/alpha_in/alpha_3", 0, "", offsetof(B_wrapping_T, alpha_3) + (0*
+  { 9, "wrapping/alpha_in/alpha_3", 0, "", offsetof(B_wrapping_T, alpha_3) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 16, "wrapping/alpha_in/alpha_4", 0, "", offsetof(B_wrapping_T, alpha_4) + (0*
+  { 10, "wrapping/alpha_in/alpha_4", 0, "", offsetof(B_wrapping_T, alpha_4) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 17, "wrapping/alpha_in/alpha_5", 0, "", offsetof(B_wrapping_T, alpha_5) + (0*
+  { 11, "wrapping/alpha_in/alpha_5", 0, "", offsetof(B_wrapping_T, alpha_5) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 18, "wrapping/no wrapping", 0, "", offsetof(B_wrapping_T, nowrapping) + (0*
+  { 12, "wrapping/alpha_deg_6", 0, "", offsetof(B_wrapping_T, alpha_deg_6) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 19, "wrapping/Switch1/(1, 1)", 0, "", offsetof(B_wrapping_T, Switch1) + (0*
+  { 13, "wrapping/Switch1/(1, 1)", 0, "", offsetof(B_wrapping_T, Switch1) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 20, "wrapping/Switch1/(1, 2)", 0, "", offsetof(B_wrapping_T, Switch1) + (1*
+  { 14, "wrapping/Switch1/(1, 2)", 0, "", offsetof(B_wrapping_T, Switch1) + (1*
     sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 21, "wrapping/Switch1/(1, 3)", 0, "", offsetof(B_wrapping_T, Switch1) + (2*
+  { 15, "wrapping/Switch1/(1, 3)", 0, "", offsetof(B_wrapping_T, Switch1) + (2*
     sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 22, "wrapping/Switch1/(1, 4)", 0, "", offsetof(B_wrapping_T, Switch1) + (3*
+  { 16, "wrapping/Switch1/(1, 4)", 0, "", offsetof(B_wrapping_T, Switch1) + (3*
     sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 23, "wrapping/Switch1/(1, 5)", 0, "", offsetof(B_wrapping_T, Switch1) + (4*
+  { 17, "wrapping/Switch1/(1, 5)", 0, "", offsetof(B_wrapping_T, Switch1) + (4*
     sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 24, "wrapping/Switch1/(1, 6)", 0, "", offsetof(B_wrapping_T, Switch1) + (5*
+  { 18, "wrapping/Switch1/(1, 6)", 0, "", offsetof(B_wrapping_T, Switch1) + (5*
     sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 25, "wrapping/MATLAB Function9", 0, "", offsetof(B_wrapping_T,
+  { 19, "wrapping/MATLAB Function9", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction9.angle_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 26, "wrapping/MATLAB Function8", 0, "", offsetof(B_wrapping_T,
+  { 20, "wrapping/MATLAB Function8", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction8.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 27, "wrapping/MATLAB Function7", 0, "", offsetof(B_wrapping_T,
+  { 21, "wrapping/MATLAB Function7", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction7.angle_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 28, "wrapping/MATLAB Function6", 0, "", offsetof(B_wrapping_T,
+  { 22, "wrapping/MATLAB Function6", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction6.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 29, "wrapping/MATLAB Function5", 0, "", offsetof(B_wrapping_T,
+  { 23, "wrapping/MATLAB Function5", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction5.angle_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 30, "wrapping/MATLAB Function4", 0, "", offsetof(B_wrapping_T,
+  { 24, "wrapping/MATLAB Function4", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction4.angle_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 31, "wrapping/MATLAB Function3", 0, "", offsetof(B_wrapping_T,
+  { 25, "wrapping/MATLAB Function3", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction3.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 32, "wrapping/MATLAB Function2", 0, "", offsetof(B_wrapping_T,
+  { 26, "wrapping/MATLAB Function2", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction2.angle_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 33, "wrapping/MATLAB Function11", 0, "", offsetof(B_wrapping_T,
+  { 27, "wrapping/MATLAB Function11", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction11.angle_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 34, "wrapping/MATLAB Function10", 0, "", offsetof(B_wrapping_T,
+  { 28, "wrapping/MATLAB Function10", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction10.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 35, "wrapping/MATLAB Function1", 0, "", offsetof(B_wrapping_T,
+  { 29, "wrapping/MATLAB Function1", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction1.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 36, "wrapping/MATLAB Function", 0, "", offsetof(B_wrapping_T,
+  { 30, "wrapping/MATLAB Function", 0, "", offsetof(B_wrapping_T,
     sf_MATLABFunction.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
   { -1, "", -1, "", 0, 0, 0 }
 };
 
-static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 37;
+static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 31;
 static int32_t NI_VirtualBlockSources[1];
 static int32_t NI_SigDimList[] DataSection(".NIVS.sigdimlist") =
 { 1, 1
 };
 
-static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 25;
+static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 19;
 static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 {
-  { 1, "alpha_1_m", 0, EXT_IN, 1, 1, 1 },
+  { 1, "alpha_deg_1", 0, EXT_IN, 1, 1, 1 },
 
-  { 2, "alpha_5_m", 0, EXT_IN, 1, 1, 1 },
+  { 2, "no wrapping", 0, EXT_IN, 1, 1, 1 },
 
-  { 3, "alpha_2_m", 0, EXT_IN, 1, 1, 1 },
+  { 3, "alpha_deg_2", 0, EXT_IN, 1, 1, 1 },
 
-  { 4, "alpha_6_m", 0, EXT_IN, 1, 1, 1 },
+  { 4, "alpha_deg_3", 0, EXT_IN, 1, 1, 1 },
 
-  { 5, "alpha_3_m", 0, EXT_IN, 1, 1, 1 },
+  { 5, "alpha_deg_4", 0, EXT_IN, 1, 1, 1 },
 
-  { 6, "alpha_4_m", 0, EXT_IN, 1, 1, 1 },
+  { 6, "alpha_deg_5", 0, EXT_IN, 1, 1, 1 },
 
   { 7, "alpha_in/alpha_6", 0, EXT_IN, 1, 1, 1 },
 
@@ -1164,31 +1032,19 @@ static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 
   { 12, "alpha_in/alpha_5", 0, EXT_IN, 1, 1, 1 },
 
-  { 13, "no wrapping", 0, EXT_IN, 1, 1, 1 },
+  { 13, "alpha_deg_6", 0, EXT_IN, 1, 1, 1 },
 
-  { 1, "alpha_1_m_out", 0, EXT_OUT, 1, 1, 1 },
+  { 1, "alpha_out/alpha_2", 0, EXT_OUT, 1, 1, 1 },
 
-  { 2, "alpha_2_m_out", 0, EXT_OUT, 1, 1, 1 },
+  { 2, "alpha_out/alpha_3", 0, EXT_OUT, 1, 1, 1 },
 
-  { 3, "alpha_3_m_out", 0, EXT_OUT, 1, 1, 1 },
+  { 3, "alpha_out/alpha_1", 0, EXT_OUT, 1, 1, 1 },
 
-  { 4, "alpha_4_m_out", 0, EXT_OUT, 1, 1, 1 },
+  { 4, "alpha_out/alpha_6", 0, EXT_OUT, 1, 1, 1 },
 
-  { 5, "alpha_5_m_out", 0, EXT_OUT, 1, 1, 1 },
+  { 5, "alpha_out/alpha_4", 0, EXT_OUT, 1, 1, 1 },
 
-  { 6, "alpha_6_m_out", 0, EXT_OUT, 1, 1, 1 },
-
-  { 7, "alpha_out/alpha_2", 0, EXT_OUT, 1, 1, 1 },
-
-  { 8, "alpha_out/alpha_3", 0, EXT_OUT, 1, 1, 1 },
-
-  { 9, "alpha_out/alpha_1", 0, EXT_OUT, 1, 1, 1 },
-
-  { 10, "alpha_out/alpha_6", 0, EXT_OUT, 1, 1, 1 },
-
-  { 11, "alpha_out/alpha_4", 0, EXT_OUT, 1, 1, 1 },
-
-  { 12, "alpha_out/alpha_5", 0, EXT_OUT, 1, 1, 1 },
+  { 6, "alpha_out/alpha_5", 0, EXT_OUT, 1, 1, 1 },
 
   { -1, "", 0, 0, 0, 0, 0 }
 };
@@ -1206,8 +1062,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "wrapping";
-static const char* NI_CompiledModelVersion = "1.32";
-static const char* NI_CompiledModelDateTime = "Thu Apr 14 11:10:35 2016";
+static const char* NI_CompiledModelVersion = "1.36";
+static const char* NI_CompiledModelDateTime = "Tue Apr 19 18:43:05 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -2011,7 +1867,7 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
        NULL)) {
     if (*numContStates < 0 || *numDiscStates < 0 || *numClockTicks < 0) {
       *numContStates = 0;
-      *numDiscStates = 256;
+      *numDiscStates = 196;
       *numClockTicks = NUMST - TID01EQ;
       return NI_OK;
     }
@@ -2019,42 +1875,24 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
   if ((discStates != NULL) && (discStatesNames != NULL)) {
     idx = 0;
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_1_m_DWORK1, 0,
+    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_1_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_1_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_1_m_out_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_1_m_out_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_5_m_DWORK1, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.nowrapping_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_5_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_2_m_DWORK1, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.nowrapping_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_2_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_2_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_2_m_out_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_2_m_out_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_6_m_DWORK1, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_3_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_6_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_3_m_DWORK1, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_4_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_3_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_3_m_out_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_3_m_out_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_4_m_DWORK1, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_5_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_4_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_4_m_out_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_4_m_out_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_5_m_out_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_5_m_out_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_6_m_out_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_6_m_out_DWORK1");
+    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_5_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_6_DWORK1, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_6_DWORK1");
@@ -2073,9 +1911,9 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_5_DWORK1, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_5_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.nowrapping_DWORK1, 0,
+    discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_6_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.nowrapping_DWORK1");
+    strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_6_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.Memory5_PreviousInput,
       0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.Memory5_PreviousInput");
@@ -2113,81 +1951,39 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_5_DWORK1_e");
     for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_1_m_DWORK2,
+      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_1_DWORK2,
         count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_1_m_DWORK2");
+      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_1_DWORK2");
     }
 
     for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType
-        (&wrapping_DW.alpha_1_m_out_DWORK2, count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100),
-             "&wrapping_DW.alpha_1_m_out_DWORK2");
-    }
-
-    for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_5_m_DWORK2,
+      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.nowrapping_DWORK2,
         count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_5_m_DWORK2");
+      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.nowrapping_DWORK2");
     }
 
     for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_2_m_DWORK2,
+      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_2_DWORK2,
         count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_2_m_DWORK2");
+      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_2_DWORK2");
     }
 
     for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType
-        (&wrapping_DW.alpha_2_m_out_DWORK2, count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100),
-             "&wrapping_DW.alpha_2_m_out_DWORK2");
-    }
-
-    for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_6_m_DWORK2,
+      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_3_DWORK2,
         count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_6_m_DWORK2");
+      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_3_DWORK2");
     }
 
     for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_3_m_DWORK2,
+      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_4_DWORK2,
         count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_3_m_DWORK2");
+      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_4_DWORK2");
     }
 
     for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType
-        (&wrapping_DW.alpha_3_m_out_DWORK2, count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100),
-             "&wrapping_DW.alpha_3_m_out_DWORK2");
-    }
-
-    for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_4_m_DWORK2,
+      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_5_DWORK2,
         count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_4_m_DWORK2");
-    }
-
-    for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType
-        (&wrapping_DW.alpha_4_m_out_DWORK2, count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100),
-             "&wrapping_DW.alpha_4_m_out_DWORK2");
-    }
-
-    for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType
-        (&wrapping_DW.alpha_5_m_out_DWORK2, count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100),
-             "&wrapping_DW.alpha_5_m_out_DWORK2");
-    }
-
-    for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType
-        (&wrapping_DW.alpha_6_m_out_DWORK2, count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100),
-             "&wrapping_DW.alpha_6_m_out_DWORK2");
+      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_5_DWORK2");
     }
 
     for (count = 0; count < 9; count++) {
@@ -2227,9 +2023,9 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     }
 
     for (count = 0; count < 9; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.nowrapping_DWORK2,
+      discStates[idx] = NIRT_GetValueByDataType(&wrapping_DW.alpha_deg_6_DWORK2,
         count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.nowrapping_DWORK2");
+      strcpy(discStatesNames + (idx++ * 100), "&wrapping_DW.alpha_deg_6_DWORK2");
     }
 
     for (count = 0; count < 9; count++) {
@@ -2292,30 +2088,18 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
   int32_t idx = 0;
   if (discStates != NULL) {
     idx = 0;
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_1_m_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_1_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_1_m_out_DWORK1, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_5_m_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&wrapping_DW.nowrapping_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_2_m_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_2_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_2_m_out_DWORK1, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_6_m_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_3_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_3_m_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_4_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_3_m_out_DWORK1, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_4_m_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_5_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_4_m_out_DWORK1, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_5_m_out_DWORK1, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&wrapping_DW.alpha_6_m_out_DWORK1, 0, discStates[idx
-      ++], 0, 0);
     NIRT_SetValueByDataType(&wrapping_DW.alpha_6_DWORK1, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&wrapping_DW.alpha_1_DWORK1, 0, discStates[idx++], 0,
@@ -2328,7 +2112,7 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
       0);
     NIRT_SetValueByDataType(&wrapping_DW.alpha_5_DWORK1, 0, discStates[idx++], 0,
       0);
-    NIRT_SetValueByDataType(&wrapping_DW.nowrapping_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_6_DWORK1, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&wrapping_DW.Memory5_PreviousInput, 0,
       discStates[idx++], 0, 0);
@@ -2355,62 +2139,32 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&wrapping_DW.alpha_5_DWORK1_e, 0, discStates[idx++],
       0, 0);
     for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_1_m_DWORK2, count,
+      NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_1_DWORK2, count,
         discStates[idx++], 18, 0);
     }
 
     for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_1_m_out_DWORK2, count,
+      NIRT_SetValueByDataType(&wrapping_DW.nowrapping_DWORK2, count,
         discStates[idx++], 18, 0);
     }
 
     for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_5_m_DWORK2, count,
+      NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_2_DWORK2, count,
         discStates[idx++], 18, 0);
     }
 
     for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_2_m_DWORK2, count,
+      NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_3_DWORK2, count,
         discStates[idx++], 18, 0);
     }
 
     for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_2_m_out_DWORK2, count,
+      NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_4_DWORK2, count,
         discStates[idx++], 18, 0);
     }
 
     for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_6_m_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_3_m_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_3_m_out_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_4_m_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_4_m_out_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_5_m_out_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.alpha_6_m_out_DWORK2, count,
+      NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_5_DWORK2, count,
         discStates[idx++], 18, 0);
     }
 
@@ -2445,7 +2199,7 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     }
 
     for (count = 0; count < 9; count++) {
-      NIRT_SetValueByDataType(&wrapping_DW.nowrapping_DWORK2, count,
+      NIRT_SetValueByDataType(&wrapping_DW.alpha_deg_6_DWORK2, count,
         discStates[idx++], 18, 0);
     }
 
