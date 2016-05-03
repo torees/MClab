@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_sixaxis2force".
  *
- * Model version              : 1.37
+ * Model version              : 1.35
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 21 17:05:36 2016
+ * C source code generated on : Tue May 03 12:52:30 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

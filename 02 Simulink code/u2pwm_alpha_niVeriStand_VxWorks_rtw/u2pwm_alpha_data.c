@@ -12,9 +12,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.85
+ * Model version              : 1.88
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 21 16:16:56 2016
+ * C source code generated on : Tue May 03 18:12:23 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,15 +27,6 @@
 
 /* Block parameters (auto storage) */
 P_u2pwm_alpha_T u2pwm_alpha_P = {
-  2.5,                                 /* Variable: u2pwm_gain
-                                        * Referenced by:
-                                        *   '<Root>/VPS_Speed_Gain1'
-                                        *   '<Root>/VPS_Speed_Gain2'
-                                        *   '<Root>/VPS_Speed_Gain3'
-                                        *   '<Root>/VPS_Speed_Gain4'
-                                        *   '<Root>/VPS_Speed_Gain5'
-                                        *   '<Root>/VPS_Speed_Gain6'
-                                        */
   -165.0,                              /* Variable: zero_alpha_1
                                         * Referenced by: '<Root>/alpha_Offset'
                                         */
@@ -825,9 +816,9 @@ P_u2pwm_alpha_T u2pwm_alpha_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : u2pwm_alpha
- * Model version : 1.85
+ * Model version : 1.88
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 21 16:16:56 2016
+ * Source generated on : Tue May 03 18:12:23 2016
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 
@@ -840,8 +831,6 @@ typedef struct {
 NI_ParamSizeWidth P_u2pwm_alpha_T_sizes[] DataSection(".NIVS.defaultparamsizes")
   = {
   { sizeof(P_u2pwm_alpha_T), 1 },
-
-  { sizeof(real_T), 1, 0 },
 
   { sizeof(real_T), 1, 0 },
 

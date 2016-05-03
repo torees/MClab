@@ -7,9 +7,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.85
+ * Model version              : 1.88
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 21 16:16:56 2016
+ * C source code generated on : Tue May 03 18:12:23 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,7 +27,5 @@
 
 extern void u2pwm_alpha_MATLABFunction1(real_T rtu_u,
   B_MATLABFunction1_u2pwm_alpha_T *localB);
-extern void u2pwm_alpha_MATLABFunction4(real_T rtu_u,
-  B_MATLABFunction4_u2pwm_alpha_T *localB);
 
 #endif                                 /* RTW_HEADER_u2pwm_alpha_private_h_ */

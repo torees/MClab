@@ -7,9 +7,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.85
+ * Model version              : 1.88
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 21 16:16:56 2016
+ * C source code generated on : Tue May 03 18:12:23 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -805,11 +805,6 @@ typedef struct {
   real_T y;                            /* '<Root>/MATLAB Function1' */
 } B_MATLABFunction1_u2pwm_alpha_T;
 
-/* Block signals for system '<Root>/MATLAB Function4' */
-typedef struct {
-  real_T y;                            /* '<Root>/MATLAB Function4' */
-} B_MATLABFunction4_u2pwm_alpha_T;
-
 /* Block signals (auto storage) */
 typedef struct {
   real_T pwm_u_5;                      /* '<S11>/pwm_u_5' */
@@ -842,8 +837,8 @@ typedef struct {
   real_T Switch1[6];                   /* '<Root>/Switch1' */
   real_T y;                            /* '<Root>/MATLAB Function' */
   B_MATLABFunction1_u2pwm_alpha_T sf_MATLABFunction6;/* '<Root>/MATLAB Function6' */
-  B_MATLABFunction4_u2pwm_alpha_T sf_MATLABFunction5;/* '<Root>/MATLAB Function5' */
-  B_MATLABFunction4_u2pwm_alpha_T sf_MATLABFunction4;/* '<Root>/MATLAB Function4' */
+  B_MATLABFunction1_u2pwm_alpha_T sf_MATLABFunction5;/* '<Root>/MATLAB Function5' */
+  B_MATLABFunction1_u2pwm_alpha_T sf_MATLABFunction4;/* '<Root>/MATLAB Function4' */
   B_MATLABFunction1_u2pwm_alpha_T sf_MATLABFunction3;/* '<Root>/MATLAB Function3' */
   B_MATLABFunction1_u2pwm_alpha_T sf_MATLABFunction2;/* '<Root>/MATLAB Function2' */
   B_MATLABFunction1_u2pwm_alpha_T sf_MATLABFunction1;/* '<Root>/MATLAB Function1' */
@@ -941,15 +936,6 @@ typedef struct {
 
 /* Parameters (auto storage) */
 struct P_u2pwm_alpha_T_ {
-  real_T u2pwm_gain;                   /* Variable: u2pwm_gain
-                                        * Referenced by:
-                                        *   '<Root>/VPS_Speed_Gain1'
-                                        *   '<Root>/VPS_Speed_Gain2'
-                                        *   '<Root>/VPS_Speed_Gain3'
-                                        *   '<Root>/VPS_Speed_Gain4'
-                                        *   '<Root>/VPS_Speed_Gain5'
-                                        *   '<Root>/VPS_Speed_Gain6'
-                                        */
   real_T zero_alpha_1;                 /* Variable: zero_alpha_1
                                         * Referenced by: '<Root>/alpha_Offset'
                                         */
@@ -1900,9 +1886,9 @@ extern RT_MODEL_u2pwm_alpha_T *const u2pwm_alpha_M;
  * NI VeriStand Model Framework code generation
  *
  * Model : u2pwm_alpha
- * Model version : 1.85
+ * Model version : 1.88
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 21 16:16:56 2016
+ * Source generated on : Tue May 03 18:12:23 2016
  *========================================================================*/
 #ifdef NI_ROOTMODEL_u2pwm_alpha
 
