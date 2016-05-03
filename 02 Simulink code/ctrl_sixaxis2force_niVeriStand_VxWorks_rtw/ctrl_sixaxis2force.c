@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_sixaxis2force".
  *
- * Model version              : 1.30
+ * Model version              : 1.37
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue Apr 19 19:23:42 2016
+ * C source code generated on : Thu Apr 21 17:05:36 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1895,18 +1895,18 @@ static void ctrl_sixaxis2force_output(void)
   real_T V[18];
   real_T b_U[9];
   real_T b_V[36];
-  static const real_T d[6] = { 1.0677777777777777, 0.99111111111111116,
-    0.99111111111111116, -1.1644444444444444, -0.99111111111111116,
-    -0.99111111111111116 };
+  static const real_T d[6] = { 1.201111111111111, 1.1244444444444446,
+    1.1244444444444446, -1.0311111111111111, -0.85777777777777786,
+    -0.85777777777777786 };
 
   static const real_T e[6] = { 0.0, 0.11, -0.11, 0.0, -0.16555555555555557,
     0.16555555555555557 };
 
-  static const real_T A[36] = { 1.0, 0.0, 0.0, 0.0, 1.0, 1.0677777777777777, 1.0,
-    0.0, 0.11, 0.0, 1.0, 0.99111111111111116, 1.0, 0.0, -0.11, 0.0, 1.0,
-    0.99111111111111116, 1.0, 0.0, 0.0, 0.0, 1.0, -1.1644444444444444, 1.0, 0.0,
-    -0.16555555555555557, 0.0, 1.0, -0.99111111111111116, 1.0, 0.0,
-    0.16555555555555557, 0.0, 1.0, -0.99111111111111116 };
+  static const real_T A[36] = { 1.0, 0.0, 0.0, 0.0, 1.0, 1.201111111111111, 1.0,
+    0.0, 0.11, 0.0, 1.0, 1.1244444444444446, 1.0, 0.0, -0.11, 0.0, 1.0,
+    1.1244444444444446, 1.0, 0.0, 0.0, 0.0, 1.0, -1.0311111111111111, 1.0, 0.0,
+    -0.16555555555555557, 0.0, 1.0, -0.85777777777777786, 1.0, 0.0,
+    0.16555555555555557, 0.0, 1.0, -0.85777777777777786 };
 
   boolean_T f[9];
   real_T rtb_TmpSignalConversionAtSFunct[6];
@@ -2390,9 +2390,9 @@ RT_MODEL_ctrl_sixaxis2force_T *ctrl_sixaxis2force(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2force
- * Model version : 1.30
+ * Model version : 1.37
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue Apr 19 19:23:42 2016
+ * Source generated on : Thu Apr 21 17:05:36 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -3225,8 +3225,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "ctrl_sixaxis2force";
-static const char* NI_CompiledModelVersion = "1.30";
-static const char* NI_CompiledModelDateTime = "Tue Apr 19 19:23:42 2016";
+static const char* NI_CompiledModelVersion = "1.37";
+static const char* NI_CompiledModelDateTime = "Thu Apr 21 17:05:36 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
