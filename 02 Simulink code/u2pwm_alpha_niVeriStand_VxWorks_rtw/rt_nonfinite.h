@@ -7,9 +7,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.88
+ * Model version              : 1.103
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 18:12:23 2016
+ * C source code generated on : Thu May 05 10:59:25 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

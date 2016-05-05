@@ -9,7 +9,7 @@
  *
  * Model version              : 1.10
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 13:46:20 2016
+ * C source code generated on : Wed May 04 17:37:41 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -77,6 +77,10 @@ real_T rt_nrand_Upu32_Yd_f_pw_snf(uint32_T *u)
 /* Model output function */
 static void measurement_output(void)
 {
+  real_T rtb_Gain;
+  real_T rtb_Gain1;
+  real_T rtb_Gain2;
+
   /* MATLAB Function: '<S1>/MATLAB Function' incorporates:
    *  Constant: '<Root>/Step size'
    *  Memory: '<S1>/counter'
@@ -94,6 +98,15 @@ static void measurement_output(void)
   }
 
   /* End of MATLAB Function: '<S1>/MATLAB Function' */
+
+  /* Gain: '<S4>/Gain' */
+  rtb_Gain = measurement_P.Gain_Gain * measurement_B.x;
+
+  /* Gain: '<S4>/Gain1' */
+  rtb_Gain1 = measurement_P.Gain1_Gain * measurement_B.y;
+
+  /* Gain: '<S4>/Gain2' */
+  rtb_Gain2 = measurement_P.Gain2_Gain * measurement_B.psi;
 
   /* MATLAB Function: '<S2>/MATLAB Function1' incorporates:
    *  Constant: '<Root>/Step size'
@@ -117,14 +130,11 @@ static void measurement_output(void)
     /* '<S7>:1:4' */
     /* '<S7>:1:5' */
     measurement_B.output[0] = sqrt(measurement_B.Noisepowerposition /
-      measurement_P.Stepsize_Value) * measurement_DW.NextOutput +
-      measurement_B.x;
+      measurement_P.Stepsize_Value) * measurement_DW.NextOutput + rtb_Gain;
     measurement_B.output[1] = sqrt(measurement_B.Noisepowerposition /
-      measurement_P.Stepsize_Value) * measurement_DW.NextOutput_n +
-      measurement_B.y;
+      measurement_P.Stepsize_Value) * measurement_DW.NextOutput_n + rtb_Gain1;
     measurement_B.output[2] = sqrt(measurement_B.Noisepowerheading /
-      measurement_P.Stepsize_Value) * measurement_DW.NextOutput_c +
-      measurement_B.psi;
+      measurement_P.Stepsize_Value) * measurement_DW.NextOutput_c + rtb_Gain2;
   } else {
     /* '<S7>:1:7' */
     measurement_B.output[0] = measurement_DW.Hold_PreviousInput[0];
@@ -140,9 +150,9 @@ static void measurement_output(void)
     measurement_B.Switch[1] = measurement_B.output[1];
     measurement_B.Switch[2] = measurement_B.output[2];
   } else {
-    measurement_B.Switch[0] = measurement_B.x;
-    measurement_B.Switch[1] = measurement_B.y;
-    measurement_B.Switch[2] = measurement_B.psi;
+    measurement_B.Switch[0] = rtb_Gain;
+    measurement_B.Switch[1] = rtb_Gain1;
+    measurement_B.Switch[2] = rtb_Gain2;
   }
 
   /* End of Switch: '<Root>/Switch' */
@@ -421,9 +431,9 @@ RT_MODEL_measurement_T *measurement(void)
   measurement_M->Sizes.numU = (0);     /* Number of model inputs */
   measurement_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   measurement_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  measurement_M->Sizes.numBlocks = (31);/* Number of blocks */
+  measurement_M->Sizes.numBlocks = (34);/* Number of blocks */
   measurement_M->Sizes.numBlockIO = (10);/* Number of block outputs */
-  measurement_M->Sizes.numBlockPrms = (72);/* Sum of parameter "widths" */
+  measurement_M->Sizes.numBlockPrms = (75);/* Sum of parameter "widths" */
   return measurement_M;
 }
 
@@ -437,7 +447,7 @@ RT_MODEL_measurement_T *measurement(void)
  * Model : measurement
  * Model version : 1.10
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue May 03 13:46:20 2016
+ * Source generated on : Wed May 04 17:37:41 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -831,11 +841,20 @@ static NI_Parameter NI_ParamList[] DataSection(".NIVS.paramlist") =
     "measurement/noise generator/Band-limited white noise psi/White Noise/Seed",
     offsetof(P_measurement_T, WhiteNoise_Seed_j), 23, 1, 2, 20, 0 },
 
-  { 11, "measurement/Sample & hold/Hold/X0", offsetof(P_measurement_T, Hold_X0),
-    23, 1, 2, 22, 0 },
+  { 11, "measurement/pose/Gain/Gain", offsetof(P_measurement_T, Gain_Gain), 23,
+    1, 2, 22, 0 },
+
+  { 12, "measurement/pose/Gain1/Gain", offsetof(P_measurement_T, Gain1_Gain), 23,
+    1, 2, 24, 0 },
+
+  { 13, "measurement/pose/Gain2/Gain", offsetof(P_measurement_T, Gain2_Gain), 23,
+    1, 2, 26, 0 },
+
+  { 14, "measurement/Sample & hold/Hold/X0", offsetof(P_measurement_T, Hold_X0),
+    23, 1, 2, 28, 0 },
 };
 
-static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 12;
+static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 15;
 static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 {
   1, 1,                                /* Parameter at index 0 */
@@ -850,6 +869,9 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 9 */
   1, 1,                                /* Parameter at index 10 */
   1, 1,                                /* Parameter at index 11 */
+  1, 1,                                /* Parameter at index 12 */
+  1, 1,                                /* Parameter at index 13 */
+  1, 1,                                /* Parameter at index 14 */
 };
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
@@ -948,7 +970,7 @@ int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "measurement";
 static const char* NI_CompiledModelVersion = "1.10";
-static const char* NI_CompiledModelDateTime = "Tue May 03 13:46:20 2016";
+static const char* NI_CompiledModelDateTime = "Wed May 04 17:37:41 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =

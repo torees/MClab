@@ -9,7 +9,7 @@
  *
  * Model version              : 1.10
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 13:46:20 2016
+ * C source code generated on : Wed May 04 17:37:41 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -998,6 +998,15 @@ struct P_measurement_T_ {
   real_T y_P6;                         /* Expression: btype
                                         * Referenced by: '<S4>/y'
                                         */
+  real_T Gain_Gain;                    /* Expression: 1/1000
+                                        * Referenced by: '<S4>/Gain'
+                                        */
+  real_T Gain1_Gain;                   /* Expression: 1/1000
+                                        * Referenced by: '<S4>/Gain1'
+                                        */
+  real_T Gain2_Gain;                   /* Expression: pi/180
+                                        * Referenced by: '<S4>/Gain2'
+                                        */
   real_T Hold_X0;                      /* Expression: 0
                                         * Referenced by: '<S2>/Hold'
                                         */
@@ -1239,7 +1248,7 @@ extern RT_MODEL_measurement_T *const measurement_M;
  * Model : measurement
  * Model version : 1.10
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue May 03 13:46:20 2016
+ * Source generated on : Wed May 04 17:37:41 2016
  *========================================================================*/
 #ifdef NI_ROOTMODEL_measurement
 

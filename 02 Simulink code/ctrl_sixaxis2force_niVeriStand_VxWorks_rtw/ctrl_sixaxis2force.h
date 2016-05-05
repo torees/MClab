@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_sixaxis2force".
  *
- * Model version              : 1.35
+ * Model version              : 1.37
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 12:52:30 2016
+ * C source code generated on : Thu May 05 10:31:41 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1687,9 +1687,9 @@ extern RT_MODEL_ctrl_sixaxis2force_T *const ctrl_sixaxis2force_M;
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2force
- * Model version : 1.35
+ * Model version : 1.37
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue May 03 12:52:29 2016
+ * Source generated on : Thu May 05 10:31:41 2016
  *========================================================================*/
 #ifdef NI_ROOTMODEL_ctrl_sixaxis2force
 

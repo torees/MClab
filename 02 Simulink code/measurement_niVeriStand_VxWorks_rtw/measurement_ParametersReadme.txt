@@ -10,5 +10,8 @@
 <parameter> Id = "8" Inline = "0" Name = "measurement/noise generator/Band-limited white noise psi/White Noise/Mean" Width = "1" DataType = "real_T" </parameter>
 <parameter> Id = "9" Inline = "0" Name = "measurement/noise generator/Band-limited white noise psi/White Noise/StdDev" Width = "1" DataType = "real_T" </parameter>
 <parameter> Id = "10" Inline = "0" Name = "measurement/noise generator/Band-limited white noise psi/White Noise/Seed" Width = "1" DataType = "real_T" </parameter>
-<parameter> Id = "11" Inline = "0" Name = "measurement/Sample & hold/Hold/X0" Width = "1" DataType = "real_T" </parameter>
+<parameter> Id = "11" Inline = "0" Name = "measurement/pose/Gain/Gain" Width = "1" DataType = "real_T" </parameter>
+<parameter> Id = "12" Inline = "0" Name = "measurement/pose/Gain1/Gain" Width = "1" DataType = "real_T" </parameter>
+<parameter> Id = "13" Inline = "0" Name = "measurement/pose/Gain2/Gain" Width = "1" DataType = "real_T" </parameter>
+<parameter> Id = "14" Inline = "0" Name = "measurement/Sample & hold/Hold/X0" Width = "1" DataType = "real_T" </parameter>
 </parameterlist>

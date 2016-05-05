@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_sixaxis2force".
  *
- * Model version              : 1.35
+ * Model version              : 1.37
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 12:52:30 2016
+ * C source code generated on : Thu May 05 10:31:41 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1999,7 +1999,7 @@ static void ctrl_sixaxis2force_output(void)
   /* MATLAB Function 'Thrust allocation': '<S1>:1' */
   /* '<S1>:1:3' */
   /* '<S1>:1:7' */
-  if (ctrl_sixaxis2force_B.basin_rel == 1.0) {
+  if (ctrl_sixaxis2force_B.basin_rel != 0.0) {
     /* '<S1>:1:11' */
     /* '<S1>:1:12' */
     U[0] = cos(ctrl_sixaxis2force_B.psi);
@@ -2015,7 +2015,7 @@ static void ctrl_sixaxis2force_output(void)
       tc[b_i] = U[b_i + 6] * ctrl_sixaxis2force_B.Product + (U[b_i + 3] *
         ctrl_sixaxis2force_B.Product2 + U[b_i] * ctrl_sixaxis2force_B.Product1);
     }
-  } else if (ctrl_sixaxis2force_B.user_rel == 1.0) {
+  } else if (ctrl_sixaxis2force_B.user_rel != 0.0) {
     /* '<S1>:1:13' */
     /* '<S1>:1:14' */
     U[0] = cos(b_signal);
@@ -2431,9 +2431,9 @@ RT_MODEL_ctrl_sixaxis2force_T *ctrl_sixaxis2force(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2force
- * Model version : 1.35
+ * Model version : 1.37
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue May 03 12:52:29 2016
+ * Source generated on : Thu May 05 10:31:41 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -3321,8 +3321,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "ctrl_sixaxis2force";
-static const char* NI_CompiledModelVersion = "1.35";
-static const char* NI_CompiledModelDateTime = "Tue May 03 12:52:29 2016";
+static const char* NI_CompiledModelVersion = "1.37";
+static const char* NI_CompiledModelDateTime = "Thu May 05 10:31:41 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =

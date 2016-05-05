@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_sixaxis2thruster".
  *
- * Model version              : 1.56
+ * Model version              : 1.58
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 14 14:19:07 2016
+ * C source code generated on : Wed May 04 12:57:15 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -842,7 +842,7 @@ typedef struct {
   real_T u_6_DWORK1;                   /* '<Root>/u_6' */
   real_T alpha_4_DWORK1;               /* '<Root>/alpha_4' */
   real_T alpha_6_DWORK1;               /* '<Root>/alpha_6' */
-  real_T pwm_limit_DWORK1;             /* '<Root>/pwm_limit' */
+  real_T u_limit_out_DWORK1;           /* '<Root>/u_limit_out' */
   uint8_T ArrowUp_DWORK2[22];          /* '<Root>/ArrowUp' */
   uint8_T ArrowDown_DWORK2[22];        /* '<Root>/ArrowDown' */
   uint8_T Start_DWORK2[22];            /* '<Root>/Start' */
@@ -862,7 +862,7 @@ typedef struct {
   uint8_T u_6_DWORK2[22];              /* '<Root>/u_6' */
   uint8_T alpha_4_DWORK2[22];          /* '<Root>/alpha_4' */
   uint8_T alpha_6_DWORK2[22];          /* '<Root>/alpha_6' */
-  uint8_T pwm_limit_DWORK2[22];        /* '<Root>/pwm_limit' */
+  uint8_T u_limit_out_DWORK2[22];      /* '<Root>/u_limit_out' */
 } DW_ctrl_sixaxis2thruster_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1247,23 +1247,23 @@ struct P_ctrl_sixaxis2thruster_T_ {
   real_T alpha_6_P6;                   /* Expression: btype
                                         * Referenced by: '<Root>/alpha_6'
                                         */
-  real_T pwm_limit_P1;                 /* Expression: width
-                                        * Referenced by: '<Root>/pwm_limit'
+  real_T u_limit_out_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
-  real_T pwm_limit_P2;                 /* Expression: dtype
-                                        * Referenced by: '<Root>/pwm_limit'
+  real_T u_limit_out_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
-  real_T pwm_limit_P3;                 /* Expression: portnum
-                                        * Referenced by: '<Root>/pwm_limit'
+  real_T u_limit_out_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
-  real_T pwm_limit_P4;                 /* Expression: stime
-                                        * Referenced by: '<Root>/pwm_limit'
+  real_T u_limit_out_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
-  real_T pwm_limit_P5;                 /* Expression: stype
-                                        * Referenced by: '<Root>/pwm_limit'
+  real_T u_limit_out_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
-  real_T pwm_limit_P6;                 /* Expression: btype
-                                        * Referenced by: '<Root>/pwm_limit'
+  real_T u_limit_out_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
 };
 
@@ -1426,9 +1426,9 @@ extern RT_MODEL_ctrl_sixaxis2thruste_T *const ctrl_sixaxis2thruster_M;
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2thruster
- * Model version : 1.56
+ * Model version : 1.58
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 14 14:19:07 2016
+ * Source generated on : Wed May 04 12:57:15 2016
  *========================================================================*/
 #ifdef NI_ROOTMODEL_ctrl_sixaxis2thruster
 

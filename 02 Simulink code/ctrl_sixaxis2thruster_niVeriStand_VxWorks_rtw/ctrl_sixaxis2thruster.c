@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_sixaxis2thruster".
  *
- * Model version              : 1.56
+ * Model version              : 1.58
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 14 14:19:07 2016
+ * C source code generated on : Wed May 04 12:57:15 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -90,10 +90,10 @@ static void ctrl_sixaxis2thruster_output(void)
     /* '<S7>:1:7' */
     /* '<S7>:1:8' */
     b_signal = ctrl_sixaxis2thruster_DW.Memory_PreviousInput + 0.05;
-    if (ctrl_sixaxis2thruster_DW.Memory_PreviousInput + 0.05 > 0.4) {
+    if (ctrl_sixaxis2thruster_DW.Memory_PreviousInput + 0.05 > 1.0) {
       /* '<S7>:1:10' */
       /* '<S7>:1:11' */
-      b_signal = 0.4;
+      b_signal = 1.0;
     }
   }
 
@@ -102,10 +102,10 @@ static void ctrl_sixaxis2thruster_output(void)
     /* '<S7>:1:15' */
     /* '<S7>:1:16' */
     b_signal -= 0.05;
-    if (b_signal < -0.4) {
+    if (b_signal < -1.0) {
       /* '<S7>:1:18' */
       /* '<S7>:1:19' */
-      b_signal = -0.4;
+      b_signal = -1.0;
     }
   }
 
@@ -384,9 +384,9 @@ RT_MODEL_ctrl_sixaxis2thruste_T *ctrl_sixaxis2thruster(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2thruster
- * Model version : 1.56
+ * Model version : 1.58
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 14 14:19:07 2016
+ * Source generated on : Wed May 04 12:57:15 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -772,7 +772,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
-  // ctrl_sixaxis2thruster/pwm_limit: Virtual Signal # 0
+  // ctrl_sixaxis2thruster/u_limit_out: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2thruster_B.y, 0,
       0, 0);
@@ -850,7 +850,7 @@ int32_t NI_InitExternalOutputs()
   ni_extout[index++] = NIRT_GetValueByDataType
     (&ctrl_sixaxis2thruster_B.TrigonometricFunction1_k, 0, 0, 0);
 
-  // ctrl_sixaxis2thruster/pwm_limit: Virtual Signal # 0
+  // ctrl_sixaxis2thruster/u_limit_out: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2thruster_B.y, 0, 0,
     0);
   UNUSED_PARAMETER(count);
@@ -1013,7 +1013,7 @@ static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 
   { 12, "alpha_6", 0, EXT_OUT, 1, 1, 1 },
 
-  { 13, "pwm_limit", 0, EXT_OUT, 1, 1, 1 },
+  { 13, "u_limit_out", 0, EXT_OUT, 1, 1, 1 },
 
   { -1, "", 0, 0, 0, 0, 0 }
 };
@@ -1031,8 +1031,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "ctrl_sixaxis2thruster";
-static const char* NI_CompiledModelVersion = "1.56";
-static const char* NI_CompiledModelDateTime = "Thu Apr 14 14:19:07 2016";
+static const char* NI_CompiledModelVersion = "1.58";
+static const char* NI_CompiledModelDateTime = "Wed May 04 12:57:15 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -1940,9 +1940,9 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_sixaxis2thruster_DW.alpha_6_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_sixaxis2thruster_DW.pwm_limit_DWORK1, 0, 0, 0);
+      (&ctrl_sixaxis2thruster_DW.u_limit_out_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_sixaxis2thruster_DW.pwm_limit_DWORK1");
+           "&ctrl_sixaxis2thruster_DW.u_limit_out_DWORK1");
     for (count = 0; count < 22; count++) {
       discStates[idx] = NIRT_GetValueByDataType
         (&ctrl_sixaxis2thruster_DW.ArrowUp_DWORK2, count, 17, 0);
@@ -2078,9 +2078,9 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
     for (count = 0; count < 22; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&ctrl_sixaxis2thruster_DW.pwm_limit_DWORK2, count, 17, 0);
+        (&ctrl_sixaxis2thruster_DW.u_limit_out_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&ctrl_sixaxis2thruster_DW.pwm_limit_DWORK2");
+             "&ctrl_sixaxis2thruster_DW.u_limit_out_DWORK2");
     }
   }
 
@@ -2153,7 +2153,7 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_sixaxis2thruster_DW.alpha_6_DWORK1, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_sixaxis2thruster_DW.pwm_limit_DWORK1, 0,
+    NIRT_SetValueByDataType(&ctrl_sixaxis2thruster_DW.u_limit_out_DWORK1, 0,
       discStates[idx++], 0, 0);
     for (count = 0; count < 22; count++) {
       NIRT_SetValueByDataType(&ctrl_sixaxis2thruster_DW.ArrowUp_DWORK2, count,
@@ -2251,8 +2251,8 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     }
 
     for (count = 0; count < 22; count++) {
-      NIRT_SetValueByDataType(&ctrl_sixaxis2thruster_DW.pwm_limit_DWORK2, count,
-        discStates[idx++], 17, 0);
+      NIRT_SetValueByDataType(&ctrl_sixaxis2thruster_DW.u_limit_out_DWORK2,
+        count, discStates[idx++], 17, 0);
     }
   }
 

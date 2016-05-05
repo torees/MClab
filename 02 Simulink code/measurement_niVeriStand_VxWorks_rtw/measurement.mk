@@ -158,7 +158,6 @@ MATLAB_INCLUDES := \
 ADD_INCLUDES = \
 	-I$(START_DIR)/measurement_niVeriStand_VxWorks_rtw \
 	-I$(START_DIR) \
-	-IC:/Users/mcl/DOCUME~1/GitHub/CS_ENT~2/SIMULI~1 \
 
 
 SHARED_INCLUDES =

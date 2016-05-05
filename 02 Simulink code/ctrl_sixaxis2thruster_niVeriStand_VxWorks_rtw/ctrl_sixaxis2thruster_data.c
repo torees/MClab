@@ -12,9 +12,9 @@
  *
  * Code generation for model "ctrl_sixaxis2thruster".
  *
- * Model version              : 1.56
+ * Model version              : 1.58
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu Apr 14 14:19:07 2016
+ * C source code generated on : Wed May 04 12:57:15 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -400,22 +400,22 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
                                         * Referenced by: '<Root>/alpha_6'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/pwm_limit'
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/pwm_limit'
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
   13.0,                                /* Expression: portnum
-                                        * Referenced by: '<Root>/pwm_limit'
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/pwm_limit'
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/pwm_limit'
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
   0.0                                  /* Expression: btype
-                                        * Referenced by: '<Root>/pwm_limit'
+                                        * Referenced by: '<Root>/u_limit_out'
                                         */
 };
 
@@ -423,9 +423,9 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2thruster
- * Model version : 1.56
+ * Model version : 1.58
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu Apr 14 14:19:07 2016
+ * Source generated on : Wed May 04 12:57:15 2016
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 

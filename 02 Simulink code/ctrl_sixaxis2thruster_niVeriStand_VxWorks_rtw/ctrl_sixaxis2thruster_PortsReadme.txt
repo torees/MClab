@@ -18,5 +18,5 @@
 <outport> Id = "10"  Name = "u_6" Width = "1" DataType = "real_T" </outport>
 <outport> Id = "11"  Name = "alpha_4" Width = "1" DataType = "real_T" </outport>
 <outport> Id = "12"  Name = "alpha_6" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "13"  Name = "pwm_limit" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "13"  Name = "u_limit_out" Width = "1" DataType = "real_T" </outport>
 </portlist>

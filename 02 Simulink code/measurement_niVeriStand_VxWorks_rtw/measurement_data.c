@@ -14,7 +14,7 @@
  *
  * Model version              : 1.10
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 13:46:20 2016
+ * C source code generated on : Wed May 04 17:37:41 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -168,6 +168,15 @@ P_measurement_T measurement_P = {
   1.0,                                 /* Expression: btype
                                         * Referenced by: '<S4>/y'
                                         */
+  0.001,                               /* Expression: 1/1000
+                                        * Referenced by: '<S4>/Gain'
+                                        */
+  0.001,                               /* Expression: 1/1000
+                                        * Referenced by: '<S4>/Gain1'
+                                        */
+  0.017453292519943295,                /* Expression: pi/180
+                                        * Referenced by: '<S4>/Gain2'
+                                        */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S2>/Hold'
                                         */
@@ -251,7 +260,7 @@ P_measurement_T measurement_P = {
  * Model : measurement
  * Model version : 1.10
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue May 03 13:46:20 2016
+ * Source generated on : Wed May 04 17:37:41 2016
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 
@@ -264,6 +273,12 @@ typedef struct {
 NI_ParamSizeWidth P_measurement_T_sizes[] DataSection(".NIVS.defaultparamsizes")
   = {
   { sizeof(P_measurement_T), 1 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
 
   { sizeof(real_T), 1, 0 },
 
