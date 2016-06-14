@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_DP_basic".
  *
- * Model version              : 1.48
+ * Model version              : 1.63
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 13:33:01 2016
+ * C source code generated on : Tue May 10 14:07:11 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -25,6 +25,7 @@
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
 
+extern real_T rt_powd_snf(real_T u0, real_T u1);
 extern real_T rt_roundd_snf(real_T u);
 extern real_T rt_remd_snf(real_T u0, real_T u1);
 extern real_T rt_atan2d_snf(real_T u0, real_T u1);
@@ -34,6 +35,20 @@ extern void ctrl_DP_basic_MATLABFunction1(real_T rtu_K_i1, real_T rtu_K_i1_m,
   real_T rtu_K_i1_n, B_MATLABFunction1_ctrl_DP_bas_T *localB);
 extern void ctrl_DP_basic_MATLABFunction2(real_T rtu_K_d1, real_T rtu_K_d1_p,
   real_T rtu_K_d1_i, B_MATLABFunction2_ctrl_DP_bas_T *localB);
+extern void ctrl_DP_ba_ActualForceandTorque(real_T rtu_n, real_T rtu_Kq, real_T
+  rtu_Kt, real_T rtu_Ktr, real_T rtu_Kqr, real_T rtu_Rho, real_T rtu_D, real_T
+  rtu_eps_c, real_T rtu_env, B_ActualForceandTorque_ctrl_D_T *localB);
+extern void CorecontrollerTorquePowerandCom(real_T rtu_k_cc, real_T rtu_p_cc,
+  real_T rtu_r_cc, real_T rtu_n, real_T rtu_K_t0, real_T rtu_K_q0, real_T rtu_D,
+  real_T rtu_Tr, real_T rtu_eps, real_T rtu_rho, real_T rtu_eps_c, real_T
+  rtu_K_t0r, real_T rtu_K_q0r, B_CorecontrollerTorquePoweran_T *localB);
+extern void ctrl_DP_basic_Supervisor(real_T rtu_control, real_T rtu_input,
+  real_T rtu_n, B_Supervisor_ctrl_DP_basic_T *localB);
+extern void ctrl_DP_basic_MATLABFunction_d(real_T rtu_Td, real_T rtu_K_t0,
+  real_T rtu_K_t0r, real_T rtu_rho, real_T rtu_D, real_T rtu_eps_c, real_T
+  rtu_n_r, B_MATLABFunction_ctrl_DP_ba_l_T *localB);
+extern void ctrl_DP_basic_Torquelimit(real_T rtu_Q_max, real_T rtu_P_max, real_T
+  rtu_Q_c0, real_T rtu_n, B_Torquelimit_ctrl_DP_basic_T *localB);
 
 /* private model entry point functions */
 extern void ctrl_DP_basic_derivatives(void);

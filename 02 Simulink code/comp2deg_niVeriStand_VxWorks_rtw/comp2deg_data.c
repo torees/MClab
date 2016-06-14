@@ -12,9 +12,9 @@
  *
  * Code generation for model "comp2deg".
  *
- * Model version              : 1.6
+ * Model version              : 1.8
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue Apr 19 18:47:27 2016
+ * C source code generated on : Mon May 09 19:25:59 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -33,7 +33,7 @@ P_comp2deg_T comp2deg_P = {
   -154.0,                              /* Variable: zero_alpha_2
                                         * Referenced by: '<Root>/Constant1'
                                         */
-  -147.0,                              /* Variable: zero_alpha_3
+  -137.0,                              /* Variable: zero_alpha_3
                                         * Referenced by: '<Root>/Constant2'
                                         */
   -8.0,                                /* Variable: zero_alpha_4
@@ -393,9 +393,9 @@ P_comp2deg_T comp2deg_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : comp2deg
- * Model version : 1.6
+ * Model version : 1.8
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue Apr 19 18:47:27 2016
+ * Source generated on : Mon May 09 19:25:59 2016
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 

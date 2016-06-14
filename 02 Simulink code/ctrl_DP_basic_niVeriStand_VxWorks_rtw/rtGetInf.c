@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_DP_basic".
  *
- * Model version              : 1.48
+ * Model version              : 1.63
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 13:33:01 2016
+ * C source code generated on : Tue May 10 14:07:11 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

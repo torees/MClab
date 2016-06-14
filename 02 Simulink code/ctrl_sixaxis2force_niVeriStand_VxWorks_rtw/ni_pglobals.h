@@ -2,9 +2,9 @@
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2force
- * Model version : 1.37
+ * Model version : 1.45
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu May 05 10:31:41 2016
+ * Source generated on : Mon May 09 18:24:11 2016
  *========================================================================*/
 
 /*

@@ -7,9 +7,9 @@
  *
  * Code generation for model "force_measurments".
  *
- * Model version              : 1.8
+ * Model version              : 1.13
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 10:40:09 2016
+ * C source code generated on : Wed May 11 17:06:45 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,7 +20,6 @@
 
 #ifndef RTW_HEADER_force_measurments_h_
 #define RTW_HEADER_force_measurments_h_
-#include <math.h>
 #include <string.h>
 #include <stddef.h>
 #ifndef force_measurments_COMMON_INCLUDES_
@@ -803,40 +802,46 @@
 
 /* Block signals (auto storage) */
 typedef struct {
-  real_T Fx;                           /* '<Root>/Fx' */
-  real_T Fx_out_mean;                  /* '<Root>/Fx_out_mean' */
-  real_T Fy;                           /* '<Root>/Fy' */
-  real_T Fz;                           /* '<Root>/Fz' */
+  real_T u10;                          /* '<Root>/8810' */
+  real_T F_FS_out_mean;                /* '<Root>/F_FS_out_mean' */
+  real_T u12;                          /* '<Root>/8812' */
+  real_T u16;                          /* '<Root>/8816' */
+  real_T u15;                          /* '<Root>/8815' */
   real_T Sum;                          /* '<Root>/Sum' */
-  real_T Fy_out_mean;                  /* '<Root>/Fy_out_mean' */
+  real_T F_FB_out_mean;                /* '<Root>/F_FB_out_mean' */
   real_T Sum1;                         /* '<Root>/Sum1' */
-  real_T Fz_out_mean;                  /* '<Root>/Fz_out_mean' */
+  real_T F_BB_out_mean;                /* '<Root>/F_BB_out_mean' */
   real_T Sum2;                         /* '<Root>/Sum2' */
-  real_T Sqrt;                         /* '<Root>/Sqrt' */
+  real_T F_BS_out_mean;                /* '<Root>/F_BS_out_mean' */
+  real_T Sum3;                         /* '<Root>/Sum3' */
 } B_force_measurments_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  real_T Fx_DWORK1;                    /* '<Root>/Fx' */
-  real_T Fx_out_mean_DWORK1;           /* '<Root>/Fx_out_mean' */
-  real_T Fy_DWORK1;                    /* '<Root>/Fy' */
-  real_T Fz_DWORK1;                    /* '<Root>/Fz' */
-  real_T Fx_out_DWORK1;                /* '<Root>/Fx_out' */
-  real_T Fy_out_mean_DWORK1;           /* '<Root>/Fy_out_mean' */
-  real_T Fy_out_DWORK1;                /* '<Root>/Fy_out' */
-  real_T Fz_out_mean_DWORK1;           /* '<Root>/Fz_out_mean' */
-  real_T F_total_DWORK1;               /* '<Root>/F_total' */
-  real_T Fz_out_DWORK1;                /* '<Root>/Fz_out' */
-  uint8_T Fx_DWORK2[18];               /* '<Root>/Fx' */
-  uint8_T Fx_out_mean_DWORK2[18];      /* '<Root>/Fx_out_mean' */
-  uint8_T Fy_DWORK2[18];               /* '<Root>/Fy' */
-  uint8_T Fz_DWORK2[18];               /* '<Root>/Fz' */
-  uint8_T Fx_out_DWORK2[18];           /* '<Root>/Fx_out' */
-  uint8_T Fy_out_mean_DWORK2[18];      /* '<Root>/Fy_out_mean' */
-  uint8_T Fy_out_DWORK2[18];           /* '<Root>/Fy_out' */
-  uint8_T Fz_out_mean_DWORK2[18];      /* '<Root>/Fz_out_mean' */
-  uint8_T F_total_DWORK2[18];          /* '<Root>/F_total' */
-  uint8_T Fz_out_DWORK2[18];           /* '<Root>/Fz_out' */
+  real_T u10_DWORK1;                   /* '<Root>/8810' */
+  real_T F_FS_out_mean_DWORK1;         /* '<Root>/F_FS_out_mean' */
+  real_T u12_DWORK1;                   /* '<Root>/8812' */
+  real_T u16_DWORK1;                   /* '<Root>/8816' */
+  real_T u15_DWORK1;                   /* '<Root>/8815' */
+  real_T F_FS_out_DWORK1;              /* '<Root>/F_FS_out' */
+  real_T F_FB_out_mean_DWORK1;         /* '<Root>/F_FB_out_mean' */
+  real_T F_FB_out_DWORK1;              /* '<Root>/F_FB_out' */
+  real_T F_BB_out_mean_DWORK1;         /* '<Root>/F_BB_out_mean' */
+  real_T F_BB_out_DWORK1;              /* '<Root>/F_BB_out' */
+  real_T F_BS_out_mean_DWORK1;         /* '<Root>/F_BS_out_mean' */
+  real_T F_BS_out_DWORK1;              /* '<Root>/F_BS_out' */
+  uint8_T u10_DWORK2[18];              /* '<Root>/8810' */
+  uint8_T F_FS_out_mean_DWORK2[18];    /* '<Root>/F_FS_out_mean' */
+  uint8_T u12_DWORK2[18];              /* '<Root>/8812' */
+  uint8_T u16_DWORK2[18];              /* '<Root>/8816' */
+  uint8_T u15_DWORK2[18];              /* '<Root>/8815' */
+  uint8_T F_FS_out_DWORK2[18];         /* '<Root>/F_FS_out' */
+  uint8_T F_FB_out_mean_DWORK2[18];    /* '<Root>/F_FB_out_mean' */
+  uint8_T F_FB_out_DWORK2[18];         /* '<Root>/F_FB_out' */
+  uint8_T F_BB_out_mean_DWORK2[18];    /* '<Root>/F_BB_out_mean' */
+  uint8_T F_BB_out_DWORK2[18];         /* '<Root>/F_BB_out' */
+  uint8_T F_BS_out_mean_DWORK2[18];    /* '<Root>/F_BS_out_mean' */
+  uint8_T F_BS_out_DWORK2[18];         /* '<Root>/F_BS_out' */
 } DW_force_measurments_T;
 
 /* Backward compatible GRT Identifiers */
@@ -849,185 +854,221 @@ typedef struct {
 
 /* Parameters (auto storage) */
 struct P_force_measurments_T_ {
-  real_T Fx_P1;                        /* Expression: width
-                                        * Referenced by: '<Root>/Fx'
+  real_T u10_P1;                       /* Expression: width
+                                        * Referenced by: '<Root>/8810'
                                         */
-  real_T Fx_P2;                        /* Expression: dtype
-                                        * Referenced by: '<Root>/Fx'
+  real_T u10_P2;                       /* Expression: dtype
+                                        * Referenced by: '<Root>/8810'
                                         */
-  real_T Fx_P3;                        /* Expression: portnum
-                                        * Referenced by: '<Root>/Fx'
+  real_T u10_P3;                       /* Expression: portnum
+                                        * Referenced by: '<Root>/8810'
                                         */
-  real_T Fx_P4;                        /* Expression: stime
-                                        * Referenced by: '<Root>/Fx'
+  real_T u10_P4;                       /* Expression: stime
+                                        * Referenced by: '<Root>/8810'
                                         */
-  real_T Fx_P5;                        /* Expression: stype
-                                        * Referenced by: '<Root>/Fx'
+  real_T u10_P5;                       /* Expression: stype
+                                        * Referenced by: '<Root>/8810'
                                         */
-  real_T Fx_P6;                        /* Expression: btype
-                                        * Referenced by: '<Root>/Fx'
+  real_T u10_P6;                       /* Expression: btype
+                                        * Referenced by: '<Root>/8810'
                                         */
-  real_T Fx_out_mean_P1;               /* Expression: width
-                                        * Referenced by: '<Root>/Fx_out_mean'
+  real_T F_FS_out_mean_P1;             /* Expression: width
+                                        * Referenced by: '<Root>/F_FS_out_mean'
                                         */
-  real_T Fx_out_mean_P2;               /* Expression: dtype
-                                        * Referenced by: '<Root>/Fx_out_mean'
+  real_T F_FS_out_mean_P2;             /* Expression: dtype
+                                        * Referenced by: '<Root>/F_FS_out_mean'
                                         */
-  real_T Fx_out_mean_P3;               /* Expression: portnum
-                                        * Referenced by: '<Root>/Fx_out_mean'
+  real_T F_FS_out_mean_P3;             /* Expression: portnum
+                                        * Referenced by: '<Root>/F_FS_out_mean'
                                         */
-  real_T Fx_out_mean_P4;               /* Expression: stime
-                                        * Referenced by: '<Root>/Fx_out_mean'
+  real_T F_FS_out_mean_P4;             /* Expression: stime
+                                        * Referenced by: '<Root>/F_FS_out_mean'
                                         */
-  real_T Fx_out_mean_P5;               /* Expression: stype
-                                        * Referenced by: '<Root>/Fx_out_mean'
+  real_T F_FS_out_mean_P5;             /* Expression: stype
+                                        * Referenced by: '<Root>/F_FS_out_mean'
                                         */
-  real_T Fx_out_mean_P6;               /* Expression: btype
-                                        * Referenced by: '<Root>/Fx_out_mean'
+  real_T F_FS_out_mean_P6;             /* Expression: btype
+                                        * Referenced by: '<Root>/F_FS_out_mean'
                                         */
-  real_T Fy_P1;                        /* Expression: width
-                                        * Referenced by: '<Root>/Fy'
+  real_T u12_P1;                       /* Expression: width
+                                        * Referenced by: '<Root>/8812'
                                         */
-  real_T Fy_P2;                        /* Expression: dtype
-                                        * Referenced by: '<Root>/Fy'
+  real_T u12_P2;                       /* Expression: dtype
+                                        * Referenced by: '<Root>/8812'
                                         */
-  real_T Fy_P3;                        /* Expression: portnum
-                                        * Referenced by: '<Root>/Fy'
+  real_T u12_P3;                       /* Expression: portnum
+                                        * Referenced by: '<Root>/8812'
                                         */
-  real_T Fy_P4;                        /* Expression: stime
-                                        * Referenced by: '<Root>/Fy'
+  real_T u12_P4;                       /* Expression: stime
+                                        * Referenced by: '<Root>/8812'
                                         */
-  real_T Fy_P5;                        /* Expression: stype
-                                        * Referenced by: '<Root>/Fy'
+  real_T u12_P5;                       /* Expression: stype
+                                        * Referenced by: '<Root>/8812'
                                         */
-  real_T Fy_P6;                        /* Expression: btype
-                                        * Referenced by: '<Root>/Fy'
+  real_T u12_P6;                       /* Expression: btype
+                                        * Referenced by: '<Root>/8812'
                                         */
-  real_T Fz_P1;                        /* Expression: width
-                                        * Referenced by: '<Root>/Fz'
+  real_T u16_P1;                       /* Expression: width
+                                        * Referenced by: '<Root>/8816'
                                         */
-  real_T Fz_P2;                        /* Expression: dtype
-                                        * Referenced by: '<Root>/Fz'
+  real_T u16_P2;                       /* Expression: dtype
+                                        * Referenced by: '<Root>/8816'
                                         */
-  real_T Fz_P3;                        /* Expression: portnum
-                                        * Referenced by: '<Root>/Fz'
+  real_T u16_P3;                       /* Expression: portnum
+                                        * Referenced by: '<Root>/8816'
                                         */
-  real_T Fz_P4;                        /* Expression: stime
-                                        * Referenced by: '<Root>/Fz'
+  real_T u16_P4;                       /* Expression: stime
+                                        * Referenced by: '<Root>/8816'
                                         */
-  real_T Fz_P5;                        /* Expression: stype
-                                        * Referenced by: '<Root>/Fz'
+  real_T u16_P5;                       /* Expression: stype
+                                        * Referenced by: '<Root>/8816'
                                         */
-  real_T Fz_P6;                        /* Expression: btype
-                                        * Referenced by: '<Root>/Fz'
+  real_T u16_P6;                       /* Expression: btype
+                                        * Referenced by: '<Root>/8816'
                                         */
-  real_T Fx_out_P1;                    /* Expression: width
-                                        * Referenced by: '<Root>/Fx_out'
+  real_T u15_P1;                       /* Expression: width
+                                        * Referenced by: '<Root>/8815'
                                         */
-  real_T Fx_out_P2;                    /* Expression: dtype
-                                        * Referenced by: '<Root>/Fx_out'
+  real_T u15_P2;                       /* Expression: dtype
+                                        * Referenced by: '<Root>/8815'
                                         */
-  real_T Fx_out_P3;                    /* Expression: portnum
-                                        * Referenced by: '<Root>/Fx_out'
+  real_T u15_P3;                       /* Expression: portnum
+                                        * Referenced by: '<Root>/8815'
                                         */
-  real_T Fx_out_P4;                    /* Expression: stime
-                                        * Referenced by: '<Root>/Fx_out'
+  real_T u15_P4;                       /* Expression: stime
+                                        * Referenced by: '<Root>/8815'
                                         */
-  real_T Fx_out_P5;                    /* Expression: stype
-                                        * Referenced by: '<Root>/Fx_out'
+  real_T u15_P5;                       /* Expression: stype
+                                        * Referenced by: '<Root>/8815'
                                         */
-  real_T Fx_out_P6;                    /* Expression: btype
-                                        * Referenced by: '<Root>/Fx_out'
+  real_T u15_P6;                       /* Expression: btype
+                                        * Referenced by: '<Root>/8815'
                                         */
-  real_T Fy_out_mean_P1;               /* Expression: width
-                                        * Referenced by: '<Root>/Fy_out_mean'
+  real_T F_FS_out_P1;                  /* Expression: width
+                                        * Referenced by: '<Root>/F_FS_out'
                                         */
-  real_T Fy_out_mean_P2;               /* Expression: dtype
-                                        * Referenced by: '<Root>/Fy_out_mean'
+  real_T F_FS_out_P2;                  /* Expression: dtype
+                                        * Referenced by: '<Root>/F_FS_out'
                                         */
-  real_T Fy_out_mean_P3;               /* Expression: portnum
-                                        * Referenced by: '<Root>/Fy_out_mean'
+  real_T F_FS_out_P3;                  /* Expression: portnum
+                                        * Referenced by: '<Root>/F_FS_out'
                                         */
-  real_T Fy_out_mean_P4;               /* Expression: stime
-                                        * Referenced by: '<Root>/Fy_out_mean'
+  real_T F_FS_out_P4;                  /* Expression: stime
+                                        * Referenced by: '<Root>/F_FS_out'
                                         */
-  real_T Fy_out_mean_P5;               /* Expression: stype
-                                        * Referenced by: '<Root>/Fy_out_mean'
+  real_T F_FS_out_P5;                  /* Expression: stype
+                                        * Referenced by: '<Root>/F_FS_out'
                                         */
-  real_T Fy_out_mean_P6;               /* Expression: btype
-                                        * Referenced by: '<Root>/Fy_out_mean'
+  real_T F_FS_out_P6;                  /* Expression: btype
+                                        * Referenced by: '<Root>/F_FS_out'
                                         */
-  real_T Fy_out_P1;                    /* Expression: width
-                                        * Referenced by: '<Root>/Fy_out'
+  real_T F_FB_out_mean_P1;             /* Expression: width
+                                        * Referenced by: '<Root>/F_FB_out_mean'
                                         */
-  real_T Fy_out_P2;                    /* Expression: dtype
-                                        * Referenced by: '<Root>/Fy_out'
+  real_T F_FB_out_mean_P2;             /* Expression: dtype
+                                        * Referenced by: '<Root>/F_FB_out_mean'
                                         */
-  real_T Fy_out_P3;                    /* Expression: portnum
-                                        * Referenced by: '<Root>/Fy_out'
+  real_T F_FB_out_mean_P3;             /* Expression: portnum
+                                        * Referenced by: '<Root>/F_FB_out_mean'
                                         */
-  real_T Fy_out_P4;                    /* Expression: stime
-                                        * Referenced by: '<Root>/Fy_out'
+  real_T F_FB_out_mean_P4;             /* Expression: stime
+                                        * Referenced by: '<Root>/F_FB_out_mean'
                                         */
-  real_T Fy_out_P5;                    /* Expression: stype
-                                        * Referenced by: '<Root>/Fy_out'
+  real_T F_FB_out_mean_P5;             /* Expression: stype
+                                        * Referenced by: '<Root>/F_FB_out_mean'
                                         */
-  real_T Fy_out_P6;                    /* Expression: btype
-                                        * Referenced by: '<Root>/Fy_out'
+  real_T F_FB_out_mean_P6;             /* Expression: btype
+                                        * Referenced by: '<Root>/F_FB_out_mean'
                                         */
-  real_T Fz_out_mean_P1;               /* Expression: width
-                                        * Referenced by: '<Root>/Fz_out_mean'
+  real_T F_FB_out_P1;                  /* Expression: width
+                                        * Referenced by: '<Root>/F_FB_out'
                                         */
-  real_T Fz_out_mean_P2;               /* Expression: dtype
-                                        * Referenced by: '<Root>/Fz_out_mean'
+  real_T F_FB_out_P2;                  /* Expression: dtype
+                                        * Referenced by: '<Root>/F_FB_out'
                                         */
-  real_T Fz_out_mean_P3;               /* Expression: portnum
-                                        * Referenced by: '<Root>/Fz_out_mean'
+  real_T F_FB_out_P3;                  /* Expression: portnum
+                                        * Referenced by: '<Root>/F_FB_out'
                                         */
-  real_T Fz_out_mean_P4;               /* Expression: stime
-                                        * Referenced by: '<Root>/Fz_out_mean'
+  real_T F_FB_out_P4;                  /* Expression: stime
+                                        * Referenced by: '<Root>/F_FB_out'
                                         */
-  real_T Fz_out_mean_P5;               /* Expression: stype
-                                        * Referenced by: '<Root>/Fz_out_mean'
+  real_T F_FB_out_P5;                  /* Expression: stype
+                                        * Referenced by: '<Root>/F_FB_out'
                                         */
-  real_T Fz_out_mean_P6;               /* Expression: btype
-                                        * Referenced by: '<Root>/Fz_out_mean'
+  real_T F_FB_out_P6;                  /* Expression: btype
+                                        * Referenced by: '<Root>/F_FB_out'
                                         */
-  real_T F_total_P1;                   /* Expression: width
-                                        * Referenced by: '<Root>/F_total'
+  real_T F_BB_out_mean_P1;             /* Expression: width
+                                        * Referenced by: '<Root>/F_BB_out_mean'
                                         */
-  real_T F_total_P2;                   /* Expression: dtype
-                                        * Referenced by: '<Root>/F_total'
+  real_T F_BB_out_mean_P2;             /* Expression: dtype
+                                        * Referenced by: '<Root>/F_BB_out_mean'
                                         */
-  real_T F_total_P3;                   /* Expression: portnum
-                                        * Referenced by: '<Root>/F_total'
+  real_T F_BB_out_mean_P3;             /* Expression: portnum
+                                        * Referenced by: '<Root>/F_BB_out_mean'
                                         */
-  real_T F_total_P4;                   /* Expression: stime
-                                        * Referenced by: '<Root>/F_total'
+  real_T F_BB_out_mean_P4;             /* Expression: stime
+                                        * Referenced by: '<Root>/F_BB_out_mean'
                                         */
-  real_T F_total_P5;                   /* Expression: stype
-                                        * Referenced by: '<Root>/F_total'
+  real_T F_BB_out_mean_P5;             /* Expression: stype
+                                        * Referenced by: '<Root>/F_BB_out_mean'
                                         */
-  real_T F_total_P6;                   /* Expression: btype
-                                        * Referenced by: '<Root>/F_total'
+  real_T F_BB_out_mean_P6;             /* Expression: btype
+                                        * Referenced by: '<Root>/F_BB_out_mean'
                                         */
-  real_T Fz_out_P1;                    /* Expression: width
-                                        * Referenced by: '<Root>/Fz_out'
+  real_T F_BB_out_P1;                  /* Expression: width
+                                        * Referenced by: '<Root>/F_BB_out'
                                         */
-  real_T Fz_out_P2;                    /* Expression: dtype
-                                        * Referenced by: '<Root>/Fz_out'
+  real_T F_BB_out_P2;                  /* Expression: dtype
+                                        * Referenced by: '<Root>/F_BB_out'
                                         */
-  real_T Fz_out_P3;                    /* Expression: portnum
-                                        * Referenced by: '<Root>/Fz_out'
+  real_T F_BB_out_P3;                  /* Expression: portnum
+                                        * Referenced by: '<Root>/F_BB_out'
                                         */
-  real_T Fz_out_P4;                    /* Expression: stime
-                                        * Referenced by: '<Root>/Fz_out'
+  real_T F_BB_out_P4;                  /* Expression: stime
+                                        * Referenced by: '<Root>/F_BB_out'
                                         */
-  real_T Fz_out_P5;                    /* Expression: stype
-                                        * Referenced by: '<Root>/Fz_out'
+  real_T F_BB_out_P5;                  /* Expression: stype
+                                        * Referenced by: '<Root>/F_BB_out'
                                         */
-  real_T Fz_out_P6;                    /* Expression: btype
-                                        * Referenced by: '<Root>/Fz_out'
+  real_T F_BB_out_P6;                  /* Expression: btype
+                                        * Referenced by: '<Root>/F_BB_out'
+                                        */
+  real_T F_BS_out_mean_P1;             /* Expression: width
+                                        * Referenced by: '<Root>/F_BS_out_mean'
+                                        */
+  real_T F_BS_out_mean_P2;             /* Expression: dtype
+                                        * Referenced by: '<Root>/F_BS_out_mean'
+                                        */
+  real_T F_BS_out_mean_P3;             /* Expression: portnum
+                                        * Referenced by: '<Root>/F_BS_out_mean'
+                                        */
+  real_T F_BS_out_mean_P4;             /* Expression: stime
+                                        * Referenced by: '<Root>/F_BS_out_mean'
+                                        */
+  real_T F_BS_out_mean_P5;             /* Expression: stype
+                                        * Referenced by: '<Root>/F_BS_out_mean'
+                                        */
+  real_T F_BS_out_mean_P6;             /* Expression: btype
+                                        * Referenced by: '<Root>/F_BS_out_mean'
+                                        */
+  real_T F_BS_out_P1;                  /* Expression: width
+                                        * Referenced by: '<Root>/F_BS_out'
+                                        */
+  real_T F_BS_out_P2;                  /* Expression: dtype
+                                        * Referenced by: '<Root>/F_BS_out'
+                                        */
+  real_T F_BS_out_P3;                  /* Expression: portnum
+                                        * Referenced by: '<Root>/F_BS_out'
+                                        */
+  real_T F_BS_out_P4;                  /* Expression: stime
+                                        * Referenced by: '<Root>/F_BS_out'
+                                        */
+  real_T F_BS_out_P5;                  /* Expression: stype
+                                        * Referenced by: '<Root>/F_BS_out'
+                                        */
+  real_T F_BS_out_P6;                  /* Expression: btype
+                                        * Referenced by: '<Root>/F_BS_out'
                                         */
 };
 

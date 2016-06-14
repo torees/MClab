@@ -7,9 +7,9 @@
  *
  * Code generation for model "force_measurments".
  *
- * Model version              : 1.8
+ * Model version              : 1.13
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 10:40:09 2016
+ * C source code generated on : Wed May 11 17:06:45 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -34,43 +34,39 @@ RT_MODEL_force_measurments_T *const force_measurments_M = &force_measurments_M_;
 /* Model output function */
 static void force_measurments_output(void)
 {
-  static const real_T a[9] = { 156509.5, 2718.8500000000004, 13657.199999999999,
-    1562.4, 165978.95, -1361.9, -295.8, -8245.35, -637894.75 };
-
-  real_T rtb_force[3];
-  int32_T i;
-
-  /* MATLAB Function: '<Root>/MATLAB Function' incorporates:
+  /* Sum: '<Root>/Sum' incorporates:
+   *  MATLAB Function: '<Root>/MATLAB Function'
    *  SignalConversion: '<S1>/TmpSignal ConversionAt SFunction Inport1'
    */
   /* MATLAB Function 'MATLAB Function': '<S1>:1' */
-  /* '<S1>:1:8' */
-  for (i = 0; i < 3; i++) {
-    rtb_force[i] = a[i + 6] * force_measurments_B.Fz + (a[i + 3] *
-      force_measurments_B.Fy + a[i] * force_measurments_B.Fx);
-  }
+  /* '<S1>:1:3' */
+  /* '<S1>:1:4' */
+  /* '<S1>:1:5' */
+  /* '<S1>:1:6' */
+  /* '<S1>:1:9' */
+  force_measurments_B.Sum = (-45859.5915 * force_measurments_B.u10 - 5.7085) -
+    force_measurments_B.F_FS_out_mean;
 
-  /* End of MATLAB Function: '<Root>/MATLAB Function' */
-
-  /* Sum: '<Root>/Sum' */
-  force_measurments_B.Sum = rtb_force[0] - force_measurments_B.Fx_out_mean;
-
-  /* Sum: '<Root>/Sum1' */
-  force_measurments_B.Sum1 = rtb_force[1] - force_measurments_B.Fy_out_mean;
-
-  /* Sum: '<Root>/Sum2' */
-  force_measurments_B.Sum2 = rtb_force[2] - force_measurments_B.Fz_out_mean;
-
-  /* Sqrt: '<Root>/Sqrt' incorporates:
-   *  Math: '<Root>/Math Function'
-   *  Math: '<Root>/Math Function1'
-   *  Math: '<Root>/Math Function2'
-   *  Sum: '<Root>/Sum3'
+  /* Sum: '<Root>/Sum1' incorporates:
+   *  MATLAB Function: '<Root>/MATLAB Function'
+   *  SignalConversion: '<S1>/TmpSignal ConversionAt SFunction Inport1'
    */
-  force_measurments_B.Sqrt = sqrt((force_measurments_B.Sum *
-    force_measurments_B.Sum + force_measurments_B.Sum1 *
-    force_measurments_B.Sum1) + force_measurments_B.Sum2 *
-    force_measurments_B.Sum2);
+  force_measurments_B.Sum1 = (-44408.641500000005 * force_measurments_B.u12 -
+    520.634) - force_measurments_B.F_FB_out_mean;
+
+  /* Sum: '<Root>/Sum2' incorporates:
+   *  MATLAB Function: '<Root>/MATLAB Function'
+   *  SignalConversion: '<S1>/TmpSignal ConversionAt SFunction Inport1'
+   */
+  force_measurments_B.Sum2 = (-45240.651 * force_measurments_B.u16 - 121.6505) -
+    force_measurments_B.F_BB_out_mean;
+
+  /* Sum: '<Root>/Sum3' incorporates:
+   *  MATLAB Function: '<Root>/MATLAB Function'
+   *  SignalConversion: '<S1>/TmpSignal ConversionAt SFunction Inport1'
+   */
+  force_measurments_B.Sum3 = (-44224.199499999995 * force_measurments_B.u15 -
+    103.1805) - force_measurments_B.F_BS_out_mean;
 }
 
 /* Model update function */
@@ -229,9 +225,9 @@ RT_MODEL_force_measurments_T *force_measurments(void)
   force_measurments_M->Sizes.numU = (0);/* Number of model inputs */
   force_measurments_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   force_measurments_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  force_measurments_M->Sizes.numBlocks = (21);/* Number of blocks */
-  force_measurments_M->Sizes.numBlockIO = (10);/* Number of block outputs */
-  force_measurments_M->Sizes.numBlockPrms = (60);/* Sum of parameter "widths" */
+  force_measurments_M->Sizes.numBlocks = (19);/* Number of blocks */
+  force_measurments_M->Sizes.numBlockIO = (12);/* Number of block outputs */
+  force_measurments_M->Sizes.numBlockPrms = (72);/* Sum of parameter "widths" */
   return force_measurments_M;
 }
 
@@ -243,9 +239,9 @@ RT_MODEL_force_measurments_T *force_measurments(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : force_measurments
- * Model version : 1.8
+ * Model version : 1.13
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue May 03 10:40:09 2016
+ * Source generated on : Wed May 11 17:06:45 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -323,15 +319,18 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
     return NIRT_GetValueByDataType(ptr,subindex,6,Complex);
 
    case 17:
-    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
-
-   case 18:
     return NIRT_GetValueByDataType(ptr,subindex,3,Complex);
 
-   case 22:
+   case 18:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 19:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 23:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 24:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
   }
 
@@ -415,17 +414,21 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
 
    case 17:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,3,Complex);
 
    case 18:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,3,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
-   case 22:
+   case 19:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
    case 23:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 24:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
   }
@@ -454,46 +457,61 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
 {
   int index = 0, count = 0;
 
-  // force_measurments/Fx
+  // force_measurments/8810
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&force_measurments_B.Fx, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&force_measurments_B.u10, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // force_measurments/Fx_out_mean
+  // force_measurments/F_FS_out_mean
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&force_measurments_B.Fx_out_mean, 0, data[index++],
+    NIRT_SetValueByDataType(&force_measurments_B.F_FS_out_mean, 0, data[index++],
       0, 0);
   } else {
     index += 1;
   }
 
-  // force_measurments/Fy
+  // force_measurments/8812
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&force_measurments_B.Fy, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&force_measurments_B.u12, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // force_measurments/Fz
+  // force_measurments/8816
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&force_measurments_B.Fz, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&force_measurments_B.u16, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // force_measurments/Fy_out_mean
+  // force_measurments/8815
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&force_measurments_B.Fy_out_mean, 0, data[index++],
+    NIRT_SetValueByDataType(&force_measurments_B.u15, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // force_measurments/F_FB_out_mean
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&force_measurments_B.F_FB_out_mean, 0, data[index++],
       0, 0);
   } else {
     index += 1;
   }
 
-  // force_measurments/Fz_out_mean
+  // force_measurments/F_BB_out_mean
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&force_measurments_B.Fz_out_mean, 0, data[index++],
+    NIRT_SetValueByDataType(&force_measurments_B.F_BB_out_mean, 0, data[index++],
+      0, 0);
+  } else {
+    index += 1;
+  }
+
+  // force_measurments/F_BS_out_mean
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&force_measurments_B.F_BS_out_mean, 0, data[index++],
       0, 0);
   } else {
     index += 1;
@@ -504,7 +522,7 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
 
 int32_t NumInputPorts(void)
 {
-  return 6;
+  return 8;
 }
 
 int32_t NumOutputPorts(void)
@@ -531,7 +549,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 {
   int index = 0, count = 0;
 
-  // force_measurments/Fx_out: Virtual Signal # 0
+  // force_measurments/F_FS_out: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum, 0, 0,
       0);
@@ -539,7 +557,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
-  // force_measurments/Fy_out: Virtual Signal # 0
+  // force_measurments/F_FB_out: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum1, 0, 0,
       0);
@@ -547,17 +565,17 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
-  // force_measurments/F_total: Virtual Signal # 0
+  // force_measurments/F_BB_out: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sqrt, 0, 0,
+    ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum2, 0, 0,
       0);
   } else {
     index += 1;
   }
 
-  // force_measurments/Fz_out: Virtual Signal # 0
+  // force_measurments/F_BS_out: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum2, 0, 0,
+    ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum3, 0, 0,
       0);
   } else {
     index += 1;
@@ -585,19 +603,19 @@ int32_t NI_InitExternalOutputs()
 {
   int index = 0, count = 0;
 
-  // force_measurments/Fx_out: Virtual Signal # 0
+  // force_measurments/F_FS_out: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum, 0, 0, 0);
 
-  // force_measurments/Fy_out: Virtual Signal # 0
+  // force_measurments/F_FB_out: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum1, 0, 0,
     0);
 
-  // force_measurments/F_total: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sqrt, 0, 0,
+  // force_measurments/F_BB_out: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum2, 0, 0,
     0);
 
-  // force_measurments/Fz_out: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum2, 0, 0,
+  // force_measurments/F_BS_out: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&force_measurments_B.Sum3, 0, 0,
     0);
   UNUSED_PARAMETER(count);
   return NI_OK;
@@ -617,67 +635,77 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
 {
-  { 0, "force_measurments/Fx", 0, "", offsetof(B_force_measurments_T, Fx) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 1, "force_measurments/Fx_out_mean", 0, "", offsetof(B_force_measurments_T,
-    Fx_out_mean) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 2, "force_measurments/Fy", 0, "", offsetof(B_force_measurments_T, Fy) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 3, "force_measurments/Fz", 0, "", offsetof(B_force_measurments_T, Fz) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 4, "force_measurments/Sum", 0, "", offsetof(B_force_measurments_T, Sum) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 5, "force_measurments/Fy_out_mean", 0, "", offsetof(B_force_measurments_T,
-    Fy_out_mean) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 6, "force_measurments/Sum1", 0, "", offsetof(B_force_measurments_T, Sum1) +
+  { 0, "force_measurments/8810", 0, "", offsetof(B_force_measurments_T, u10) +
     (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 7, "force_measurments/Fz_out_mean", 0, "", offsetof(B_force_measurments_T,
-    Fz_out_mean) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 1, "force_measurments/F_FS_out_mean", 0, "", offsetof(B_force_measurments_T,
+    F_FS_out_mean) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 8, "force_measurments/Sum2", 0, "", offsetof(B_force_measurments_T, Sum2) +
+  { 2, "force_measurments/8812", 0, "", offsetof(B_force_measurments_T, u12) +
     (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 9, "force_measurments/Sqrt", 0, "", offsetof(B_force_measurments_T, Sqrt) +
+  { 3, "force_measurments/8816", 0, "", offsetof(B_force_measurments_T, u16) +
+    (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 4, "force_measurments/8815", 0, "", offsetof(B_force_measurments_T, u15) +
+    (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 5, "force_measurments/Sum", 0, "", offsetof(B_force_measurments_T, Sum) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 6, "force_measurments/F_FB_out_mean", 0, "", offsetof(B_force_measurments_T,
+    F_FB_out_mean) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 7, "force_measurments/Sum1", 0, "", offsetof(B_force_measurments_T, Sum1) +
+    (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 8, "force_measurments/F_BB_out_mean", 0, "", offsetof(B_force_measurments_T,
+    F_BB_out_mean) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 9, "force_measurments/Sum2", 0, "", offsetof(B_force_measurments_T, Sum2) +
+    (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 10, "force_measurments/F_BS_out_mean", 0, "", offsetof(B_force_measurments_T,
+    F_BS_out_mean) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 11, "force_measurments/Sum3", 0, "", offsetof(B_force_measurments_T, Sum3) +
     (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
   { -1, "", -1, "", 0, 0, 0 }
 };
 
-static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 10;
+static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 12;
 static int32_t NI_VirtualBlockSources[1];
 static int32_t NI_SigDimList[] DataSection(".NIVS.sigdimlist") =
 { 1, 1
 };
 
-static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 10;
+static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 12;
 static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 {
-  { 1, "Fx", 0, EXT_IN, 1, 1, 1 },
+  { 1, "8810", 0, EXT_IN, 1, 1, 1 },
 
-  { 2, "Fx_out_mean", 0, EXT_IN, 1, 1, 1 },
+  { 2, "F_FS_out_mean", 0, EXT_IN, 1, 1, 1 },
 
-  { 3, "Fy", 0, EXT_IN, 1, 1, 1 },
+  { 3, "8812", 0, EXT_IN, 1, 1, 1 },
 
-  { 4, "Fz", 0, EXT_IN, 1, 1, 1 },
+  { 4, "8816", 0, EXT_IN, 1, 1, 1 },
 
-  { 5, "Fy_out_mean", 0, EXT_IN, 1, 1, 1 },
+  { 5, "8815", 0, EXT_IN, 1, 1, 1 },
 
-  { 6, "Fz_out_mean", 0, EXT_IN, 1, 1, 1 },
+  { 6, "F_FB_out_mean", 0, EXT_IN, 1, 1, 1 },
 
-  { 1, "Fx_out", 0, EXT_OUT, 1, 1, 1 },
+  { 7, "F_BB_out_mean", 0, EXT_IN, 1, 1, 1 },
 
-  { 2, "Fy_out", 0, EXT_OUT, 1, 1, 1 },
+  { 8, "F_BS_out_mean", 0, EXT_IN, 1, 1, 1 },
 
-  { 3, "F_total", 0, EXT_OUT, 1, 1, 1 },
+  { 1, "F_FS_out", 0, EXT_OUT, 1, 1, 1 },
 
-  { 4, "Fz_out", 0, EXT_OUT, 1, 1, 1 },
+  { 2, "F_FB_out", 0, EXT_OUT, 1, 1, 1 },
+
+  { 3, "F_BB_out", 0, EXT_OUT, 1, 1, 1 },
+
+  { 4, "F_BS_out", 0, EXT_OUT, 1, 1, 1 },
 
   { -1, "", 0, 0, 0, 0, 0 }
 };
@@ -695,8 +723,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "force_measurments";
-static const char* NI_CompiledModelVersion = "1.8";
-static const char* NI_CompiledModelDateTime = "Tue May 03 10:40:09 2016";
+static const char* NI_CompiledModelVersion = "1.13";
+static const char* NI_CompiledModelDateTime = "Wed May 11 17:06:45 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -1252,7 +1280,7 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
        NULL)) {
     if (*numContStates < 0 || *numDiscStates < 0 || *numClockTicks < 0) {
       *numContStates = 0;
-      *numDiscStates = 190;
+      *numDiscStates = 228;
       *numClockTicks = NUMST - TID01EQ;
       return NI_OK;
     }
@@ -1260,108 +1288,128 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
   if ((discStates != NULL) && (discStatesNames != NULL)) {
     idx = 0;
-    discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.Fx_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.Fx_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.u10_DWORK1,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.u10_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
-      (&force_measurments_DW.Fx_out_mean_DWORK1, 0, 0, 0);
+      (&force_measurments_DW.F_FS_out_mean_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
-           "&force_measurments_DW.Fx_out_mean_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.Fy_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.Fy_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.Fz_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.Fz_DWORK1");
+           "&force_measurments_DW.F_FS_out_mean_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.u12_DWORK1,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.u12_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.u16_DWORK1,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.u16_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.u15_DWORK1,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.u15_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
-      (&force_measurments_DW.Fx_out_DWORK1, 0, 0, 0);
+      (&force_measurments_DW.F_FS_out_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
-           "&force_measurments_DW.Fx_out_DWORK1");
+           "&force_measurments_DW.F_FS_out_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
-      (&force_measurments_DW.Fy_out_mean_DWORK1, 0, 0, 0);
+      (&force_measurments_DW.F_FB_out_mean_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
-           "&force_measurments_DW.Fy_out_mean_DWORK1");
+           "&force_measurments_DW.F_FB_out_mean_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
-      (&force_measurments_DW.Fy_out_DWORK1, 0, 0, 0);
+      (&force_measurments_DW.F_FB_out_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
-           "&force_measurments_DW.Fy_out_DWORK1");
+           "&force_measurments_DW.F_FB_out_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
-      (&force_measurments_DW.Fz_out_mean_DWORK1, 0, 0, 0);
+      (&force_measurments_DW.F_BB_out_mean_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
-           "&force_measurments_DW.Fz_out_mean_DWORK1");
+           "&force_measurments_DW.F_BB_out_mean_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
-      (&force_measurments_DW.F_total_DWORK1, 0, 0, 0);
+      (&force_measurments_DW.F_BB_out_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
-           "&force_measurments_DW.F_total_DWORK1");
+           "&force_measurments_DW.F_BB_out_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
-      (&force_measurments_DW.Fz_out_DWORK1, 0, 0, 0);
+      (&force_measurments_DW.F_BS_out_mean_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
-           "&force_measurments_DW.Fz_out_DWORK1");
+           "&force_measurments_DW.F_BS_out_mean_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&force_measurments_DW.F_BS_out_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&force_measurments_DW.F_BS_out_DWORK1");
     for (count = 0; count < 18; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.Fx_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.Fx_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.u10_DWORK2,
+        count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.u10_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&force_measurments_DW.Fx_out_mean_DWORK2, count, 18, 0);
+        (&force_measurments_DW.F_FS_out_mean_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&force_measurments_DW.Fx_out_mean_DWORK2");
+             "&force_measurments_DW.F_FS_out_mean_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.Fy_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.Fy_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.u12_DWORK2,
+        count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.u12_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.Fz_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.Fz_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.u16_DWORK2,
+        count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.u16_DWORK2");
+    }
+
+    for (count = 0; count < 18; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&force_measurments_DW.u15_DWORK2,
+        count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&force_measurments_DW.u15_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&force_measurments_DW.Fx_out_DWORK2, count, 18, 0);
+        (&force_measurments_DW.F_FS_out_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&force_measurments_DW.Fx_out_DWORK2");
+             "&force_measurments_DW.F_FS_out_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&force_measurments_DW.Fy_out_mean_DWORK2, count, 18, 0);
+        (&force_measurments_DW.F_FB_out_mean_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&force_measurments_DW.Fy_out_mean_DWORK2");
+             "&force_measurments_DW.F_FB_out_mean_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&force_measurments_DW.Fy_out_DWORK2, count, 18, 0);
+        (&force_measurments_DW.F_FB_out_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&force_measurments_DW.Fy_out_DWORK2");
+             "&force_measurments_DW.F_FB_out_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&force_measurments_DW.Fz_out_mean_DWORK2, count, 18, 0);
+        (&force_measurments_DW.F_BB_out_mean_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&force_measurments_DW.Fz_out_mean_DWORK2");
+             "&force_measurments_DW.F_BB_out_mean_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&force_measurments_DW.F_total_DWORK2, count, 18, 0);
+        (&force_measurments_DW.F_BB_out_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&force_measurments_DW.F_total_DWORK2");
+             "&force_measurments_DW.F_BB_out_DWORK2");
     }
 
     for (count = 0; count < 18; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&force_measurments_DW.Fz_out_DWORK2, count, 18, 0);
+        (&force_measurments_DW.F_BS_out_mean_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&force_measurments_DW.Fz_out_DWORK2");
+             "&force_measurments_DW.F_BS_out_mean_DWORK2");
+    }
+
+    for (count = 0; count < 18; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&force_measurments_DW.F_BS_out_DWORK2, count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&force_measurments_DW.F_BS_out_DWORK2");
     }
   }
 
@@ -1388,74 +1436,88 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
   int32_t idx = 0;
   if (discStates != NULL) {
     idx = 0;
-    NIRT_SetValueByDataType(&force_measurments_DW.Fx_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.Fx_out_mean_DWORK1, 0,
+    NIRT_SetValueByDataType(&force_measurments_DW.u10_DWORK1, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&force_measurments_DW.F_FS_out_mean_DWORK1, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.Fy_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.Fz_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.Fx_out_DWORK1, 0,
+    NIRT_SetValueByDataType(&force_measurments_DW.u12_DWORK1, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&force_measurments_DW.u16_DWORK1, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&force_measurments_DW.u15_DWORK1, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&force_measurments_DW.F_FS_out_DWORK1, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.Fy_out_mean_DWORK1, 0,
+    NIRT_SetValueByDataType(&force_measurments_DW.F_FB_out_mean_DWORK1, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.Fy_out_DWORK1, 0,
+    NIRT_SetValueByDataType(&force_measurments_DW.F_FB_out_DWORK1, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.Fz_out_mean_DWORK1, 0,
+    NIRT_SetValueByDataType(&force_measurments_DW.F_BB_out_mean_DWORK1, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.F_total_DWORK1, 0,
+    NIRT_SetValueByDataType(&force_measurments_DW.F_BB_out_DWORK1, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&force_measurments_DW.Fz_out_DWORK1, 0,
+    NIRT_SetValueByDataType(&force_measurments_DW.F_BS_out_mean_DWORK1, 0,
+      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&force_measurments_DW.F_BS_out_DWORK1, 0,
       discStates[idx++], 0, 0);
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fx_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.u10_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fx_out_mean_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.F_FS_out_mean_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fy_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.u12_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fz_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.u16_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fx_out_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.u15_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fy_out_mean_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.F_FS_out_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fy_out_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.F_FB_out_mean_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fz_out_mean_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.F_FB_out_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.F_total_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.F_BB_out_mean_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 18; count++) {
-      NIRT_SetValueByDataType(&force_measurments_DW.Fz_out_DWORK2, count,
-        discStates[idx++], 18, 0);
+      NIRT_SetValueByDataType(&force_measurments_DW.F_BB_out_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 18; count++) {
+      NIRT_SetValueByDataType(&force_measurments_DW.F_BS_out_mean_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 18; count++) {
+      NIRT_SetValueByDataType(&force_measurments_DW.F_BS_out_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
   }
 

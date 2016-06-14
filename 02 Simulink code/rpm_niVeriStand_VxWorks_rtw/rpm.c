@@ -7,9 +7,9 @@
  *
  * Code generation for model "rpm".
  *
- * Model version              : 1.46
+ * Model version              : 1.51
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 03 20:13:47 2016
+ * C source code generated on : Tue May 10 14:30:55 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -169,8 +169,7 @@ void rpm_output(void)
       /* //Update RPM every 10 counts, increase this for better RPM resolution, */
       /* //decrease for faster update */
       /* '<S1>:1:11' */
-      rpm_tmp = 1200.0 * rpm_B.Memory1 / (rpm_X.Integrator_CSTATE -
-        rpm_B.Memory2);
+      rpm_tmp = 600.0 * rpm_B.Memory1 / (rpm_X.Integrator_CSTATE - rpm_B.Memory2);
 
       /* '<S1>:1:12' */
       timeold_tmp = rpm_X.Integrator_CSTATE;
@@ -492,9 +491,9 @@ RT_MODEL_rpm_T *rpm(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : rpm
- * Model version : 1.46
+ * Model version : 1.51
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue May 03 20:13:47 2016
+ * Source generated on : Tue May 10 14:30:55 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -890,8 +889,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "rpm";
-static const char* NI_CompiledModelVersion = "1.46";
-static const char* NI_CompiledModelDateTime = "Tue May 03 20:13:47 2016";
+static const char* NI_CompiledModelVersion = "1.51";
+static const char* NI_CompiledModelDateTime = "Tue May 10 14:30:55 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =

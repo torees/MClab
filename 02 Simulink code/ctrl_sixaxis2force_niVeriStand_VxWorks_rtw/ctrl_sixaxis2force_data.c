@@ -12,9 +12,9 @@
  *
  * Code generation for model "ctrl_sixaxis2force".
  *
- * Model version              : 1.37
+ * Model version              : 1.45
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu May 05 10:31:41 2016
+ * C source code generated on : Mon May 09 18:24:11 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,14 +27,36 @@
 
 /* Block parameters (auto storage) */
 P_ctrl_sixaxis2force_T ctrl_sixaxis2force_P = {
-  0.0,                                 /* Mask Parameter: DetectIncrease_vinit
-                                        * Referenced by: '<S3>/Delay Input1'
+  0.12,                                /* Variable: Max_thrust
+                                        * Referenced by:
+                                        *   '<S1>/Saturation 1'
+                                        *   '<S1>/Saturation 2'
+                                        *   '<S1>/Saturation 3'
+                                        *   '<S1>/Saturation 4'
+                                        *   '<S1>/Saturation 5'
+                                        *   '<S1>/Saturation 6'
+                                        *   '<S1>/Saturation 7'
                                         */
-  0.0,                                 /* Mask Parameter: DetectIncrease1_vinit
+
+  /*  Variable: thrust_to_pwm_coeff
+   * Referenced by:
+   *   '<S1>/pwm thruster 1'
+   *   '<S1>/pwm thruster 2'
+   *   '<S1>/pwm thruster 3'
+   *   '<S1>/pwm thruster 4'
+   *   '<S1>/pwm thruster 5'
+   *   '<S1>/pwm thruster 6'
+   */
+  { 0.049001709187525007, -0.39510945913232864, 1.1559741339627327,
+    -1.5170203014582015, 1.214660465174924, 0.0 },
+  0.0,                                 /* Mask Parameter: DetectIncrease_vinit
                                         * Referenced by: '<S4>/Delay Input1'
                                         */
-  0.0,                                 /* Mask Parameter: DetectIncrease2_vinit
+  0.0,                                 /* Mask Parameter: DetectIncrease1_vinit
                                         * Referenced by: '<S5>/Delay Input1'
+                                        */
+  0.0,                                 /* Mask Parameter: DetectIncrease2_vinit
+                                        * Referenced by: '<S6>/Delay Input1'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/ArrowUp'
@@ -91,7 +113,7 @@ P_ctrl_sixaxis2force_T ctrl_sixaxis2force_P = {
                                         * Referenced by: '<Root>/Start'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S2>/Memory'
+                                        * Referenced by: '<S3>/Memory'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/L2_continuous'
@@ -296,6 +318,24 @@ P_ctrl_sixaxis2force_T ctrl_sixaxis2force_P = {
                                         */
   1.0,                                 /* Expression: btype
                                         * Referenced by: '<Root>/thr_angle_6'
+                                        */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/body_rel'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/body_rel'
+                                        */
+  18.0,                                /* Expression: portnum
+                                        * Referenced by: '<Root>/body_rel'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/body_rel'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/body_rel'
+                                        */
+  1.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/body_rel'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/basin_rel'
@@ -517,112 +557,112 @@ P_ctrl_sixaxis2force_T ctrl_sixaxis2force_P = {
                                         * Referenced by: '<Root>/alpha_6'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/u_1'
+                                        * Referenced by: '<Root>/pwm_1'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/u_1'
+                                        * Referenced by: '<Root>/pwm_1'
                                         */
   10.0,                                /* Expression: portnum
-                                        * Referenced by: '<Root>/u_1'
+                                        * Referenced by: '<Root>/pwm_1'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/u_1'
+                                        * Referenced by: '<Root>/pwm_1'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/u_1'
+                                        * Referenced by: '<Root>/pwm_1'
                                         */
   0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/u_1'
+                                        * Referenced by: '<Root>/pwm_1'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/u_2'
+                                        * Referenced by: '<Root>/pwm_2'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/u_2'
+                                        * Referenced by: '<Root>/pwm_2'
                                         */
   11.0,                                /* Expression: portnum
-                                        * Referenced by: '<Root>/u_2'
+                                        * Referenced by: '<Root>/pwm_2'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/u_2'
+                                        * Referenced by: '<Root>/pwm_2'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/u_2'
+                                        * Referenced by: '<Root>/pwm_2'
                                         */
   0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/u_2'
+                                        * Referenced by: '<Root>/pwm_2'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/u_3'
+                                        * Referenced by: '<Root>/pwm_3'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/u_3'
+                                        * Referenced by: '<Root>/pwm_3'
                                         */
   12.0,                                /* Expression: portnum
-                                        * Referenced by: '<Root>/u_3'
+                                        * Referenced by: '<Root>/pwm_3'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/u_3'
+                                        * Referenced by: '<Root>/pwm_3'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/u_3'
+                                        * Referenced by: '<Root>/pwm_3'
                                         */
   0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/u_3'
+                                        * Referenced by: '<Root>/pwm_3'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/u_4'
+                                        * Referenced by: '<Root>/pwm_4'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/u_4'
+                                        * Referenced by: '<Root>/pwm_4'
                                         */
   13.0,                                /* Expression: portnum
-                                        * Referenced by: '<Root>/u_4'
+                                        * Referenced by: '<Root>/pwm_4'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/u_4'
+                                        * Referenced by: '<Root>/pwm_4'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/u_4'
+                                        * Referenced by: '<Root>/pwm_4'
                                         */
   0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/u_4'
+                                        * Referenced by: '<Root>/pwm_4'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/u_5'
+                                        * Referenced by: '<Root>/pwm_5'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/u_5'
+                                        * Referenced by: '<Root>/pwm_5'
                                         */
   14.0,                                /* Expression: portnum
-                                        * Referenced by: '<Root>/u_5'
+                                        * Referenced by: '<Root>/pwm_5'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/u_5'
+                                        * Referenced by: '<Root>/pwm_5'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/u_5'
+                                        * Referenced by: '<Root>/pwm_5'
                                         */
   0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/u_5'
+                                        * Referenced by: '<Root>/pwm_5'
                                         */
   -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/u_6'
+                                        * Referenced by: '<Root>/pwm_6'
                                         */
   1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/u_6'
+                                        * Referenced by: '<Root>/pwm_6'
                                         */
   15.0,                                /* Expression: portnum
-                                        * Referenced by: '<Root>/u_6'
+                                        * Referenced by: '<Root>/pwm_6'
                                         */
   -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/u_6'
+                                        * Referenced by: '<Root>/pwm_6'
                                         */
   1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/u_6'
+                                        * Referenced by: '<Root>/pwm_6'
                                         */
   0.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/u_6'
+                                        * Referenced by: '<Root>/pwm_6'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/u_limit'
@@ -639,8 +679,116 @@ P_ctrl_sixaxis2force_T ctrl_sixaxis2force_P = {
   1.0,                                 /* Expression: stype
                                         * Referenced by: '<Root>/u_limit'
                                         */
-  0.0                                  /* Expression: btype
+  0.0,                                 /* Expression: btype
                                         * Referenced by: '<Root>/u_limit'
+                                        */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/u_4'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/u_4'
+                                        */
+  17.0,                                /* Expression: portnum
+                                        * Referenced by: '<Root>/u_4'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/u_4'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/u_4'
+                                        */
+  0.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/u_4'
+                                        */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/u_5'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/u_5'
+                                        */
+  18.0,                                /* Expression: portnum
+                                        * Referenced by: '<Root>/u_5'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/u_5'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/u_5'
+                                        */
+  0.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/u_5'
+                                        */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/u_6'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/u_6'
+                                        */
+  19.0,                                /* Expression: portnum
+                                        * Referenced by: '<Root>/u_6'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/u_6'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/u_6'
+                                        */
+  0.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/u_6'
+                                        */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/u_1'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/u_1'
+                                        */
+  20.0,                                /* Expression: portnum
+                                        * Referenced by: '<Root>/u_1'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/u_1'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/u_1'
+                                        */
+  0.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/u_1'
+                                        */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/u_2'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/u_2'
+                                        */
+  21.0,                                /* Expression: portnum
+                                        * Referenced by: '<Root>/u_2'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/u_2'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/u_2'
+                                        */
+  0.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/u_2'
+                                        */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/u_3'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/u_3'
+                                        */
+  22.0,                                /* Expression: portnum
+                                        * Referenced by: '<Root>/u_3'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/u_3'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/u_3'
+                                        */
+  0.0                                  /* Expression: btype
+                                        * Referenced by: '<Root>/u_3'
                                         */
 };
 
@@ -648,9 +796,9 @@ P_ctrl_sixaxis2force_T ctrl_sixaxis2force_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2force
- * Model version : 1.37
+ * Model version : 1.45
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu May 05 10:31:41 2016
+ * Source generated on : Mon May 09 18:24:11 2016
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 
@@ -663,6 +811,94 @@ typedef struct {
 NI_ParamSizeWidth P_ctrl_sixaxis2force_T_sizes[] DataSection(
   ".NIVS.defaultparamsizes") = {
   { sizeof(P_ctrl_sixaxis2force_T), 1 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 6, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
 
   { sizeof(real_T), 1, 0 },
 

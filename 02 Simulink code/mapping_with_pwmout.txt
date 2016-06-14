@@ -14,13 +14,13 @@ Targets/Controller/Custom Devices/WL_Joystick/Triangle	Targets/Controller/Simula
 Targets/Controller/Custom Devices/WL_Joystick/Circle	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/sixaxis/Circle
 Targets/Controller/Custom Devices/WL_Joystick/X	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/sixaxis/Cross
 Targets/Controller/Custom Devices/WL_Joystick/Square	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/sixaxis/Square
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_1
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_3	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_3
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_6	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_6
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/pwm_1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_1
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/pwm_3	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_3
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/pwm_6	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_6
 Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/alpha_1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/alpha_1
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_2
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_4	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_4
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_5	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_5
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/pwm_2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_2
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/pwm_4	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_4
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/pwm_5	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_5
 Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/alpha_2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/alpha_2
 Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/alpha_3	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/alpha_3
 Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/alpha_4	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/alpha_4
@@ -38,13 +38,13 @@ Targets/Controller/Simulation Models/Models/ctrl_DP_basic/Outports/alpha_3	Targe
 Targets/Controller/Simulation Models/Models/ctrl_DP_basic/Outports/alpha_4	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/alpha_4
 Targets/Controller/Simulation Models/Models/ctrl_DP_basic/Outports/alpha_5	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/alpha_5
 Targets/Controller/Simulation Models/Models/ctrl_DP_basic/Outports/alpha_6	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/alpha_6
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_1
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_3	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_3
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_6	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_6
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/pwm_1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_1
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/pwm_3	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_3
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/pwm_6	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_6
 Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/alpha_1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/alpha_1
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_2
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_4	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_4
-Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_5	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_5
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/pwm_2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_2
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/pwm_4	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_4
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/pwm_5	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_5
 Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/alpha_2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/alpha_2
 Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/alpha_3	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/alpha_3
 Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/alpha_4	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/alpha_4
@@ -112,6 +112,7 @@ Targets/Controller/Simulation Models/Models/comp2deg/Outports/alpha_rad_6	Target
 Targets/Controller/Custom Devices/WL_Joystick/ArrowUP	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Inports/ArrowUp
 Targets/Controller/Custom Devices/WL_Joystick/ArrowDo	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Inports/ArrowDown
 Targets/Controller/Custom Devices/WL_Joystick/Start	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Inports/Start
+Targets/Controller/Simulation Models/Models/measurement/Outports/pose measured/psi_m	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Inports/psi
 Targets/Controller/Hardware/Chassis/FPGA/RIO0/Input/Analog/SG-AI1	Targets/Controller/Simulation Models/Models/force_measurments/Inports/Fx
 Targets/Controller/Hardware/Chassis/FPGA/RIO0/Input/Analog/SG-AI2	Targets/Controller/Simulation Models/Models/force_measurments/Inports/Fy
 Targets/Controller/Hardware/Chassis/FPGA/RIO0/Input/Analog/SG-AI0	Targets/Controller/Simulation Models/Models/force_measurments/Inports/Fz

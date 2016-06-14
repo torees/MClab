@@ -7,9 +7,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.103
+ * Model version              : 1.105
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu May 05 10:59:25 2016
+ * C source code generated on : Mon May 09 19:25:47 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -58,71 +58,6 @@ void u2pwm_alpha_MATLABFunction1(real_T rtu_u, B_MATLABFunction1_u2pwm_alpha_T
   }
 }
 
-real_T rt_powd_snf(real_T u0, real_T u1)
-{
-  real_T y;
-  real_T tmp;
-  real_T tmp_0;
-  if (rtIsNaN(u0) || rtIsNaN(u1)) {
-    y = (rtNaN);
-  } else {
-    tmp = fabs(u0);
-    tmp_0 = fabs(u1);
-    if (rtIsInf(u1)) {
-      if (tmp == 1.0) {
-        y = (rtNaN);
-      } else if (tmp > 1.0) {
-        if (u1 > 0.0) {
-          y = (rtInf);
-        } else {
-          y = 0.0;
-        }
-      } else if (u1 > 0.0) {
-        y = 0.0;
-      } else {
-        y = (rtInf);
-      }
-    } else if (tmp_0 == 0.0) {
-      y = 1.0;
-    } else if (tmp_0 == 1.0) {
-      if (u1 > 0.0) {
-        y = u0;
-      } else {
-        y = 1.0 / u0;
-      }
-    } else if (u1 == 2.0) {
-      y = u0 * u0;
-    } else if ((u1 == 0.5) && (u0 >= 0.0)) {
-      y = sqrt(u0);
-    } else if ((u0 < 0.0) && (u1 > floor(u1))) {
-      y = (rtNaN);
-    } else {
-      y = pow(u0, u1);
-    }
-  }
-
-  return y;
-}
-
-/*
- * Output and update for atomic system:
- *    '<Root>/MATLAB Function10'
- *    '<Root>/MATLAB Function11'
- *    '<Root>/MATLAB Function4'
- *    '<Root>/MATLAB Function7'
- *    '<Root>/MATLAB Function8'
- *    '<Root>/MATLAB Function9'
- */
-void u2pwm_alpha_MATLABFunction10(real_T rtu_force,
-  B_MATLABFunction10_u2pwm_alph_T *localB)
-{
-  /* MATLAB Function 'MATLAB Function10': '<S3>:1' */
-  /* '<S3>:1:3' */
-  localB->pwm = (((0.049 * rt_powd_snf(rtu_force, 5.0) - 0.3951 * rt_powd_snf
-                   (rtu_force, 4.0)) + 1.156 * rt_powd_snf(rtu_force, 3.0)) -
-                 rtu_force * rtu_force * 1.517) + 1.215 * rtu_force;
-}
-
 /* Model output function */
 static void u2pwm_alpha_output(void)
 {
@@ -132,6 +67,199 @@ static void u2pwm_alpha_output(void)
   real_T rtb_Sum8;
   real_T rtb_Sum9;
   real_T rtb_Sum10;
+
+  /* Saturate: '<Root>/Saturation11' */
+  if (u2pwm_alpha_B.u_1 > u2pwm_alpha_P.Saturation11_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation11_UpperSat;
+  } else if (u2pwm_alpha_B.u_1 < u2pwm_alpha_P.Saturation11_LowerSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation11_LowerSat;
+  } else {
+    rtb_Sum12 = u2pwm_alpha_B.u_1;
+  }
+
+  /* End of Saturate: '<Root>/Saturation11' */
+
+  /* Saturate: '<Root>/Saturation' */
+  if (rtb_Sum12 > u2pwm_alpha_P.Saturation_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation_UpperSat;
+  } else {
+    if (rtb_Sum12 < u2pwm_alpha_P.Saturation_LowerSat) {
+      rtb_Sum12 = u2pwm_alpha_P.Saturation_LowerSat;
+    }
+  }
+
+  /* MATLAB Function: '<Root>/MATLAB Function1' incorporates:
+   *  Constant: '<Root>/PWM_Offset'
+   *  Gain: '<Root>/Gain'
+   *  Saturate: '<Root>/Saturation'
+   *  Sum: '<Root>/Sum2'
+   */
+  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain_Gain *
+    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction1);
+
+  /* Saturate: '<Root>/Saturation10' */
+  if (u2pwm_alpha_B.u_2 > u2pwm_alpha_P.Saturation10_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation10_UpperSat;
+  } else if (u2pwm_alpha_B.u_2 < u2pwm_alpha_P.Saturation10_LowerSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation10_LowerSat;
+  } else {
+    rtb_Sum12 = u2pwm_alpha_B.u_2;
+  }
+
+  /* End of Saturate: '<Root>/Saturation10' */
+
+  /* Saturate: '<Root>/Saturation1' */
+  if (rtb_Sum12 > u2pwm_alpha_P.Saturation1_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation1_UpperSat;
+  } else {
+    if (rtb_Sum12 < u2pwm_alpha_P.Saturation1_LowerSat) {
+      rtb_Sum12 = u2pwm_alpha_P.Saturation1_LowerSat;
+    }
+  }
+
+  /* MATLAB Function: '<Root>/MATLAB Function6' incorporates:
+   *  Constant: '<Root>/PWM_Offset1'
+   *  Gain: '<Root>/Gain1'
+   *  Saturate: '<Root>/Saturation1'
+   *  Sum: '<Root>/Sum3'
+   */
+  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain1_Gain *
+    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction6);
+
+  /* Saturate: '<Root>/Saturation9' */
+  if (u2pwm_alpha_B.u_3 > u2pwm_alpha_P.Saturation9_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation9_UpperSat;
+  } else if (u2pwm_alpha_B.u_3 < u2pwm_alpha_P.Saturation9_LowerSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation9_LowerSat;
+  } else {
+    rtb_Sum12 = u2pwm_alpha_B.u_3;
+  }
+
+  /* End of Saturate: '<Root>/Saturation9' */
+
+  /* Saturate: '<Root>/Saturation2' */
+  if (rtb_Sum12 > u2pwm_alpha_P.Saturation2_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation2_UpperSat;
+  } else {
+    if (rtb_Sum12 < u2pwm_alpha_P.Saturation2_LowerSat) {
+      rtb_Sum12 = u2pwm_alpha_P.Saturation2_LowerSat;
+    }
+  }
+
+  /* MATLAB Function: '<Root>/MATLAB Function5' incorporates:
+   *  Constant: '<Root>/PWM_Offset2'
+   *  Gain: '<Root>/Gain2'
+   *  Saturate: '<Root>/Saturation2'
+   *  Sum: '<Root>/Sum1'
+   */
+  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain2_Gain *
+    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction5);
+
+  /* Saturate: '<Root>/Saturation8' */
+  if (u2pwm_alpha_B.u_4 > u2pwm_alpha_P.Saturation8_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation8_UpperSat;
+  } else if (u2pwm_alpha_B.u_4 < u2pwm_alpha_P.Saturation8_LowerSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation8_LowerSat;
+  } else {
+    rtb_Sum12 = u2pwm_alpha_B.u_4;
+  }
+
+  /* End of Saturate: '<Root>/Saturation8' */
+
+  /* Saturate: '<Root>/Saturation3' */
+  if (rtb_Sum12 > u2pwm_alpha_P.Saturation3_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation3_UpperSat;
+  } else {
+    if (rtb_Sum12 < u2pwm_alpha_P.Saturation3_LowerSat) {
+      rtb_Sum12 = u2pwm_alpha_P.Saturation3_LowerSat;
+    }
+  }
+
+  /* MATLAB Function: '<Root>/MATLAB Function12' incorporates:
+   *  Constant: '<Root>/PWM_Offset3'
+   *  Gain: '<Root>/Gain3'
+   *  Saturate: '<Root>/Saturation3'
+   *  Sum: '<Root>/Sum4'
+   */
+  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain3_Gain *
+    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction12);
+
+  /* Saturate: '<Root>/Saturation7' */
+  if (u2pwm_alpha_B.u_5 > u2pwm_alpha_P.Saturation7_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation7_UpperSat;
+  } else if (u2pwm_alpha_B.u_5 < u2pwm_alpha_P.Saturation7_LowerSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation7_LowerSat;
+  } else {
+    rtb_Sum12 = u2pwm_alpha_B.u_5;
+  }
+
+  /* End of Saturate: '<Root>/Saturation7' */
+
+  /* Saturate: '<Root>/Saturation4' */
+  if (rtb_Sum12 > u2pwm_alpha_P.Saturation4_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation4_UpperSat;
+  } else {
+    if (rtb_Sum12 < u2pwm_alpha_P.Saturation4_LowerSat) {
+      rtb_Sum12 = u2pwm_alpha_P.Saturation4_LowerSat;
+    }
+  }
+
+  /* MATLAB Function: '<Root>/MATLAB Function2' incorporates:
+   *  Constant: '<Root>/PWM_Offset4'
+   *  Gain: '<Root>/Gain4'
+   *  Saturate: '<Root>/Saturation4'
+   *  Sum: '<Root>/Sum5'
+   */
+  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain4_Gain *
+    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction2);
+
+  /* Saturate: '<Root>/Saturation5' */
+  if (u2pwm_alpha_B.u_6 > u2pwm_alpha_P.Saturation5_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation5_UpperSat;
+  } else if (u2pwm_alpha_B.u_6 < u2pwm_alpha_P.Saturation5_LowerSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation5_LowerSat;
+  } else {
+    rtb_Sum12 = u2pwm_alpha_B.u_6;
+  }
+
+  /* End of Saturate: '<Root>/Saturation5' */
+
+  /* Saturate: '<Root>/Saturation6' */
+  if (rtb_Sum12 > u2pwm_alpha_P.Saturation6_UpperSat) {
+    rtb_Sum12 = u2pwm_alpha_P.Saturation6_UpperSat;
+  } else {
+    if (rtb_Sum12 < u2pwm_alpha_P.Saturation6_LowerSat) {
+      rtb_Sum12 = u2pwm_alpha_P.Saturation6_LowerSat;
+    }
+  }
+
+  /* MATLAB Function: '<Root>/MATLAB Function3' incorporates:
+   *  Constant: '<Root>/PWM_Offset5'
+   *  Gain: '<Root>/Gain5'
+   *  Saturate: '<Root>/Saturation6'
+   *  Sum: '<Root>/Sum6'
+   */
+  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain5_Gain *
+    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction3);
+
+  /* Switch: '<Root>/Switch' */
+  if (u2pwm_alpha_B.manualoverridepwm != 0.0) {
+    u2pwm_alpha_B.Switch[0] = u2pwm_alpha_B.pwm_u_1;
+    u2pwm_alpha_B.Switch[1] = u2pwm_alpha_B.pwm_u_2;
+    u2pwm_alpha_B.Switch[2] = u2pwm_alpha_B.pwm_u_3;
+    u2pwm_alpha_B.Switch[3] = u2pwm_alpha_B.pwm_u_4;
+    u2pwm_alpha_B.Switch[4] = u2pwm_alpha_B.pwm_u_5;
+    u2pwm_alpha_B.Switch[5] = u2pwm_alpha_B.pwm_u_6;
+  } else {
+    u2pwm_alpha_B.Switch[0] = u2pwm_alpha_B.sf_MATLABFunction1.y;
+    u2pwm_alpha_B.Switch[1] = u2pwm_alpha_B.sf_MATLABFunction6.y;
+    u2pwm_alpha_B.Switch[2] = u2pwm_alpha_B.sf_MATLABFunction5.y;
+    u2pwm_alpha_B.Switch[3] = u2pwm_alpha_B.sf_MATLABFunction12.y;
+    u2pwm_alpha_B.Switch[4] = u2pwm_alpha_B.sf_MATLABFunction2.y;
+    u2pwm_alpha_B.Switch[5] = u2pwm_alpha_B.sf_MATLABFunction3.y;
+  }
+
+  /* End of Switch: '<Root>/Switch' */
 
   /* Sum: '<Root>/Sum12' incorporates:
    *  Constant: '<Root>/alpha_Offset'
@@ -217,230 +345,6 @@ static void u2pwm_alpha_output(void)
   }
 
   /* End of Switch: '<Root>/Switch1' */
-
-  /* Saturate: '<Root>/Saturation11' */
-  if (u2pwm_alpha_B.u_1 > u2pwm_alpha_P.Saturation11_UpperSat) {
-    u2pwm_alpha_B.Saturation11 = u2pwm_alpha_P.Saturation11_UpperSat;
-  } else if (u2pwm_alpha_B.u_1 < u2pwm_alpha_P.Saturation11_LowerSat) {
-    u2pwm_alpha_B.Saturation11 = u2pwm_alpha_P.Saturation11_LowerSat;
-  } else {
-    u2pwm_alpha_B.Saturation11 = u2pwm_alpha_B.u_1;
-  }
-
-  /* End of Saturate: '<Root>/Saturation11' */
-
-  /* MATLAB Function: '<Root>/MATLAB Function7' */
-  u2pwm_alpha_MATLABFunction10(u2pwm_alpha_B.Saturation11,
-    &u2pwm_alpha_B.sf_MATLABFunction7);
-
-  /* Saturate: '<Root>/Saturation' */
-  if (u2pwm_alpha_B.sf_MATLABFunction7.pwm > u2pwm_alpha_P.Saturation_UpperSat)
-  {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation_UpperSat;
-  } else if (u2pwm_alpha_B.sf_MATLABFunction7.pwm <
-             u2pwm_alpha_P.Saturation_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.sf_MATLABFunction7.pwm;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function1' incorporates:
-   *  Constant: '<Root>/PWM_Offset'
-   *  Gain: '<Root>/Gain'
-   *  Saturate: '<Root>/Saturation'
-   *  Sum: '<Root>/Sum2'
-   */
-  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain_Gain *
-    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction1);
-
-  /* Saturate: '<Root>/Saturation10' */
-  if (u2pwm_alpha_B.u_2 > u2pwm_alpha_P.Saturation10_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation10_UpperSat;
-  } else if (u2pwm_alpha_B.u_2 < u2pwm_alpha_P.Saturation10_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation10_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.u_2;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function4' incorporates:
-   *  Saturate: '<Root>/Saturation10'
-   */
-  u2pwm_alpha_MATLABFunction10(rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction4);
-
-  /* Saturate: '<Root>/Saturation1' */
-  if (u2pwm_alpha_B.sf_MATLABFunction4.pwm > u2pwm_alpha_P.Saturation1_UpperSat)
-  {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation1_UpperSat;
-  } else if (u2pwm_alpha_B.sf_MATLABFunction4.pwm <
-             u2pwm_alpha_P.Saturation1_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation1_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.sf_MATLABFunction4.pwm;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function6' incorporates:
-   *  Constant: '<Root>/PWM_Offset1'
-   *  Gain: '<Root>/Gain1'
-   *  Saturate: '<Root>/Saturation1'
-   *  Sum: '<Root>/Sum3'
-   */
-  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain1_Gain *
-    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction6);
-
-  /* Saturate: '<Root>/Saturation9' */
-  if (u2pwm_alpha_B.u_3 > u2pwm_alpha_P.Saturation9_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation9_UpperSat;
-  } else if (u2pwm_alpha_B.u_3 < u2pwm_alpha_P.Saturation9_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation9_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.u_3;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function8' incorporates:
-   *  Saturate: '<Root>/Saturation9'
-   */
-  u2pwm_alpha_MATLABFunction10(rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction8);
-
-  /* Saturate: '<Root>/Saturation2' */
-  if (u2pwm_alpha_B.sf_MATLABFunction8.pwm > u2pwm_alpha_P.Saturation2_UpperSat)
-  {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation2_UpperSat;
-  } else if (u2pwm_alpha_B.sf_MATLABFunction8.pwm <
-             u2pwm_alpha_P.Saturation2_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation2_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.sf_MATLABFunction8.pwm;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function5' incorporates:
-   *  Constant: '<Root>/PWM_Offset2'
-   *  Gain: '<Root>/Gain2'
-   *  Saturate: '<Root>/Saturation2'
-   *  Sum: '<Root>/Sum1'
-   */
-  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain2_Gain *
-    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction5);
-
-  /* Saturate: '<Root>/Saturation8' */
-  if (u2pwm_alpha_B.u_4 > u2pwm_alpha_P.Saturation8_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation8_UpperSat;
-  } else if (u2pwm_alpha_B.u_4 < u2pwm_alpha_P.Saturation8_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation8_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.u_4;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function9' incorporates:
-   *  Saturate: '<Root>/Saturation8'
-   */
-  u2pwm_alpha_MATLABFunction10(rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction9);
-
-  /* Saturate: '<Root>/Saturation3' */
-  if (u2pwm_alpha_B.sf_MATLABFunction9.pwm > u2pwm_alpha_P.Saturation3_UpperSat)
-  {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation3_UpperSat;
-  } else if (u2pwm_alpha_B.sf_MATLABFunction9.pwm <
-             u2pwm_alpha_P.Saturation3_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation3_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.sf_MATLABFunction9.pwm;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function12' incorporates:
-   *  Constant: '<Root>/PWM_Offset3'
-   *  Gain: '<Root>/Gain3'
-   *  Saturate: '<Root>/Saturation3'
-   *  Sum: '<Root>/Sum4'
-   */
-  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain3_Gain *
-    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction12);
-
-  /* Saturate: '<Root>/Saturation7' */
-  if (u2pwm_alpha_B.u_5 > u2pwm_alpha_P.Saturation7_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation7_UpperSat;
-  } else if (u2pwm_alpha_B.u_5 < u2pwm_alpha_P.Saturation7_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation7_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.u_5;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function10' incorporates:
-   *  Saturate: '<Root>/Saturation7'
-   */
-  u2pwm_alpha_MATLABFunction10(rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction10);
-
-  /* Saturate: '<Root>/Saturation4' */
-  if (u2pwm_alpha_B.sf_MATLABFunction10.pwm > u2pwm_alpha_P.Saturation4_UpperSat)
-  {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation4_UpperSat;
-  } else if (u2pwm_alpha_B.sf_MATLABFunction10.pwm <
-             u2pwm_alpha_P.Saturation4_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation4_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.sf_MATLABFunction10.pwm;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function2' incorporates:
-   *  Constant: '<Root>/PWM_Offset4'
-   *  Gain: '<Root>/Gain4'
-   *  Saturate: '<Root>/Saturation4'
-   *  Sum: '<Root>/Sum5'
-   */
-  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain4_Gain *
-    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction2);
-
-  /* Saturate: '<Root>/Saturation5' */
-  if (u2pwm_alpha_B.u_6 > u2pwm_alpha_P.Saturation5_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation5_UpperSat;
-  } else if (u2pwm_alpha_B.u_6 < u2pwm_alpha_P.Saturation5_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation5_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.u_6;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function11' incorporates:
-   *  Saturate: '<Root>/Saturation5'
-   */
-  u2pwm_alpha_MATLABFunction10(rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction11);
-
-  /* Saturate: '<Root>/Saturation6' */
-  if (u2pwm_alpha_B.sf_MATLABFunction11.pwm > u2pwm_alpha_P.Saturation6_UpperSat)
-  {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation6_UpperSat;
-  } else if (u2pwm_alpha_B.sf_MATLABFunction11.pwm <
-             u2pwm_alpha_P.Saturation6_LowerSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation6_LowerSat;
-  } else {
-    rtb_Sum12 = u2pwm_alpha_B.sf_MATLABFunction11.pwm;
-  }
-
-  /* MATLAB Function: '<Root>/MATLAB Function3' incorporates:
-   *  Constant: '<Root>/PWM_Offset5'
-   *  Gain: '<Root>/Gain5'
-   *  Saturate: '<Root>/Saturation6'
-   *  Sum: '<Root>/Sum6'
-   */
-  u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain5_Gain *
-    rtb_Sum12, &u2pwm_alpha_B.sf_MATLABFunction3);
-
-  /* Switch: '<Root>/Switch' */
-  if (u2pwm_alpha_B.manualoverridepwm != 0.0) {
-    u2pwm_alpha_B.Switch[0] = u2pwm_alpha_B.pwm_u_1;
-    u2pwm_alpha_B.Switch[1] = u2pwm_alpha_B.pwm_u_2;
-    u2pwm_alpha_B.Switch[2] = u2pwm_alpha_B.pwm_u_3;
-    u2pwm_alpha_B.Switch[3] = u2pwm_alpha_B.pwm_u_4;
-    u2pwm_alpha_B.Switch[4] = u2pwm_alpha_B.pwm_u_5;
-    u2pwm_alpha_B.Switch[5] = u2pwm_alpha_B.pwm_u_6;
-  } else {
-    u2pwm_alpha_B.Switch[0] = u2pwm_alpha_B.sf_MATLABFunction1.y;
-    u2pwm_alpha_B.Switch[1] = u2pwm_alpha_B.sf_MATLABFunction6.y;
-    u2pwm_alpha_B.Switch[2] = u2pwm_alpha_B.sf_MATLABFunction5.y;
-    u2pwm_alpha_B.Switch[3] = u2pwm_alpha_B.sf_MATLABFunction12.y;
-    u2pwm_alpha_B.Switch[4] = u2pwm_alpha_B.sf_MATLABFunction2.y;
-    u2pwm_alpha_B.Switch[5] = u2pwm_alpha_B.sf_MATLABFunction3.y;
-  }
-
-  /* End of Switch: '<Root>/Switch' */
 }
 
 /* Model update function */
@@ -598,9 +502,9 @@ RT_MODEL_u2pwm_alpha_T *u2pwm_alpha(void)
   u2pwm_alpha_M->Sizes.numU = (0);     /* Number of model inputs */
   u2pwm_alpha_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   u2pwm_alpha_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  u2pwm_alpha_M->Sizes.numBlocks = (102);/* Number of blocks */
-  u2pwm_alpha_M->Sizes.numBlockIO = (42);/* Number of block outputs */
-  u2pwm_alpha_M->Sizes.numBlockPrms = (283);/* Sum of parameter "widths" */
+  u2pwm_alpha_M->Sizes.numBlocks = (93);/* Number of blocks */
+  u2pwm_alpha_M->Sizes.numBlockIO = (35);/* Number of block outputs */
+  u2pwm_alpha_M->Sizes.numBlockPrms = (271);/* Sum of parameter "widths" */
   return u2pwm_alpha_M;
 }
 
@@ -612,9 +516,9 @@ RT_MODEL_u2pwm_alpha_T *u2pwm_alpha(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : u2pwm_alpha
- * Model version : 1.103
+ * Model version : 1.105
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu May 05 10:59:24 2016
+ * Source generated on : Mon May 09 19:25:46 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -697,10 +601,10 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
    case 18:
     return NIRT_GetValueByDataType(ptr,subindex,3,Complex);
 
-   case 26:
+   case 25:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
-   case 27:
+   case 26:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
   }
 
@@ -790,11 +694,11 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,3,Complex);
 
-   case 26:
+   case 25:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
-   case 27:
+   case 26:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
   }
@@ -822,6 +726,98 @@ extern _SITexportglobals SITexportglobals;
 void SetExternalInputs(double* data, int_T* TaskSampleHit)
 {
   int index = 0, count = 0;
+
+  // u2pwm_alpha/manual pwm/pwm_u_5
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_5, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/manual pwm/pwm_u_4
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/manual pwm/pwm_u_1
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/manual pwm/pwm_u_6
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_6, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/manual pwm/pwm_u_2
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/manual pwm/pwm_u_3
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/manual override pwm
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.manualoverridepwm, 0, data[index++],
+      0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/u_in/u_5
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_5, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/u_in/u_4
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/u_in/u_6
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_6, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/u_in/u_1
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/u_in/u_2
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/u_in/u_3
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
 
   // u2pwm_alpha/alpha_in/alpha_1
   if (TaskSampleHit[0]) {
@@ -861,14 +857,6 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
   // u2pwm_alpha/alpha_in/alpha_6
   if (TaskSampleHit[0]) {
     NIRT_SetValueByDataType(&u2pwm_alpha_B.alpha_6, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/manual override pwm
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.manualoverridepwm, 0, data[index++],
-      0, 0);
   } else {
     index += 1;
   }
@@ -923,90 +911,6 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
-  // u2pwm_alpha/u_in/u_5
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_5, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/u_in/u_4
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_4, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/u_in/u_6
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_6, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/u_in/u_1
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_1, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/u_in/u_2
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_2, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/u_in/u_3
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.u_3, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/manual pwm/pwm_u_5
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_5, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/manual pwm/pwm_u_4
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_4, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/manual pwm/pwm_u_1
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_1, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/manual pwm/pwm_u_6
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_6, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/manual pwm/pwm_u_2
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_2, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/manual pwm/pwm_u_3
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&u2pwm_alpha_B.pwm_u_3, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
   UNUSED_PARAMETER(count);
 }                                      /* of SetExternalInputs */
 
@@ -1017,10 +921,10 @@ int32_t NumInputPorts(void)
 
 int32_t NumOutputPorts(void)
 {
-  return 15;
+  return 13;
 }
 
-double ni_extout[15];
+double ni_extout[13];
 
 /*========================================================================*
  * Function: SetExternalOutputs
@@ -1038,6 +942,48 @@ double ni_extout[15];
 void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 {
   int index = 0, count = 0;
+
+  // u2pwm_alpha/pwm/pwm_u_2: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 1, 17, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/pwm/pwm_u_3: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 2, 17, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/pwm/pwm_u_1: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 0, 17, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/pwm/pwm_u_6: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 5, 17, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/pwm/pwm_u_4: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 3, 17, 0);
+  } else {
+    index += 1;
+  }
+
+  // u2pwm_alpha/pwm/pwm_u_5: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 4, 17, 0);
+  } else {
+    index += 1;
+  }
 
   // u2pwm_alpha/Need unwrapping thrusters: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
@@ -1094,64 +1040,6 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
-  // u2pwm_alpha/pwm_test: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType
-      (&u2pwm_alpha_B.sf_MATLABFunction7.pwm, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/force_test: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Saturation11, 0,
-      0, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/pwm/pwm_u_2: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 1, 17, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/pwm/pwm_u_3: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 2, 17, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/pwm/pwm_u_1: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 0, 17, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/pwm/pwm_u_6: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 5, 17, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/pwm/pwm_u_4: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 3, 17, 0);
-  } else {
-    index += 1;
-  }
-
-  // u2pwm_alpha/pwm/pwm_u_5: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 4, 17, 0);
-  } else {
-    index += 1;
-  }
-
   if (data != NULL) {
     memcpy(&data[0], &ni_extout[0], sizeof(ni_extout));
   }
@@ -1174,6 +1062,24 @@ int32_t NI_InitExternalOutputs()
 {
   int index = 0, count = 0;
 
+  // u2pwm_alpha/pwm/pwm_u_2: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 1, 17, 0);
+
+  // u2pwm_alpha/pwm/pwm_u_3: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 2, 17, 0);
+
+  // u2pwm_alpha/pwm/pwm_u_1: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 0, 17, 0);
+
+  // u2pwm_alpha/pwm/pwm_u_6: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 5, 17, 0);
+
+  // u2pwm_alpha/pwm/pwm_u_4: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 3, 17, 0);
+
+  // u2pwm_alpha/pwm/pwm_u_5: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 4, 17, 0);
+
   // u2pwm_alpha/Need unwrapping thrusters: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.y, 0, 0, 0);
 
@@ -1194,32 +1100,6 @@ int32_t NI_InitExternalOutputs()
 
   // u2pwm_alpha/alpha_out/alpha_5: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch1, 4, 17, 0);
-
-  // u2pwm_alpha/pwm_test: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType
-    (&u2pwm_alpha_B.sf_MATLABFunction7.pwm, 0, 0, 0);
-
-  // u2pwm_alpha/force_test: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Saturation11, 0, 0,
-    0);
-
-  // u2pwm_alpha/pwm/pwm_u_2: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 1, 17, 0);
-
-  // u2pwm_alpha/pwm/pwm_u_3: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 2, 17, 0);
-
-  // u2pwm_alpha/pwm/pwm_u_1: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 0, 17, 0);
-
-  // u2pwm_alpha/pwm/pwm_u_6: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 5, 17, 0);
-
-  // u2pwm_alpha/pwm/pwm_u_4: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 3, 17, 0);
-
-  // u2pwm_alpha/pwm/pwm_u_5: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&u2pwm_alpha_B.Switch, 4, 17, 0);
   UNUSED_PARAMETER(count);
   return NI_OK;
 }
@@ -1233,129 +1113,129 @@ int32_t NI_InitExternalOutputs()
 static NI_Parameter NI_ParamList[] DataSection(".NIVS.paramlist") =
 {
   { 0, "u2pwm_alpha/alpha_Offset/Value", offsetof(P_u2pwm_alpha_T, zero_alpha_1),
-    26, 1, 2, 0, 0 },
+    25, 1, 2, 0, 0 },
 
   { 1, "u2pwm_alpha/alpha_Offset1/Value", offsetof(P_u2pwm_alpha_T, zero_alpha_2),
-    26, 1, 2, 2, 0 },
+    25, 1, 2, 2, 0 },
 
   { 2, "u2pwm_alpha/alpha_Offset2/Value", offsetof(P_u2pwm_alpha_T, zero_alpha_3),
-    26, 1, 2, 4, 0 },
+    25, 1, 2, 4, 0 },
 
   { 3, "u2pwm_alpha/alpha_Offset3/Value", offsetof(P_u2pwm_alpha_T, zero_alpha_4),
-    26, 1, 2, 6, 0 },
+    25, 1, 2, 6, 0 },
 
   { 4, "u2pwm_alpha/alpha_Offset4/Value", offsetof(P_u2pwm_alpha_T, zero_alpha_5),
-    26, 1, 2, 8, 0 },
+    25, 1, 2, 8, 0 },
 
   { 5, "u2pwm_alpha/alpha_Offset5/Value", offsetof(P_u2pwm_alpha_T, zero_alpha_6),
-    26, 1, 2, 10, 0 },
+    25, 1, 2, 10, 0 },
 
-  { 6, "u2pwm_alpha/PWM_Offset/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 26,
+  { 6, "u2pwm_alpha/PWM_Offset/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 25,
     1, 2, 12, 0 },
 
-  { 7, "u2pwm_alpha/PWM_Offset1/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 26,
+  { 7, "u2pwm_alpha/PWM_Offset1/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 25,
     1, 2, 14, 0 },
 
-  { 8, "u2pwm_alpha/PWM_Offset2/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 26,
+  { 8, "u2pwm_alpha/PWM_Offset2/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 25,
     1, 2, 16, 0 },
 
-  { 9, "u2pwm_alpha/PWM_Offset3/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 26,
+  { 9, "u2pwm_alpha/PWM_Offset3/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 25,
     1, 2, 18, 0 },
 
-  { 10, "u2pwm_alpha/PWM_Offset4/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 26,
+  { 10, "u2pwm_alpha/PWM_Offset4/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 25,
     1, 2, 20, 0 },
 
-  { 11, "u2pwm_alpha/PWM_Offset5/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 26,
+  { 11, "u2pwm_alpha/PWM_Offset5/Value", offsetof(P_u2pwm_alpha_T, zero_pwm), 25,
     1, 2, 22, 0 },
 
   { 12, "u2pwm_alpha/Saturation11/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation11_UpperSat), 26, 1, 2, 24, 0 },
+    Saturation11_UpperSat), 25, 1, 2, 24, 0 },
 
   { 13, "u2pwm_alpha/Saturation11/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation11_LowerSat), 26, 1, 2, 26, 0 },
+    Saturation11_LowerSat), 25, 1, 2, 26, 0 },
 
   { 14, "u2pwm_alpha/Saturation/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation_UpperSat), 26, 1, 2, 28, 0 },
+    Saturation_UpperSat), 25, 1, 2, 28, 0 },
 
   { 15, "u2pwm_alpha/Saturation/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation_LowerSat), 26, 1, 2, 30, 0 },
+    Saturation_LowerSat), 25, 1, 2, 30, 0 },
 
-  { 16, "u2pwm_alpha/Gain/Gain", offsetof(P_u2pwm_alpha_T, Gain_Gain), 26, 1, 2,
+  { 16, "u2pwm_alpha/Gain/Gain", offsetof(P_u2pwm_alpha_T, Gain_Gain), 25, 1, 2,
     32, 0 },
 
   { 17, "u2pwm_alpha/Saturation10/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation10_UpperSat), 26, 1, 2, 34, 0 },
+    Saturation10_UpperSat), 25, 1, 2, 34, 0 },
 
   { 18, "u2pwm_alpha/Saturation10/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation10_LowerSat), 26, 1, 2, 36, 0 },
+    Saturation10_LowerSat), 25, 1, 2, 36, 0 },
 
   { 19, "u2pwm_alpha/Saturation1/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation1_UpperSat), 26, 1, 2, 38, 0 },
+    Saturation1_UpperSat), 25, 1, 2, 38, 0 },
 
   { 20, "u2pwm_alpha/Saturation1/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation1_LowerSat), 26, 1, 2, 40, 0 },
+    Saturation1_LowerSat), 25, 1, 2, 40, 0 },
 
-  { 21, "u2pwm_alpha/Gain1/Gain", offsetof(P_u2pwm_alpha_T, Gain1_Gain), 26, 1,
+  { 21, "u2pwm_alpha/Gain1/Gain", offsetof(P_u2pwm_alpha_T, Gain1_Gain), 25, 1,
     2, 42, 0 },
 
   { 22, "u2pwm_alpha/Saturation9/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation9_UpperSat), 26, 1, 2, 44, 0 },
+    Saturation9_UpperSat), 25, 1, 2, 44, 0 },
 
   { 23, "u2pwm_alpha/Saturation9/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation9_LowerSat), 26, 1, 2, 46, 0 },
+    Saturation9_LowerSat), 25, 1, 2, 46, 0 },
 
   { 24, "u2pwm_alpha/Saturation2/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation2_UpperSat), 26, 1, 2, 48, 0 },
+    Saturation2_UpperSat), 25, 1, 2, 48, 0 },
 
   { 25, "u2pwm_alpha/Saturation2/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation2_LowerSat), 26, 1, 2, 50, 0 },
+    Saturation2_LowerSat), 25, 1, 2, 50, 0 },
 
-  { 26, "u2pwm_alpha/Gain2/Gain", offsetof(P_u2pwm_alpha_T, Gain2_Gain), 26, 1,
+  { 26, "u2pwm_alpha/Gain2/Gain", offsetof(P_u2pwm_alpha_T, Gain2_Gain), 25, 1,
     2, 52, 0 },
 
   { 27, "u2pwm_alpha/Saturation8/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation8_UpperSat), 26, 1, 2, 54, 0 },
+    Saturation8_UpperSat), 25, 1, 2, 54, 0 },
 
   { 28, "u2pwm_alpha/Saturation8/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation8_LowerSat), 26, 1, 2, 56, 0 },
+    Saturation8_LowerSat), 25, 1, 2, 56, 0 },
 
   { 29, "u2pwm_alpha/Saturation3/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation3_UpperSat), 26, 1, 2, 58, 0 },
+    Saturation3_UpperSat), 25, 1, 2, 58, 0 },
 
   { 30, "u2pwm_alpha/Saturation3/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation3_LowerSat), 26, 1, 2, 60, 0 },
+    Saturation3_LowerSat), 25, 1, 2, 60, 0 },
 
-  { 31, "u2pwm_alpha/Gain3/Gain", offsetof(P_u2pwm_alpha_T, Gain3_Gain), 26, 1,
+  { 31, "u2pwm_alpha/Gain3/Gain", offsetof(P_u2pwm_alpha_T, Gain3_Gain), 25, 1,
     2, 62, 0 },
 
   { 32, "u2pwm_alpha/Saturation7/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation7_UpperSat), 26, 1, 2, 64, 0 },
+    Saturation7_UpperSat), 25, 1, 2, 64, 0 },
 
   { 33, "u2pwm_alpha/Saturation7/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation7_LowerSat), 26, 1, 2, 66, 0 },
+    Saturation7_LowerSat), 25, 1, 2, 66, 0 },
 
   { 34, "u2pwm_alpha/Saturation4/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation4_UpperSat), 26, 1, 2, 68, 0 },
+    Saturation4_UpperSat), 25, 1, 2, 68, 0 },
 
   { 35, "u2pwm_alpha/Saturation4/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation4_LowerSat), 26, 1, 2, 70, 0 },
+    Saturation4_LowerSat), 25, 1, 2, 70, 0 },
 
-  { 36, "u2pwm_alpha/Gain4/Gain", offsetof(P_u2pwm_alpha_T, Gain4_Gain), 26, 1,
+  { 36, "u2pwm_alpha/Gain4/Gain", offsetof(P_u2pwm_alpha_T, Gain4_Gain), 25, 1,
     2, 72, 0 },
 
   { 37, "u2pwm_alpha/Saturation5/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation5_UpperSat), 26, 1, 2, 74, 0 },
+    Saturation5_UpperSat), 25, 1, 2, 74, 0 },
 
   { 38, "u2pwm_alpha/Saturation5/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation5_LowerSat), 26, 1, 2, 76, 0 },
+    Saturation5_LowerSat), 25, 1, 2, 76, 0 },
 
   { 39, "u2pwm_alpha/Saturation6/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation6_UpperSat), 26, 1, 2, 78, 0 },
+    Saturation6_UpperSat), 25, 1, 2, 78, 0 },
 
   { 40, "u2pwm_alpha/Saturation6/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation6_LowerSat), 26, 1, 2, 80, 0 },
+    Saturation6_LowerSat), 25, 1, 2, 80, 0 },
 
-  { 41, "u2pwm_alpha/Gain5/Gain", offsetof(P_u2pwm_alpha_T, Gain5_Gain), 26, 1,
+  { 41, "u2pwm_alpha/Gain5/Gain", offsetof(P_u2pwm_alpha_T, Gain5_Gain), 25, 1,
     2, 82, 0 },
 };
 
@@ -1408,255 +1288,230 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
 {
-  { 0, "u2pwm_alpha/alpha_in/alpha_1", 0, "", offsetof(B_u2pwm_alpha_T, alpha_1)
-    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 0, "u2pwm_alpha/manual pwm/pwm_u_5", 0, "", offsetof(B_u2pwm_alpha_T,
+    pwm_u_5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 1, "u2pwm_alpha/alpha_in/alpha_2", 0, "", offsetof(B_u2pwm_alpha_T, alpha_2)
-    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 1, "u2pwm_alpha/manual pwm/pwm_u_4", 0, "", offsetof(B_u2pwm_alpha_T,
+    pwm_u_4) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 2, "u2pwm_alpha/alpha_in/alpha_3", 0, "", offsetof(B_u2pwm_alpha_T, alpha_3)
-    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 2, "u2pwm_alpha/manual pwm/pwm_u_1", 0, "", offsetof(B_u2pwm_alpha_T,
+    pwm_u_1) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 3, "u2pwm_alpha/alpha_in/alpha_4", 0, "", offsetof(B_u2pwm_alpha_T, alpha_4)
-    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 3, "u2pwm_alpha/manual pwm/pwm_u_6", 0, "", offsetof(B_u2pwm_alpha_T,
+    pwm_u_6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 4, "u2pwm_alpha/alpha_in/alpha_5", 0, "", offsetof(B_u2pwm_alpha_T, alpha_5)
-    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 4, "u2pwm_alpha/manual pwm/pwm_u_2", 0, "", offsetof(B_u2pwm_alpha_T,
+    pwm_u_2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 5, "u2pwm_alpha/alpha_in/alpha_6", 0, "", offsetof(B_u2pwm_alpha_T, alpha_6)
-    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 5, "u2pwm_alpha/manual pwm/pwm_u_3", 0, "", offsetof(B_u2pwm_alpha_T,
+    pwm_u_3) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
   { 6, "u2pwm_alpha/manual override pwm", 0, "", offsetof(B_u2pwm_alpha_T,
     manualoverridepwm) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 7, "u2pwm_alpha/manual alpha/man_alpha_5", 0, "", offsetof(B_u2pwm_alpha_T,
-    man_alpha_5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 7, "u2pwm_alpha/u_in/u_5", 0, "", offsetof(B_u2pwm_alpha_T, u_5) + (0*sizeof
+    (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 8, "u2pwm_alpha/manual alpha/man_alpha_4", 0, "", offsetof(B_u2pwm_alpha_T,
-    man_alpha_4) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 8, "u2pwm_alpha/u_in/u_4", 0, "", offsetof(B_u2pwm_alpha_T, u_4) + (0*sizeof
+    (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 9, "u2pwm_alpha/manual alpha/man_alpha_1", 0, "", offsetof(B_u2pwm_alpha_T,
-    man_alpha_1) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 9, "u2pwm_alpha/u_in/u_6", 0, "", offsetof(B_u2pwm_alpha_T, u_6) + (0*sizeof
+    (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 10, "u2pwm_alpha/manual alpha/man_alpha_2", 0, "", offsetof(B_u2pwm_alpha_T,
-    man_alpha_2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 11, "u2pwm_alpha/manual alpha/man_alpha_3", 0, "", offsetof(B_u2pwm_alpha_T,
-    man_alpha_3) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 12, "u2pwm_alpha/manual alpha/man_alpha_6", 0, "", offsetof(B_u2pwm_alpha_T,
-    man_alpha_6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 13, "u2pwm_alpha/manual override alpha", 0, "", offsetof(B_u2pwm_alpha_T,
-    manualoverridealpha) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 14, "u2pwm_alpha/Switch1/(1, 1)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
-    + (0*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
-
-  { 15, "u2pwm_alpha/Switch1/(1, 2)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
-    + (1*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
-
-  { 16, "u2pwm_alpha/Switch1/(1, 3)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
-    + (2*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
-
-  { 17, "u2pwm_alpha/Switch1/(1, 4)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
-    + (3*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
-
-  { 18, "u2pwm_alpha/Switch1/(1, 5)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
-    + (4*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
-
-  { 19, "u2pwm_alpha/Switch1/(1, 6)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
-    + (5*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
-
-  { 20, "u2pwm_alpha/u_in/u_5", 0, "", offsetof(B_u2pwm_alpha_T, u_5) + (0*
+  { 10, "u2pwm_alpha/u_in/u_1", 0, "", offsetof(B_u2pwm_alpha_T, u_1) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 21, "u2pwm_alpha/u_in/u_4", 0, "", offsetof(B_u2pwm_alpha_T, u_4) + (0*
+  { 11, "u2pwm_alpha/u_in/u_2", 0, "", offsetof(B_u2pwm_alpha_T, u_2) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 22, "u2pwm_alpha/u_in/u_6", 0, "", offsetof(B_u2pwm_alpha_T, u_6) + (0*
+  { 12, "u2pwm_alpha/u_in/u_3", 0, "", offsetof(B_u2pwm_alpha_T, u_3) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 23, "u2pwm_alpha/u_in/u_1", 0, "", offsetof(B_u2pwm_alpha_T, u_1) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 24, "u2pwm_alpha/u_in/u_2", 0, "", offsetof(B_u2pwm_alpha_T, u_2) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 25, "u2pwm_alpha/u_in/u_3", 0, "", offsetof(B_u2pwm_alpha_T, u_3) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 26, "u2pwm_alpha/Saturation11", 0, "", offsetof(B_u2pwm_alpha_T,
-    Saturation11) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 27, "u2pwm_alpha/manual pwm/pwm_u_5", 0, "", offsetof(B_u2pwm_alpha_T,
-    pwm_u_5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 28, "u2pwm_alpha/manual pwm/pwm_u_4", 0, "", offsetof(B_u2pwm_alpha_T,
-    pwm_u_4) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 29, "u2pwm_alpha/manual pwm/pwm_u_1", 0, "", offsetof(B_u2pwm_alpha_T,
-    pwm_u_1) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 30, "u2pwm_alpha/manual pwm/pwm_u_6", 0, "", offsetof(B_u2pwm_alpha_T,
-    pwm_u_6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 31, "u2pwm_alpha/manual pwm/pwm_u_2", 0, "", offsetof(B_u2pwm_alpha_T,
-    pwm_u_2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 32, "u2pwm_alpha/manual pwm/pwm_u_3", 0, "", offsetof(B_u2pwm_alpha_T,
-    pwm_u_3) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 33, "u2pwm_alpha/Switch/(1, 1)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
+  { 13, "u2pwm_alpha/Switch/(1, 1)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
     (0*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 34, "u2pwm_alpha/Switch/(1, 2)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
+  { 14, "u2pwm_alpha/Switch/(1, 2)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
     (1*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 35, "u2pwm_alpha/Switch/(1, 3)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
+  { 15, "u2pwm_alpha/Switch/(1, 3)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
     (2*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 36, "u2pwm_alpha/Switch/(1, 4)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
+  { 16, "u2pwm_alpha/Switch/(1, 4)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
     (3*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 37, "u2pwm_alpha/Switch/(1, 5)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
+  { 17, "u2pwm_alpha/Switch/(1, 5)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
     (4*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 38, "u2pwm_alpha/Switch/(1, 6)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
+  { 18, "u2pwm_alpha/Switch/(1, 6)", 0, "", offsetof(B_u2pwm_alpha_T, Switch) +
     (5*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
 
-  { 39, "u2pwm_alpha/MATLAB Function", 0, "", offsetof(B_u2pwm_alpha_T, y) + (0*
+  { 19, "u2pwm_alpha/alpha_in/alpha_1", 0, "", offsetof(B_u2pwm_alpha_T, alpha_1)
+    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 20, "u2pwm_alpha/alpha_in/alpha_2", 0, "", offsetof(B_u2pwm_alpha_T, alpha_2)
+    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 21, "u2pwm_alpha/alpha_in/alpha_3", 0, "", offsetof(B_u2pwm_alpha_T, alpha_3)
+    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 22, "u2pwm_alpha/alpha_in/alpha_4", 0, "", offsetof(B_u2pwm_alpha_T, alpha_4)
+    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 23, "u2pwm_alpha/alpha_in/alpha_5", 0, "", offsetof(B_u2pwm_alpha_T, alpha_5)
+    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 24, "u2pwm_alpha/alpha_in/alpha_6", 0, "", offsetof(B_u2pwm_alpha_T, alpha_6)
+    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 25, "u2pwm_alpha/manual alpha/man_alpha_5", 0, "", offsetof(B_u2pwm_alpha_T,
+    man_alpha_5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 26, "u2pwm_alpha/manual alpha/man_alpha_4", 0, "", offsetof(B_u2pwm_alpha_T,
+    man_alpha_4) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 27, "u2pwm_alpha/manual alpha/man_alpha_1", 0, "", offsetof(B_u2pwm_alpha_T,
+    man_alpha_1) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 28, "u2pwm_alpha/manual alpha/man_alpha_2", 0, "", offsetof(B_u2pwm_alpha_T,
+    man_alpha_2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 29, "u2pwm_alpha/manual alpha/man_alpha_3", 0, "", offsetof(B_u2pwm_alpha_T,
+    man_alpha_3) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 30, "u2pwm_alpha/manual alpha/man_alpha_6", 0, "", offsetof(B_u2pwm_alpha_T,
+    man_alpha_6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 31, "u2pwm_alpha/manual override alpha", 0, "", offsetof(B_u2pwm_alpha_T,
+    manualoverridealpha) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 32, "u2pwm_alpha/Switch1/(1, 1)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
+    + (0*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
+
+  { 33, "u2pwm_alpha/Switch1/(1, 2)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
+    + (1*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
+
+  { 34, "u2pwm_alpha/Switch1/(1, 3)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
+    + (2*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
+
+  { 35, "u2pwm_alpha/Switch1/(1, 4)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
+    + (3*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
+
+  { 36, "u2pwm_alpha/Switch1/(1, 5)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
+    + (4*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
+
+  { 37, "u2pwm_alpha/Switch1/(1, 6)", 0, "", offsetof(B_u2pwm_alpha_T, Switch1)
+    + (5*sizeof(real_T)), BLOCKIO_SIG, 17, 1, 2, 0, 0 },
+
+  { 38, "u2pwm_alpha/MATLAB Function", 0, "", offsetof(B_u2pwm_alpha_T, y) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 40, "u2pwm_alpha/MATLAB Function9", 0, "", offsetof(B_u2pwm_alpha_T,
-    sf_MATLABFunction9.pwm) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 41, "u2pwm_alpha/MATLAB Function8", 0, "", offsetof(B_u2pwm_alpha_T,
-    sf_MATLABFunction8.pwm) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 42, "u2pwm_alpha/MATLAB Function7", 0, "", offsetof(B_u2pwm_alpha_T,
-    sf_MATLABFunction7.pwm) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 43, "u2pwm_alpha/MATLAB Function6", 0, "", offsetof(B_u2pwm_alpha_T,
+  { 39, "u2pwm_alpha/MATLAB Function6", 0, "", offsetof(B_u2pwm_alpha_T,
     sf_MATLABFunction6.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 44, "u2pwm_alpha/MATLAB Function5", 0, "", offsetof(B_u2pwm_alpha_T,
+  { 40, "u2pwm_alpha/MATLAB Function5", 0, "", offsetof(B_u2pwm_alpha_T,
     sf_MATLABFunction5.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 45, "u2pwm_alpha/MATLAB Function4", 0, "", offsetof(B_u2pwm_alpha_T,
-    sf_MATLABFunction4.pwm) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 46, "u2pwm_alpha/MATLAB Function3", 0, "", offsetof(B_u2pwm_alpha_T,
+  { 41, "u2pwm_alpha/MATLAB Function3", 0, "", offsetof(B_u2pwm_alpha_T,
     sf_MATLABFunction3.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 47, "u2pwm_alpha/MATLAB Function2", 0, "", offsetof(B_u2pwm_alpha_T,
+  { 42, "u2pwm_alpha/MATLAB Function2", 0, "", offsetof(B_u2pwm_alpha_T,
     sf_MATLABFunction2.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 48, "u2pwm_alpha/MATLAB Function12", 0, "", offsetof(B_u2pwm_alpha_T,
+  { 43, "u2pwm_alpha/MATLAB Function12", 0, "", offsetof(B_u2pwm_alpha_T,
     sf_MATLABFunction12.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 49, "u2pwm_alpha/MATLAB Function11", 0, "", offsetof(B_u2pwm_alpha_T,
-    sf_MATLABFunction11.pwm) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 50, "u2pwm_alpha/MATLAB Function10", 0, "", offsetof(B_u2pwm_alpha_T,
-    sf_MATLABFunction10.pwm) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 51, "u2pwm_alpha/MATLAB Function1", 0, "", offsetof(B_u2pwm_alpha_T,
+  { 44, "u2pwm_alpha/MATLAB Function1", 0, "", offsetof(B_u2pwm_alpha_T,
     sf_MATLABFunction1.y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
   { -1, "", -1, "", 0, 0, 0 }
 };
 
-static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 52;
+static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 45;
 static int32_t NI_VirtualBlockSources[1];
 static int32_t NI_SigDimList[] DataSection(".NIVS.sigdimlist") =
 { 1, 1
 };
 
-static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 41;
+static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 39;
 static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 {
-  { 1, "alpha_in/alpha_1", 0, EXT_IN, 1, 1, 1 },
+  { 1, "manual pwm/pwm_u_5", 0, EXT_IN, 1, 1, 1 },
 
-  { 2, "alpha_in/alpha_2", 0, EXT_IN, 1, 1, 1 },
+  { 2, "manual pwm/pwm_u_4", 0, EXT_IN, 1, 1, 1 },
 
-  { 3, "alpha_in/alpha_3", 0, EXT_IN, 1, 1, 1 },
+  { 3, "manual pwm/pwm_u_1", 0, EXT_IN, 1, 1, 1 },
 
-  { 4, "alpha_in/alpha_4", 0, EXT_IN, 1, 1, 1 },
+  { 4, "manual pwm/pwm_u_6", 0, EXT_IN, 1, 1, 1 },
 
-  { 5, "alpha_in/alpha_5", 0, EXT_IN, 1, 1, 1 },
+  { 5, "manual pwm/pwm_u_2", 0, EXT_IN, 1, 1, 1 },
 
-  { 6, "alpha_in/alpha_6", 0, EXT_IN, 1, 1, 1 },
+  { 6, "manual pwm/pwm_u_3", 0, EXT_IN, 1, 1, 1 },
 
   { 7, "manual override pwm", 0, EXT_IN, 1, 1, 1 },
 
-  { 8, "manual alpha/man_alpha_5", 0, EXT_IN, 1, 1, 1 },
+  { 8, "u_in/u_5", 0, EXT_IN, 1, 1, 1 },
 
-  { 9, "manual alpha/man_alpha_4", 0, EXT_IN, 1, 1, 1 },
+  { 9, "u_in/u_4", 0, EXT_IN, 1, 1, 1 },
 
-  { 10, "manual alpha/man_alpha_1", 0, EXT_IN, 1, 1, 1 },
+  { 10, "u_in/u_6", 0, EXT_IN, 1, 1, 1 },
 
-  { 11, "manual alpha/man_alpha_2", 0, EXT_IN, 1, 1, 1 },
+  { 11, "u_in/u_1", 0, EXT_IN, 1, 1, 1 },
 
-  { 12, "manual alpha/man_alpha_3", 0, EXT_IN, 1, 1, 1 },
+  { 12, "u_in/u_2", 0, EXT_IN, 1, 1, 1 },
 
-  { 13, "manual alpha/man_alpha_6", 0, EXT_IN, 1, 1, 1 },
+  { 13, "u_in/u_3", 0, EXT_IN, 1, 1, 1 },
 
-  { 14, "manual override alpha", 0, EXT_IN, 1, 1, 1 },
+  { 14, "alpha_in/alpha_1", 0, EXT_IN, 1, 1, 1 },
 
-  { 15, "u_in/u_5", 0, EXT_IN, 1, 1, 1 },
+  { 15, "alpha_in/alpha_2", 0, EXT_IN, 1, 1, 1 },
 
-  { 16, "u_in/u_4", 0, EXT_IN, 1, 1, 1 },
+  { 16, "alpha_in/alpha_3", 0, EXT_IN, 1, 1, 1 },
 
-  { 17, "u_in/u_6", 0, EXT_IN, 1, 1, 1 },
+  { 17, "alpha_in/alpha_4", 0, EXT_IN, 1, 1, 1 },
 
-  { 18, "u_in/u_1", 0, EXT_IN, 1, 1, 1 },
+  { 18, "alpha_in/alpha_5", 0, EXT_IN, 1, 1, 1 },
 
-  { 19, "u_in/u_2", 0, EXT_IN, 1, 1, 1 },
+  { 19, "alpha_in/alpha_6", 0, EXT_IN, 1, 1, 1 },
 
-  { 20, "u_in/u_3", 0, EXT_IN, 1, 1, 1 },
+  { 20, "manual alpha/man_alpha_5", 0, EXT_IN, 1, 1, 1 },
 
-  { 21, "manual pwm/pwm_u_5", 0, EXT_IN, 1, 1, 1 },
+  { 21, "manual alpha/man_alpha_4", 0, EXT_IN, 1, 1, 1 },
 
-  { 22, "manual pwm/pwm_u_4", 0, EXT_IN, 1, 1, 1 },
+  { 22, "manual alpha/man_alpha_1", 0, EXT_IN, 1, 1, 1 },
 
-  { 23, "manual pwm/pwm_u_1", 0, EXT_IN, 1, 1, 1 },
+  { 23, "manual alpha/man_alpha_2", 0, EXT_IN, 1, 1, 1 },
 
-  { 24, "manual pwm/pwm_u_6", 0, EXT_IN, 1, 1, 1 },
+  { 24, "manual alpha/man_alpha_3", 0, EXT_IN, 1, 1, 1 },
 
-  { 25, "manual pwm/pwm_u_2", 0, EXT_IN, 1, 1, 1 },
+  { 25, "manual alpha/man_alpha_6", 0, EXT_IN, 1, 1, 1 },
 
-  { 26, "manual pwm/pwm_u_3", 0, EXT_IN, 1, 1, 1 },
+  { 26, "manual override alpha", 0, EXT_IN, 1, 1, 1 },
 
-  { 1, "Need unwrapping thrusters", 0, EXT_OUT, 1, 1, 1 },
+  { 1, "pwm/pwm_u_2", 0, EXT_OUT, 1, 1, 1 },
 
-  { 2, "alpha_out/alpha_2", 0, EXT_OUT, 1, 1, 1 },
+  { 2, "pwm/pwm_u_3", 0, EXT_OUT, 1, 1, 1 },
 
-  { 3, "alpha_out/alpha_3", 0, EXT_OUT, 1, 1, 1 },
+  { 3, "pwm/pwm_u_1", 0, EXT_OUT, 1, 1, 1 },
 
-  { 4, "alpha_out/alpha_1", 0, EXT_OUT, 1, 1, 1 },
+  { 4, "pwm/pwm_u_6", 0, EXT_OUT, 1, 1, 1 },
 
-  { 5, "alpha_out/alpha_6", 0, EXT_OUT, 1, 1, 1 },
+  { 5, "pwm/pwm_u_4", 0, EXT_OUT, 1, 1, 1 },
 
-  { 6, "alpha_out/alpha_4", 0, EXT_OUT, 1, 1, 1 },
+  { 6, "pwm/pwm_u_5", 0, EXT_OUT, 1, 1, 1 },
 
-  { 7, "alpha_out/alpha_5", 0, EXT_OUT, 1, 1, 1 },
+  { 7, "Need unwrapping thrusters", 0, EXT_OUT, 1, 1, 1 },
 
-  { 8, "pwm_test", 0, EXT_OUT, 1, 1, 1 },
+  { 8, "alpha_out/alpha_2", 0, EXT_OUT, 1, 1, 1 },
 
-  { 9, "force_test", 0, EXT_OUT, 1, 1, 1 },
+  { 9, "alpha_out/alpha_3", 0, EXT_OUT, 1, 1, 1 },
 
-  { 10, "pwm/pwm_u_2", 0, EXT_OUT, 1, 1, 1 },
+  { 10, "alpha_out/alpha_1", 0, EXT_OUT, 1, 1, 1 },
 
-  { 11, "pwm/pwm_u_3", 0, EXT_OUT, 1, 1, 1 },
+  { 11, "alpha_out/alpha_6", 0, EXT_OUT, 1, 1, 1 },
 
-  { 12, "pwm/pwm_u_1", 0, EXT_OUT, 1, 1, 1 },
+  { 12, "alpha_out/alpha_4", 0, EXT_OUT, 1, 1, 1 },
 
-  { 13, "pwm/pwm_u_6", 0, EXT_OUT, 1, 1, 1 },
-
-  { 14, "pwm/pwm_u_4", 0, EXT_OUT, 1, 1, 1 },
-
-  { 15, "pwm/pwm_u_5", 0, EXT_OUT, 1, 1, 1 },
+  { 13, "alpha_out/alpha_5", 0, EXT_OUT, 1, 1, 1 },
 
   { -1, "", 0, 0, 0, 0, 0 }
 };
@@ -1674,8 +1529,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "u2pwm_alpha";
-static const char* NI_CompiledModelVersion = "1.103";
-static const char* NI_CompiledModelDateTime = "Thu May 05 10:59:24 2016";
+static const char* NI_CompiledModelVersion = "1.105";
+static const char* NI_CompiledModelDateTime = "Mon May 09 19:25:46 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -2481,7 +2336,7 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
        NULL)) {
     if (*numContStates < 0 || *numDiscStates < 0 || *numClockTicks < 0) {
       *numContStates = 0;
-      *numDiscStates = 533;
+      *numDiscStates = 507;
       *numClockTicks = NUMST - TID01EQ;
       return NI_OK;
     }
@@ -2489,6 +2344,64 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
   if ((discStates != NULL) && (discStatesNames != NULL)) {
     idx = 0;
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_5_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_6_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&u2pwm_alpha_DW.manualoverridepwm_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&u2pwm_alpha_DW.manualoverridepwm_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_5_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_5_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_4_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_6_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_6_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_1_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_2_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_3_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK1_c,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_2_DWORK1_c");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK1_p,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_3_DWORK1_p");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK1_a,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_1_DWORK1_a");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK1_l,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_6_DWORK1_l");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK1_k,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_4_DWORK1_k");
+    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK1_n,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_5_DWORK1_n");
     discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.alpha_1_DWORK1, 0,
       0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.alpha_1_DWORK1");
@@ -2511,10 +2424,6 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       (&u2pwm_alpha_DW.Needunwrappingthrusters_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&u2pwm_alpha_DW.Needunwrappingthrusters_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&u2pwm_alpha_DW.manualoverridepwm_DWORK1, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&u2pwm_alpha_DW.manualoverridepwm_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.man_alpha_5_DWORK1,
       0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.man_alpha_5_DWORK1");
@@ -2555,66 +2464,121 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.alpha_5_DWORK1_c,
       0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.alpha_5_DWORK1_c");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_5_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_5_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_4_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_4_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_6_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_6_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_1_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_2_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_2_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_3_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_3_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_test_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_test_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.force_test_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.force_test_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_5_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_4_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_6_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_2_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_3_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK1_c,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_2_DWORK1_c");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK1_p,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_3_DWORK1_p");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK1_a,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_1_DWORK1_a");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK1_l,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_6_DWORK1_l");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK1_k,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_4_DWORK1_k");
-    discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK1_n,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_5_DWORK1_n");
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_5_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_4_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_1_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_6_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_2_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_3_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&u2pwm_alpha_DW.manualoverridepwm_DWORK2, count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&u2pwm_alpha_DW.manualoverridepwm_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_5_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_5_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_4_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_4_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_6_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_6_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_1_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_1_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_2_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_2_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_3_DWORK2,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_3_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK2_o,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_2_DWORK2_o");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK2_e,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_3_DWORK2_e");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK2_f,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_1_DWORK2_f");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK2_k,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_6_DWORK2_k");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK2_k,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_4_DWORK2_k");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK2_l,
+        count, 18, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_5_DWORK2_l");
+    }
+
     for (count = 0; count < 12; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.alpha_1_DWORK2,
         count, 18, 0);
@@ -2656,13 +2620,6 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
         (&u2pwm_alpha_DW.Needunwrappingthrusters_DWORK2, count, 18, 0);
       strcpy(discStatesNames + (idx++ * 100),
              "&u2pwm_alpha_DW.Needunwrappingthrusters_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType
-        (&u2pwm_alpha_DW.manualoverridepwm_DWORK2, count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100),
-             "&u2pwm_alpha_DW.manualoverridepwm_DWORK2");
     }
 
     for (count = 0; count < 12; count++) {
@@ -2749,127 +2706,6 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
         count, 18, 0);
       strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.alpha_5_DWORK2_h");
     }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_5_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_5_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_4_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_4_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_6_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_6_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_1_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_1_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_2_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_2_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.u_3_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.u_3_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_test_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_test_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType
-        (&u2pwm_alpha_DW.force_test_DWORK2, count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100),
-             "&u2pwm_alpha_DW.force_test_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_5_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_4_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_1_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_6_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_2_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK2,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_3_DWORK2");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK2_o,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_2_DWORK2_o");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK2_e,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_3_DWORK2_e");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK2_f,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_1_DWORK2_f");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK2_k,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_6_DWORK2_k");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK2_k,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_4_DWORK2_k");
-    }
-
-    for (count = 0; count < 12; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK2_l,
-        count, 18, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&u2pwm_alpha_DW.pwm_u_5_DWORK2_l");
-    }
   }
 
   if ((clockTicks != NULL) && (clockTicksNames != NULL)) {
@@ -2895,6 +2731,44 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
   int32_t idx = 0;
   if (discStates != NULL) {
     idx = 0;
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.manualoverridepwm_DWORK1, 0,
+      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_5_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_4_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_6_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_1_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_2_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_3_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK1_c, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK1_p, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK1_a, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK1_l, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK1_k, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK1_n, 0, discStates[idx
+      ++], 0, 0);
     NIRT_SetValueByDataType(&u2pwm_alpha_DW.alpha_1_DWORK1, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&u2pwm_alpha_DW.alpha_2_DWORK1, 0, discStates[idx++],
@@ -2908,8 +2782,6 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&u2pwm_alpha_DW.alpha_6_DWORK1, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&u2pwm_alpha_DW.Needunwrappingthrusters_DWORK1, 0,
-      discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.manualoverridepwm_DWORK1, 0,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&u2pwm_alpha_DW.man_alpha_5_DWORK1, 0,
       discStates[idx++], 0, 0);
@@ -2937,46 +2809,101 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
       ++], 0, 0);
     NIRT_SetValueByDataType(&u2pwm_alpha_DW.alpha_5_DWORK1_c, 0, discStates[idx
       ++], 0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_5_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_4_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_6_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_1_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_2_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_3_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_test_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.force_test_DWORK1, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK1_c, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK1_p, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK1_a, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK1_l, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK1_k, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK1_n, 0, discStates[idx
-      ++], 0, 0);
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK2, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK2, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK2, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK2, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK2, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK2, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.manualoverridepwm_DWORK2, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_5_DWORK2, count, discStates[idx
+        ++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_4_DWORK2, count, discStates[idx
+        ++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_6_DWORK2, count, discStates[idx
+        ++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_1_DWORK2, count, discStates[idx
+        ++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_2_DWORK2, count, discStates[idx
+        ++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_3_DWORK2, count, discStates[idx
+        ++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK2_o, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK2_e, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK2_f, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK2_k, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK2_k, count,
+        discStates[idx++], 18, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK2_l, count,
+        discStates[idx++], 18, 0);
+    }
+
     for (count = 0; count < 12; count++) {
       NIRT_SetValueByDataType(&u2pwm_alpha_DW.alpha_1_DWORK2, count,
         discStates[idx++], 18, 0);
@@ -3010,11 +2937,6 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     for (count = 0; count < 12; count++) {
       NIRT_SetValueByDataType(&u2pwm_alpha_DW.Needunwrappingthrusters_DWORK2,
         count, discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.manualoverridepwm_DWORK2, count,
-        discStates[idx++], 18, 0);
     }
 
     for (count = 0; count < 12; count++) {
@@ -3079,106 +3001,6 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
 
     for (count = 0; count < 12; count++) {
       NIRT_SetValueByDataType(&u2pwm_alpha_DW.alpha_5_DWORK2_h, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_5_DWORK2, count, discStates[idx
-        ++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_4_DWORK2, count, discStates[idx
-        ++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_6_DWORK2, count, discStates[idx
-        ++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_1_DWORK2, count, discStates[idx
-        ++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_2_DWORK2, count, discStates[idx
-        ++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.u_3_DWORK2, count, discStates[idx
-        ++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_test_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.force_test_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK2, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_2_DWORK2_o, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_3_DWORK2_e, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_1_DWORK2_f, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_6_DWORK2_k, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_4_DWORK2_k, count,
-        discStates[idx++], 18, 0);
-    }
-
-    for (count = 0; count < 12; count++) {
-      NIRT_SetValueByDataType(&u2pwm_alpha_DW.pwm_u_5_DWORK2_l, count,
         discStates[idx++], 18, 0);
     }
   }

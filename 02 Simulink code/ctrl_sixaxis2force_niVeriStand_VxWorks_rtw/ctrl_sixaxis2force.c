@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_sixaxis2force".
  *
- * Model version              : 1.37
+ * Model version              : 1.45
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu May 05 10:31:41 2016
+ * C source code generated on : Mon May 09 18:24:11 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1918,51 +1918,51 @@ static void ctrl_sixaxis2force_output(void)
   int32_T c_data[9];
   boolean_T g_0;
 
-  /* MATLAB Function: '<S2>/MATLAB Function' incorporates:
-   *  Memory: '<S2>/Memory'
-   *  RelationalOperator: '<S3>/FixPt Relational Operator'
+  /* MATLAB Function: '<S3>/MATLAB Function' incorporates:
+   *  Memory: '<S3>/Memory'
    *  RelationalOperator: '<S4>/FixPt Relational Operator'
    *  RelationalOperator: '<S5>/FixPt Relational Operator'
-   *  UnitDelay: '<S3>/Delay Input1'
+   *  RelationalOperator: '<S6>/FixPt Relational Operator'
    *  UnitDelay: '<S4>/Delay Input1'
    *  UnitDelay: '<S5>/Delay Input1'
+   *  UnitDelay: '<S6>/Delay Input1'
    */
-  /* MATLAB Function 'u_limiter/MATLAB Function': '<S6>:1' */
-  /* '<S6>:1:5' */
+  /* MATLAB Function 'u_limiter/MATLAB Function': '<S7>:1' */
+  /* '<S7>:1:5' */
   b_signal = ctrl_sixaxis2force_DW.Memory_PreviousInput;
   if (ctrl_sixaxis2force_B.ArrowUp > ctrl_sixaxis2force_DW.DelayInput1_DSTATE) {
-    /* '<S6>:1:7' */
-    /* '<S6>:1:8' */
-    b_signal = ctrl_sixaxis2force_DW.Memory_PreviousInput + 0.25;
-    if (ctrl_sixaxis2force_DW.Memory_PreviousInput + 0.25 > 12.0) {
-      /* '<S6>:1:10' */
-      /* '<S6>:1:11' */
-      b_signal = 12.0;
+    /* '<S7>:1:7' */
+    /* '<S7>:1:8' */
+    b_signal = ctrl_sixaxis2force_DW.Memory_PreviousInput + 0.05;
+    if (ctrl_sixaxis2force_DW.Memory_PreviousInput + 0.05 > 1.0) {
+      /* '<S7>:1:10' */
+      /* '<S7>:1:11' */
+      b_signal = 1.0;
     }
   }
 
   if (ctrl_sixaxis2force_B.ArrowDown >
       ctrl_sixaxis2force_DW.DelayInput1_DSTATE_l) {
-    /* '<S6>:1:15' */
-    /* '<S6>:1:16' */
-    b_signal -= 0.25;
-    if (b_signal < -12.0) {
-      /* '<S6>:1:18' */
-      /* '<S6>:1:19' */
-      b_signal = -12.0;
+    /* '<S7>:1:15' */
+    /* '<S7>:1:16' */
+    b_signal -= 0.05;
+    if (b_signal < -1.0) {
+      /* '<S7>:1:18' */
+      /* '<S7>:1:19' */
+      b_signal = -1.0;
     }
   }
 
   if (ctrl_sixaxis2force_B.Start > ctrl_sixaxis2force_DW.DelayInput1_DSTATE_g) {
-    /* '<S6>:1:23' */
-    /* '<S6>:1:24' */
+    /* '<S7>:1:23' */
+    /* '<S7>:1:24' */
     b_signal = 0.0;
   }
 
-  /* '<S6>:1:29' */
+  /* '<S7>:1:29' */
   ctrl_sixaxis2force_B.y = b_signal;
 
-  /* End of MATLAB Function: '<S2>/MATLAB Function' */
+  /* End of MATLAB Function: '<S3>/MATLAB Function' */
 
   /* Product: '<Root>/Product' incorporates:
    *  Gain: '<Root>/Gain'
@@ -1985,7 +1985,7 @@ static void ctrl_sixaxis2force_output(void)
   /* Gain: '<Root>/Gain2' */
   b_signal = ctrl_sixaxis2force_P.Gain2_Gain * ctrl_sixaxis2force_B.user_psi;
 
-  /* SignalConversion: '<S1>/TmpSignal ConversionAt SFunction Inport4' incorporates:
+  /* SignalConversion: '<S2>/TmpSignal ConversionAt SFunction Inport4' incorporates:
    *  MATLAB Function: '<Root>/Thrust allocation'
    */
   rtb_TmpSignalConversionAtSFunct[0] = ctrl_sixaxis2force_B.thr_angle_1;
@@ -1996,12 +1996,12 @@ static void ctrl_sixaxis2force_output(void)
   rtb_TmpSignalConversionAtSFunct[5] = ctrl_sixaxis2force_B.thr_angle_6;
 
   /* MATLAB Function: '<Root>/Thrust allocation' */
-  /* MATLAB Function 'Thrust allocation': '<S1>:1' */
-  /* '<S1>:1:3' */
-  /* '<S1>:1:7' */
+  /* MATLAB Function 'Thrust allocation': '<S2>:1' */
+  /* '<S2>:1:3' */
+  /* '<S2>:1:7' */
   if (ctrl_sixaxis2force_B.basin_rel != 0.0) {
-    /* '<S1>:1:11' */
-    /* '<S1>:1:12' */
+    /* '<S2>:1:11' */
+    /* '<S2>:1:12' */
     U[0] = cos(ctrl_sixaxis2force_B.psi);
     U[3] = -sin(ctrl_sixaxis2force_B.psi);
     U[6] = 0.0;
@@ -2016,8 +2016,8 @@ static void ctrl_sixaxis2force_output(void)
         ctrl_sixaxis2force_B.Product2 + U[b_i] * ctrl_sixaxis2force_B.Product1);
     }
   } else if (ctrl_sixaxis2force_B.user_rel != 0.0) {
-    /* '<S1>:1:13' */
-    /* '<S1>:1:14' */
+    /* '<S2>:1:13' */
+    /* '<S2>:1:14' */
     U[0] = cos(b_signal);
     U[3] = -sin(b_signal);
     U[6] = 0.0;
@@ -2031,8 +2031,14 @@ static void ctrl_sixaxis2force_output(void)
       tc[b_i] = U[b_i + 6] * ctrl_sixaxis2force_B.Product + (U[b_i + 3] *
         ctrl_sixaxis2force_B.Product2 + U[b_i] * ctrl_sixaxis2force_B.Product1);
     }
+  } else if (ctrl_sixaxis2force_B.body_rel != 0.0) {
+    /* '<S2>:1:15' */
+    /* '<S2>:1:16' */
+    tc[0] = ctrl_sixaxis2force_B.Product1;
+    tc[1] = ctrl_sixaxis2force_B.Product2;
+    tc[2] = ctrl_sixaxis2force_B.Product;
   } else {
-    /* '<S1>:1:16' */
+    /* '<S2>:1:18' */
     tc[0] = ctrl_sixaxis2force_B.Product1;
     tc[1] = ctrl_sixaxis2force_B.Product2;
     tc[2] = ctrl_sixaxis2force_B.Product;
@@ -2041,35 +2047,35 @@ static void ctrl_sixaxis2force_output(void)
   /* [m,m] */
   /* [m,m]  */
   /* [m,m] */
-  /* '<S1>:1:27' */
+  /* '<S2>:1:29' */
   /* [x(1),x(2),x(3),x(4),x(5),x(6)]'; */
-  /* '<S1>:1:28' */
+  /* '<S2>:1:30' */
   /* [x(7),x(8),x(9),x(10),x(11),x(12)]'; */
-  /* '<S1>:1:33' */
+  /* '<S2>:1:35' */
   /*  Shells for faster computing */
-  /* '<S1>:1:34' */
+  /* '<S2>:1:36' */
   /*  Shells for faster computing */
-  /* '<S1>:1:35' */
+  /* '<S2>:1:37' */
   /*  Shells for faster computing */
-  /* '<S1>:1:37' */
+  /* '<S2>:1:39' */
   for (i = 0; i < 6; i++) {
-    /* '<S1>:1:37' */
-    /* '<S1>:1:38' */
+    /* '<S2>:1:39' */
+    /* '<S2>:1:40' */
     T_surge[i] = cos(rtb_TmpSignalConversionAtSFunct[i]);
 
     /* Thrust in x-direction for cartesian */
-    /* '<S1>:1:39' */
+    /* '<S2>:1:41' */
     T_sway[i] = sin(rtb_TmpSignalConversionAtSFunct[i]);
 
     /* Thrust in y-direction for cartesian */
-    /* '<S1>:1:40' */
+    /* '<S2>:1:42' */
     T_yaw[i] = sin(rtb_TmpSignalConversionAtSFunct[i]) * d[i] - cos
       (rtb_TmpSignalConversionAtSFunct[i]) * e[i];
 
-    /* '<S1>:1:37' */
+    /* '<S2>:1:39' */
   }
 
-  /* '<S1>:1:43' */
+  /* '<S2>:1:45' */
   for (b_i = 0; b_i < 6; b_i++) {
     T_surge_0[3 * b_i] = T_surge[b_i];
   }
@@ -2088,8 +2094,8 @@ static void ctrl_sixaxis2force_output(void)
   S_singular_cross[4] = s[1];
   S_singular_cross[8] = s[2];
 
-  /* '<S1>:1:48' */
-  /* '<S1>:1:49' */
+  /* '<S2>:1:50' */
+  /* '<S2>:1:51' */
   i = 0;
   for (b_i = 0; b_i < 9; b_i++) {
     b_signal = 1.0 / S_singular_cross[b_i];
@@ -2111,27 +2117,27 @@ static void ctrl_sixaxis2force_output(void)
     }
   }
 
-  /* '<S1>:1:49' */
+  /* '<S2>:1:51' */
   for (b_i = 0; b_i < b_sizes; b_i++) {
     S_singular_cross[b_data[b_i] - 1] = 0.0;
   }
 
   if (S_singular_cross[8] > 2.0 * S_singular_cross[4]) {
-    /* '<S1>:1:50' */
-    /* '<S1>:1:51' */
+    /* '<S2>:1:52' */
+    /* '<S2>:1:53' */
     S_singular_cross[8] = 0.0;
   }
 
-  /* '<S1>:1:54' */
-  /* '<S1>:1:55' */
+  /* '<S2>:1:56' */
+  /* '<S2>:1:57' */
   ctrl_sixaxis2force_eml_xgesvd_j(A, b_U, s, b_V);
   memset(&S_ang[0], 0, 9U * sizeof(real_T));
   S_ang[0] = s[0];
   S_ang[4] = s[1];
   S_ang[8] = s[2];
 
-  /* '<S1>:1:63' */
-  /* '<S1>:1:64' */
+  /* '<S2>:1:65' */
+  /* '<S2>:1:66' */
   i = 0;
   for (b_i = 0; b_i < 9; b_i++) {
     b_signal = 1.0 / S_ang[b_i];
@@ -2153,18 +2159,18 @@ static void ctrl_sixaxis2force_output(void)
     }
   }
 
-  /* '<S1>:1:64' */
+  /* '<S2>:1:66' */
   for (b_i = 0; b_i < b_sizes; b_i++) {
     S_ang[c_data[b_i] - 1] = 0.0;
   }
 
   if (S_ang[8] > 2.0 * S_ang[4]) {
-    /* '<S1>:1:65' */
-    /* '<S1>:1:66' */
+    /* '<S2>:1:67' */
+    /* '<S2>:1:68' */
     S_ang[8] = 0.0;
   }
 
-  /* '<S1>:1:68' */
+  /* '<S2>:1:70' */
   for (b_i = 0; b_i < 12; b_i++) {
     for (b_sizes = 0; b_sizes < 3; b_sizes++) {
       b_V_0[b_i + 12 * b_sizes] = 0.0;
@@ -2187,7 +2193,7 @@ static void ctrl_sixaxis2force_output(void)
     T0[b_i] = b_V[b_i + 24] * tc[2] + (b_V[b_i + 12] * tc[1] + b_V[b_i] * tc[0]);
   }
 
-  /* '<S1>:1:69' */
+  /* '<S2>:1:71' */
   /*  for i=1:1:n_t */
   /*    if alpha1(i) > 180 */
   /*        alpha1(i) = alpha1(i) - 360; */
@@ -2197,7 +2203,7 @@ static void ctrl_sixaxis2force_output(void)
   /*        alpha1(i); */
   /*    end */
   /*  end */
-  /* '<S1>:1:81' */
+  /* '<S2>:1:83' */
   for (b_i = 0; b_i < 6; b_i++) {
     for (b_sizes = 0; b_sizes < 3; b_sizes++) {
       T_surge_0[b_i + 6 * b_sizes] = 0.0;
@@ -2219,34 +2225,172 @@ static void ctrl_sixaxis2force_output(void)
   }
 
   for (b_i = 0; b_i < 6; b_i++) {
-    ctrl_sixaxis2force_B.u_out[b_i] = 0.0;
-    ctrl_sixaxis2force_B.u_out[b_i] += V[b_i] * tc[0];
-    ctrl_sixaxis2force_B.u_out[b_i] += V[b_i + 6] * tc[1];
-    ctrl_sixaxis2force_B.u_out[b_i] += V[b_i + 12] * tc[2];
+    rtb_TmpSignalConversionAtSFunct[b_i] = V[b_i + 12] * tc[2] + (V[b_i + 6] *
+      tc[1] + V[b_i] * tc[0]);
   }
 
-  /* '<S1>:1:82' */
+  /* '<S2>:1:84' */
   ctrl_sixaxis2force_B.alpha_out[0] = rt_atan2d_snf(T0[1], T0[0]);
   ctrl_sixaxis2force_B.alpha_out[1] = rt_atan2d_snf(T0[3], T0[2]);
   ctrl_sixaxis2force_B.alpha_out[2] = rt_atan2d_snf(T0[5], T0[4]);
   ctrl_sixaxis2force_B.alpha_out[3] = rt_atan2d_snf(T0[7], T0[6]);
   ctrl_sixaxis2force_B.alpha_out[4] = rt_atan2d_snf(T0[9], T0[8]);
   ctrl_sixaxis2force_B.alpha_out[5] = rt_atan2d_snf(T0[11], T0[10]);
+
+  /* Saturate: '<S1>/Saturation 1' */
+  if (rtb_TmpSignalConversionAtSFunct[0] > ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = ctrl_sixaxis2force_P.Max_thrust;
+  } else if (rtb_TmpSignalConversionAtSFunct[0] <
+             -ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = -ctrl_sixaxis2force_P.Max_thrust;
+  } else {
+    b_signal = rtb_TmpSignalConversionAtSFunct[0];
+  }
+
+  /* End of Saturate: '<S1>/Saturation 1' */
+
+  /* Polyval: '<S1>/pwm thruster 1' */
+  ctrl_sixaxis2force_B.pwmthruster1 = ctrl_sixaxis2force_P.thrust_to_pwm_coeff[0];
+  for (i = 0; i < 5; i++) {
+    ctrl_sixaxis2force_B.pwmthruster1 = ctrl_sixaxis2force_B.pwmthruster1 *
+      b_signal + ctrl_sixaxis2force_P.thrust_to_pwm_coeff[i + 1];
+  }
+
+  /* End of Polyval: '<S1>/pwm thruster 1' */
+
+  /* Saturate: '<S1>/Saturation 2' */
+  if (rtb_TmpSignalConversionAtSFunct[1] > ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = ctrl_sixaxis2force_P.Max_thrust;
+  } else if (rtb_TmpSignalConversionAtSFunct[1] <
+             -ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = -ctrl_sixaxis2force_P.Max_thrust;
+  } else {
+    b_signal = rtb_TmpSignalConversionAtSFunct[1];
+  }
+
+  /* End of Saturate: '<S1>/Saturation 2' */
+
+  /* Polyval: '<S1>/pwm thruster 2' */
+  ctrl_sixaxis2force_B.pwmthruster2 = ctrl_sixaxis2force_P.thrust_to_pwm_coeff[0];
+  for (i = 0; i < 5; i++) {
+    ctrl_sixaxis2force_B.pwmthruster2 = ctrl_sixaxis2force_B.pwmthruster2 *
+      b_signal + ctrl_sixaxis2force_P.thrust_to_pwm_coeff[i + 1];
+  }
+
+  /* End of Polyval: '<S1>/pwm thruster 2' */
+
+  /* Saturate: '<S1>/Saturation 3' */
+  if (rtb_TmpSignalConversionAtSFunct[2] > ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = ctrl_sixaxis2force_P.Max_thrust;
+  } else if (rtb_TmpSignalConversionAtSFunct[2] <
+             -ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = -ctrl_sixaxis2force_P.Max_thrust;
+  } else {
+    b_signal = rtb_TmpSignalConversionAtSFunct[2];
+  }
+
+  /* End of Saturate: '<S1>/Saturation 3' */
+
+  /* Polyval: '<S1>/pwm thruster 3' */
+  ctrl_sixaxis2force_B.pwmthruster3 = ctrl_sixaxis2force_P.thrust_to_pwm_coeff[0];
+  for (i = 0; i < 5; i++) {
+    ctrl_sixaxis2force_B.pwmthruster3 = ctrl_sixaxis2force_B.pwmthruster3 *
+      b_signal + ctrl_sixaxis2force_P.thrust_to_pwm_coeff[i + 1];
+  }
+
+  /* End of Polyval: '<S1>/pwm thruster 3' */
+
+  /* Saturate: '<S1>/Saturation 4' */
+  if (rtb_TmpSignalConversionAtSFunct[3] > ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = ctrl_sixaxis2force_P.Max_thrust;
+  } else if (rtb_TmpSignalConversionAtSFunct[3] <
+             -ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = -ctrl_sixaxis2force_P.Max_thrust;
+  } else {
+    b_signal = rtb_TmpSignalConversionAtSFunct[3];
+  }
+
+  /* End of Saturate: '<S1>/Saturation 4' */
+
+  /* Polyval: '<S1>/pwm thruster 4' */
+  ctrl_sixaxis2force_B.pwmthruster4 = ctrl_sixaxis2force_P.thrust_to_pwm_coeff[0];
+  for (i = 0; i < 5; i++) {
+    ctrl_sixaxis2force_B.pwmthruster4 = ctrl_sixaxis2force_B.pwmthruster4 *
+      b_signal + ctrl_sixaxis2force_P.thrust_to_pwm_coeff[i + 1];
+  }
+
+  /* End of Polyval: '<S1>/pwm thruster 4' */
+
+  /* Saturate: '<S1>/Saturation 5' */
+  if (rtb_TmpSignalConversionAtSFunct[4] > ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = ctrl_sixaxis2force_P.Max_thrust;
+  } else if (rtb_TmpSignalConversionAtSFunct[4] <
+             -ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = -ctrl_sixaxis2force_P.Max_thrust;
+  } else {
+    b_signal = rtb_TmpSignalConversionAtSFunct[4];
+  }
+
+  /* End of Saturate: '<S1>/Saturation 5' */
+
+  /* Polyval: '<S1>/pwm thruster 5' */
+  ctrl_sixaxis2force_B.pwmthruster5 = ctrl_sixaxis2force_P.thrust_to_pwm_coeff[0];
+  for (i = 0; i < 5; i++) {
+    ctrl_sixaxis2force_B.pwmthruster5 = ctrl_sixaxis2force_B.pwmthruster5 *
+      b_signal + ctrl_sixaxis2force_P.thrust_to_pwm_coeff[i + 1];
+  }
+
+  /* End of Polyval: '<S1>/pwm thruster 5' */
+
+  /* Saturate: '<S1>/Saturation 6' */
+  if (rtb_TmpSignalConversionAtSFunct[5] > ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = ctrl_sixaxis2force_P.Max_thrust;
+  } else if (rtb_TmpSignalConversionAtSFunct[5] <
+             -ctrl_sixaxis2force_P.Max_thrust) {
+    b_signal = -ctrl_sixaxis2force_P.Max_thrust;
+  } else {
+    b_signal = rtb_TmpSignalConversionAtSFunct[5];
+  }
+
+  /* End of Saturate: '<S1>/Saturation 6' */
+
+  /* Polyval: '<S1>/pwm thruster 6' */
+  ctrl_sixaxis2force_B.pwmthruster6 = ctrl_sixaxis2force_P.thrust_to_pwm_coeff[0];
+  for (i = 0; i < 5; i++) {
+    ctrl_sixaxis2force_B.pwmthruster6 = ctrl_sixaxis2force_B.pwmthruster6 *
+      b_signal + ctrl_sixaxis2force_P.thrust_to_pwm_coeff[i + 1];
+  }
+
+  /* End of Polyval: '<S1>/pwm thruster 6' */
+
+  /* Saturate: '<S1>/Saturation 7' */
+  for (i = 0; i < 6; i++) {
+    if (rtb_TmpSignalConversionAtSFunct[i] > ctrl_sixaxis2force_P.Max_thrust) {
+      ctrl_sixaxis2force_B.Saturation7[i] = ctrl_sixaxis2force_P.Max_thrust;
+    } else if (rtb_TmpSignalConversionAtSFunct[i] <
+               -ctrl_sixaxis2force_P.Max_thrust) {
+      ctrl_sixaxis2force_B.Saturation7[i] = -ctrl_sixaxis2force_P.Max_thrust;
+    } else {
+      ctrl_sixaxis2force_B.Saturation7[i] = rtb_TmpSignalConversionAtSFunct[i];
+    }
+  }
+
+  /* End of Saturate: '<S1>/Saturation 7' */
 }
 
 /* Model update function */
 static void ctrl_sixaxis2force_update(void)
 {
-  /* Update for UnitDelay: '<S3>/Delay Input1' */
+  /* Update for UnitDelay: '<S4>/Delay Input1' */
   ctrl_sixaxis2force_DW.DelayInput1_DSTATE = ctrl_sixaxis2force_B.ArrowUp;
 
-  /* Update for UnitDelay: '<S4>/Delay Input1' */
+  /* Update for UnitDelay: '<S5>/Delay Input1' */
   ctrl_sixaxis2force_DW.DelayInput1_DSTATE_l = ctrl_sixaxis2force_B.ArrowDown;
 
-  /* Update for UnitDelay: '<S5>/Delay Input1' */
+  /* Update for UnitDelay: '<S6>/Delay Input1' */
   ctrl_sixaxis2force_DW.DelayInput1_DSTATE_g = ctrl_sixaxis2force_B.Start;
 
-  /* Update for Memory: '<S2>/Memory' */
+  /* Update for Memory: '<S3>/Memory' */
   ctrl_sixaxis2force_DW.Memory_PreviousInput = ctrl_sixaxis2force_B.y;
 
   /* Update absolute time for base rate */
@@ -2271,19 +2415,19 @@ static void ctrl_sixaxis2force_update(void)
 /* Model initialize function */
 static void ctrl_sixaxis2force_initialize(void)
 {
-  /* InitializeConditions for UnitDelay: '<S3>/Delay Input1' */
+  /* InitializeConditions for UnitDelay: '<S4>/Delay Input1' */
   ctrl_sixaxis2force_DW.DelayInput1_DSTATE =
     ctrl_sixaxis2force_P.DetectIncrease_vinit;
 
-  /* InitializeConditions for UnitDelay: '<S4>/Delay Input1' */
+  /* InitializeConditions for UnitDelay: '<S5>/Delay Input1' */
   ctrl_sixaxis2force_DW.DelayInput1_DSTATE_l =
     ctrl_sixaxis2force_P.DetectIncrease1_vinit;
 
-  /* InitializeConditions for UnitDelay: '<S5>/Delay Input1' */
+  /* InitializeConditions for UnitDelay: '<S6>/Delay Input1' */
   ctrl_sixaxis2force_DW.DelayInput1_DSTATE_g =
     ctrl_sixaxis2force_P.DetectIncrease2_vinit;
 
-  /* InitializeConditions for Memory: '<S2>/Memory' */
+  /* InitializeConditions for Memory: '<S3>/Memory' */
   ctrl_sixaxis2force_DW.Memory_PreviousInput = ctrl_sixaxis2force_P.Memory_X0;
 }
 
@@ -2417,9 +2561,9 @@ RT_MODEL_ctrl_sixaxis2force_T *ctrl_sixaxis2force(void)
   ctrl_sixaxis2force_M->Sizes.numU = (0);/* Number of model inputs */
   ctrl_sixaxis2force_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   ctrl_sixaxis2force_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  ctrl_sixaxis2force_M->Sizes.numBlocks = (52);/* Number of blocks */
-  ctrl_sixaxis2force_M->Sizes.numBlockIO = (23);/* Number of block outputs */
-  ctrl_sixaxis2force_M->Sizes.numBlockPrms = (205);/* Sum of parameter "widths" */
+  ctrl_sixaxis2force_M->Sizes.numBlocks = (72);/* Number of blocks */
+  ctrl_sixaxis2force_M->Sizes.numBlockIO = (30);/* Number of block outputs */
+  ctrl_sixaxis2force_M->Sizes.numBlockPrms = (254);/* Sum of parameter "widths" */
   return ctrl_sixaxis2force_M;
 }
 
@@ -2431,9 +2575,9 @@ RT_MODEL_ctrl_sixaxis2force_T *ctrl_sixaxis2force(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2force
- * Model version : 1.37
+ * Model version : 1.45
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu May 05 10:31:41 2016
+ * Source generated on : Mon May 09 18:24:11 2016
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -2528,16 +2672,19 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
    case 22:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
-   case 24:
+   case 23:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 25:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
-   case 29:
+   case 26:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 30:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 31:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
   }
 
@@ -2643,7 +2790,7 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
-   case 24:
+   case 23:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
@@ -2651,11 +2798,15 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
-   case 29:
+   case 26:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
    case 30:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 31:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
   }
@@ -2787,6 +2938,14 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
+  // ctrl_sixaxis2force/body_rel
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_B.body_rel, 0, data[index++], 0,
+      0);
+  } else {
+    index += 1;
+  }
+
   // ctrl_sixaxis2force/basin_rel
   if (TaskSampleHit[0]) {
     NIRT_SetValueByDataType(&ctrl_sixaxis2force_B.basin_rel, 0, data[index++], 0,
@@ -2823,15 +2982,15 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
 
 int32_t NumInputPorts(void)
 {
-  return 17;
+  return 18;
 }
 
 int32_t NumOutputPorts(void)
 {
-  return 16;
+  return 22;
 }
 
-double ni_extout[16];
+double ni_extout[22];
 
 /*========================================================================*
  * Function: SetExternalOutputs
@@ -2922,50 +3081,50 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
-  // ctrl_sixaxis2force/u_1: Virtual Signal # 0
+  // ctrl_sixaxis2force/pwm_1: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 0,
-      18, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.pwmthruster1, 0, 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_sixaxis2force/u_2: Virtual Signal # 0
+  // ctrl_sixaxis2force/pwm_2: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 1,
-      18, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.pwmthruster2, 0, 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_sixaxis2force/u_3: Virtual Signal # 0
+  // ctrl_sixaxis2force/pwm_3: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 2,
-      18, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.pwmthruster3, 0, 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_sixaxis2force/u_4: Virtual Signal # 0
+  // ctrl_sixaxis2force/pwm_4: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 3,
-      18, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.pwmthruster4, 0, 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_sixaxis2force/u_5: Virtual Signal # 0
+  // ctrl_sixaxis2force/pwm_5: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 4,
-      18, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.pwmthruster5, 0, 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_sixaxis2force/u_6: Virtual Signal # 0
+  // ctrl_sixaxis2force/pwm_6: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 5,
-      18, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.pwmthruster6, 0, 0, 0);
   } else {
     index += 1;
   }
@@ -2974,6 +3133,54 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.y, 0, 0,
       0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_sixaxis2force/u_4: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.Saturation7, 3, 18, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_sixaxis2force/u_5: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.Saturation7, 4, 18, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_sixaxis2force/u_6: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.Saturation7, 5, 18, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_sixaxis2force/u_1: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.Saturation7, 0, 18, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_sixaxis2force/u_2: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.Saturation7, 1, 18, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_sixaxis2force/u_3: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_B.Saturation7, 2, 18, 0);
   } else {
     index += 1;
   }
@@ -3036,32 +3243,56 @@ int32_t NI_InitExternalOutputs()
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.alpha_out,
     5, 18, 0);
 
-  // ctrl_sixaxis2force/u_1: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 0,
-    18, 0);
+  // ctrl_sixaxis2force/pwm_1: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType
+    (&ctrl_sixaxis2force_B.pwmthruster1, 0, 0, 0);
 
-  // ctrl_sixaxis2force/u_2: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 1,
-    18, 0);
+  // ctrl_sixaxis2force/pwm_2: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType
+    (&ctrl_sixaxis2force_B.pwmthruster2, 0, 0, 0);
 
-  // ctrl_sixaxis2force/u_3: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 2,
-    18, 0);
+  // ctrl_sixaxis2force/pwm_3: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType
+    (&ctrl_sixaxis2force_B.pwmthruster3, 0, 0, 0);
 
-  // ctrl_sixaxis2force/u_4: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 3,
-    18, 0);
+  // ctrl_sixaxis2force/pwm_4: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType
+    (&ctrl_sixaxis2force_B.pwmthruster4, 0, 0, 0);
 
-  // ctrl_sixaxis2force/u_5: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 4,
-    18, 0);
+  // ctrl_sixaxis2force/pwm_5: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType
+    (&ctrl_sixaxis2force_B.pwmthruster5, 0, 0, 0);
 
-  // ctrl_sixaxis2force/u_6: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.u_out, 5,
-    18, 0);
+  // ctrl_sixaxis2force/pwm_6: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType
+    (&ctrl_sixaxis2force_B.pwmthruster6, 0, 0, 0);
 
   // ctrl_sixaxis2force/u_limit: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.y, 0, 0, 0);
+
+  // ctrl_sixaxis2force/u_4: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.Saturation7,
+    3, 18, 0);
+
+  // ctrl_sixaxis2force/u_5: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.Saturation7,
+    4, 18, 0);
+
+  // ctrl_sixaxis2force/u_6: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.Saturation7,
+    5, 18, 0);
+
+  // ctrl_sixaxis2force/u_1: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.Saturation7,
+    0, 18, 0);
+
+  // ctrl_sixaxis2force/u_2: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.Saturation7,
+    1, 18, 0);
+
+  // ctrl_sixaxis2force/u_3: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_B.Saturation7,
+    2, 18, 0);
   UNUSED_PARAMETER(count);
   return NI_OK;
 }
@@ -3074,32 +3305,92 @@ int32_t NI_InitExternalOutputs()
 /* All elements by default (including scalars) have 2 dimensions [1,1] */
 static NI_Parameter NI_ParamList[] DataSection(".NIVS.paramlist") =
 {
-  { 0,
+  { 0, "ctrl_sixaxis2force/Subsystem/Saturation 1/UpperLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 0, 0 },
+
+  { 1, "ctrl_sixaxis2force/Subsystem/Saturation 1/LowerLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 2, 0 },
+
+  { 2, "ctrl_sixaxis2force/Subsystem/Saturation 2/UpperLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 4, 0 },
+
+  { 3, "ctrl_sixaxis2force/Subsystem/Saturation 2/LowerLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 6, 0 },
+
+  { 4, "ctrl_sixaxis2force/Subsystem/Saturation 3/UpperLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 8, 0 },
+
+  { 5, "ctrl_sixaxis2force/Subsystem/Saturation 3/LowerLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 10, 0 },
+
+  { 6, "ctrl_sixaxis2force/Subsystem/Saturation 4/UpperLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 12, 0 },
+
+  { 7, "ctrl_sixaxis2force/Subsystem/Saturation 4/LowerLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 14, 0 },
+
+  { 8, "ctrl_sixaxis2force/Subsystem/Saturation 5/UpperLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 16, 0 },
+
+  { 9, "ctrl_sixaxis2force/Subsystem/Saturation 5/LowerLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 18, 0 },
+
+  { 10, "ctrl_sixaxis2force/Subsystem/Saturation 6/UpperLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 20, 0 },
+
+  { 11, "ctrl_sixaxis2force/Subsystem/Saturation 6/LowerLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 22, 0 },
+
+  { 12, "ctrl_sixaxis2force/Subsystem/Saturation 7/UpperLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 24, 0 },
+
+  { 13, "ctrl_sixaxis2force/Subsystem/Saturation 7/LowerLimit", offsetof
+    (P_ctrl_sixaxis2force_T, Max_thrust), 30, 1, 2, 26, 0 },
+
+  { 14, "ctrl_sixaxis2force/Subsystem/pwm thruster 1/Coefs", offsetof
+    (P_ctrl_sixaxis2force_T, thrust_to_pwm_coeff), 19, 6, 2, 28, 0 },
+
+  { 15, "ctrl_sixaxis2force/Subsystem/pwm thruster 2/Coefs", offsetof
+    (P_ctrl_sixaxis2force_T, thrust_to_pwm_coeff), 19, 6, 2, 30, 0 },
+
+  { 16, "ctrl_sixaxis2force/Subsystem/pwm thruster 3/Coefs", offsetof
+    (P_ctrl_sixaxis2force_T, thrust_to_pwm_coeff), 19, 6, 2, 32, 0 },
+
+  { 17, "ctrl_sixaxis2force/Subsystem/pwm thruster 4/Coefs", offsetof
+    (P_ctrl_sixaxis2force_T, thrust_to_pwm_coeff), 19, 6, 2, 34, 0 },
+
+  { 18, "ctrl_sixaxis2force/Subsystem/pwm thruster 5/Coefs", offsetof
+    (P_ctrl_sixaxis2force_T, thrust_to_pwm_coeff), 19, 6, 2, 36, 0 },
+
+  { 19, "ctrl_sixaxis2force/Subsystem/pwm thruster 6/Coefs", offsetof
+    (P_ctrl_sixaxis2force_T, thrust_to_pwm_coeff), 19, 6, 2, 38, 0 },
+
+  { 20,
     "ctrl_sixaxis2force/u_limiter/Detect Increase/Delay Input1/InitialCondition",
-    offsetof(P_ctrl_sixaxis2force_T, DetectIncrease_vinit), 29, 1, 2, 0, 0 },
+    offsetof(P_ctrl_sixaxis2force_T, DetectIncrease_vinit), 30, 1, 2, 40, 0 },
 
-  { 1,
+  { 21,
     "ctrl_sixaxis2force/u_limiter/Detect Increase1/Delay Input1/InitialCondition",
-    offsetof(P_ctrl_sixaxis2force_T, DetectIncrease1_vinit), 29, 1, 2, 2, 0 },
+    offsetof(P_ctrl_sixaxis2force_T, DetectIncrease1_vinit), 30, 1, 2, 42, 0 },
 
-  { 2,
+  { 22,
     "ctrl_sixaxis2force/u_limiter/Detect Increase2/Delay Input1/InitialCondition",
-    offsetof(P_ctrl_sixaxis2force_T, DetectIncrease2_vinit), 29, 1, 2, 4, 0 },
+    offsetof(P_ctrl_sixaxis2force_T, DetectIncrease2_vinit), 30, 1, 2, 44, 0 },
 
-  { 3, "ctrl_sixaxis2force/u_limiter/Memory/X0", offsetof(P_ctrl_sixaxis2force_T,
-    Memory_X0), 29, 1, 2, 6, 0 },
+  { 23, "ctrl_sixaxis2force/u_limiter/Memory/X0", offsetof
+    (P_ctrl_sixaxis2force_T, Memory_X0), 30, 1, 2, 46, 0 },
 
-  { 4, "ctrl_sixaxis2force/Gain/Gain", offsetof(P_ctrl_sixaxis2force_T,
-    Gain_Gain), 29, 1, 2, 8, 0 },
+  { 24, "ctrl_sixaxis2force/Gain/Gain", offsetof(P_ctrl_sixaxis2force_T,
+    Gain_Gain), 30, 1, 2, 48, 0 },
 
-  { 5, "ctrl_sixaxis2force/Gain1/Gain", offsetof(P_ctrl_sixaxis2force_T,
-    Gain1_Gain), 29, 1, 2, 10, 0 },
+  { 25, "ctrl_sixaxis2force/Gain1/Gain", offsetof(P_ctrl_sixaxis2force_T,
+    Gain1_Gain), 30, 1, 2, 50, 0 },
 
-  { 6, "ctrl_sixaxis2force/Gain2/Gain", offsetof(P_ctrl_sixaxis2force_T,
-    Gain2_Gain), 29, 1, 2, 12, 0 },
+  { 26, "ctrl_sixaxis2force/Gain2/Gain", offsetof(P_ctrl_sixaxis2force_T,
+    Gain2_Gain), 30, 1, 2, 52, 0 },
 };
 
-static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 7;
+static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 27;
 static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 {
   1, 1,                                /* Parameter at index 0 */
@@ -3109,6 +3400,26 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 4 */
   1, 1,                                /* Parameter at index 5 */
   1, 1,                                /* Parameter at index 6 */
+  1, 1,                                /* Parameter at index 7 */
+  1, 1,                                /* Parameter at index 8 */
+  1, 1,                                /* Parameter at index 9 */
+  1, 1,                                /* Parameter at index 10 */
+  1, 1,                                /* Parameter at index 11 */
+  1, 1,                                /* Parameter at index 12 */
+  1, 1,                                /* Parameter at index 13 */
+  1, 6,                                /* Parameter at index 14 */
+  1, 6,                                /* Parameter at index 15 */
+  1, 6,                                /* Parameter at index 16 */
+  1, 6,                                /* Parameter at index 17 */
+  1, 6,                                /* Parameter at index 18 */
+  1, 6,                                /* Parameter at index 19 */
+  1, 1,                                /* Parameter at index 20 */
+  1, 1,                                /* Parameter at index 21 */
+  1, 1,                                /* Parameter at index 22 */
+  1, 1,                                /* Parameter at index 23 */
+  1, 1,                                /* Parameter at index 24 */
+  1, 1,                                /* Parameter at index 25 */
+  1, 1,                                /* Parameter at index 26 */
 };
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
@@ -3163,80 +3474,107 @@ static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
   { 15, "ctrl_sixaxis2force/thr_angle_6", 0, "", offsetof(B_ctrl_sixaxis2force_T,
     thr_angle_6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 16, "ctrl_sixaxis2force/basin_rel", 0, "", offsetof(B_ctrl_sixaxis2force_T,
+  { 16, "ctrl_sixaxis2force/body_rel", 0, "", offsetof(B_ctrl_sixaxis2force_T,
+    body_rel) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 17, "ctrl_sixaxis2force/basin_rel", 0, "", offsetof(B_ctrl_sixaxis2force_T,
     basin_rel) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 17, "ctrl_sixaxis2force/user_rel", 0, "", offsetof(B_ctrl_sixaxis2force_T,
+  { 18, "ctrl_sixaxis2force/user_rel", 0, "", offsetof(B_ctrl_sixaxis2force_T,
     user_rel) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 18, "ctrl_sixaxis2force/psi", 0, "", offsetof(B_ctrl_sixaxis2force_T, psi) +
+  { 19, "ctrl_sixaxis2force/psi", 0, "", offsetof(B_ctrl_sixaxis2force_T, psi) +
     (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 19, "ctrl_sixaxis2force/user_psi", 0, "", offsetof(B_ctrl_sixaxis2force_T,
+  { 20, "ctrl_sixaxis2force/user_psi", 0, "", offsetof(B_ctrl_sixaxis2force_T,
     user_psi) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 20, "ctrl_sixaxis2force/u_limiter/MATLAB Function", 0, "", offsetof
+  { 21, "ctrl_sixaxis2force/Subsystem/pwm thruster 1", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, pwmthruster1) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
+    1, 2, 0, 0 },
+
+  { 22, "ctrl_sixaxis2force/Subsystem/pwm thruster 2", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, pwmthruster2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
+    1, 2, 0, 0 },
+
+  { 23, "ctrl_sixaxis2force/Subsystem/pwm thruster 3", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, pwmthruster3) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
+    1, 2, 0, 0 },
+
+  { 24, "ctrl_sixaxis2force/Subsystem/pwm thruster 4", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, pwmthruster4) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
+    1, 2, 0, 0 },
+
+  { 25, "ctrl_sixaxis2force/Subsystem/pwm thruster 5", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, pwmthruster5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
+    1, 2, 0, 0 },
+
+  { 26, "ctrl_sixaxis2force/Subsystem/pwm thruster 6", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, pwmthruster6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
+    1, 2, 0, 0 },
+
+  { 27, "ctrl_sixaxis2force/Subsystem/Saturation 7/(1, 1)", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, Saturation7) + (0*sizeof(real_T)), BLOCKIO_SIG, 18,
+    1, 2, 0, 0 },
+
+  { 28, "ctrl_sixaxis2force/Subsystem/Saturation 7/(1, 2)", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, Saturation7) + (1*sizeof(real_T)), BLOCKIO_SIG, 18,
+    1, 2, 0, 0 },
+
+  { 29, "ctrl_sixaxis2force/Subsystem/Saturation 7/(1, 3)", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, Saturation7) + (2*sizeof(real_T)), BLOCKIO_SIG, 18,
+    1, 2, 0, 0 },
+
+  { 30, "ctrl_sixaxis2force/Subsystem/Saturation 7/(1, 4)", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, Saturation7) + (3*sizeof(real_T)), BLOCKIO_SIG, 18,
+    1, 2, 0, 0 },
+
+  { 31, "ctrl_sixaxis2force/Subsystem/Saturation 7/(1, 5)", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, Saturation7) + (4*sizeof(real_T)), BLOCKIO_SIG, 18,
+    1, 2, 0, 0 },
+
+  { 32, "ctrl_sixaxis2force/Subsystem/Saturation 7/(1, 6)", 0, "", offsetof
+    (B_ctrl_sixaxis2force_T, Saturation7) + (5*sizeof(real_T)), BLOCKIO_SIG, 18,
+    1, 2, 0, 0 },
+
+  { 33, "ctrl_sixaxis2force/u_limiter/MATLAB Function", 0, "", offsetof
     (B_ctrl_sixaxis2force_T, y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0
   },
 
-  { 21, "ctrl_sixaxis2force/Thrust allocation", 0, "(1, 1)", offsetof
-    (B_ctrl_sixaxis2force_T, u_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 18, 1, 2,
-    0, 0 },
-
-  { 22, "ctrl_sixaxis2force/Thrust allocation", 0, "(1, 2)", offsetof
-    (B_ctrl_sixaxis2force_T, u_out) + (1*sizeof(real_T)), BLOCKIO_SIG, 18, 1, 2,
-    0, 0 },
-
-  { 23, "ctrl_sixaxis2force/Thrust allocation", 0, "(1, 3)", offsetof
-    (B_ctrl_sixaxis2force_T, u_out) + (2*sizeof(real_T)), BLOCKIO_SIG, 18, 1, 2,
-    0, 0 },
-
-  { 24, "ctrl_sixaxis2force/Thrust allocation", 0, "(1, 4)", offsetof
-    (B_ctrl_sixaxis2force_T, u_out) + (3*sizeof(real_T)), BLOCKIO_SIG, 18, 1, 2,
-    0, 0 },
-
-  { 25, "ctrl_sixaxis2force/Thrust allocation", 0, "(1, 5)", offsetof
-    (B_ctrl_sixaxis2force_T, u_out) + (4*sizeof(real_T)), BLOCKIO_SIG, 18, 1, 2,
-    0, 0 },
-
-  { 26, "ctrl_sixaxis2force/Thrust allocation", 0, "(1, 6)", offsetof
-    (B_ctrl_sixaxis2force_T, u_out) + (5*sizeof(real_T)), BLOCKIO_SIG, 18, 1, 2,
-    0, 0 },
-
-  { 27, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 1)", offsetof
+  { 34, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 1)", offsetof
     (B_ctrl_sixaxis2force_T, alpha_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 18, 1,
     2, 0, 0 },
 
-  { 28, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 2)", offsetof
+  { 35, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 2)", offsetof
     (B_ctrl_sixaxis2force_T, alpha_out) + (1*sizeof(real_T)), BLOCKIO_SIG, 18, 1,
     2, 0, 0 },
 
-  { 29, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 3)", offsetof
+  { 36, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 3)", offsetof
     (B_ctrl_sixaxis2force_T, alpha_out) + (2*sizeof(real_T)), BLOCKIO_SIG, 18, 1,
     2, 0, 0 },
 
-  { 30, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 4)", offsetof
+  { 37, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 4)", offsetof
     (B_ctrl_sixaxis2force_T, alpha_out) + (3*sizeof(real_T)), BLOCKIO_SIG, 18, 1,
     2, 0, 0 },
 
-  { 31, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 5)", offsetof
+  { 38, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 5)", offsetof
     (B_ctrl_sixaxis2force_T, alpha_out) + (4*sizeof(real_T)), BLOCKIO_SIG, 18, 1,
     2, 0, 0 },
 
-  { 32, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 6)", offsetof
+  { 39, "ctrl_sixaxis2force/Thrust allocation", 1, "(1, 6)", offsetof
     (B_ctrl_sixaxis2force_T, alpha_out) + (5*sizeof(real_T)), BLOCKIO_SIG, 18, 1,
     2, 0, 0 },
 
   { -1, "", -1, "", 0, 0, 0 }
 };
 
-static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 33;
+static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 40;
 static int32_t NI_VirtualBlockSources[1];
 static int32_t NI_SigDimList[] DataSection(".NIVS.sigdimlist") =
 { 1, 1
 };
 
-static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 33;
+static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 40;
 static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 {
   { 1, "ArrowUp", 0, EXT_IN, 1, 1, 1 },
@@ -3265,13 +3603,15 @@ static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 
   { 13, "thr_angle_6", 0, EXT_IN, 1, 1, 1 },
 
-  { 14, "basin_rel", 0, EXT_IN, 1, 1, 1 },
+  { 14, "body_rel", 0, EXT_IN, 1, 1, 1 },
 
-  { 15, "user_rel", 0, EXT_IN, 1, 1, 1 },
+  { 15, "basin_rel", 0, EXT_IN, 1, 1, 1 },
 
-  { 16, "psi", 0, EXT_IN, 1, 1, 1 },
+  { 16, "user_rel", 0, EXT_IN, 1, 1, 1 },
 
-  { 17, "user_psi", 0, EXT_IN, 1, 1, 1 },
+  { 17, "psi", 0, EXT_IN, 1, 1, 1 },
+
+  { 18, "user_psi", 0, EXT_IN, 1, 1, 1 },
 
   { 1, "N", 0, EXT_OUT, 1, 1, 1 },
 
@@ -3291,19 +3631,31 @@ static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 
   { 9, "alpha_6", 0, EXT_OUT, 1, 1, 1 },
 
-  { 10, "u_1", 0, EXT_OUT, 1, 1, 1 },
+  { 10, "pwm_1", 0, EXT_OUT, 1, 1, 1 },
 
-  { 11, "u_2", 0, EXT_OUT, 1, 1, 1 },
+  { 11, "pwm_2", 0, EXT_OUT, 1, 1, 1 },
 
-  { 12, "u_3", 0, EXT_OUT, 1, 1, 1 },
+  { 12, "pwm_3", 0, EXT_OUT, 1, 1, 1 },
 
-  { 13, "u_4", 0, EXT_OUT, 1, 1, 1 },
+  { 13, "pwm_4", 0, EXT_OUT, 1, 1, 1 },
 
-  { 14, "u_5", 0, EXT_OUT, 1, 1, 1 },
+  { 14, "pwm_5", 0, EXT_OUT, 1, 1, 1 },
 
-  { 15, "u_6", 0, EXT_OUT, 1, 1, 1 },
+  { 15, "pwm_6", 0, EXT_OUT, 1, 1, 1 },
 
   { 16, "u_limit", 0, EXT_OUT, 1, 1, 1 },
+
+  { 17, "u_4", 0, EXT_OUT, 1, 1, 1 },
+
+  { 18, "u_5", 0, EXT_OUT, 1, 1, 1 },
+
+  { 19, "u_6", 0, EXT_OUT, 1, 1, 1 },
+
+  { 20, "u_1", 0, EXT_OUT, 1, 1, 1 },
+
+  { 21, "u_2", 0, EXT_OUT, 1, 1, 1 },
+
+  { 22, "u_3", 0, EXT_OUT, 1, 1, 1 },
 
   { -1, "", 0, 0, 0, 0, 0 }
 };
@@ -3321,8 +3673,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "ctrl_sixaxis2force";
-static const char* NI_CompiledModelVersion = "1.37";
-static const char* NI_CompiledModelDateTime = "Thu May 05 10:31:41 2016";
+static const char* NI_CompiledModelVersion = "1.45";
+static const char* NI_CompiledModelDateTime = "Mon May 09 18:24:11 2016";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -4128,7 +4480,7 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
        NULL)) {
     if (*numContStates < 0 || *numDiscStates < 0 || *numClockTicks < 0) {
       *numContStates = 0;
-      *numDiscStates = 664;
+      *numDiscStates = 804;
       *numClockTicks = NUMST - TID01EQ;
       return NI_OK;
     }
@@ -4208,6 +4560,10 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_sixaxis2force_DW.thr_angle_6_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_DW.body_rel_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_sixaxis2force_DW.body_rel_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
       (&ctrl_sixaxis2force_DW.basin_rel_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_sixaxis2force_DW.basin_rel_DWORK1");
@@ -4252,15 +4608,34 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       (&ctrl_sixaxis2force_DW.alpha_6_DWORK1, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_sixaxis2force_DW.alpha_6_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_DW.u_1_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_sixaxis2force_DW.u_1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_DW.u_2_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_sixaxis2force_DW.u_2_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_DW.u_3_DWORK1,
-      0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_sixaxis2force_DW.u_3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_DW.pwm_1_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_sixaxis2force_DW.pwm_1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_DW.pwm_2_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_sixaxis2force_DW.pwm_2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_DW.pwm_3_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_sixaxis2force_DW.pwm_3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_DW.pwm_4_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_sixaxis2force_DW.pwm_4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_DW.pwm_5_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_sixaxis2force_DW.pwm_5_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_DW.pwm_6_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_sixaxis2force_DW.pwm_6_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_sixaxis2force_DW.u_limit_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_sixaxis2force_DW.u_limit_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_DW.u_4_DWORK1,
       0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_sixaxis2force_DW.u_4_DWORK1");
@@ -4270,10 +4645,15 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_DW.u_6_DWORK1,
       0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_sixaxis2force_DW.u_6_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_sixaxis2force_DW.u_limit_DWORK1, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_sixaxis2force_DW.u_limit_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_DW.u_1_DWORK1,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_sixaxis2force_DW.u_1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_DW.u_2_DWORK1,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_sixaxis2force_DW.u_2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_sixaxis2force_DW.u_3_DWORK1,
+      0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_sixaxis2force_DW.u_3_DWORK1");
     for (count = 0; count < 19; count++) {
       discStates[idx] = NIRT_GetValueByDataType
         (&ctrl_sixaxis2force_DW.ArrowUp_DWORK2, count, 17, 0);
@@ -4373,6 +4753,13 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
     for (count = 0; count < 19; count++) {
       discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_sixaxis2force_DW.body_rel_DWORK2, count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_sixaxis2force_DW.body_rel_DWORK2");
+    }
+
+    for (count = 0; count < 19; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
         (&ctrl_sixaxis2force_DW.basin_rel_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
              "&ctrl_sixaxis2force_DW.basin_rel_DWORK2");
@@ -4455,23 +4842,51 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
     for (count = 0; count < 19; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&ctrl_sixaxis2force_DW.u_1_DWORK2, count, 17, 0);
+        (&ctrl_sixaxis2force_DW.pwm_1_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&ctrl_sixaxis2force_DW.u_1_DWORK2");
+             "&ctrl_sixaxis2force_DW.pwm_1_DWORK2");
     }
 
     for (count = 0; count < 19; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&ctrl_sixaxis2force_DW.u_2_DWORK2, count, 17, 0);
+        (&ctrl_sixaxis2force_DW.pwm_2_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&ctrl_sixaxis2force_DW.u_2_DWORK2");
+             "&ctrl_sixaxis2force_DW.pwm_2_DWORK2");
     }
 
     for (count = 0; count < 19; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&ctrl_sixaxis2force_DW.u_3_DWORK2, count, 17, 0);
+        (&ctrl_sixaxis2force_DW.pwm_3_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&ctrl_sixaxis2force_DW.u_3_DWORK2");
+             "&ctrl_sixaxis2force_DW.pwm_3_DWORK2");
+    }
+
+    for (count = 0; count < 19; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_sixaxis2force_DW.pwm_4_DWORK2, count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_sixaxis2force_DW.pwm_4_DWORK2");
+    }
+
+    for (count = 0; count < 19; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_sixaxis2force_DW.pwm_5_DWORK2, count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_sixaxis2force_DW.pwm_5_DWORK2");
+    }
+
+    for (count = 0; count < 19; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_sixaxis2force_DW.pwm_6_DWORK2, count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_sixaxis2force_DW.pwm_6_DWORK2");
+    }
+
+    for (count = 0; count < 19; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_sixaxis2force_DW.u_limit_DWORK2, count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_sixaxis2force_DW.u_limit_DWORK2");
     }
 
     for (count = 0; count < 19; count++) {
@@ -4497,9 +4912,23 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
     for (count = 0; count < 19; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&ctrl_sixaxis2force_DW.u_limit_DWORK2, count, 17, 0);
+        (&ctrl_sixaxis2force_DW.u_1_DWORK2, count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&ctrl_sixaxis2force_DW.u_limit_DWORK2");
+             "&ctrl_sixaxis2force_DW.u_1_DWORK2");
+    }
+
+    for (count = 0; count < 19; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_sixaxis2force_DW.u_2_DWORK2, count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_sixaxis2force_DW.u_2_DWORK2");
+    }
+
+    for (count = 0; count < 19; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_sixaxis2force_DW.u_3_DWORK2, count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_sixaxis2force_DW.u_3_DWORK2");
     }
   }
 
@@ -4562,6 +4991,8 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.thr_angle_6_DWORK1, 0,
       discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.body_rel_DWORK1, 0,
+      discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.basin_rel_DWORK1, 0,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.user_rel_DWORK1, 0,
@@ -4586,20 +5017,32 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.alpha_6_DWORK1, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_1_DWORK1, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_2_DWORK1, 0, discStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_3_DWORK1, 0, discStates[idx
-      ++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_1_DWORK1, 0,
+      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_2_DWORK1, 0,
+      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_3_DWORK1, 0,
+      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_4_DWORK1, 0,
+      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_5_DWORK1, 0,
+      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_6_DWORK1, 0,
+      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_limit_DWORK1, 0,
+      discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_4_DWORK1, 0, discStates[idx
       ++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_5_DWORK1, 0, discStates[idx
       ++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_6_DWORK1, 0, discStates[idx
       ++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_limit_DWORK1, 0,
-      discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_1_DWORK1, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_2_DWORK1, 0, discStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_3_DWORK1, 0, discStates[idx
+      ++], 0, 0);
     for (count = 0; count < 19; count++) {
       NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.ArrowUp_DWORK2, count,
         discStates[idx++], 17, 0);
@@ -4671,6 +5114,11 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     }
 
     for (count = 0; count < 19; count++) {
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.body_rel_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 19; count++) {
       NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.basin_rel_DWORK2, count,
         discStates[idx++], 17, 0);
     }
@@ -4731,17 +5179,37 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     }
 
     for (count = 0; count < 19; count++) {
-      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_1_DWORK2, count,
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_1_DWORK2, count,
         discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 19; count++) {
-      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_2_DWORK2, count,
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_2_DWORK2, count,
         discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 19; count++) {
-      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_3_DWORK2, count,
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_3_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 19; count++) {
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_4_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 19; count++) {
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_5_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 19; count++) {
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.pwm_6_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 19; count++) {
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_limit_DWORK2, count,
         discStates[idx++], 17, 0);
     }
 
@@ -4761,7 +5229,17 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     }
 
     for (count = 0; count < 19; count++) {
-      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_limit_DWORK2, count,
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_1_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 19; count++) {
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_2_DWORK2, count,
+        discStates[idx++], 17, 0);
+    }
+
+    for (count = 0; count < 19; count++) {
+      NIRT_SetValueByDataType(&ctrl_sixaxis2force_DW.u_3_DWORK2, count,
         discStates[idx++], 17, 0);
     }
   }
