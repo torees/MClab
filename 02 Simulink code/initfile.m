@@ -1,88 +1,58 @@
 %% Init file for master thesis
-clc
-clear
-
 %% Controls for the system
-tc = [1;2;0.5];           % Control thrust into thrust allocation
-r = 0;                  % Chooses if real vessel or model parameters are used r = 1 Real , r = 0 Model
-Thruster_lock = 1;      % if 0 --> Thrusters locked to predescribed angles, if 1 --> Azimuth thrusters
-Thruster_control = 1;   % Chooses Controller: 1 = Speed , 2 = Torque , 3 = Power , 4 = Power & torque
-Thrust_algorithm = 1;   % Chooses which algorithm is used 1 = Quadratic solver , 0 = Pseudoinverse solver
+% Thruster_lock = 1;      % if 0 --> Thrusters locked to predescribed angles, if 1 --> Azimuth thrusters
+% Thruster_control = 4;   % Chooses Controller: 1 = Speed , 2 = Torque , 3 = Power , 4 = Power & torque
 %% Parameters
-lambda = 90;        % Scaling parameter
-Kt = 0.445;         % Thrust coefficient [-]
-Kq = 0.266;         %  Torque coefficient [-]
-Kt0 = 0.445;        % Nominal Thrust coefficent [-] --> Ktc
-Kq0 = 0.266;        % Nominal Torque coefficient [-]--> Kqc
-Ktr = 0.445;        % Reverse Thrust coefficient
-Kqr = 0.266;        % Reverse Torque coefficient
-k = 1.2;            % Coefficient for max Torque/power [-]
+
+% Thrust coefficients
+K_T1f = 0.3763;
+K_T2f = 0.3901;
+K_T3f = 0.3776;
+K_T4f = 0.5641;
+K_T5f = 0.4799;
+K_T6f = 0.5588;
+K_T1r = K_T1f;
+K_T2r = K_T2f;
+K_T3r = K_T3f;
+K_T4r = K_T4f;
+K_T5r = K_T5f;
+K_T6r = K_T6f;
+
+% Torque coefficients
+K_q1f = 0.0113;
+K_q2f = 0.0117;
+K_q3f = 0.0113;
+K_q4f = 0.0169;
+K_q5f = 0.0144;
+K_q6f = 0.0168;
+K_q1r = K_q1f;
+K_q2r = K_q2f;
+K_q3r = K_q3f;
+K_q4r = K_q4f;
+K_q5r = K_q5f;
+K_q6r = K_q6f;
 eps = 1E-5;         % Constant for avoiding singularities
 
-%% Actual vessel parameters
-if r == 1
-Rho_r = 1025;                                % Water density sea  [Kg/m^3]
-D = 3.7;                                     % Propeller diameter [m]
-n_max = 170;                                 % Maximum propeller speed [RPM]
-T_max = (Kt0*Rho_r*D^4*n_max^2*k);           % Max produced thrust [N]
-Q_max = (Kq0*Rho_r*D^5*n_max^2*k);           % Max torque  [Nm]
-P_max = (6000000*k);                         % Max power [W]
-I_s = 25000;                                 % Moment of inertia [Kg*m^2]
-Rho = Rho_r;
-Max_rotation = 2;                       % Max rotation of thrusters [1/s]
-Max_thrust = 0.89*lambda^4;             % maximum force for each thruster
-Max_Acceleration = 5;                   % Max propeller accelleration [1/s^2]
-Thruster.T1 = [ 96.1   0      180.1 2];  % [m,m,Deg,Deg/s] 
-Thruster.T2 = [ 84.1  9.9   145 2];    % [m,m,Deg,Deg/s]
-Thruster.T3 = [ 84.1 -9.9   215 2];    % [m,m,Deg,Deg/s]
-Thruster.T4 = [-104.8  0      0   2];    % [m,m,Deg,Deg/s]
-Thruster.T5 = [-89.2  -14.9    35  2];    % [m,m,Deg,Deg/s]
-Thruster.T6 = [-89.2  14.9   305  2];    % [m,m,Deg,Deg/s]
-
-% Thruster control
-eps_c = 3;        % Constant for switching between positive and negative thrust
-n_c = 1;          % Switching width between K_tc and K_tcr
-omega_r0 = 0.90;  % Natural frequency [1/s] Initial: 0.75 VIRKER
-zeta_r = 0.98;     % Damping ratio [-]       Initial: 0.9 0.36 VIRKER
-H1 = tf(omega_r0^2,[1 2*zeta_r*omega_r0 omega_r0^2]);
-hd = c2d(H1,0.01,'foh');
-
-% Transfer function for Engine
-H2 = tf(1,[0.2 1]);
-hd2 = c2d(H2,0.01,'zoh');
-
-Kp = 150000;         % Core controller gain [-]
-nd_slew = 0.5*90; % Max RPS rate [1/s^2]
-K_omega = 90000;    % Linear friction coefficient [-] 0.3
-epsilon = 0.3;    % Constant for friction component
-Q_f0 = 200;       % Friction constant
-
-% Core thruster parameters for combined torque and power
-k_cc = 1;
-p_cc = 0.5;
-r_cc = 2;
 %% Model vessel parameters
-elseif r == 0
+lambda = 90;        % Scaling parameter
 Rho_m = 1000;                           % Water density tank [Kg/m^3]
-D = 3.0/100;                             % Propeller diameter model vessel  [m] 
-n_max = (lambda/sqrt(lambda))*170/1.4;  % Maximum propeller speed model [RPM] 
-Q_max = (Kq0*Rho_m*D^5*n_max^2*k);      % Max torque [Nm]                     
-T_max = (Kt0*Rho_m*D^4*n_max^2*k);      % Max produced thrust [N]
-P_max = 2*pi*n_max*Q_max;               % Max power[W]
+D = 3.0/100;                             % Propeller diameter model vessel  [m]                    
+T_max = 1.5034;      % Max produced thrust [N]
 I_s = 25000 /747225;                    % Moment of inertia [kg*m^2]
 Rho = Rho_m;
-Max_rotation = 5*sqrt(lambda);          % Max rotation of thrusters [1/s]
-Max_thrust = 0.12;                      % maximum force for each thruster
+Max_rotation = 12*sqrt(lambda);          % Max rotation of thrusters [1/s]
+Max_thrust = 1.5;                      % maximum force for each thruster
+Min_thrust = -0.8;
 Max_Acceleration = 5;                   % Max propeller accelleration [1/s^2]
-Thruster.T1 = [ 96.1/90  0         0   2];    %[m,m,Deg,Deg/s]
-Thruster.T2 = [ 84.1/90  9.9/90    0  2];    %[m,m,Deg,Deg/s] 45
-Thruster.T3 = [ 84.1/90 -9.9/90    0 2];    %[m,m,Deg,Deg/s] -45
+Thruster.T1 = [ 96.1/90  0         180   2];    %[m,m,Deg,Deg/s]
+Thruster.T2 = [ 84.1/90  9.9/90    -135  2];    %[m,m,Deg,Deg/s] 45
+Thruster.T3 = [ 84.1/90 -9.9/90    90 2];    %[m,m,Deg,Deg/s] -45
 Thruster.T4 = [-104.8/90 0         0 2];    %[m,m,Deg,Deg/s] 179.5
-Thruster.T5 = [-89.2/90 -14.9/90   0 2];    %[m,m,Deg,Deg/s] 135
-Thruster.T6 = [-89.2/90  14.9/90   0 2];    %[m,m,Deg,Deg/s] -135
+Thruster.T5 = [-89.2/90 -14.9/90   45 2];    %[m,m,Deg,Deg/s] 135
+Thruster.T6 = [-89.2/90  14.9/90   -90 2];    %[m,m,Deg,Deg/s] -135
 
 % Thruster control
-eps_c = 3;        % Constant for switching between positive and negative thrust
+eps_c = 5;        % Constant for switching between positive and negative thrust
 n_c = 5;          % Switching width between K_tc and K_tcr
 omega_r0 = 0.90;  % Natural frequency [1/s] Initial: 0.75 VIRKER
 zeta_r = .78;     % Damping ratio [-]       Initial: 0.9 0.36 VIRKER
@@ -94,7 +64,7 @@ H2 = tf(1,[0.02 1]);
 hd2 = c2d(H2,0.01,'zoh');
 
 Kp = 3.3;         % Core controller gain [-]
-nd_slew = 0.5*90; % Max RPS rate [1/s^2]
+nd_slew = 2*90; % Max RPS rate [1/s^2]
 K_omega = 0.3;    % Linear friction coefficient [-] 0.3
 epsilon = 0.5;    % Constant for friction component
 Q_f0 = 0.3;       % Friction constant
@@ -102,9 +72,7 @@ Q_f0 = 0.3;       % Friction constant
 % Core thruster parameters for combined torque and power
 k_cc = 1;
 p_cc = 0.5;
-r_cc = 2;
-end
-
+r_cc = 4;
 
 % constraints on thrusters:
 %ABS GUIDE Table
@@ -194,24 +162,42 @@ C6 = round(C6,1);
 C = [C1;C2;C3;C4;C5;C6]; % All constraints for Thruster-Thruster Interaction
 
 
-%% Curves for shaft speed, volt and thrust
-load('ForceToPWM.mat')
-thrust_to_pwm_coeff = coeffvalues(ForceToPWM);
-load('PWMToForce.mat')
-pwm_to_thrust_coeff = coeffvalues(PWMToForce);
-load('ShaftToPWM.mat')
-shaft_to_pwm_coeff = coeffvalues(ShaftToPWM);
-load('PWMToShaft.mat')
-pwm_to_shaft_coeff = coeffvalues(PWMToShaft);
-load('VoltToPWM.mat')
-volt_to_pwm_coeff = coeffvalues(VoltToPWM);
-load('PWMToVolt.mat')
-pwm_to_volt_coeff = coeffvalues(PWMToVolt);
+%% Curves for mapping commanded force to commanded PWM signal
 
-%% Denne kjører og tar tiden på simuleringen
-% tic
-% sim Thrustcontrol.slx
-% toc
+load('signal mapping\force_to_pwm_thr1_forward')
+pwm_thr1_forward = coeffvalues(ForceToPWM);
 
+load('signal mapping\force_to_pwm_thr2_forward')
+pwm_thr2_forward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr3_forward')
+pwm_thr3_forward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr4_forward')
+pwm_thr4_forward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr5_forward')
+pwm_thr5_forward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr6_forward')
+pwm_thr6_forward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr1_backward')
+pwm_thr1_backward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr2_backward')
+pwm_thr2_backward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr3_backward')
+pwm_thr3_backward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr4_backward')
+pwm_thr4_backward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr5_backward')
+pwm_thr5_backward = coeffvalues(ForceToPWM);
+
+load('signal mapping\force_to_pwm_thr6_backward')
+pwm_thr6_backward = coeffvalues(ForceToPWM);
 
 

@@ -7,9 +7,9 @@
  *
  * Code generation for model "rpm".
  *
- * Model version              : 1.51
+ * Model version              : 1.68
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 10 14:30:55 2016
+ * C source code generated on : Sun Jun 26 19:52:37 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -808,48 +808,164 @@
 /* Definition for use in the target main file */
 #define rpm_rtModel                    RT_MODEL_rpm_T
 
-/* Block signals (auto storage) */
+/* Block signals for system '<Root>/MATLAB Function' */
 typedef struct {
-  real_T Memory3;                      /* '<Root>/Memory3' */
-  real_T revolutions;                  /* '<Root>/revolutions' */
-  real_T Memory;                       /* '<Root>/Memory' */
-  real_T Memory1;                      /* '<Root>/Memory1' */
-  real_T Memory2;                      /* '<Root>/Memory2' */
   real_T rpm_n;                        /* '<Root>/MATLAB Function' */
   real_T measurment_tmp;               /* '<Root>/MATLAB Function' */
   real_T revolutions_out;              /* '<Root>/MATLAB Function' */
   real_T timeold_out;                  /* '<Root>/MATLAB Function' */
+} B_MATLABFunction_rpm_T;
+
+/* Block signals (auto storage) */
+typedef struct {
+  real_T Memory3;                      /* '<Root>/Memory3' */
+  real_T revolutions1;                 /* '<Root>/revolutions1' */
+  real_T Memory;                       /* '<Root>/Memory' */
+  real_T Memory1;                      /* '<Root>/Memory1' */
+  real_T Memory2;                      /* '<Root>/Memory2' */
+  real_T Gain1;                        /* '<Root>/Gain1' */
+  real_T revolutions2;                 /* '<Root>/revolutions2' */
+  real_T revolutions3;                 /* '<Root>/revolutions3' */
+  real_T Memory7;                      /* '<Root>/Memory7' */
+  real_T Memory4;                      /* '<Root>/Memory4' */
+  real_T Memory5;                      /* '<Root>/Memory5' */
+  real_T Memory6;                      /* '<Root>/Memory6' */
+  real_T revolutions4;                 /* '<Root>/revolutions4' */
+  real_T revolutions5;                 /* '<Root>/revolutions5' */
+  real_T Gain2;                        /* '<Root>/Gain2' */
+  real_T revolutions6;                 /* '<Root>/revolutions6' */
+  real_T Memory11;                     /* '<Root>/Memory11' */
+  real_T Memory8;                      /* '<Root>/Memory8' */
+  real_T Memory9;                      /* '<Root>/Memory9' */
+  real_T Memory10;                     /* '<Root>/Memory10' */
+  real_T Gain4;                        /* '<Root>/Gain4' */
+  real_T Memory15;                     /* '<Root>/Memory15' */
+  real_T Memory12;                     /* '<Root>/Memory12' */
+  real_T Memory13;                     /* '<Root>/Memory13' */
+  real_T Memory14;                     /* '<Root>/Memory14' */
+  real_T Gain;                         /* '<Root>/Gain' */
+  real_T Memory19;                     /* '<Root>/Memory19' */
+  real_T Memory16;                     /* '<Root>/Memory16' */
+  real_T Memory17;                     /* '<Root>/Memory17' */
+  real_T Memory18;                     /* '<Root>/Memory18' */
+  real_T Gain3;                        /* '<Root>/Gain3' */
+  real_T Memory23;                     /* '<Root>/Memory23' */
+  real_T Memory20;                     /* '<Root>/Memory20' */
+  real_T Memory21;                     /* '<Root>/Memory21' */
+  real_T Memory22;                     /* '<Root>/Memory22' */
+  real_T Gain5;                        /* '<Root>/Gain5' */
+  B_MATLABFunction_rpm_T sf_MATLABFunction5;/* '<Root>/MATLAB Function5' */
+  B_MATLABFunction_rpm_T sf_MATLABFunction4;/* '<Root>/MATLAB Function4' */
+  B_MATLABFunction_rpm_T sf_MATLABFunction3;/* '<Root>/MATLAB Function3' */
+  B_MATLABFunction_rpm_T sf_MATLABFunction2;/* '<Root>/MATLAB Function2' */
+  B_MATLABFunction_rpm_T sf_MATLABFunction1;/* '<Root>/MATLAB Function1' */
+  B_MATLABFunction_rpm_T sf_MATLABFunction;/* '<Root>/MATLAB Function' */
 } B_rpm_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
   real_T Memory3_PreviousInput;        /* '<Root>/Memory3' */
-  real_T revolutions_DWORK1;           /* '<Root>/revolutions' */
+  real_T revolutions1_DWORK1;          /* '<Root>/revolutions1' */
   real_T Memory_PreviousInput;         /* '<Root>/Memory' */
   real_T Memory1_PreviousInput;        /* '<Root>/Memory1' */
   real_T Memory2_PreviousInput;        /* '<Root>/Memory2' */
-  real_T rpm_DWORK1;                   /* '<Root>/rpm' */
-  real_T measurment_DWORK1;            /* '<Root>/measurment' */
-  real_T revolution_DWORK1;            /* '<Root>/revolution' */
-  uint8_T revolutions_DWORK2[4];       /* '<Root>/revolutions' */
-  uint8_T rpm_DWORK2[4];               /* '<Root>/rpm' */
-  uint8_T measurment_DWORK2[4];        /* '<Root>/measurment' */
-  uint8_T revolution_DWORK2[4];        /* '<Root>/revolution' */
+  real_T rpm1_DWORK1;                  /* '<Root>/rpm1' */
+  real_T measurment1_DWORK1;           /* '<Root>/measurment1' */
+  real_T revolutions2_DWORK1;          /* '<Root>/revolutions2' */
+  real_T revolution1_DWORK1;           /* '<Root>/revolution1' */
+  real_T revolutions3_DWORK1;          /* '<Root>/revolutions3' */
+  real_T Memory7_PreviousInput;        /* '<Root>/Memory7' */
+  real_T Memory4_PreviousInput;        /* '<Root>/Memory4' */
+  real_T Memory5_PreviousInput;        /* '<Root>/Memory5' */
+  real_T Memory6_PreviousInput;        /* '<Root>/Memory6' */
+  real_T measurment2_DWORK1;           /* '<Root>/measurment2' */
+  real_T revolutions4_DWORK1;          /* '<Root>/revolutions4' */
+  real_T revolution2_DWORK1;           /* '<Root>/revolution2' */
+  real_T revolutions5_DWORK1;          /* '<Root>/revolutions5' */
+  real_T rpm2_DWORK1;                  /* '<Root>/rpm2' */
+  real_T revolutions6_DWORK1;          /* '<Root>/revolutions6' */
+  real_T Memory11_PreviousInput;       /* '<Root>/Memory11' */
+  real_T Memory8_PreviousInput;        /* '<Root>/Memory8' */
+  real_T Memory9_PreviousInput;        /* '<Root>/Memory9' */
+  real_T Memory10_PreviousInput;       /* '<Root>/Memory10' */
+  real_T measurment3_DWORK1;           /* '<Root>/measurment3' */
+  real_T revolution3_DWORK1;           /* '<Root>/revolution3' */
+  real_T rpm3_DWORK1;                  /* '<Root>/rpm3' */
+  real_T Memory15_PreviousInput;       /* '<Root>/Memory15' */
+  real_T Memory12_PreviousInput;       /* '<Root>/Memory12' */
+  real_T Memory13_PreviousInput;       /* '<Root>/Memory13' */
+  real_T Memory14_PreviousInput;       /* '<Root>/Memory14' */
+  real_T measurment4_DWORK1;           /* '<Root>/measurment4' */
+  real_T revolution4_DWORK1;           /* '<Root>/revolution4' */
+  real_T rpm4_DWORK1;                  /* '<Root>/rpm4' */
+  real_T Memory19_PreviousInput;       /* '<Root>/Memory19' */
+  real_T Memory16_PreviousInput;       /* '<Root>/Memory16' */
+  real_T Memory17_PreviousInput;       /* '<Root>/Memory17' */
+  real_T Memory18_PreviousInput;       /* '<Root>/Memory18' */
+  real_T measurment5_DWORK1;           /* '<Root>/measurment5' */
+  real_T revolution5_DWORK1;           /* '<Root>/revolution5' */
+  real_T rpm5_DWORK1;                  /* '<Root>/rpm5' */
+  real_T Memory23_PreviousInput;       /* '<Root>/Memory23' */
+  real_T Memory20_PreviousInput;       /* '<Root>/Memory20' */
+  real_T Memory21_PreviousInput;       /* '<Root>/Memory21' */
+  real_T Memory22_PreviousInput;       /* '<Root>/Memory22' */
+  real_T measurment6_DWORK1;           /* '<Root>/measurment6' */
+  real_T revolution6_DWORK1;           /* '<Root>/revolution6' */
+  real_T rpm6_DWORK1;                  /* '<Root>/rpm6' */
+  uint8_T revolutions1_DWORK2[4];      /* '<Root>/revolutions1' */
+  uint8_T rpm1_DWORK2[4];              /* '<Root>/rpm1' */
+  uint8_T measurment1_DWORK2[4];       /* '<Root>/measurment1' */
+  uint8_T revolutions2_DWORK2[4];      /* '<Root>/revolutions2' */
+  uint8_T revolution1_DWORK2[4];       /* '<Root>/revolution1' */
+  uint8_T revolutions3_DWORK2[4];      /* '<Root>/revolutions3' */
+  uint8_T measurment2_DWORK2[4];       /* '<Root>/measurment2' */
+  uint8_T revolutions4_DWORK2[4];      /* '<Root>/revolutions4' */
+  uint8_T revolution2_DWORK2[4];       /* '<Root>/revolution2' */
+  uint8_T revolutions5_DWORK2[4];      /* '<Root>/revolutions5' */
+  uint8_T rpm2_DWORK2[4];              /* '<Root>/rpm2' */
+  uint8_T revolutions6_DWORK2[4];      /* '<Root>/revolutions6' */
+  uint8_T measurment3_DWORK2[4];       /* '<Root>/measurment3' */
+  uint8_T revolution3_DWORK2[4];       /* '<Root>/revolution3' */
+  uint8_T rpm3_DWORK2[4];              /* '<Root>/rpm3' */
+  uint8_T measurment4_DWORK2[4];       /* '<Root>/measurment4' */
+  uint8_T revolution4_DWORK2[4];       /* '<Root>/revolution4' */
+  uint8_T rpm4_DWORK2[4];              /* '<Root>/rpm4' */
+  uint8_T measurment5_DWORK2[4];       /* '<Root>/measurment5' */
+  uint8_T revolution5_DWORK2[4];       /* '<Root>/revolution5' */
+  uint8_T rpm5_DWORK2[4];              /* '<Root>/rpm5' */
+  uint8_T measurment6_DWORK2[4];       /* '<Root>/measurment6' */
+  uint8_T revolution6_DWORK2[4];       /* '<Root>/revolution6' */
+  uint8_T rpm6_DWORK2[4];              /* '<Root>/rpm6' */
 } DW_rpm_T;
 
 /* Continuous states (auto storage) */
 typedef struct {
   real_T Integrator_CSTATE;            /* '<Root>/Integrator' */
+  real_T Integrator1_CSTATE;           /* '<Root>/Integrator1' */
+  real_T Integrator2_CSTATE;           /* '<Root>/Integrator2' */
+  real_T Integrator3_CSTATE;           /* '<Root>/Integrator3' */
+  real_T Integrator4_CSTATE;           /* '<Root>/Integrator4' */
+  real_T Integrator5_CSTATE;           /* '<Root>/Integrator5' */
 } X_rpm_T;
 
 /* State derivatives (auto storage) */
 typedef struct {
   real_T Integrator_CSTATE;            /* '<Root>/Integrator' */
+  real_T Integrator1_CSTATE;           /* '<Root>/Integrator1' */
+  real_T Integrator2_CSTATE;           /* '<Root>/Integrator2' */
+  real_T Integrator3_CSTATE;           /* '<Root>/Integrator3' */
+  real_T Integrator4_CSTATE;           /* '<Root>/Integrator4' */
+  real_T Integrator5_CSTATE;           /* '<Root>/Integrator5' */
 } XDot_rpm_T;
 
 /* State disabled  */
 typedef struct {
   boolean_T Integrator_CSTATE;         /* '<Root>/Integrator' */
+  boolean_T Integrator1_CSTATE;        /* '<Root>/Integrator1' */
+  boolean_T Integrator2_CSTATE;        /* '<Root>/Integrator2' */
+  boolean_T Integrator3_CSTATE;        /* '<Root>/Integrator3' */
+  boolean_T Integrator4_CSTATE;        /* '<Root>/Integrator4' */
+  boolean_T Integrator5_CSTATE;        /* '<Root>/Integrator5' */
 } XDis_rpm_T;
 
 #ifndef ODE3_INTG
@@ -885,23 +1001,23 @@ struct P_rpm_T_ {
   real_T Integrator_IC;                /* Expression: 0
                                         * Referenced by: '<Root>/Integrator'
                                         */
-  real_T revolutions_P1;               /* Expression: width
-                                        * Referenced by: '<Root>/revolutions'
+  real_T revolutions1_P1;              /* Expression: width
+                                        * Referenced by: '<Root>/revolutions1'
                                         */
-  real_T revolutions_P2;               /* Expression: dtype
-                                        * Referenced by: '<Root>/revolutions'
+  real_T revolutions1_P2;              /* Expression: dtype
+                                        * Referenced by: '<Root>/revolutions1'
                                         */
-  real_T revolutions_P3;               /* Expression: portnum
-                                        * Referenced by: '<Root>/revolutions'
+  real_T revolutions1_P3;              /* Expression: portnum
+                                        * Referenced by: '<Root>/revolutions1'
                                         */
-  real_T revolutions_P4;               /* Expression: stime
-                                        * Referenced by: '<Root>/revolutions'
+  real_T revolutions1_P4;              /* Expression: stime
+                                        * Referenced by: '<Root>/revolutions1'
                                         */
-  real_T revolutions_P5;               /* Expression: stype
-                                        * Referenced by: '<Root>/revolutions'
+  real_T revolutions1_P5;              /* Expression: stype
+                                        * Referenced by: '<Root>/revolutions1'
                                         */
-  real_T revolutions_P6;               /* Expression: btype
-                                        * Referenced by: '<Root>/revolutions'
+  real_T revolutions1_P6;              /* Expression: btype
+                                        * Referenced by: '<Root>/revolutions1'
                                         */
   real_T Memory_X0;                    /* Expression: 0
                                         * Referenced by: '<Root>/Memory'
@@ -912,62 +1028,530 @@ struct P_rpm_T_ {
   real_T Memory2_X0;                   /* Expression: 0
                                         * Referenced by: '<Root>/Memory2'
                                         */
-  real_T rpm_P1;                       /* Expression: width
-                                        * Referenced by: '<Root>/rpm'
+  real_T Gain1_Gain;                   /* Expression: 2
+                                        * Referenced by: '<Root>/Gain1'
                                         */
-  real_T rpm_P2;                       /* Expression: dtype
-                                        * Referenced by: '<Root>/rpm'
+  real_T rpm1_P1;                      /* Expression: width
+                                        * Referenced by: '<Root>/rpm1'
                                         */
-  real_T rpm_P3;                       /* Expression: portnum
-                                        * Referenced by: '<Root>/rpm'
+  real_T rpm1_P2;                      /* Expression: dtype
+                                        * Referenced by: '<Root>/rpm1'
                                         */
-  real_T rpm_P4;                       /* Expression: stime
-                                        * Referenced by: '<Root>/rpm'
+  real_T rpm1_P3;                      /* Expression: portnum
+                                        * Referenced by: '<Root>/rpm1'
                                         */
-  real_T rpm_P5;                       /* Expression: stype
-                                        * Referenced by: '<Root>/rpm'
+  real_T rpm1_P4;                      /* Expression: stime
+                                        * Referenced by: '<Root>/rpm1'
                                         */
-  real_T rpm_P6;                       /* Expression: btype
-                                        * Referenced by: '<Root>/rpm'
+  real_T rpm1_P5;                      /* Expression: stype
+                                        * Referenced by: '<Root>/rpm1'
                                         */
-  real_T measurment_P1;                /* Expression: width
-                                        * Referenced by: '<Root>/measurment'
+  real_T rpm1_P6;                      /* Expression: btype
+                                        * Referenced by: '<Root>/rpm1'
                                         */
-  real_T measurment_P2;                /* Expression: dtype
-                                        * Referenced by: '<Root>/measurment'
+  real_T measurment1_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/measurment1'
                                         */
-  real_T measurment_P3;                /* Expression: portnum
-                                        * Referenced by: '<Root>/measurment'
+  real_T measurment1_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/measurment1'
                                         */
-  real_T measurment_P4;                /* Expression: stime
-                                        * Referenced by: '<Root>/measurment'
+  real_T measurment1_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/measurment1'
                                         */
-  real_T measurment_P5;                /* Expression: stype
-                                        * Referenced by: '<Root>/measurment'
+  real_T measurment1_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/measurment1'
                                         */
-  real_T measurment_P6;                /* Expression: btype
-                                        * Referenced by: '<Root>/measurment'
+  real_T measurment1_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/measurment1'
                                         */
-  real_T revolution_P1;                /* Expression: width
-                                        * Referenced by: '<Root>/revolution'
+  real_T measurment1_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/measurment1'
                                         */
-  real_T revolution_P2;                /* Expression: dtype
-                                        * Referenced by: '<Root>/revolution'
+  real_T revolutions2_P1;              /* Expression: width
+                                        * Referenced by: '<Root>/revolutions2'
                                         */
-  real_T revolution_P3;                /* Expression: portnum
-                                        * Referenced by: '<Root>/revolution'
+  real_T revolutions2_P2;              /* Expression: dtype
+                                        * Referenced by: '<Root>/revolutions2'
                                         */
-  real_T revolution_P4;                /* Expression: stime
-                                        * Referenced by: '<Root>/revolution'
+  real_T revolutions2_P3;              /* Expression: portnum
+                                        * Referenced by: '<Root>/revolutions2'
                                         */
-  real_T revolution_P5;                /* Expression: stype
-                                        * Referenced by: '<Root>/revolution'
+  real_T revolutions2_P4;              /* Expression: stime
+                                        * Referenced by: '<Root>/revolutions2'
                                         */
-  real_T revolution_P6;                /* Expression: btype
-                                        * Referenced by: '<Root>/revolution'
+  real_T revolutions2_P5;              /* Expression: stype
+                                        * Referenced by: '<Root>/revolutions2'
+                                        */
+  real_T revolutions2_P6;              /* Expression: btype
+                                        * Referenced by: '<Root>/revolutions2'
+                                        */
+  real_T revolution1_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/revolution1'
+                                        */
+  real_T revolution1_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/revolution1'
+                                        */
+  real_T revolution1_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/revolution1'
+                                        */
+  real_T revolution1_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/revolution1'
+                                        */
+  real_T revolution1_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/revolution1'
+                                        */
+  real_T revolution1_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/revolution1'
                                         */
   real_T Constant_Value;               /* Expression: 1
                                         * Referenced by: '<Root>/Constant'
+                                        */
+  real_T revolutions3_P1;              /* Expression: width
+                                        * Referenced by: '<Root>/revolutions3'
+                                        */
+  real_T revolutions3_P2;              /* Expression: dtype
+                                        * Referenced by: '<Root>/revolutions3'
+                                        */
+  real_T revolutions3_P3;              /* Expression: portnum
+                                        * Referenced by: '<Root>/revolutions3'
+                                        */
+  real_T revolutions3_P4;              /* Expression: stime
+                                        * Referenced by: '<Root>/revolutions3'
+                                        */
+  real_T revolutions3_P5;              /* Expression: stype
+                                        * Referenced by: '<Root>/revolutions3'
+                                        */
+  real_T revolutions3_P6;              /* Expression: btype
+                                        * Referenced by: '<Root>/revolutions3'
+                                        */
+  real_T Memory7_X0;                   /* Expression: 0
+                                        * Referenced by: '<Root>/Memory7'
+                                        */
+  real_T Integrator1_IC;               /* Expression: 0
+                                        * Referenced by: '<Root>/Integrator1'
+                                        */
+  real_T Memory4_X0;                   /* Expression: 0
+                                        * Referenced by: '<Root>/Memory4'
+                                        */
+  real_T Memory5_X0;                   /* Expression: 0
+                                        * Referenced by: '<Root>/Memory5'
+                                        */
+  real_T Memory6_X0;                   /* Expression: 0
+                                        * Referenced by: '<Root>/Memory6'
+                                        */
+  real_T measurment2_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/measurment2'
+                                        */
+  real_T measurment2_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/measurment2'
+                                        */
+  real_T measurment2_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/measurment2'
+                                        */
+  real_T measurment2_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/measurment2'
+                                        */
+  real_T measurment2_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/measurment2'
+                                        */
+  real_T measurment2_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/measurment2'
+                                        */
+  real_T revolutions4_P1;              /* Expression: width
+                                        * Referenced by: '<Root>/revolutions4'
+                                        */
+  real_T revolutions4_P2;              /* Expression: dtype
+                                        * Referenced by: '<Root>/revolutions4'
+                                        */
+  real_T revolutions4_P3;              /* Expression: portnum
+                                        * Referenced by: '<Root>/revolutions4'
+                                        */
+  real_T revolutions4_P4;              /* Expression: stime
+                                        * Referenced by: '<Root>/revolutions4'
+                                        */
+  real_T revolutions4_P5;              /* Expression: stype
+                                        * Referenced by: '<Root>/revolutions4'
+                                        */
+  real_T revolutions4_P6;              /* Expression: btype
+                                        * Referenced by: '<Root>/revolutions4'
+                                        */
+  real_T revolution2_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/revolution2'
+                                        */
+  real_T revolution2_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/revolution2'
+                                        */
+  real_T revolution2_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/revolution2'
+                                        */
+  real_T revolution2_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/revolution2'
+                                        */
+  real_T revolution2_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/revolution2'
+                                        */
+  real_T revolution2_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/revolution2'
+                                        */
+  real_T revolutions5_P1;              /* Expression: width
+                                        * Referenced by: '<Root>/revolutions5'
+                                        */
+  real_T revolutions5_P2;              /* Expression: dtype
+                                        * Referenced by: '<Root>/revolutions5'
+                                        */
+  real_T revolutions5_P3;              /* Expression: portnum
+                                        * Referenced by: '<Root>/revolutions5'
+                                        */
+  real_T revolutions5_P4;              /* Expression: stime
+                                        * Referenced by: '<Root>/revolutions5'
+                                        */
+  real_T revolutions5_P5;              /* Expression: stype
+                                        * Referenced by: '<Root>/revolutions5'
+                                        */
+  real_T revolutions5_P6;              /* Expression: btype
+                                        * Referenced by: '<Root>/revolutions5'
+                                        */
+  real_T Gain2_Gain;                   /* Expression: 2
+                                        * Referenced by: '<Root>/Gain2'
+                                        */
+  real_T rpm2_P1;                      /* Expression: width
+                                        * Referenced by: '<Root>/rpm2'
+                                        */
+  real_T rpm2_P2;                      /* Expression: dtype
+                                        * Referenced by: '<Root>/rpm2'
+                                        */
+  real_T rpm2_P3;                      /* Expression: portnum
+                                        * Referenced by: '<Root>/rpm2'
+                                        */
+  real_T rpm2_P4;                      /* Expression: stime
+                                        * Referenced by: '<Root>/rpm2'
+                                        */
+  real_T rpm2_P5;                      /* Expression: stype
+                                        * Referenced by: '<Root>/rpm2'
+                                        */
+  real_T rpm2_P6;                      /* Expression: btype
+                                        * Referenced by: '<Root>/rpm2'
+                                        */
+  real_T Constant1_Value;              /* Expression: 1
+                                        * Referenced by: '<Root>/Constant1'
+                                        */
+  real_T revolutions6_P1;              /* Expression: width
+                                        * Referenced by: '<Root>/revolutions6'
+                                        */
+  real_T revolutions6_P2;              /* Expression: dtype
+                                        * Referenced by: '<Root>/revolutions6'
+                                        */
+  real_T revolutions6_P3;              /* Expression: portnum
+                                        * Referenced by: '<Root>/revolutions6'
+                                        */
+  real_T revolutions6_P4;              /* Expression: stime
+                                        * Referenced by: '<Root>/revolutions6'
+                                        */
+  real_T revolutions6_P5;              /* Expression: stype
+                                        * Referenced by: '<Root>/revolutions6'
+                                        */
+  real_T revolutions6_P6;              /* Expression: btype
+                                        * Referenced by: '<Root>/revolutions6'
+                                        */
+  real_T Memory11_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory11'
+                                        */
+  real_T Integrator2_IC;               /* Expression: 0
+                                        * Referenced by: '<Root>/Integrator2'
+                                        */
+  real_T Memory8_X0;                   /* Expression: 0
+                                        * Referenced by: '<Root>/Memory8'
+                                        */
+  real_T Memory9_X0;                   /* Expression: 0
+                                        * Referenced by: '<Root>/Memory9'
+                                        */
+  real_T Memory10_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory10'
+                                        */
+  real_T measurment3_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/measurment3'
+                                        */
+  real_T measurment3_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/measurment3'
+                                        */
+  real_T measurment3_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/measurment3'
+                                        */
+  real_T measurment3_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/measurment3'
+                                        */
+  real_T measurment3_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/measurment3'
+                                        */
+  real_T measurment3_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/measurment3'
+                                        */
+  real_T revolution3_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/revolution3'
+                                        */
+  real_T revolution3_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/revolution3'
+                                        */
+  real_T revolution3_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/revolution3'
+                                        */
+  real_T revolution3_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/revolution3'
+                                        */
+  real_T revolution3_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/revolution3'
+                                        */
+  real_T revolution3_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/revolution3'
+                                        */
+  real_T Gain4_Gain;                   /* Expression: 2
+                                        * Referenced by: '<Root>/Gain4'
+                                        */
+  real_T rpm3_P1;                      /* Expression: width
+                                        * Referenced by: '<Root>/rpm3'
+                                        */
+  real_T rpm3_P2;                      /* Expression: dtype
+                                        * Referenced by: '<Root>/rpm3'
+                                        */
+  real_T rpm3_P3;                      /* Expression: portnum
+                                        * Referenced by: '<Root>/rpm3'
+                                        */
+  real_T rpm3_P4;                      /* Expression: stime
+                                        * Referenced by: '<Root>/rpm3'
+                                        */
+  real_T rpm3_P5;                      /* Expression: stype
+                                        * Referenced by: '<Root>/rpm3'
+                                        */
+  real_T rpm3_P6;                      /* Expression: btype
+                                        * Referenced by: '<Root>/rpm3'
+                                        */
+  real_T Constant2_Value;              /* Expression: 1
+                                        * Referenced by: '<Root>/Constant2'
+                                        */
+  real_T Memory15_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory15'
+                                        */
+  real_T Integrator3_IC;               /* Expression: 0
+                                        * Referenced by: '<Root>/Integrator3'
+                                        */
+  real_T Memory12_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory12'
+                                        */
+  real_T Memory13_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory13'
+                                        */
+  real_T Memory14_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory14'
+                                        */
+  real_T measurment4_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/measurment4'
+                                        */
+  real_T measurment4_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/measurment4'
+                                        */
+  real_T measurment4_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/measurment4'
+                                        */
+  real_T measurment4_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/measurment4'
+                                        */
+  real_T measurment4_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/measurment4'
+                                        */
+  real_T measurment4_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/measurment4'
+                                        */
+  real_T revolution4_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/revolution4'
+                                        */
+  real_T revolution4_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/revolution4'
+                                        */
+  real_T revolution4_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/revolution4'
+                                        */
+  real_T revolution4_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/revolution4'
+                                        */
+  real_T revolution4_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/revolution4'
+                                        */
+  real_T revolution4_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/revolution4'
+                                        */
+  real_T Gain_Gain;                    /* Expression: 2
+                                        * Referenced by: '<Root>/Gain'
+                                        */
+  real_T rpm4_P1;                      /* Expression: width
+                                        * Referenced by: '<Root>/rpm4'
+                                        */
+  real_T rpm4_P2;                      /* Expression: dtype
+                                        * Referenced by: '<Root>/rpm4'
+                                        */
+  real_T rpm4_P3;                      /* Expression: portnum
+                                        * Referenced by: '<Root>/rpm4'
+                                        */
+  real_T rpm4_P4;                      /* Expression: stime
+                                        * Referenced by: '<Root>/rpm4'
+                                        */
+  real_T rpm4_P5;                      /* Expression: stype
+                                        * Referenced by: '<Root>/rpm4'
+                                        */
+  real_T rpm4_P6;                      /* Expression: btype
+                                        * Referenced by: '<Root>/rpm4'
+                                        */
+  real_T Constant3_Value;              /* Expression: 1
+                                        * Referenced by: '<Root>/Constant3'
+                                        */
+  real_T Memory19_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory19'
+                                        */
+  real_T Integrator4_IC;               /* Expression: 0
+                                        * Referenced by: '<Root>/Integrator4'
+                                        */
+  real_T Memory16_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory16'
+                                        */
+  real_T Memory17_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory17'
+                                        */
+  real_T Memory18_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory18'
+                                        */
+  real_T measurment5_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/measurment5'
+                                        */
+  real_T measurment5_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/measurment5'
+                                        */
+  real_T measurment5_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/measurment5'
+                                        */
+  real_T measurment5_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/measurment5'
+                                        */
+  real_T measurment5_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/measurment5'
+                                        */
+  real_T measurment5_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/measurment5'
+                                        */
+  real_T revolution5_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/revolution5'
+                                        */
+  real_T revolution5_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/revolution5'
+                                        */
+  real_T revolution5_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/revolution5'
+                                        */
+  real_T revolution5_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/revolution5'
+                                        */
+  real_T revolution5_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/revolution5'
+                                        */
+  real_T revolution5_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/revolution5'
+                                        */
+  real_T Gain3_Gain;                   /* Expression: 2
+                                        * Referenced by: '<Root>/Gain3'
+                                        */
+  real_T rpm5_P1;                      /* Expression: width
+                                        * Referenced by: '<Root>/rpm5'
+                                        */
+  real_T rpm5_P2;                      /* Expression: dtype
+                                        * Referenced by: '<Root>/rpm5'
+                                        */
+  real_T rpm5_P3;                      /* Expression: portnum
+                                        * Referenced by: '<Root>/rpm5'
+                                        */
+  real_T rpm5_P4;                      /* Expression: stime
+                                        * Referenced by: '<Root>/rpm5'
+                                        */
+  real_T rpm5_P5;                      /* Expression: stype
+                                        * Referenced by: '<Root>/rpm5'
+                                        */
+  real_T rpm5_P6;                      /* Expression: btype
+                                        * Referenced by: '<Root>/rpm5'
+                                        */
+  real_T Constant4_Value;              /* Expression: 1
+                                        * Referenced by: '<Root>/Constant4'
+                                        */
+  real_T Memory23_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory23'
+                                        */
+  real_T Integrator5_IC;               /* Expression: 0
+                                        * Referenced by: '<Root>/Integrator5'
+                                        */
+  real_T Memory20_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory20'
+                                        */
+  real_T Memory21_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory21'
+                                        */
+  real_T Memory22_X0;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Memory22'
+                                        */
+  real_T measurment6_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/measurment6'
+                                        */
+  real_T measurment6_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/measurment6'
+                                        */
+  real_T measurment6_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/measurment6'
+                                        */
+  real_T measurment6_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/measurment6'
+                                        */
+  real_T measurment6_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/measurment6'
+                                        */
+  real_T measurment6_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/measurment6'
+                                        */
+  real_T revolution6_P1;               /* Expression: width
+                                        * Referenced by: '<Root>/revolution6'
+                                        */
+  real_T revolution6_P2;               /* Expression: dtype
+                                        * Referenced by: '<Root>/revolution6'
+                                        */
+  real_T revolution6_P3;               /* Expression: portnum
+                                        * Referenced by: '<Root>/revolution6'
+                                        */
+  real_T revolution6_P4;               /* Expression: stime
+                                        * Referenced by: '<Root>/revolution6'
+                                        */
+  real_T revolution6_P5;               /* Expression: stype
+                                        * Referenced by: '<Root>/revolution6'
+                                        */
+  real_T revolution6_P6;               /* Expression: btype
+                                        * Referenced by: '<Root>/revolution6'
+                                        */
+  real_T Gain5_Gain;                   /* Expression: 2
+                                        * Referenced by: '<Root>/Gain5'
+                                        */
+  real_T rpm6_P1;                      /* Expression: width
+                                        * Referenced by: '<Root>/rpm6'
+                                        */
+  real_T rpm6_P2;                      /* Expression: dtype
+                                        * Referenced by: '<Root>/rpm6'
+                                        */
+  real_T rpm6_P3;                      /* Expression: portnum
+                                        * Referenced by: '<Root>/rpm6'
+                                        */
+  real_T rpm6_P4;                      /* Expression: stime
+                                        * Referenced by: '<Root>/rpm6'
+                                        */
+  real_T rpm6_P5;                      /* Expression: stype
+                                        * Referenced by: '<Root>/rpm6'
+                                        */
+  real_T rpm6_P6;                      /* Expression: btype
+                                        * Referenced by: '<Root>/rpm6'
+                                        */
+  real_T Constant5_Value;              /* Expression: 1
+                                        * Referenced by: '<Root>/Constant5'
                                         */
 };
 
@@ -1005,8 +1589,8 @@ struct tag_RTM_rpm_T {
     boolean_T zCCacheNeedsReset;
     boolean_T derivCacheNeedsReset;
     boolean_T blkStateChange;
-    real_T odeY[1];
-    real_T odeF[3][1];
+    real_T odeY[6];
+    real_T odeF[3][6];
     ODE3_IntgData intgData;
     void *dwork;
   } ModelData;
@@ -1132,6 +1716,11 @@ extern RT_MODEL_rpm_T *const rpm_M;
  *
  * '<Root>' : 'rpm'
  * '<S1>'   : 'rpm/MATLAB Function'
+ * '<S2>'   : 'rpm/MATLAB Function1'
+ * '<S3>'   : 'rpm/MATLAB Function2'
+ * '<S4>'   : 'rpm/MATLAB Function3'
+ * '<S5>'   : 'rpm/MATLAB Function4'
+ * '<S6>'   : 'rpm/MATLAB Function5'
  */
 #endif                                 /* RTW_HEADER_rpm_h_ */
 
@@ -1139,9 +1728,9 @@ extern RT_MODEL_rpm_T *const rpm_M;
  * NI VeriStand Model Framework code generation
  *
  * Model : rpm
- * Model version : 1.51
+ * Model version : 1.68
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Tue May 10 14:30:55 2016
+ * Source generated on : Sun Jun 26 19:52:37 2016
  *========================================================================*/
 #ifdef NI_ROOTMODEL_rpm
 

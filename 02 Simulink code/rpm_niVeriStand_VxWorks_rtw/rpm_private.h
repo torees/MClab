@@ -7,9 +7,9 @@
  *
  * Code generation for model "rpm".
  *
- * Model version              : 1.51
+ * Model version              : 1.68
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Tue May 10 14:30:55 2016
+ * C source code generated on : Sun Jun 26 19:52:37 2016
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,6 +24,10 @@
 #include "builtin_typeid_types.h"
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
+
+extern void rpm_MATLABFunction(real_T rtu_rpm_tmp, real_T rtu_timer, real_T
+  rtu_measurments, real_T rtu_measurment_old, real_T rtu_revolutions_tmp, real_T
+  rtu_timeold_tmp, B_MATLABFunction_rpm_T *localB);
 
 /* private model entry point functions */
 extern void rpm_derivatives(void);

@@ -91,7 +91,7 @@ S_FUNCTIONS_LIB 		=
 SOLVER          		= 
 NUMST           		= 2
 TID01EQ         		= 1
-NCSTATES        		= 31
+NCSTATES        		= 37
 BUILDARGS       		=  NIDEBUG=0 NIOPT="Default" OPTS="" ISPROTECTINGMODEL=NOTPROTECTING
 MULTITASKING    		= 0
 EXT_MODE        		= 0
