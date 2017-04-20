@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_TAPM".
  *
- * Model version              : 1.145
+ * Model version              : 1.190
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Fri Jul 08 20:12:54 2016
+ * C source code generated on : Thu Apr 20 19:54:34 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -38,7 +38,7 @@ typedef struct {
 
 #endif
 
-/* Parameters for system: '<S42>/CoreSubsys' */
+/* Parameters for system: '<S67>/CoreSubsys' */
 typedef struct P_CoreSubsys_ctrl_TAPM_T_ P_CoreSubsys_ctrl_TAPM_T;
 
 /* Parameters (auto storage) */

@@ -200,4 +200,4 @@ pwm_thr5_backward = coeffvalues(ForceToPWM);
 load('signal mapping\force_to_pwm_thr6_backward')
 pwm_thr6_backward = coeffvalues(ForceToPWM);
 
-
+n_max = 152;

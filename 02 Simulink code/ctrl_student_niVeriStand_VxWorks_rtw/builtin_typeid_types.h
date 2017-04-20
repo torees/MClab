@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_student".
  *
- * Model version              : 1.63
- * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu May 12 11:09:12 2016
+ * Model version              : 1.150
+ * Simulink Coder version : 8.10 (R2016a) 10-Feb-2016
+ * C source code generated on : Thu Feb 02 14:51:44 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -18,11 +18,11 @@
  * Validation result: Not run
  */
 
-#ifndef __BUILTIN_TYPEID_TYPES_H__
-#define __BUILTIN_TYPEID_TYPES_H__
+#ifndef BUILTIN_TYPEID_TYPES_H
+#define BUILTIN_TYPEID_TYPES_H
 #include "rtwtypes.h"
-#ifndef __BUILTIN_TYPEID_TYPES__
-#define __BUILTIN_TYPEID_TYPES__
+#ifndef BUILTIN_TYPEID_TYPES
+#define BUILTIN_TYPEID_TYPES
 
 /* Enumeration of built-in data types */
 typedef enum {
@@ -42,5 +42,5 @@ typedef enum {
 /* Enumeration for MAT-file logging code */
 typedef int_T DTypeId;
 
-#endif                                 /* __BUILTIN_TYPEID_TYPES__ */
-#endif                                 /* __BUILTIN_TYPEID_TYPES_H__ */
+#endif                                 /* BUILTIN_TYPEID_TYPES */
+#endif                                 /* BUILTIN_TYPEID_TYPES_H */

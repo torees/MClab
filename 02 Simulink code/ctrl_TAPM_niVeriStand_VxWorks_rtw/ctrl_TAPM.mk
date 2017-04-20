@@ -85,13 +85,13 @@ ALT_MATLAB_ROOT 		= C:/PROGRA~1/MATLAB/R2015a
 MATLAB_BIN      		= C:/Program Files/MATLAB/R2015a/bin
 ALT_MATLAB_BIN  		= C:/PROGRA~1/MATLAB/R2015a/bin
 MASTER_ANCHOR_DIR    	= 
-START_DIR          		= C:/Users/mcl/DOCUME~1/GitHub/CS_DRI~2/02SIMU~1
+START_DIR          		= C:/CS_DRI~1/02SIMU~1
 S_FUNCTIONS     		= 
 S_FUNCTIONS_LIB 		= 
 SOLVER          		= 
 NUMST           		= 2
 TID01EQ         		= 1
-NCSTATES        		= 37
+NCSTATES        		= 33
 BUILDARGS       		=  NIDEBUG=0 NIOPT="Default" OPTS="" ISPROTECTINGMODEL=NOTPROTECTING
 MULTITASKING    		= 0
 EXT_MODE        		= 0

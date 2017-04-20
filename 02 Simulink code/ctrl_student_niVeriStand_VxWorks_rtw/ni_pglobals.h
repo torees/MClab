@@ -2,9 +2,9 @@
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_student
- * Model version : 1.63
- * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Thu May 12 11:09:11 2016
+ * Model version : 1.150
+ * VeriStand Model Framework version : 2015.1.0.76 (2015 SP1)
+ * Source generated on : Thu Feb 02 14:51:44 2017
  *========================================================================*/
 
 /*

@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_student".
  *
- * Model version              : 1.63
- * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu May 12 11:09:12 2016
+ * Model version              : 1.150
+ * Simulink Coder version : 8.10 (R2016a) 10-Feb-2016
+ * C source code generated on : Thu Feb 02 14:51:44 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -18,8 +18,8 @@
  * Validation result: Not run
  */
 
-#ifndef __RTWTYPES_H__
-#define __RTWTYPES_H__
+#ifndef RTWTYPES_H
+#define RTWTYPES_H
 #include "tmwtypes.h"
 #include "simstruc_types.h"
 #ifndef POINTER_T
@@ -39,4 +39,4 @@ typedef void * pointer_T;
 #   define true                        (1U)
 #  endif
 #endif
-#endif                                 /* __RTWTYPES_H__ */
+#endif                                 /* RTWTYPES_H */

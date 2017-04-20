@@ -178,42 +178,6 @@
 			<Description />
 			<Properties />
 			<Errors />
-			<Section Name="CSAD.nivssdf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\CSAD.nivssdf</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="CSAD.nivsscreen" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\CSAD.nivsscreen</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="CSAD.nivscf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\CSAD.nivscf</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="cRIO-9114 ADS Custom Personality FPGA.lvbitx" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2015\FPGA\cRIO-9114 ADS Custom Personality FPGA.lvbitx</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
 			<Section Name="WL Joystick Engine - VxWorks.llb" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
@@ -223,11 +187,38 @@
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="Oqus Engine - VxWorks.llb" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+			<Section Name="CSAD.nivssdf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2015\Custom Devices\Oqus\Oqus Engine - VxWorks.llb</String>
+						<String>C:\CS_Drillship_cRIO\CSAD.nivssdf</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="CSAD.nivsscreen" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\CS_Drillship_cRIO\CSAD.nivsscreen</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="CSAD.nivscf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\CS_Drillship_cRIO\CSAD.nivscf</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ADSCustomPersona_FPGATarget_ADSCustomPersona_eaMtlOo-yNk.lvbitx" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2015\FPGA\ADSCustomPersona_FPGATarget_ADSCustomPersona_eaMtlOo-yNk.lvbitx</String>
 					</Property>
 				</Properties>
 				<Errors />
@@ -236,7 +227,7 @@
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\ctrl_switch_niVeriStand_VxWorks_rtw\ctrl_switch.out</String>
+						<String>C:\CS_Drillship_cRIO\02 Simulink code\ctrl_switch_niVeriStand_VxWorks_rtw\ctrl_switch.out</String>
 					</Property>
 				</Properties>
 				<Errors />
@@ -245,7 +236,7 @@
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\u2pwm_alpha_niVeriStand_VxWorks_rtw\u2pwm_alpha.out</String>
+						<String>C:\CS_Drillship_cRIO\02 Simulink code\u2pwm_alpha_niVeriStand_VxWorks_rtw\u2pwm_alpha.out</String>
 					</Property>
 				</Properties>
 				<Errors />
@@ -254,7 +245,7 @@
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\ctrl_sixaxis2thruster_niVeriStand_VxWorks_rtw\ctrl_sixaxis2thruster.out</String>
+						<String>C:\CS_Drillship_cRIO\02 Simulink code\ctrl_sixaxis2thruster_niVeriStand_VxWorks_rtw\ctrl_sixaxis2thruster.out</String>
 					</Property>
 				</Properties>
 				<Errors />
@@ -263,16 +254,7 @@
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\wrapping_niVeriStand_VxWorks_rtw\wrapping.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="mech_elec.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\mech_elec_niVeriStand_VxWorks_rtw\mech_elec.out</String>
+						<String>C:\CS_Drillship_cRIO\02 Simulink code\wrapping_niVeriStand_VxWorks_rtw\wrapping.out</String>
 					</Property>
 				</Properties>
 				<Errors />
@@ -281,34 +263,7 @@
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\comp2deg_niVeriStand_VxWorks_rtw\comp2deg.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="ctrl_sixaxis2force.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\ctrl_sixaxis2force_niVeriStand_VxWorks_rtw\ctrl_sixaxis2force.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="force_measurments.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\force_measurments_niVeriStand_VxWorks_rtw\force_measurments.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="ctrl_DP_basic.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\ctrl_DP_basic_niVeriStand_VxWorks_rtw\ctrl_DP_basic.out</String>
+						<String>C:\CS_Drillship_cRIO\02 Simulink code\comp2deg_niVeriStand_VxWorks_rtw\comp2deg.out</String>
 					</Property>
 				</Properties>
 				<Errors />
@@ -317,25 +272,7 @@
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\measurement_niVeriStand_VxWorks_rtw\measurement.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="rpm.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\rpm_niVeriStand_VxWorks_rtw\rpm.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="average.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\average_niVeriStand_VxWorks_rtw\average.out</String>
+						<String>C:\CS_Drillship_cRIO\02 Simulink code\measurement_niVeriStand_VxWorks_rtw\measurement.out</String>
 					</Property>
 				</Properties>
 				<Errors />
@@ -344,7 +281,25 @@
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mcl\Documents\GitHub\CS_Drillship_cRIO\02 Simulink code\ctrl_TAPM_niVeriStand_VxWorks_rtw\ctrl_TAPM.out</String>
+						<String>C:\CS_Drillship_cRIO\02 Simulink code\ctrl_TAPM_niVeriStand_VxWorks_rtw\ctrl_TAPM.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="IMU Engine - VxWorks.llb" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2015\Custom Devices\IMU\IMU Engine - VxWorks.llb</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="Oqus Engine - VxWorks.llb" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2015\Custom Devices\Oqus\Oqus Engine - VxWorks.llb</String>
 					</Property>
 				</Properties>
 				<Errors />

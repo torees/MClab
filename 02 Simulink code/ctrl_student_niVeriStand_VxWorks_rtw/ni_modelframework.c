@@ -272,26 +272,37 @@ int32_t NI_InitializeParamStruct(void);
 int32_t NI_InitExternalOutputs(void);
 
 /*========================================================================*
- * Function: SetErrorMessage
+ * Function: SetSITErrorMessage
  *
  * Abstract:
- *	Sets the system's error message.
+ *	Sets and prints the system's error or warning message to stderr. To clear the last message, you must first set ErrMsg to NULL.
  *
  * Parameters:
- *	ErrMsg : error string
- *	isError : if true, the NIRT_system.stopExecutionFlag is enabled
+ *	ErrMsg : error or warning string. First set to NULL to clear the last error message
+ *	isError : if true, the SITglobals.stopExecutionFlag is enabled and the message is reported as a Fatal Error.
  *
  *========================================================================*/
 void SetSITErrorMessage(const char *ErrMsg, int32_t isError)
 {
-  /* Stop execution if it was an error, otherwise assume it is warning */
-  if (isError) {
+  /* If a fatal error and one hasn't yet occurred */
+  if (isError && (SITglobals.stopExecutionFlag == 0)) {
+    /* Set the stop flag and forcefully set the error message by setting internal variable to NULL.*/
     SITglobals.stopExecutionFlag = 1;
+    SITglobals.errmsg = NULL;
   }
 
-  /* Only set the error message text if it hasn't been set before. */
+  /* Only set the error message if it hasn't been set before. */
   if (SITglobals.errmsg == NULL) {
     SITglobals.errmsg = ErrMsg;
+  }
+
+  /* Print the error\warning message */
+  if (SITglobals.errmsg != NULL) {
+    if (isError) {
+      (void)fprintf(stderr,"VeriStand Error: %s\n", SITglobals.errmsg);
+    } else {
+      (void)fprintf(stderr,"VeriStand Warning: %s\n", SITglobals.errmsg);
+    }
   }
 }
 
@@ -979,6 +990,8 @@ DLL_EXPORT int32_t NIRT_ModelError(char* errmsg, int32_t *msglen)
 {
   int32_t retVal = NI_OK;
   const char *sysmsg = NULL;
+  const char *simStoppedMsg =
+    "The model simulation was stopped, but no reason was specified. This may be expected behavior.";
   if ((SITglobals.errmsg != NULL) || (rtmGetErrorStatus(S) != NULL)) {
     /* Set error condition */
     retVal = NI_ERROR;
@@ -996,6 +1009,20 @@ DLL_EXPORT int32_t NIRT_ModelError(char* errmsg, int32_t *msglen)
       }
 
       strncpy(errmsg, sysmsg, *msglen);
+    }
+  } else if (SITglobals.stopExecutionFlag == 1) {
+    /* No error */
+    retVal = NI_OK;
+
+    /* Execution stopped, but without a message. Return generic message. */
+    if (*msglen > 0) {
+      if (*msglen > (int32_t)strlen(simStoppedMsg)) {
+        /* Get error message */
+        *msglen = strlen(simStoppedMsg);
+      }
+
+      /* Return error message */
+      strncpy(errmsg, simStoppedMsg, *msglen);
     }
   } else {
     /* No error */

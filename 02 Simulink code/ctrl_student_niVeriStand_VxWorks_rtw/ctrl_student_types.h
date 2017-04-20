@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_student".
  *
- * Model version              : 1.63
- * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Thu May 12 11:09:12 2016
+ * Model version              : 1.150
+ * Simulink Coder version : 8.10 (R2016a) 10-Feb-2016
+ * C source code generated on : Thu Feb 02 14:51:44 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,8 +24,8 @@
 #include "builtin_typeid_types.h"
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
-#ifndef _DEFINED_TYPEDEF_FOR_struct_RTaiPxiKLcPdY6Jhd6V4aB_
-#define _DEFINED_TYPEDEF_FOR_struct_RTaiPxiKLcPdY6Jhd6V4aB_
+#ifndef DEFINED_TYPEDEF_FOR_struct_RTaiPxiKLcPdY6Jhd6V4aB_
+#define DEFINED_TYPEDEF_FOR_struct_RTaiPxiKLcPdY6Jhd6V4aB_
 
 typedef struct {
   real_T T1[4];
@@ -37,9 +37,6 @@ typedef struct {
 } struct_RTaiPxiKLcPdY6Jhd6V4aB;
 
 #endif
-
-/* Parameters for system: '<S43>/CoreSubsys' */
-typedef struct P_CoreSubsys_ctrl_student_T_ P_CoreSubsys_ctrl_student_T;
 
 /* Parameters (auto storage) */
 typedef struct P_ctrl_student_T_ P_ctrl_student_T;

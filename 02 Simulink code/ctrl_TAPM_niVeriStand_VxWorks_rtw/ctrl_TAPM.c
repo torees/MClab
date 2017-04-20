@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_TAPM".
  *
- * Model version              : 1.145
+ * Model version              : 1.190
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Fri Jul 08 20:12:54 2016
+ * C source code generated on : Thu Apr 20 19:54:34 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -40,27 +40,27 @@ RT_MODEL_ctrl_TAPM_T *const ctrl_TAPM_M = &ctrl_TAPM_M_;
 /* Forward declaration for local functions */
 static void ctrl_TAPM_diag(const real_T v[6], real_T d[36]);
 static real_T ctrl_TAPM_eml_xnrm2(int32_T n, const real_T x[18], int32_T ix0);
-static real_T ctrl_TAPM_eml_xnrm2_p(int32_T n, const real_T x[6], int32_T ix0);
-static void ctrl_TAPM_eml_xaxpy_bg(int32_T n, real_T a, const real_T x[3],
+static real_T ctrl_TAPM_eml_xnrm2_g(int32_T n, const real_T x[6], int32_T ix0);
+static void ctrl_TAPM_eml_xaxpy_a4(int32_T n, real_T a, const real_T x[3],
   int32_T ix0, real_T y[18], int32_T iy0);
-static void ctrl_TAPM_eml_xaxpy_b(int32_T n, real_T a, const real_T x[18],
+static void ctrl_TAPM_eml_xaxpy_a(int32_T n, real_T a, const real_T x[18],
   int32_T ix0, real_T y[3], int32_T iy0);
 static void ctrl_TAPM_eml_xscal(real_T a, real_T x[9], int32_T ix0);
-static void ctrl_TAPM_eml_xscal_b(real_T a, real_T x[36], int32_T ix0);
+static void ctrl_TAPM_eml_xscal_o(real_T a, real_T x[36], int32_T ix0);
 static void ctrl_TAPM_eml_xswap(real_T x[36], int32_T ix0, int32_T iy0);
-static void ctrl_TAPM_eml_xswap_m(real_T x[9], int32_T ix0, int32_T iy0);
+static void ctrl_TAPM_eml_xswap_n(real_T x[9], int32_T ix0, int32_T iy0);
 static void ctrl_TAPM_eml_xrotg(real_T *a, real_T *b, real_T *c, real_T *s);
 static void ctrl_TAPM_eml_xrot(real_T x[36], int32_T ix0, int32_T iy0, real_T c,
   real_T s);
-static void ctrl_TAPM_eml_xrot_o(real_T x[9], int32_T ix0, int32_T iy0, real_T c,
+static void ctrl_TAPM_eml_xrot_k(real_T x[9], int32_T ix0, int32_T iy0, real_T c,
   real_T s);
-static real_T ctrl_TAPM_eml_xdotc_ik(int32_T n, const real_T x[36], int32_T ix0,
+static real_T ctrl_TAPM_eml_xdotc_pe(int32_T n, const real_T x[36], int32_T ix0,
   const real_T y[36], int32_T iy0);
-static void ctrl_TAPM_eml_xaxpy_bg2a(int32_T n, real_T a, int32_T ix0, real_T y
+static void ctrl_TAPM_eml_xaxpy_a4pl(int32_T n, real_T a, int32_T ix0, real_T y
   [36], int32_T iy0);
-static real_T ctrl_TAPM_eml_xdotc_i(int32_T n, const real_T x[9], int32_T ix0,
+static real_T ctrl_TAPM_eml_xdotc_p(int32_T n, const real_T x[9], int32_T ix0,
   const real_T y[9], int32_T iy0);
-static void ctrl_TAPM_eml_xaxpy_bg2(int32_T n, real_T a, int32_T ix0, real_T y[9],
+static void ctrl_TAPM_eml_xaxpy_a4p(int32_T n, real_T a, int32_T ix0, real_T y[9],
   int32_T iy0);
 static real_T ctrl_TAPM_eml_xdotc(int32_T n, const real_T x[18], int32_T ix0,
   const real_T y[18], int32_T iy0);
@@ -71,33 +71,60 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
 static void ctrl_TAPM_svd(const real_T A[18], real_T U[9], real_T S[9], real_T
   V[18]);
 static void ctrl_TAPM_isfinite(const real_T x[9], boolean_T b[9]);
-static real_T ctrl_TAPM_eml_xnrm2_pt(int32_T n, const real_T x[36], int32_T ix0);
-static real_T ctrl_TAPM_eml_xnrm2_ptp(int32_T n, const real_T x[12], int32_T ix0);
-static void ctrl_TAPM_eml_xaxpy_bg2arnk(int32_T n, real_T a, const real_T x[3],
+static real_T ctrl_TAPM_eml_xnrm2_gg(int32_T n, const real_T x[36], int32_T ix0);
+static real_T ctrl_TAPM_eml_xnrm2_ggi(int32_T n, const real_T x[12], int32_T ix0);
+static void ctrl_TAPM_eml_xaxpy_a4pl4l0(int32_T n, real_T a, const real_T x[3],
   int32_T ix0, real_T y[36], int32_T iy0);
-static void ctrl_TAPM_eml_xaxpy_bg2arn(int32_T n, real_T a, const real_T x[36],
+static void ctrl_TAPM_eml_xaxpy_a4pl4l(int32_T n, real_T a, const real_T x[36],
   int32_T ix0, real_T y[3], int32_T iy0);
-static void ctrl_TAPM_eml_xscal_bd(real_T a, real_T x[144], int32_T ix0);
-static void ctrl_TAPM_eml_xswap_mw(real_T x[144], int32_T ix0, int32_T iy0);
-static void ctrl_TAPM_eml_xrot_o5(real_T x[144], int32_T ix0, int32_T iy0,
+static void ctrl_TAPM_eml_xscal_ou(real_T a, real_T x[144], int32_T ix0);
+static void ctrl_TAPM_eml_xswap_np(real_T x[144], int32_T ix0, int32_T iy0);
+static void ctrl_TAPM_eml_xrot_k1(real_T x[144], int32_T ix0, int32_T iy0,
   real_T c, real_T s);
-static real_T ctrl_TAPM_eml_xdotc_ikmz(int32_T n, const real_T x[144], int32_T
+static real_T ctrl_TAPM_eml_xdotc_pe1u(int32_T n, const real_T x[144], int32_T
   ix0, const real_T y[144], int32_T iy0);
-static void ctrl_TAPM_eml_xaxpy_bg2arnka(int32_T n, real_T a, int32_T ix0,
+static void ctrl_TAPM_eml_xaxpy_a4pl4l0t(int32_T n, real_T a, int32_T ix0,
   real_T y[144], int32_T iy0);
-static real_T ctrl_TAPM_eml_xdotc_ikm(int32_T n, const real_T x[36], int32_T ix0,
+static real_T ctrl_TAPM_eml_xdotc_pe1(int32_T n, const real_T x[36], int32_T ix0,
   const real_T y[36], int32_T iy0);
-static void ctrl_TAPM_eml_xaxpy_bg2ar(int32_T n, real_T a, int32_T ix0, real_T
+static void ctrl_TAPM_eml_xaxpy_a4pl4(int32_T n, real_T a, int32_T ix0, real_T
   y[36], int32_T iy0);
-static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
+static void ctrl_TAPM_eml_xgesvd_a(const real_T A[36], real_T U[9], real_T S[3],
   real_T V[36]);
-static void ctrl_TAPM_svd_j(const real_T A[36], real_T U[9], real_T S[9], real_T
+static void ctrl_TAPM_svd_l(const real_T A[36], real_T U[9], real_T S[9], real_T
   V[36]);
 static void ctrl_TAPM_abs(const real_T x[2], real_T y[2]);
 static void ctrl_TAPM_cosd(real_T *x);
 static void ctrl_TAPM_sind(real_T *x);
-static void ctrl_TAPM_cosd_g(real_T *x);
-static void ctrl_TAPM_sind_c(real_T *x);
+static void ctrl_TAPM_cosd_e(real_T *x);
+static void ctrl_TAPM_sind_f(real_T *x);
+
+/*
+ * Writes out MAT-file header.  Returns success or failure.
+ * Returns:
+ *      0 - success
+ *      1 - failure
+ */
+int_T rt_WriteMat4FileHeader(FILE *fp, int32_T m, int32_T n, const char *name)
+{
+  typedef enum { ELITTLE_ENDIAN, EBIG_ENDIAN } ByteOrder;
+
+  int16_T one = 1;
+  ByteOrder byteOrder = (*((int8_T *)&one)==1) ? ELITTLE_ENDIAN : EBIG_ENDIAN;
+  int32_T type = (byteOrder == ELITTLE_ENDIAN) ? 0: 1000;
+  int32_T imagf = 0;
+  int32_T name_len = (int32_T)strlen(name) + 1;
+  if ((fwrite(&type, sizeof(int32_T), 1, fp) == 0) ||
+      (fwrite(&m, sizeof(int32_T), 1, fp) == 0) ||
+      (fwrite(&n, sizeof(int32_T), 1, fp) == 0) ||
+      (fwrite(&imagf, sizeof(int32_T), 1, fp) == 0) ||
+      (fwrite(&name_len, sizeof(int32_T), 1, fp) == 0) ||
+      (fwrite(name, sizeof(char), name_len, fp) == 0)) {
+    return(1);
+  } else {
+    return(0);
+  }
+}                                      /* end rt_WriteMat4FileHeader */
 
 /*
  * This function updates continuous states using the ODE3 fixed-step
@@ -129,7 +156,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   real_T *f2 = id->f[2];
   real_T hB[3];
   int_T i;
-  int_T nXc = 37;
+  int_T nXc = 33;
   rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
 
   /* Save the state values at time t in y, we'll use x as ynew. */
@@ -181,78 +208,137 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
 }
 
 /*
- * Output and update for atomic system:
- *    '<S2>/MATLAB Function'
- *    '<S2>/MATLAB Function4'
+ * Output and update for action system:
+ *    '<S31>/Outlier detected'
+ *    '<S32>/Outlier detected'
+ *    '<S33>/Outlier detected'
+ *    '<S34>/Outlier detected'
  */
-void ctrl_TAPM_MATLABFunction(real_T rtu_K_p1, real_T rtu_K_p1_n, real_T
-  rtu_K_p1_f, B_MATLABFunction_ctrl_TAPM_T *localB)
+void ctrl_TAPM_Outlierdetected(const real_T rtu_Y_previous[7], const real_T
+  rtu_V[5], real_T rty_Y_filtered[7], real_T rty_V_hist[5])
 {
-  /* MATLAB Function 'Input/MATLAB Function': '<S10>:1' */
-  /* '<S10>:1:4' */
-  memset(&localB->K_p[0], 0, 9U * sizeof(real_T));
+  int32_T i;
 
-  /* SignalConversion: '<S10>/TmpSignal ConversionAt SFunction Inport1' */
-  localB->K_p[0] = rtu_K_p1;
-  localB->K_p[4] = rtu_K_p1_n;
-  localB->K_p[8] = rtu_K_p1_f;
+  /* Inport: '<S36>/Y_previous' */
+  for (i = 0; i < 7; i++) {
+    rty_Y_filtered[i] = rtu_Y_previous[i];
+  }
+
+  /* End of Inport: '<S36>/Y_previous' */
+
+  /* Inport: '<S36>/V' */
+  for (i = 0; i < 5; i++) {
+    rty_V_hist[i] = rtu_V[i];
+  }
+
+  /* End of Inport: '<S36>/V' */
+}
+
+/*
+ * Output and update for action system:
+ *    '<S31>/No outlier'
+ *    '<S32>/No outlier'
+ *    '<S33>/No outlier'
+ *    '<S34>/No outlier'
+ */
+void ctrl_TAPM_Nooutlier(const real_T rtu_Y[7], const real_T rtu_V[5], real_T
+  rty_Y_filtered[7], real_T rty_V_hist[5])
+{
+  int32_T i;
+
+  /* SignalConversion: '<S35>/OutportBufferForV_hist' incorporates:
+   *  Inport: '<S35>/V'
+   *  Inport: '<S35>/Y'
+   */
+  rty_V_hist[0] = rtu_Y[6];
+  rty_V_hist[1] = rtu_V[1];
+  rty_V_hist[2] = rtu_V[2];
+  rty_V_hist[3] = rtu_V[3];
+  rty_V_hist[4] = rtu_V[4];
+
+  /* SignalConversion: '<S35>/OutportBufferForY_filtered' incorporates:
+   *  Inport: '<S35>/Y'
+   */
+  for (i = 0; i < 7; i++) {
+    rty_Y_filtered[i] = rtu_Y[i];
+  }
+
+  /* End of SignalConversion: '<S35>/OutportBufferForY_filtered' */
 }
 
 /*
  * Output and update for atomic system:
- *    '<S2>/MATLAB Function1'
- *    '<S2>/MATLAB Function5'
+ *    '<S44>/Kd'
+ *    '<S46>/Kd'
  */
-void ctrl_TAPM_MATLABFunction1(real_T rtu_K_i1, real_T rtu_K_i1_j, real_T
-  rtu_K_i1_l, B_MATLABFunction1_ctrl_TAPM_T *localB)
+void ctrl_TAPM_Kd(real_T rtu_K_d1, real_T rtu_K_d1_i, real_T rtu_K_d1_k,
+                  B_Kd_ctrl_TAPM_T *localB)
 {
-  /* MATLAB Function 'Input/MATLAB Function1': '<S11>:1' */
-  /* '<S11>:1:4' */
+  /* MATLAB Function 'Input1/Control Gains/Kd': '<S47>:1' */
+  /* '<S47>:1:4' */
+  memset(&localB->K_d[0], 0, 9U * sizeof(real_T));
+
+  /* SignalConversion: '<S47>/TmpSignal ConversionAt SFunction Inport1' */
+  localB->K_d[0] = rtu_K_d1;
+  localB->K_d[4] = rtu_K_d1_i;
+  localB->K_d[8] = rtu_K_d1_k;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S44>/Ki'
+ *    '<S46>/Ki'
+ */
+void ctrl_TAPM_Ki(real_T rtu_K_i1, real_T rtu_K_i1_p, real_T rtu_K_i1_l,
+                  B_Ki_ctrl_TAPM_T *localB)
+{
+  /* MATLAB Function 'Input1/Control Gains/Ki': '<S48>:1' */
+  /* '<S48>:1:4' */
   memset(&localB->K_i[0], 0, 9U * sizeof(real_T));
 
-  /* SignalConversion: '<S11>/TmpSignal ConversionAt SFunction Inport1' */
+  /* SignalConversion: '<S48>/TmpSignal ConversionAt SFunction Inport1' */
   localB->K_i[0] = rtu_K_i1;
-  localB->K_i[4] = rtu_K_i1_j;
+  localB->K_i[4] = rtu_K_i1_p;
   localB->K_i[8] = rtu_K_i1_l;
 }
 
 /*
  * Output and update for atomic system:
- *    '<S2>/MATLAB Function2'
- *    '<S2>/MATLAB Function6'
+ *    '<S44>/Kp'
+ *    '<S46>/Kp'
  */
-void ctrl_TAPM_MATLABFunction2(real_T rtu_K_d1, real_T rtu_K_d1_p, real_T
-  rtu_K_d1_b, B_MATLABFunction2_ctrl_TAPM_T *localB)
+void ctrl_TAPM_Kp(real_T rtu_K_p1, real_T rtu_K_p1_a, real_T rtu_K_p1_i,
+                  B_Kp_ctrl_TAPM_T *localB)
 {
-  /* MATLAB Function 'Input/MATLAB Function2': '<S12>:1' */
-  /* '<S12>:1:4' */
-  memset(&localB->K_d[0], 0, 9U * sizeof(real_T));
+  /* MATLAB Function 'Input1/Control Gains/Kp': '<S49>:1' */
+  /* '<S49>:1:4' */
+  memset(&localB->K_p[0], 0, 9U * sizeof(real_T));
 
-  /* SignalConversion: '<S12>/TmpSignal ConversionAt SFunction Inport1' */
-  localB->K_d[0] = rtu_K_d1;
-  localB->K_d[4] = rtu_K_d1_p;
-  localB->K_d[8] = rtu_K_d1_b;
+  /* SignalConversion: '<S49>/TmpSignal ConversionAt SFunction Inport1' */
+  localB->K_p[0] = rtu_K_p1;
+  localB->K_p[4] = rtu_K_p1_a;
+  localB->K_p[8] = rtu_K_p1_i;
 }
 
 /*
  * Output and update for atomic system:
- *    '<S49>/MATLAB Function2'
- *    '<S49>/MATLAB Function3'
- *    '<S49>/MATLAB Function4'
- *    '<S49>/MATLAB Function5'
- *    '<S49>/MATLAB Function6'
+ *    '<S74>/MATLAB Function2'
+ *    '<S74>/MATLAB Function3'
+ *    '<S74>/MATLAB Function4'
+ *    '<S74>/MATLAB Function5'
+ *    '<S74>/MATLAB Function6'
  */
-void ctrl_TAPM_MATLABFunction2_i(real_T rtu_Tc_in1, real_T rtu_signal, real_T
-  rtu_Tc_in2, B_MATLABFunction2_ctrl_TAPM_d_T *localB)
+void ctrl_TAPM_MATLABFunction2(real_T rtu_Tc_in1, real_T rtu_signal, real_T
+  rtu_Tc_in2, B_MATLABFunction2_ctrl_TAPM_T *localB)
 {
-  /* MATLAB Function 'Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function2': '<S58>:1' */
+  /* MATLAB Function 'Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function2': '<S83>:1' */
   if (rtu_signal >= 0.0) {
-    /* '<S58>:1:4' */
-    /* '<S58>:1:5' */
+    /* '<S83>:1:4' */
+    /* '<S83>:1:5' */
     localB->Tc_out = rtu_Tc_in1;
   } else {
     /* signal < 0 */
-    /* '<S58>:1:7' */
+    /* '<S83>:1:7' */
     localB->Tc_out = rtu_Tc_in2;
   }
 }
@@ -305,12 +391,12 @@ real_T rt_powd_snf(real_T u0, real_T u1)
 
 /*
  * Output and update for atomic system:
- *    '<S67>/Core controller: Torque,Power and Combined Torque//Power'
- *    '<S76>/Core controller: Torque,Power and Combined Torque//Power'
- *    '<S85>/Core controller: Torque,Power and Combined Torque//Power'
- *    '<S94>/Core controller: Torque,Power and Combined Torque//Power'
- *    '<S103>/Core controller: Torque,Power and Combined Torque//Power'
- *    '<S112>/Core controller: Torque,Power and Combined Torque//Power'
+ *    '<S92>/Core controller: Torque,Power and Combined Torque//Power'
+ *    '<S101>/Core controller: Torque,Power and Combined Torque//Power'
+ *    '<S110>/Core controller: Torque,Power and Combined Torque//Power'
+ *    '<S119>/Core controller: Torque,Power and Combined Torque//Power'
+ *    '<S128>/Core controller: Torque,Power and Combined Torque//Power'
+ *    '<S137>/Core controller: Torque,Power and Combined Torque//Power'
  */
 void CorecontrollerTorquePowerandCom(real_T rtu_k_cc, real_T rtu_p_cc, real_T
   rtu_r_cc, real_T rtu_n, real_T rtu_K_t0, real_T rtu_K_q0, real_T rtu_D, real_T
@@ -322,24 +408,24 @@ void CorecontrollerTorquePowerandCom(real_T rtu_k_cc, real_T rtu_p_cc, real_T
   real_T K_TC;
   real_T rtu_Tr_0;
 
-  /* MATLAB Function 'Thruster control /Thruster 1/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power': '<S71>:1' */
-  /* '<S71>:1:4' */
+  /* MATLAB Function 'Thruster control /Thruster 1/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power': '<S96>:1' */
+  /* '<S96>:1:4' */
   lambda_c = tanh(rtu_eps_c * rtu_n / 5.0) * 0.5 + 0.5;
 
-  /* '<S71>:1:5' */
+  /* '<S96>:1:5' */
   K_TC = (1.0 - lambda_c) * rtu_K_t0r + rtu_K_t0 * lambda_c;
 
-  /* '<S71>:1:6' */
+  /* '<S96>:1:6' */
   lambda_c = (1.0 - lambda_c) * rtu_K_q0r + rtu_K_q0 * lambda_c;
 
-  /* '<S71>:1:7' */
+  /* '<S96>:1:7' */
   Qcq = lambda_c / K_TC * rtu_D * rtu_Tr;
   if (rtu_n == 0.0) {
-    /* '<S71>:1:8' */
-    /* '<S71>:1:9' */
+    /* '<S96>:1:8' */
+    /* '<S96>:1:9' */
     lambda_c = 0.0;
   } else {
-    /* '<S71>:1:11' */
+    /* '<S96>:1:11' */
     if (rtu_Tr < 0.0) {
       rtu_Tr_0 = -1.0;
     } else if (rtu_Tr > 0.0) {
@@ -354,10 +440,10 @@ void CorecontrollerTorquePowerandCom(real_T rtu_k_cc, real_T rtu_p_cc, real_T
       (rtu_rho) * rtu_D * rt_powd_snf(K_TC, 1.5) * fabs(rtu_n));
   }
 
-  /* '<S71>:1:13' */
+  /* '<S96>:1:13' */
   K_TC = exp(rt_powd_snf(fabs(rtu_p_cc * rtu_n), rtu_r_cc) * -rtu_k_cc);
 
-  /* '<S71>:1:15' */
+  /* '<S96>:1:15' */
   localB->Qcc = (1.0 - K_TC) * lambda_c + K_TC * Qcq;
   localB->Qcq = Qcq;
   localB->Qcp = lambda_c;
@@ -365,140 +451,140 @@ void CorecontrollerTorquePowerandCom(real_T rtu_k_cc, real_T rtu_p_cc, real_T
 
 /*
  * Output and update for atomic system:
- *    '<S65>/Supervisor'
- *    '<S74>/Supervisor'
- *    '<S83>/Supervisor'
- *    '<S92>/Supervisor'
- *    '<S101>/Supervisor'
- *    '<S110>/Supervisor'
+ *    '<S90>/Supervisor'
+ *    '<S99>/Supervisor'
+ *    '<S108>/Supervisor'
+ *    '<S117>/Supervisor'
+ *    '<S126>/Supervisor'
+ *    '<S135>/Supervisor'
  */
 void ctrl_TAPM_Supervisor(real_T rtu_control, real_T rtu_input, real_T rtu_n,
   B_Supervisor_ctrl_TAPM_T *localB)
 {
-  /* MATLAB Function 'Thruster control /Thruster 1/Thruster control/Supervisor': '<S70>:1' */
-  /* '<S70>:1:2' */
+  /* MATLAB Function 'Thruster control /Thruster 1/Thruster control/Supervisor': '<S95>:1' */
+  /* '<S95>:1:2' */
   localB->u = 1.0;
   if (rtu_control == 1.0) {
-    /* '<S70>:1:3' */
+    /* '<S95>:1:3' */
     if (rtu_input == 1.0) {
-      /* '<S70>:1:4' */
-      /* '<S70>:1:5' */
+      /* '<S95>:1:4' */
+      /* '<S95>:1:5' */
       localB->u = 1.0;
     } else if (rtu_input == 2.0) {
-      /* '<S70>:1:6' */
-      /* '<S70>:1:7' */
+      /* '<S95>:1:6' */
+      /* '<S95>:1:7' */
       localB->u = 2.0;
     } else if (((rtu_input == 3.0) && (rtu_n > 0.0)) || ((rtu_input == 3.0) &&
                 (rtu_n < 0.0))) {
-      /* '<S70>:1:8' */
-      /* '<S70>:1:9' */
+      /* '<S95>:1:8' */
+      /* '<S95>:1:9' */
       localB->u = 3.0;
     } else if ((rtu_input == 4.0) || ((rtu_input == 3.0) && (rtu_n == 0.0))) {
-      /* '<S70>:1:10' */
-      /* '<S70>:1:11' */
+      /* '<S95>:1:10' */
+      /* '<S95>:1:11' */
       localB->u = 4.0;
     } else {
-      /* '<S70>:1:13' */
+      /* '<S95>:1:13' */
       localB->u = 5.0;
     }
   }
 
   if (rtu_control == 2.0) {
-    /* '<S70>:1:17' */
+    /* '<S95>:1:17' */
     if (rtu_input == 1.0) {
-      /* '<S70>:1:18' */
-      /* '<S70>:1:19' */
+      /* '<S95>:1:18' */
+      /* '<S95>:1:19' */
       localB->u = 1.0;
     } else if (rtu_input == 2.0) {
-      /* '<S70>:1:20' */
-      /* '<S70>:1:21' */
+      /* '<S95>:1:20' */
+      /* '<S95>:1:21' */
       localB->u = 2.0;
     } else if (((rtu_input == 3.0) && (rtu_n > 0.0)) || ((rtu_input == 3.0) &&
                 (rtu_n < 0.0))) {
-      /* '<S70>:1:22' */
-      /* '<S70>:1:23' */
+      /* '<S95>:1:22' */
+      /* '<S95>:1:23' */
       localB->u = 3.0;
     } else if ((rtu_input == 4.0) || ((rtu_input == 3.0) && (rtu_n == 0.0))) {
-      /* '<S70>:1:24' */
-      /* '<S70>:1:25' */
+      /* '<S95>:1:24' */
+      /* '<S95>:1:25' */
       localB->u = 4.0;
     } else {
-      /* '<S70>:1:27' */
+      /* '<S95>:1:27' */
       localB->u = 5.0;
     }
   }
 
   if (rtu_control == 3.0) {
-    /* '<S70>:1:31' */
+    /* '<S95>:1:31' */
     if (rtu_input == 1.0) {
-      /* '<S70>:1:32' */
-      /* '<S70>:1:33' */
+      /* '<S95>:1:32' */
+      /* '<S95>:1:33' */
       localB->u = 1.0;
     } else if (rtu_input == 2.0) {
-      /* '<S70>:1:34' */
-      /* '<S70>:1:35' */
+      /* '<S95>:1:34' */
+      /* '<S95>:1:35' */
       localB->u = 2.0;
     } else if (((rtu_input == 3.0) && (rtu_n > 0.0)) || ((rtu_input == 3.0) &&
                 (rtu_n < 0.0))) {
-      /* '<S70>:1:36' */
-      /* '<S70>:1:37' */
+      /* '<S95>:1:36' */
+      /* '<S95>:1:37' */
       localB->u = 3.0;
     } else if ((rtu_input == 4.0) || ((rtu_input == 3.0) && (rtu_n == 0.0))) {
-      /* '<S70>:1:38' */
-      /* '<S70>:1:39' */
+      /* '<S95>:1:38' */
+      /* '<S95>:1:39' */
       localB->u = 4.0;
     } else {
-      /* '<S70>:1:41' */
+      /* '<S95>:1:41' */
       localB->u = 5.0;
     }
   }
 
   if (rtu_control == 4.0) {
-    /* '<S70>:1:45' */
+    /* '<S95>:1:45' */
     if (rtu_input == 1.0) {
-      /* '<S70>:1:46' */
-      /* '<S70>:1:47' */
+      /* '<S95>:1:46' */
+      /* '<S95>:1:47' */
       localB->u = 1.0;
     } else if (rtu_input == 2.0) {
-      /* '<S70>:1:48' */
-      /* '<S70>:1:49' */
+      /* '<S95>:1:48' */
+      /* '<S95>:1:49' */
       localB->u = 2.0;
     } else if (((rtu_input == 3.0) && (rtu_n > 0.0)) || ((rtu_input == 3.0) &&
                 (rtu_n < 0.0))) {
-      /* '<S70>:1:50' */
-      /* '<S70>:1:51' */
+      /* '<S95>:1:50' */
+      /* '<S95>:1:51' */
       localB->u = 3.0;
     } else if ((rtu_input == 4.0) || ((rtu_input == 3.0) && (rtu_n == 0.0))) {
-      /* '<S70>:1:52' */
-      /* '<S70>:1:53' */
+      /* '<S95>:1:52' */
+      /* '<S95>:1:53' */
       localB->u = 4.0;
     } else {
-      /* '<S70>:1:55' */
+      /* '<S95>:1:55' */
       localB->u = 5.0;
     }
   }
 
   if (rtu_control == 5.0) {
-    /* '<S70>:1:59' */
+    /* '<S95>:1:59' */
     if (rtu_input == 1.0) {
-      /* '<S70>:1:60' */
-      /* '<S70>:1:61' */
+      /* '<S95>:1:60' */
+      /* '<S95>:1:61' */
       localB->u = 1.0;
     } else if (rtu_input == 2.0) {
-      /* '<S70>:1:62' */
-      /* '<S70>:1:63' */
+      /* '<S95>:1:62' */
+      /* '<S95>:1:63' */
       localB->u = 2.0;
     } else if (((rtu_input == 3.0) && (rtu_n > 0.0)) || ((rtu_input == 3.0) &&
                 (rtu_n < 0.0))) {
-      /* '<S70>:1:64' */
-      /* '<S70>:1:65' */
+      /* '<S95>:1:64' */
+      /* '<S95>:1:65' */
       localB->u = 3.0;
     } else if ((rtu_input == 4.0) || ((rtu_input == 3.0) && (rtu_n == 0.0))) {
-      /* '<S70>:1:66' */
-      /* '<S70>:1:67' */
+      /* '<S95>:1:66' */
+      /* '<S95>:1:67' */
       localB->u = 4.0;
     } else {
-      /* '<S70>:1:69' */
+      /* '<S95>:1:69' */
       localB->u = 5.0;
     }
   }
@@ -506,11 +592,11 @@ void ctrl_TAPM_Supervisor(real_T rtu_control, real_T rtu_input, real_T rtu_n,
 
 /*
  * Output and update for atomic system:
- *    '<S72>/Actual Force and Torque'
- *    '<S81>/Actual Force and Torque'
- *    '<S90>/Actual Force and Torque'
- *    '<S99>/Actual Force and Torque'
- *    '<S108>/Actual Force and Torque'
+ *    '<S97>/Actual Force and Torque'
+ *    '<S106>/Actual Force and Torque'
+ *    '<S115>/Actual Force and Torque'
+ *    '<S124>/Actual Force and Torque'
+ *    '<S133>/Actual Force and Torque'
  */
 void ctrl_TAPM_ActualForceandTorque(real_T rtu_n, real_T rtu_Kq, real_T rtu_Kt,
   real_T rtu_Ktr, real_T rtu_Kqr, real_T rtu_Rho, real_T rtu_D, real_T rtu_eps_c,
@@ -519,14 +605,14 @@ void ctrl_TAPM_ActualForceandTorque(real_T rtu_n, real_T rtu_Kq, real_T rtu_Kt,
   real_T lambda_c;
   real_T rtu_n_0;
 
-  /* MATLAB Function 'Thruster control /Thruster 2/Propeller Hydrodynamics/Actual Force and Torque': '<S75>:1' */
-  /* '<S75>:1:3' */
+  /* MATLAB Function 'Thruster control /Thruster 2/Propeller Hydrodynamics/Actual Force and Torque': '<S100>:1' */
+  /* '<S100>:1:3' */
   lambda_c = tanh(rtu_eps_c * rtu_n / 5.0) * 0.5 + 0.5;
 
   /*  Smooth switching between positive and negative thrust. 5 makes switch happen between -5 and 5 */
-  /* '<S75>:1:4' */
-  /* '<S75>:1:5' */
-  /* '<S75>:1:7' */
+  /* '<S100>:1:4' */
+  /* '<S100>:1:5' */
+  /* '<S100>:1:7' */
   if (rtu_n < 0.0) {
     rtu_n_0 = -1.0;
   } else if (rtu_n > 0.0) {
@@ -540,7 +626,7 @@ void ctrl_TAPM_ActualForceandTorque(real_T rtu_n, real_T rtu_Kq, real_T rtu_Kt,
   localB->Ta = ((1.0 - lambda_c) * rtu_Ktr + rtu_Kt * lambda_c) * rtu_n_0 *
     rtu_Rho * rt_powd_snf(rtu_D, 4.0) * (rtu_n * rtu_n) - rtu_env;
 
-  /* '<S75>:1:8' */
+  /* '<S100>:1:8' */
   if (rtu_n < 0.0) {
     rtu_n_0 = -1.0;
   } else if (rtu_n > 0.0) {
@@ -557,20 +643,20 @@ void ctrl_TAPM_ActualForceandTorque(real_T rtu_n, real_T rtu_Kq, real_T rtu_Kt,
 
 /*
  * Output and update for atomic system:
- *    '<S74>/MATLAB Function'
- *    '<S92>/MATLAB Function'
- *    '<S101>/MATLAB Function'
+ *    '<S99>/MATLAB Function'
+ *    '<S117>/MATLAB Function'
+ *    '<S126>/MATLAB Function'
  */
-void ctrl_TAPM_MATLABFunction_i(real_T rtu_Td, real_T rtu_K_t0, real_T rtu_K_t0r,
+void ctrl_TAPM_MATLABFunction(real_T rtu_Td, real_T rtu_K_t0, real_T rtu_K_t0r,
   real_T rtu_rho, real_T rtu_D, real_T rtu_eps_c, real_T rtu_n_r,
-  B_MATLABFunction_ctrl_TAPM_a_T *localB)
+  B_MATLABFunction_ctrl_TAPM_T *localB)
 {
   real_T lambda_c;
   real_T rtu_n_r_0;
   real_T rtu_Td_0;
 
-  /* MATLAB Function 'Thruster control /Thruster 2/Thruster control/MATLAB Function': '<S78>:1' */
-  /* '<S78>:1:5' */
+  /* MATLAB Function 'Thruster control /Thruster 2/Thruster control/MATLAB Function': '<S103>:1' */
+  /* '<S103>:1:5' */
   if (rtu_Td < 0.0) {
     rtu_Td_0 = -1.0;
   } else if (rtu_Td > 0.0) {
@@ -583,12 +669,12 @@ void ctrl_TAPM_MATLABFunction_i(real_T rtu_Td, real_T rtu_K_t0, real_T rtu_K_t0r
 
   rtu_Td_0 *= sqrt(fabs(rtu_Td) / (rtu_rho * rt_powd_snf(rtu_D, 4.0) * rtu_K_t0));
 
-  /* '<S78>:1:7' */
+  /* '<S103>:1:7' */
   lambda_c = tanh(rtu_eps_c * rtu_Td_0 / 5.0) * 0.5 + 0.5;
 
   /*  Smooth switching between positive and negative thrust */
-  /* '<S78>:1:8' */
-  /* '<S78>:1:10' */
+  /* '<S103>:1:8' */
+  /* '<S103>:1:10' */
   if (rtu_n_r < 0.0) {
     rtu_n_r_0 = -1.0;
   } else if (rtu_n_r > 0.0) {
@@ -651,7 +737,7 @@ real_T rt_remd_snf(real_T u0, real_T u1)
   return y;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_diag(const real_T v[6], real_T d[36])
 {
   int32_T j;
@@ -661,7 +747,7 @@ static void ctrl_TAPM_diag(const real_T v[6], real_T d[36])
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static real_T ctrl_TAPM_eml_xnrm2(int32_T n, const real_T x[18], int32_T ix0)
 {
   real_T y;
@@ -694,8 +780,8 @@ static real_T ctrl_TAPM_eml_xnrm2(int32_T n, const real_T x[18], int32_T ix0)
   return y;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static real_T ctrl_TAPM_eml_xnrm2_p(int32_T n, const real_T x[6], int32_T ix0)
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static real_T ctrl_TAPM_eml_xnrm2_g(int32_T n, const real_T x[6], int32_T ix0)
 {
   real_T y;
   real_T scale;
@@ -721,8 +807,8 @@ static real_T ctrl_TAPM_eml_xnrm2_p(int32_T n, const real_T x[6], int32_T ix0)
   return scale * sqrt(y);
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xaxpy_bg(int32_T n, real_T a, const real_T x[3],
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xaxpy_a4(int32_T n, real_T a, const real_T x[3],
   int32_T ix0, real_T y[18], int32_T iy0)
 {
   int32_T ix;
@@ -739,8 +825,8 @@ static void ctrl_TAPM_eml_xaxpy_bg(int32_T n, real_T a, const real_T x[3],
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xaxpy_b(int32_T n, real_T a, const real_T x[18],
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xaxpy_a(int32_T n, real_T a, const real_T x[18],
   int32_T ix0, real_T y[3], int32_T iy0)
 {
   int32_T ix;
@@ -757,7 +843,7 @@ static void ctrl_TAPM_eml_xaxpy_b(int32_T n, real_T a, const real_T x[18],
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_eml_xscal(real_T a, real_T x[9], int32_T ix0)
 {
   int32_T k;
@@ -766,8 +852,8 @@ static void ctrl_TAPM_eml_xscal(real_T a, real_T x[9], int32_T ix0)
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xscal_b(real_T a, real_T x[36], int32_T ix0)
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xscal_o(real_T a, real_T x[36], int32_T ix0)
 {
   int32_T k;
   for (k = ix0; k <= ix0 + 5; k++) {
@@ -775,7 +861,7 @@ static void ctrl_TAPM_eml_xscal_b(real_T a, real_T x[36], int32_T ix0)
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_eml_xswap(real_T x[36], int32_T ix0, int32_T iy0)
 {
   int32_T ix;
@@ -793,8 +879,8 @@ static void ctrl_TAPM_eml_xswap(real_T x[36], int32_T ix0, int32_T iy0)
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xswap_m(real_T x[9], int32_T ix0, int32_T iy0)
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xswap_n(real_T x[9], int32_T ix0, int32_T iy0)
 {
   int32_T ix;
   int32_T iy;
@@ -816,7 +902,7 @@ static void ctrl_TAPM_eml_xswap_m(real_T x[9], int32_T ix0, int32_T iy0)
   x[iy] = temp;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_eml_xrotg(real_T *a, real_T *b, real_T *c, real_T *s)
 {
   real_T roe;
@@ -861,7 +947,7 @@ static void ctrl_TAPM_eml_xrotg(real_T *a, real_T *b, real_T *c, real_T *s)
   *b = scale;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_eml_xrot(real_T x[36], int32_T ix0, int32_T iy0, real_T c,
   real_T s)
 {
@@ -880,8 +966,8 @@ static void ctrl_TAPM_eml_xrot(real_T x[36], int32_T ix0, int32_T iy0, real_T c,
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xrot_o(real_T x[9], int32_T ix0, int32_T iy0, real_T c,
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xrot_k(real_T x[9], int32_T ix0, int32_T iy0, real_T c,
   real_T s)
 {
   int32_T ix;
@@ -904,8 +990,8 @@ static void ctrl_TAPM_eml_xrot_o(real_T x[9], int32_T ix0, int32_T iy0, real_T c
   x[ix] = temp;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static real_T ctrl_TAPM_eml_xdotc_ik(int32_T n, const real_T x[36], int32_T ix0,
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static real_T ctrl_TAPM_eml_xdotc_pe(int32_T n, const real_T x[36], int32_T ix0,
   const real_T y[36], int32_T iy0)
 {
   real_T d;
@@ -926,8 +1012,8 @@ static real_T ctrl_TAPM_eml_xdotc_ik(int32_T n, const real_T x[36], int32_T ix0,
   return d;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xaxpy_bg2a(int32_T n, real_T a, int32_T ix0, real_T y
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xaxpy_a4pl(int32_T n, real_T a, int32_T ix0, real_T y
   [36], int32_T iy0)
 {
   int32_T ix;
@@ -944,8 +1030,8 @@ static void ctrl_TAPM_eml_xaxpy_bg2a(int32_T n, real_T a, int32_T ix0, real_T y
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static real_T ctrl_TAPM_eml_xdotc_i(int32_T n, const real_T x[9], int32_T ix0,
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static real_T ctrl_TAPM_eml_xdotc_p(int32_T n, const real_T x[9], int32_T ix0,
   const real_T y[9], int32_T iy0)
 {
   real_T d;
@@ -964,8 +1050,8 @@ static real_T ctrl_TAPM_eml_xdotc_i(int32_T n, const real_T x[9], int32_T ix0,
   return d;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xaxpy_bg2(int32_T n, real_T a, int32_T ix0, real_T y[9],
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xaxpy_a4p(int32_T n, real_T a, int32_T ix0, real_T y[9],
   int32_T iy0)
 {
   int32_T ix;
@@ -982,7 +1068,7 @@ static void ctrl_TAPM_eml_xaxpy_bg2(int32_T n, real_T a, int32_T ix0, real_T y[9
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static real_T ctrl_TAPM_eml_xdotc(int32_T n, const real_T x[18], int32_T ix0,
   const real_T y[18], int32_T iy0)
 {
@@ -1002,7 +1088,7 @@ static real_T ctrl_TAPM_eml_xdotc(int32_T n, const real_T x[18], int32_T ix0,
   return d;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_eml_xaxpy(int32_T n, real_T a, int32_T ix0, real_T y[18],
   int32_T iy0)
 {
@@ -1020,7 +1106,7 @@ static void ctrl_TAPM_eml_xaxpy(int32_T n, real_T a, int32_T ix0, real_T y[18],
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
   real_T V[18])
 {
@@ -1096,7 +1182,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     U[i] = b_A[i];
   }
 
-  ztest0 = ctrl_TAPM_eml_xnrm2_p(5, e, 2);
+  ztest0 = ctrl_TAPM_eml_xnrm2_g(5, e, 2);
   if (ztest0 == 0.0) {
     e[0] = 0.0;
   } else {
@@ -1125,11 +1211,11 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     }
 
     for (i = 1; i + 1 < 7; i++) {
-      ctrl_TAPM_eml_xaxpy_b(2, e[i], b_A, 3 * i + 2, work, 2);
+      ctrl_TAPM_eml_xaxpy_a(2, e[i], b_A, 3 * i + 2, work, 2);
     }
 
     for (i = 1; i + 1 < 7; i++) {
-      ctrl_TAPM_eml_xaxpy_bg(2, -e[i] / e[1], work, 2, b_A, 3 * i + 2);
+      ctrl_TAPM_eml_xaxpy_a4(2, -e[i] / e[1], work, 2, b_A, 3 * i + 2);
     }
   }
 
@@ -1178,7 +1264,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     U[i + 3] = b_A[i + 3];
   }
 
-  ztest0 = ctrl_TAPM_eml_xnrm2_p(4, e, 3);
+  ztest0 = ctrl_TAPM_eml_xnrm2_g(4, e, 3);
   if (ztest0 == 0.0) {
     e[1] = 0.0;
   } else {
@@ -1207,11 +1293,11 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     }
 
     for (i = 2; i + 1 < 7; i++) {
-      ctrl_TAPM_eml_xaxpy_b(1, e[i], b_A, 3 * i + 3, work, 3);
+      ctrl_TAPM_eml_xaxpy_a(1, e[i], b_A, 3 * i + 3, work, 3);
     }
 
     for (i = 2; i + 1 < 7; i++) {
-      ctrl_TAPM_eml_xaxpy_bg(1, -e[i] / e[2], work, 3, b_A, 3 * i + 3);
+      ctrl_TAPM_eml_xaxpy_a4(1, -e[i] / e[2], work, 3, b_A, 3 * i + 3);
     }
   }
 
@@ -1223,7 +1309,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     e[kase] = b_A[3 * kase + 2];
   }
 
-  ztest0 = ctrl_TAPM_eml_xnrm2_p(3, e, 4);
+  ztest0 = ctrl_TAPM_eml_xnrm2_g(3, e, 4);
   if (ztest0 == 0.0) {
     e[2] = 0.0;
   } else {
@@ -1265,7 +1351,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     if (s[qs] != 0.0) {
       for (i = qs + 1; i + 1 < 4; i++) {
         qp1jj = (3 * i + qs) + 1;
-        ctrl_TAPM_eml_xaxpy_bg2(3 - qs, -(ctrl_TAPM_eml_xdotc_i(3 - qs, U, iter
+        ctrl_TAPM_eml_xaxpy_a4p(3 - qs, -(ctrl_TAPM_eml_xdotc_p(3 - qs, U, iter
           + 1, U, qp1jj) / U[iter]), iter + 1, U, qp1jj);
       }
 
@@ -1292,7 +1378,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
       i = (6 * qs + qs) + 2;
       for (kase = qs + 1; kase + 1 < 7; kase++) {
         qp1jj = (6 * kase + qs) + 2;
-        ctrl_TAPM_eml_xaxpy_bg2a(5 - qs, -(ctrl_TAPM_eml_xdotc_ik(5 - qs, Vf, i,
+        ctrl_TAPM_eml_xaxpy_a4pl(5 - qs, -(ctrl_TAPM_eml_xdotc_pe(5 - qs, Vf, i,
           Vf, qp1jj) / Vf[i - 1]), i, Vf, qp1jj);
       }
     }
@@ -1318,7 +1404,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     ztest0 = ztest / b;
     b = ztest;
     s[1] *= ztest0;
-    ctrl_TAPM_eml_xscal_b(ztest0, Vf, 7);
+    ctrl_TAPM_eml_xscal_o(ztest0, Vf, 7);
   }
 
   e[0] = b;
@@ -1336,7 +1422,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     ztest0 = ztest / b;
     b = ztest;
     s[2] = b_A[8] * ztest0;
-    ctrl_TAPM_eml_xscal_b(ztest0, Vf, 13);
+    ctrl_TAPM_eml_xscal_o(ztest0, Vf, 13);
   }
 
   e[1] = b;
@@ -1354,7 +1440,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
     ztest0 = ztest / b;
     b = ztest;
     s[3] = 0.0 * ztest0;
-    ctrl_TAPM_eml_xscal_b(ztest0, Vf, 19);
+    ctrl_TAPM_eml_xscal_o(ztest0, Vf, 19);
   }
 
   e[2] = b;
@@ -1486,7 +1572,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
         s[kase] = ztest0;
         f = -b * e[kase];
         e[kase] *= ztest;
-        ctrl_TAPM_eml_xrot_o(U, 1 + 3 * kase, 1 + 3 * (q - 1), ztest, b);
+        ctrl_TAPM_eml_xrot_k(U, 1 + 3 * kase, 1 + 3 * (q - 1), ztest, b);
       }
       break;
 
@@ -1560,7 +1646,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
         b = ztest * e[kase];
         e[kase] *= ztest0;
         if (kase < 3) {
-          ctrl_TAPM_eml_xrot_o(U, 1 + 3 * (kase - 1), 1 + 3 * kase, ztest0,
+          ctrl_TAPM_eml_xrot_k(U, 1 + 3 * (kase - 1), 1 + 3 * kase, ztest0,
                                ztest);
         }
       }
@@ -1572,7 +1658,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
      default:
       if (s[q] < 0.0) {
         s[q] = -s[q];
-        ctrl_TAPM_eml_xscal_b(-1.0, Vf, 1 + 6 * q);
+        ctrl_TAPM_eml_xscal_o(-1.0, Vf, 1 + 6 * q);
       }
 
       i = q + 1;
@@ -1582,7 +1668,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
         s[i] = ztest;
         ctrl_TAPM_eml_xswap(Vf, 1 + 6 * q, 1 + 6 * (q + 1));
         if (q + 1 < 3) {
-          ctrl_TAPM_eml_xswap_m(U, 1 + 3 * q, 1 + 3 * (q + 1));
+          ctrl_TAPM_eml_xswap_n(U, 1 + 3 * q, 1 + 3 * (q + 1));
         }
 
         q = i;
@@ -1605,7 +1691,7 @@ static void ctrl_TAPM_eml_xgesvd(const real_T A[18], real_T U[9], real_T S[3],
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_svd(const real_T A[18], real_T U[9], real_T S[9], real_T
   V[18])
 {
@@ -1617,7 +1703,7 @@ static void ctrl_TAPM_svd(const real_T A[18], real_T U[9], real_T S[9], real_T
   S[8] = s[2];
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_isfinite(const real_T x[9], boolean_T b[9])
 {
   int32_T i;
@@ -1626,8 +1712,8 @@ static void ctrl_TAPM_isfinite(const real_T x[9], boolean_T b[9])
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static real_T ctrl_TAPM_eml_xnrm2_pt(int32_T n, const real_T x[36], int32_T ix0)
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static real_T ctrl_TAPM_eml_xnrm2_gg(int32_T n, const real_T x[36], int32_T ix0)
 {
   real_T y;
   real_T scale;
@@ -1659,8 +1745,8 @@ static real_T ctrl_TAPM_eml_xnrm2_pt(int32_T n, const real_T x[36], int32_T ix0)
   return y;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static real_T ctrl_TAPM_eml_xnrm2_ptp(int32_T n, const real_T x[12], int32_T ix0)
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static real_T ctrl_TAPM_eml_xnrm2_ggi(int32_T n, const real_T x[12], int32_T ix0)
 {
   real_T y;
   real_T scale;
@@ -1686,8 +1772,8 @@ static real_T ctrl_TAPM_eml_xnrm2_ptp(int32_T n, const real_T x[12], int32_T ix0
   return scale * sqrt(y);
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xaxpy_bg2arnk(int32_T n, real_T a, const real_T x[3],
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xaxpy_a4pl4l0(int32_T n, real_T a, const real_T x[3],
   int32_T ix0, real_T y[36], int32_T iy0)
 {
   int32_T ix;
@@ -1704,8 +1790,8 @@ static void ctrl_TAPM_eml_xaxpy_bg2arnk(int32_T n, real_T a, const real_T x[3],
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xaxpy_bg2arn(int32_T n, real_T a, const real_T x[36],
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xaxpy_a4pl4l(int32_T n, real_T a, const real_T x[36],
   int32_T ix0, real_T y[3], int32_T iy0)
 {
   int32_T ix;
@@ -1722,8 +1808,8 @@ static void ctrl_TAPM_eml_xaxpy_bg2arn(int32_T n, real_T a, const real_T x[36],
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xscal_bd(real_T a, real_T x[144], int32_T ix0)
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xscal_ou(real_T a, real_T x[144], int32_T ix0)
 {
   int32_T k;
   for (k = ix0; k <= ix0 + 11; k++) {
@@ -1731,8 +1817,8 @@ static void ctrl_TAPM_eml_xscal_bd(real_T a, real_T x[144], int32_T ix0)
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xswap_mw(real_T x[144], int32_T ix0, int32_T iy0)
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xswap_np(real_T x[144], int32_T ix0, int32_T iy0)
 {
   int32_T ix;
   int32_T iy;
@@ -1749,8 +1835,8 @@ static void ctrl_TAPM_eml_xswap_mw(real_T x[144], int32_T ix0, int32_T iy0)
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xrot_o5(real_T x[144], int32_T ix0, int32_T iy0,
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xrot_k1(real_T x[144], int32_T ix0, int32_T iy0,
   real_T c, real_T s)
 {
   int32_T ix;
@@ -1768,8 +1854,8 @@ static void ctrl_TAPM_eml_xrot_o5(real_T x[144], int32_T ix0, int32_T iy0,
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static real_T ctrl_TAPM_eml_xdotc_ikmz(int32_T n, const real_T x[144], int32_T
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static real_T ctrl_TAPM_eml_xdotc_pe1u(int32_T n, const real_T x[144], int32_T
   ix0, const real_T y[144], int32_T iy0)
 {
   real_T d;
@@ -1790,8 +1876,8 @@ static real_T ctrl_TAPM_eml_xdotc_ikmz(int32_T n, const real_T x[144], int32_T
   return d;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xaxpy_bg2arnka(int32_T n, real_T a, int32_T ix0,
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xaxpy_a4pl4l0t(int32_T n, real_T a, int32_T ix0,
   real_T y[144], int32_T iy0)
 {
   int32_T ix;
@@ -1808,8 +1894,8 @@ static void ctrl_TAPM_eml_xaxpy_bg2arnka(int32_T n, real_T a, int32_T ix0,
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static real_T ctrl_TAPM_eml_xdotc_ikm(int32_T n, const real_T x[36], int32_T ix0,
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static real_T ctrl_TAPM_eml_xdotc_pe1(int32_T n, const real_T x[36], int32_T ix0,
   const real_T y[36], int32_T iy0)
 {
   real_T d;
@@ -1828,8 +1914,8 @@ static real_T ctrl_TAPM_eml_xdotc_ikm(int32_T n, const real_T x[36], int32_T ix0
   return d;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xaxpy_bg2ar(int32_T n, real_T a, int32_T ix0, real_T
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xaxpy_a4pl4(int32_T n, real_T a, int32_T ix0, real_T
   y[36], int32_T iy0)
 {
   int32_T ix;
@@ -1846,8 +1932,8 @@ static void ctrl_TAPM_eml_xaxpy_bg2ar(int32_T n, real_T a, int32_T ix0, real_T
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_eml_xgesvd_a(const real_T A[36], real_T U[9], real_T S[3],
   real_T V[36])
 {
   real_T b_A[36];
@@ -1879,7 +1965,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
   memset(&U[0], 0, 9U * sizeof(real_T));
   memset(&Vf[0], 0, 144U * sizeof(real_T));
   apply_transform = false;
-  ztest0 = ctrl_TAPM_eml_xnrm2_pt(3, b_A, 1);
+  ztest0 = ctrl_TAPM_eml_xnrm2_gg(3, b_A, 1);
   if (ztest0 > 0.0) {
     apply_transform = true;
     if (b_A[0] < 0.0) {
@@ -1908,7 +1994,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
   for (kase = 1; kase + 1 < 13; kase++) {
     qp1jj = 3 * kase;
     if (apply_transform) {
-      ctrl_TAPM_eml_xaxpy_bg2ar(3, -(ctrl_TAPM_eml_xdotc_ikm(3, b_A, 1, b_A,
+      ctrl_TAPM_eml_xaxpy_a4pl4(3, -(ctrl_TAPM_eml_xdotc_pe1(3, b_A, 1, b_A,
         qp1jj + 1) / b_A[0]), 1, b_A, qp1jj + 1);
     }
 
@@ -1919,7 +2005,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     U[qp1] = b_A[qp1];
   }
 
-  ztest0 = ctrl_TAPM_eml_xnrm2_ptp(11, e, 2);
+  ztest0 = ctrl_TAPM_eml_xnrm2_ggi(11, e, 2);
   if (ztest0 == 0.0) {
     e[0] = 0.0;
   } else {
@@ -1948,11 +2034,11 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     }
 
     for (qp1 = 1; qp1 + 1 < 13; qp1++) {
-      ctrl_TAPM_eml_xaxpy_bg2arn(2, e[qp1], b_A, 3 * qp1 + 2, work, 2);
+      ctrl_TAPM_eml_xaxpy_a4pl4l(2, e[qp1], b_A, 3 * qp1 + 2, work, 2);
     }
 
     for (qp1 = 1; qp1 + 1 < 13; qp1++) {
-      ctrl_TAPM_eml_xaxpy_bg2arnk(2, -e[qp1] / e[1], work, 2, b_A, 3 * qp1 + 2);
+      ctrl_TAPM_eml_xaxpy_a4pl4l0(2, -e[qp1] / e[1], work, 2, b_A, 3 * qp1 + 2);
     }
   }
 
@@ -1961,7 +2047,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
   }
 
   apply_transform = false;
-  ztest0 = ctrl_TAPM_eml_xnrm2_pt(2, b_A, 5);
+  ztest0 = ctrl_TAPM_eml_xnrm2_gg(2, b_A, 5);
   if (ztest0 > 0.0) {
     apply_transform = true;
     if (b_A[4] < 0.0) {
@@ -1990,7 +2076,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
   for (kase = 2; kase + 1 < 13; kase++) {
     qp1jj = 3 * kase + 1;
     if (apply_transform) {
-      ctrl_TAPM_eml_xaxpy_bg2ar(2, -(ctrl_TAPM_eml_xdotc_ikm(2, b_A, 5, b_A,
+      ctrl_TAPM_eml_xaxpy_a4pl4(2, -(ctrl_TAPM_eml_xdotc_pe1(2, b_A, 5, b_A,
         qp1jj + 1) / b_A[4]), 5, b_A, qp1jj + 1);
     }
 
@@ -2001,7 +2087,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     U[qp1 + 3] = b_A[qp1 + 3];
   }
 
-  ztest0 = ctrl_TAPM_eml_xnrm2_ptp(10, e, 3);
+  ztest0 = ctrl_TAPM_eml_xnrm2_ggi(10, e, 3);
   if (ztest0 == 0.0) {
     e[1] = 0.0;
   } else {
@@ -2030,11 +2116,11 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     }
 
     for (qp1 = 2; qp1 + 1 < 13; qp1++) {
-      ctrl_TAPM_eml_xaxpy_bg2arn(1, e[qp1], b_A, 3 * qp1 + 3, work, 3);
+      ctrl_TAPM_eml_xaxpy_a4pl4l(1, e[qp1], b_A, 3 * qp1 + 3, work, 3);
     }
 
     for (qp1 = 2; qp1 + 1 < 13; qp1++) {
-      ctrl_TAPM_eml_xaxpy_bg2arnk(1, -e[qp1] / e[2], work, 3, b_A, 3 * qp1 + 3);
+      ctrl_TAPM_eml_xaxpy_a4pl4l0(1, -e[qp1] / e[2], work, 3, b_A, 3 * qp1 + 3);
     }
   }
 
@@ -2046,7 +2132,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     e[kase] = b_A[3 * kase + 2];
   }
 
-  ztest0 = ctrl_TAPM_eml_xnrm2_ptp(9, e, 4);
+  ztest0 = ctrl_TAPM_eml_xnrm2_ggi(9, e, 4);
   if (ztest0 == 0.0) {
     e[2] = 0.0;
   } else {
@@ -2088,7 +2174,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     if (s[qs] != 0.0) {
       for (qp1 = qs + 1; qp1 + 1 < 4; qp1++) {
         qp1jj = (3 * qp1 + qs) + 1;
-        ctrl_TAPM_eml_xaxpy_bg2(3 - qs, -(ctrl_TAPM_eml_xdotc_i(3 - qs, U, iter
+        ctrl_TAPM_eml_xaxpy_a4p(3 - qs, -(ctrl_TAPM_eml_xdotc_p(3 - qs, U, iter
           + 1, U, qp1jj) / U[iter]), iter + 1, U, qp1jj);
       }
 
@@ -2115,7 +2201,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
       qp1 = (12 * qs + qs) + 2;
       for (kase = qs + 1; kase + 1 < 13; kase++) {
         qp1jj = (12 * kase + qs) + 2;
-        ctrl_TAPM_eml_xaxpy_bg2arnka(11 - qs, -(ctrl_TAPM_eml_xdotc_ikmz(11 - qs,
+        ctrl_TAPM_eml_xaxpy_a4pl4l0t(11 - qs, -(ctrl_TAPM_eml_xdotc_pe1u(11 - qs,
           Vf, qp1, Vf, qp1jj) / Vf[qp1 - 1]), qp1, Vf, qp1jj);
       }
     }
@@ -2138,7 +2224,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     ztest0 = ztest / b;
     b = ztest;
     s[1] *= ztest0;
-    ctrl_TAPM_eml_xscal_bd(ztest0, Vf, 13);
+    ctrl_TAPM_eml_xscal_ou(ztest0, Vf, 13);
   }
 
   e[0] = b;
@@ -2156,7 +2242,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     ztest0 = ztest / b;
     b = ztest;
     s[2] = b_A[8] * ztest0;
-    ctrl_TAPM_eml_xscal_bd(ztest0, Vf, 25);
+    ctrl_TAPM_eml_xscal_ou(ztest0, Vf, 25);
   }
 
   e[1] = b;
@@ -2174,7 +2260,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
     ztest0 = ztest / b;
     b = ztest;
     s[3] = 0.0 * ztest0;
-    ctrl_TAPM_eml_xscal_bd(ztest0, Vf, 37);
+    ctrl_TAPM_eml_xscal_ou(ztest0, Vf, 37);
   }
 
   e[2] = b;
@@ -2292,7 +2378,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
           e[kase - 1] *= ztest;
         }
 
-        ctrl_TAPM_eml_xrot_o5(Vf, 1 + 12 * kase, 1 + 12 * (m + 1), ztest, b);
+        ctrl_TAPM_eml_xrot_k1(Vf, 1 + 12 * kase, 1 + 12 * (m + 1), ztest, b);
       }
       break;
 
@@ -2305,7 +2391,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
         s[kase] = ztest0;
         f = -b * e[kase];
         e[kase] *= ztest;
-        ctrl_TAPM_eml_xrot_o(U, 1 + 3 * kase, 1 + 3 * (q - 1), ztest, b);
+        ctrl_TAPM_eml_xrot_k(U, 1 + 3 * kase, 1 + 3 * (q - 1), ztest, b);
       }
       break;
 
@@ -2371,7 +2457,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
         e[kase - 1] = e[kase - 1] * ztest0 - s[kase - 1] * ztest;
         b = ztest * s[kase];
         s[kase] *= ztest0;
-        ctrl_TAPM_eml_xrot_o5(Vf, 1 + 12 * (kase - 1), 1 + 12 * kase, ztest0,
+        ctrl_TAPM_eml_xrot_k1(Vf, 1 + 12 * (kase - 1), 1 + 12 * kase, ztest0,
                               ztest);
         ctrl_TAPM_eml_xrotg(&f, &b, &ztest0, &ztest);
         s[kase - 1] = f;
@@ -2380,7 +2466,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
         b = ztest * e[kase];
         e[kase] *= ztest0;
         if (kase < 3) {
-          ctrl_TAPM_eml_xrot_o(U, 1 + 3 * (kase - 1), 1 + 3 * kase, ztest0,
+          ctrl_TAPM_eml_xrot_k(U, 1 + 3 * (kase - 1), 1 + 3 * kase, ztest0,
                                ztest);
         }
       }
@@ -2392,7 +2478,7 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
      default:
       if (s[q] < 0.0) {
         s[q] = -s[q];
-        ctrl_TAPM_eml_xscal_bd(-1.0, Vf, 1 + 12 * q);
+        ctrl_TAPM_eml_xscal_ou(-1.0, Vf, 1 + 12 * q);
       }
 
       qp1 = q + 1;
@@ -2400,9 +2486,9 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
         ztest = s[q];
         s[q] = s[qp1];
         s[qp1] = ztest;
-        ctrl_TAPM_eml_xswap_mw(Vf, 1 + 12 * q, 1 + 12 * (q + 1));
+        ctrl_TAPM_eml_xswap_np(Vf, 1 + 12 * q, 1 + 12 * (q + 1));
         if (q + 1 < 3) {
-          ctrl_TAPM_eml_xswap_m(U, 1 + 3 * q, 1 + 3 * (q + 1));
+          ctrl_TAPM_eml_xswap_n(U, 1 + 3 * q, 1 + 3 * (q + 1));
         }
 
         q = qp1;
@@ -2423,12 +2509,12 @@ static void ctrl_TAPM_eml_xgesvd_g(const real_T A[36], real_T U[9], real_T S[3],
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_svd_j(const real_T A[36], real_T U[9], real_T S[9], real_T
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_svd_l(const real_T A[36], real_T U[9], real_T S[9], real_T
   V[36])
 {
   real_T s[3];
-  ctrl_TAPM_eml_xgesvd_g(A, U, s, V);
+  ctrl_TAPM_eml_xgesvd_a(A, U, s, V);
   memset(&S[0], 0, 9U * sizeof(real_T));
   S[0] = s[0];
   S[4] = s[1];
@@ -2471,7 +2557,7 @@ real_T rt_atan2d_snf(real_T u0, real_T u1)
   return y;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
 static void ctrl_TAPM_abs(const real_T x[2], real_T y[2])
 {
   y[0] = fabs(x[0]);
@@ -2584,8 +2670,243 @@ static void ctrl_TAPM_sind(real_T *x)
   *x = b_x;
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_cosd_g(real_T *x)
+void rt_invd6x6_snf(const real_T u[36], real_T y[36])
+{
+  int8_T p[6];
+  int32_T c;
+  real_T A[36];
+  int8_T ipiv[6];
+  int32_T j;
+  int32_T ix;
+  real_T smax;
+  real_T s;
+  int32_T jA;
+  int32_T jBcol;
+  int32_T kAcol;
+  int32_T i;
+  int32_T i_0;
+  for (i_0 = 0; i_0 < 36; i_0++) {
+    y[i_0] = 0.0;
+    A[i_0] = u[i_0];
+  }
+
+  for (i_0 = 0; i_0 < 6; i_0++) {
+    ipiv[i_0] = (int8_T)(1 + i_0);
+  }
+
+  for (j = 0; j < 5; j++) {
+    c = j * 7;
+    kAcol = j * 7;
+    jBcol = 1;
+    ix = c;
+    smax = fabs(A[kAcol]);
+    for (jA = 2; jA <= 6 - j; jA++) {
+      ix++;
+      s = fabs(A[ix]);
+      if (s > smax) {
+        jBcol = jA;
+        smax = s;
+      }
+    }
+
+    jBcol--;
+    if (A[c + jBcol] != 0.0) {
+      if (jBcol != 0) {
+        ipiv[j] = (int8_T)((j + jBcol) + 1);
+        ix = j;
+        jBcol += j;
+        for (jA = 0; jA < 6; jA++) {
+          smax = A[ix];
+          A[ix] = A[jBcol];
+          A[jBcol] = smax;
+          ix += 6;
+          jBcol += 6;
+        }
+      }
+
+      i_0 = c - j;
+      for (i = c + 1; i + 1 <= i_0 + 6; i++) {
+        A[i] /= A[c];
+      }
+    }
+
+    jA = kAcol;
+    jBcol = kAcol + 6;
+    for (kAcol = 1; kAcol <= 5 - j; kAcol++) {
+      if (A[jBcol] != 0.0) {
+        smax = -A[jBcol];
+        ix = c;
+        i_0 = jA - j;
+        for (i = jA + 7; i + 1 <= i_0 + 12; i++) {
+          A[i] += A[ix + 1] * smax;
+          ix++;
+        }
+      }
+
+      jBcol += 6;
+      jA += 6;
+    }
+  }
+
+  for (i_0 = 0; i_0 < 6; i_0++) {
+    p[i_0] = (int8_T)(1 + i_0);
+  }
+
+  for (jA = 0; jA < 5; jA++) {
+    if (ipiv[jA] > 1 + jA) {
+      jBcol = p[ipiv[jA] - 1];
+      p[ipiv[jA] - 1] = p[jA];
+      p[jA] = (int8_T)jBcol;
+    }
+  }
+
+  for (jA = 0; jA < 6; jA++) {
+    c = p[jA] - 1;
+    y[jA + 6 * (p[jA] - 1)] = 1.0;
+    for (j = jA; j + 1 < 7; j++) {
+      if (y[6 * c + j] != 0.0) {
+        for (i = j + 1; i + 1 < 7; i++) {
+          y[i + 6 * c] -= y[6 * c + j] * A[6 * j + i];
+        }
+      }
+    }
+  }
+
+  for (j = 0; j < 6; j++) {
+    jBcol = 6 * j;
+    for (jA = 5; jA >= 0; jA += -1) {
+      kAcol = 6 * jA;
+      if (y[jA + jBcol] != 0.0) {
+        y[jA + jBcol] /= A[jA + kAcol];
+        for (i = 0; i + 1 <= jA; i++) {
+          y[i + jBcol] -= y[jA + jBcol] * A[i + kAcol];
+        }
+      }
+    }
+  }
+}
+
+boolean_T findpivotIdx_D(int32_T i, int32_T j, int32_T startIdx, int32_T pivot[],
+  uint32_T midxPort[], const real_T mdataPort[])
+{
+  boolean_T pivotFind;
+  int32_T mid;
+  uint32_T sIdx;
+  real_T tmp0;
+  real_T tmp1;
+  uint32_T t;
+
+  /* S-Function (sdspmdn2): '<S31>/Median' */
+  mid = (i + j) >> 1;
+  sIdx = (uint32_T)startIdx;
+  tmp0 = mdataPort[midxPort[i] + sIdx];
+  tmp1 = mdataPort[midxPort[mid] + sIdx];
+  if (tmp0 > mdataPort[midxPort[mid] + sIdx]) {
+    t = midxPort[i];
+    midxPort[i] = midxPort[mid];
+    midxPort[mid] = t;
+  }
+
+  if (tmp0 > mdataPort[midxPort[j] + sIdx]) {
+    t = midxPort[i];
+    midxPort[i] = midxPort[j];
+    midxPort[j] = t;
+  }
+
+  if (tmp1 > mdataPort[midxPort[j] + sIdx]) {
+    t = midxPort[mid];
+    midxPort[mid] = midxPort[j];
+    midxPort[j] = t;
+  }
+
+  tmp0 = mdataPort[midxPort[i] + sIdx];
+  tmp1 = mdataPort[midxPort[mid] + sIdx];
+  pivotFind = false;
+  if (tmp0 < tmp1) {
+    pivot[0U] = mid;
+    pivotFind = true;
+  } else if (tmp1 < mdataPort[midxPort[j] + sIdx]) {
+    pivot[0U] = j;
+    pivotFind = true;
+  } else {
+    mid = i + 1;
+    while ((mid <= j) && (!pivotFind)) {
+      tmp1 = mdataPort[midxPort[mid] + sIdx];
+      if (tmp1 != tmp0) {
+        if (tmp1 < tmp0) {
+          pivot[0U] = i;
+        } else {
+          pivot[0U] = mid;
+        }
+
+        pivotFind = true;
+        mid = j + 1;
+      }
+
+      mid++;
+    }
+  }
+
+  /* End of S-Function (sdspmdn2): '<S31>/Median' */
+  return pivotFind;
+}
+
+int32_T partitionIdx_D(int32_T i, int32_T j, int32_T startIdx, const int32_T
+  pivot[], uint32_T midxPort[], const real_T mdataPort[])
+{
+  int32_T idx;
+  uint32_T sIdx;
+  real_T tmp0;
+  int32_T count;
+  uint32_T t;
+
+  /* S-Function (sdspmdn2): '<S31>/Median' */
+  sIdx = (uint32_T)startIdx;
+  tmp0 = mdataPort[midxPort[pivot[0U]] + sIdx];
+  count = j - i;
+  while ((i <= j) && (count >= 0)) {
+    while (mdataPort[midxPort[i] + sIdx] < tmp0) {
+      i++;
+    }
+
+    while (mdataPort[midxPort[j] + sIdx] >= tmp0) {
+      j--;
+    }
+
+    if (i < j) {
+      t = midxPort[i];
+      midxPort[i] = midxPort[j];
+      midxPort[j] = t;
+      i++;
+      j--;
+    }
+
+    count--;
+  }
+
+  idx = i;
+
+  /* End of S-Function (sdspmdn2): '<S31>/Median' */
+  return idx;
+}
+
+void MDNQSort_D(int32_T i, int32_T j, int32_T startIdx, uint32_T midxPort[],
+                const real_T mdataPort[])
+{
+  int32_T pivot;
+
+  /* S-Function (sdspmdn2): '<S31>/Median' */
+  if (findpivotIdx_D(i, j, startIdx, &pivot, &midxPort[0U], &mdataPort[0U])) {
+    pivot = partitionIdx_D(i, j, startIdx, &pivot, &midxPort[0U], &mdataPort[0U]);
+    MDNQSort_D(i, pivot - 1, startIdx, &midxPort[0U], &mdataPort[0U]);
+    MDNQSort_D(pivot, j, startIdx, &midxPort[0U], &mdataPort[0U]);
+  }
+
+  /* End of S-Function (sdspmdn2): '<S31>/Median' */
+}
+
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_cosd_e(real_T *x)
 {
   int8_T n;
   real_T b_x;
@@ -2636,8 +2957,8 @@ static void ctrl_TAPM_cosd_g(real_T *x)
   }
 }
 
-/* Function for MATLAB Function: '<S6>/MATLAB Function' */
-static void ctrl_TAPM_sind_c(real_T *x)
+/* Function for MATLAB Function: '<S10>/MATLAB Function' */
+static void ctrl_TAPM_sind_f(real_T *x)
 {
   int8_T n;
   real_T b_x;
@@ -2694,7 +3015,7 @@ static void ctrl_TAPM_sind_c(real_T *x)
 void ctrl_TAPM_output(void)
 {
   /* local block i/o variables */
-  real_T rtb_Integrator_p;
+  real_T rtb_Integrator;
   real_T rtb_Integrator_h;
   real_T rtb_Integrator_a;
   real_T rtb_Integrator_k;
@@ -2710,33 +3031,48 @@ void ctrl_TAPM_output(void)
   real_T rtb_negativethrust5;
   real_T rtb_positivethrust6;
   real_T rtb_negativethrust6;
-  real_T rtb_Integrator_gu;
+  real_T rtb_Integrator_g;
   real_T rtb_Integrator_f;
   real_T rtb_Integrator_hl;
   real_T rtb_Integrator_an;
   real_T rtb_Integrator_i;
-  real_T rtb_Integrator_ld;
+  real_T rtb_Integrator_l;
   real_T rtb_T_r;
-  real_T rtb_T_r_b;
-  real_T rtb_T_r_c;
+  real_T rtb_T_r_h;
+  real_T rtb_T_r_e;
   real_T rtb_sys[12];
+  real_T rtb_Memory2[5];
+  real_T rtb_Memory3[7];
+  real_T rtb_Merge[7];
+  real_T rtb_Memory2_p[5];
+  real_T rtb_Memory3_b[7];
+  real_T rtb_Merge_i[7];
+  real_T rtb_Memory2_g[5];
+  real_T rtb_Memory3_m[7];
+  real_T rtb_Merge_a[7];
+  real_T rtb_Memory2_i[5];
+  real_T rtb_Memory3_c[7];
+  real_T rtb_Merge_c[7];
+  real_T rtb_MatrixMultiply5[3];
+  real_T rtb_MatrixMultiply2[3];
+  real_T rtb_MatrixMultiply[3];
+  real_T rtb_TmpSignalConversionAtToFi_i[6];
   real_T rtb_ImpSel_InsertedFor_reset_at;
+  real_T rtb_TmpSignalConversionAtToFile[6];
 
   /* local scratch DWork variables */
   int32_T ForEach_itr;
-  int32_T res;
-  real_T offset;
-  int32_T k;
   real_T s[6];
   real_T K[6];
   real_T B_surge[6];
   real_T S_singular_cross[9];
   real_T T0[12];
   real_T c1[2];
-  real_T U_singular[9];
   real_T V_singular[18];
   real_T b_V_singular[36];
   real_T varargin_1[2];
+  int32_T ixstart;
+  int32_T b_ixstart;
   static const int8_T d[12] = { 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0 };
 
   static const int8_T e[12] = { 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 };
@@ -2745,6 +3081,8 @@ void ctrl_TAPM_output(void)
   boolean_T exitg11;
   real_T g;
   real_T h;
+  real_T n;
+  real_T o;
   real_T p;
   real_T q;
   real_T r;
@@ -2755,16 +3093,34 @@ void ctrl_TAPM_output(void)
   real_T w;
   real_T x;
   real_T y;
+  int32_T p3;
+  real_T rtb_Row2;
   real_T rtb_Row1;
-  real_T rtb_Row3;
+  real_T rtb_psi_dot;
+  real_T rtb_Row1_m;
   real_T rtb_y[6];
-  real_T rtb_ImpAsg_InsertedFor_Out2_at_[6];
-  real_T rtb_bias[3];
+  real_T rtb_ImpAsg_InsertedFor_commande[6];
+  real_T rtb_Sum3[3];
   real_T rtb_Sum_b;
-  real_T rtb_TmpSignalConversionAtSFun_o[6];
-  real_T rtb_Out2_CoreSubsysCanOut;
-  real_T rtb_Ta;
-  real_T rtb_TmpSignalConversionAtSFun_b[10];
+  boolean_T rtb_RelationalOperator[28];
+  real_T rtb_TmpSignalConversionAtSFu_ax[6];
+  real_T rtb_TmpSignalConversionAtSFun_m[10];
+  real_T rtb_commandedAngle_CoreSubsysCa;
+  real_T rtb_Median1;
+  real_T rtb_Abs[5];
+  real_T rtb_Abs1;
+  real_T rtb_Sum2_j[12];
+  real_T rtb_Sum2_a[12];
+  real_T rtb_Sum2_h[12];
+  real_T rtb_y_j[9];
+  real_T v1[144];
+  real_T v1_0[144];
+  real_T rtb_PHinvHPHR[72];
+  real_T rtb_PHinvHPHR_o[72];
+  real_T rtb_PHinvHPHR_i[72];
+  real_T rtb_PHinvHPHR_du[72];
+  real_T rtb_MathFunction4[144];
+  real_T rtb_w_d[9];
   int32_T i;
   real_T c1_0[2];
   real_T c1_1[2];
@@ -2775,24 +3131,28 @@ void ctrl_TAPM_output(void)
   real_T d_0[36];
   boolean_T tmp[9];
   real_T B_surge_0[18];
-  real_T tmp_0[3];
-  int32_T i_0;
   real_T B_surge_1[18];
-  real_T pos[18];
-  real_T tmp_1[3];
-  real_T tmp_2[3];
-  real_T tmp_3[3];
+  real_T tmp_0[3];
+  real_T tmp_1[9];
+  real_T tmp_2[9];
+  real_T rtb_Row2_0[18];
+  real_T tmp_3[72];
+  real_T rtb_MathFunction4_0[144];
+  real_T rtb_PHinvHPHR_d[144];
+  real_T rtb_MathFunction4_1[144];
+  real_T rtb_PHinvHPHR_e[144];
+  real_T rtb_Sum5_0[144];
   int32_T b_data[9];
   int32_T c_data[9];
-  real_T rtb_TmpSignalConversionAtSFu__0;
-  real_T rtb_TmpSignalConversionAtSFu__1;
-  real_T rtb_eta_w_idx_2;
-  real_T rtb_eta_w_idx_0;
-  real_T Alpha1_idx_0;
-  real_T Alpha1_idx_3;
   real_T Alpha1_idx_4;
-  real_T rtb_Integrator_idx_0;
-  real_T rtb_Integrator_idx_1;
+  real_T Alpha1_idx_3;
+  real_T Alpha1_idx_2;
+  real_T rtb_Sum_on_idx_1;
+  real_T rtb_Sum_on_idx_0;
+  real_T rtb_TmpSignalConversionAtSFun_0;
+  real_T rtb_TmpSignalConversionAtSFun_1;
+  real_T rtb_TmpSignalConversionAtSFun_2;
+  real_T rtb_Sum_on_idx_2;
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     /* set solver stop time */
     if (!(ctrl_TAPM_M->Timing.clockTick0+1)) {
@@ -2812,490 +3172,321 @@ void ctrl_TAPM_output(void)
     ctrl_TAPM_M->Timing.t[0] = rtsiGetT(&ctrl_TAPM_M->solverInfo);
   }
 
+  /* MATLAB Function: '<S44>/Kp' */
+  ctrl_TAPM_Kp(ctrl_TAPM_B.K_p_x, ctrl_TAPM_B.K_p_y, ctrl_TAPM_B.K_p_psi,
+               &ctrl_TAPM_B.sf_Kp);
+
+  /* Saturate: '<S18>/Saturation' incorporates:
+   *  Fcn: '<S14>/yaw angle'
+   */
+  if (ctrl_TAPM_B.psi_m > ctrl_TAPM_P.Saturation_UpperSat) {
+    rtb_Row2 = ctrl_TAPM_P.Saturation_UpperSat;
+  } else if (ctrl_TAPM_B.psi_m < ctrl_TAPM_P.Saturation_LowerSat) {
+    rtb_Row2 = ctrl_TAPM_P.Saturation_LowerSat;
+  } else {
+    rtb_Row2 = ctrl_TAPM_B.psi_m;
+  }
+
+  /* End of Saturate: '<S18>/Saturation' */
+
+  /* Signum: '<S18>/Sign' */
+  if (rtb_Row2 < 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
+  } else if (rtb_Row2 > 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
+  } else if (rtb_Row2 == 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
+  } else {
+    rtb_TmpSignalConversionAtSFun_2 = rtb_Row2;
+  }
+
+  /* Gain: '<S18>/Gain' incorporates:
+   *  Signum: '<S18>/Sign'
+   */
+  rtb_Row1 = ctrl_TAPM_P.Gain_Gain_p * rtb_TmpSignalConversionAtSFun_2;
+
+  /* Sum: '<S18>/Sum1' */
+  rtb_Row2 += rtb_Row1;
+
+  /* Math: '<S18>/Math Function' incorporates:
+   *  Constant: '<S18>/Constant'
+   */
+  rtb_Row2 = rt_remd_snf(rtb_Row2, ctrl_TAPM_P.Constant_Value_i);
+
+  /* Sum: '<S18>/Sum' */
+  rtb_Row2 -= rtb_Row1;
+
+  /* MATLAB Function: '<S44>/Ki' */
+  ctrl_TAPM_Ki(ctrl_TAPM_B.K_i_x, ctrl_TAPM_B.K_i_y, ctrl_TAPM_B.K_i_psi,
+               &ctrl_TAPM_B.sf_Ki);
+
+  /* MATLAB Function: '<S44>/Kd' */
+  ctrl_TAPM_Kd(ctrl_TAPM_B.K_d_x, ctrl_TAPM_B.K_d_y, ctrl_TAPM_B.K_d_psi,
+               &ctrl_TAPM_B.sf_Kd);
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Delay: '<S19>/Delay' */
-    ctrl_TAPM_B.Delay = ctrl_TAPM_DW.Delay_DSTATE;
+    /* MATLAB Function: '<S46>/Kd' incorporates:
+     *  Constant: '<S46>/Constant6'
+     *  Constant: '<S46>/Constant7'
+     *  Constant: '<S46>/Constant8'
+     */
+    ctrl_TAPM_Kd(ctrl_TAPM_P.Constant6_Value_m, ctrl_TAPM_P.Constant7_Value,
+                 ctrl_TAPM_P.Constant8_Value, &ctrl_TAPM_B.sf_Kd_p);
   }
 
-  /* Integrator: '<S18>/Integrator' */
-  ctrl_TAPM_B.eta[0] = ctrl_TAPM_X.Integrator_CSTATE[0];
-  ctrl_TAPM_B.eta[1] = ctrl_TAPM_X.Integrator_CSTATE[1];
-  ctrl_TAPM_B.eta[2] = ctrl_TAPM_X.Integrator_CSTATE[2];
+  /* MATLAB Function: '<S45>/wd' incorporates:
+   *  SignalConversion: '<S50>/TmpSignal ConversionAt SFunction Inport1'
+   */
+  /* MATLAB Function 'Input1/Guidance gains/wd': '<S50>:1' */
+  /* '<S50>:1:4' */
+  memset(&rtb_w_d[0], 0, 9U * sizeof(real_T));
+  rtb_w_d[0] = ctrl_TAPM_B.w_d_x;
+  rtb_w_d[4] = ctrl_TAPM_B.w_d_y;
+  rtb_w_d[8] = ctrl_TAPM_B.w_d_psi;
 
-  /* MATLAB Function: '<S19>/MATLAB Function' */
-  /* MATLAB Function 'TAPM Controller w_observer/PID/MATLAB Function': '<S33>:1' */
-  /* '<S33>:1:9' */
-  res = 0;
+  /* Integrator: '<S19>/Integrator1' */
+  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
+    ZCEventType zcEvent;
+    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
+                       &ctrl_TAPM_PrevZCX.Integrator1_Reset_ZCE,
+                       ctrl_TAPM_B.reset);
 
-  /* '<S33>:1:11' */
-  rtb_eta_w_idx_2 = sqrt(ctrl_TAPM_B.eta[0] * ctrl_TAPM_B.eta[0] +
-    ctrl_TAPM_B.eta[1] * ctrl_TAPM_B.eta[1]);
-  if ((rtb_eta_w_idx_2 > ctrl_TAPM_B.r_max) && (ctrl_TAPM_DW.controller != 2.0))
-  {
-    /* '<S33>:1:13' */
-    /* '<S33>:1:14' */
-    ctrl_TAPM_DW.controller = 2.0;
-
-    /* '<S33>:1:15' */
-    res = 1;
-  } else {
-    if ((rtb_eta_w_idx_2 < 0.9 * ctrl_TAPM_B.r_max) && (ctrl_TAPM_B.Delay > 40.0)
-        && (ctrl_TAPM_DW.controller != 1.0) && (ctrl_TAPM_DW.tmp > 190.0)) {
-      /* '<S33>:1:16' */
-      /* '<S33>:1:17' */
-      ctrl_TAPM_DW.controller = 1.0;
-
-      /* '<S33>:1:18' */
-      res = 1;
+    /* evaluate zero-crossings */
+    if (zcEvent || ctrl_TAPM_DW.Integrator1_IWORK.IcNeedsLoading) {
+      ctrl_TAPM_X.Integrator1_CSTATE[0] = 0.0;
+      ctrl_TAPM_X.Integrator1_CSTATE[1] = 0.0;
+      ctrl_TAPM_X.Integrator1_CSTATE[2] = 0.0;
     }
   }
 
-  if (rtb_eta_w_idx_2 > ctrl_TAPM_B.r_max) {
-    /* '<S33>:1:21' */
-    /* '<S33>:1:22' */
-    res = 1;
+  rtb_MatrixMultiply5[0] = ctrl_TAPM_X.Integrator1_CSTATE[0];
+  rtb_MatrixMultiply5[1] = ctrl_TAPM_X.Integrator1_CSTATE[1];
+  rtb_MatrixMultiply5[2] = ctrl_TAPM_X.Integrator1_CSTATE[2];
 
-    /* '<S33>:1:23' */
-    ctrl_TAPM_DW.tmp = 0.0;
+  /* Saturate: '<S20>/Saturation' */
+  if (rtb_MatrixMultiply5[2] > ctrl_TAPM_P.Saturation_UpperSat_p) {
+    rtb_Row1 = ctrl_TAPM_P.Saturation_UpperSat_p;
+  } else if (rtb_MatrixMultiply5[2] < ctrl_TAPM_P.Saturation_LowerSat_a) {
+    rtb_Row1 = ctrl_TAPM_P.Saturation_LowerSat_a;
   } else {
-    /* '<S33>:1:25' */
-    ctrl_TAPM_DW.tmp += 0.01;
+    rtb_Row1 = rtb_MatrixMultiply5[2];
   }
 
-  /* '<S33>:1:28' */
-  ctrl_TAPM_B.y = ctrl_TAPM_DW.controller;
+  /* End of Saturate: '<S20>/Saturation' */
 
-  /* '<S33>:1:29' */
-  ctrl_TAPM_B.reset_n0 = res;
-
-  /* End of MATLAB Function: '<S19>/MATLAB Function' */
-
-  /* MATLAB Function: '<S2>/MATLAB Function' */
-  ctrl_TAPM_MATLABFunction(ctrl_TAPM_B.K_p_x, ctrl_TAPM_B.K_p_y,
-    ctrl_TAPM_B.K_p_psi, &ctrl_TAPM_B.sf_MATLABFunction_f);
-
-  /* Saturate: '<S36>/Saturation' incorporates:
-   *  Fcn: '<S31>/yaw angle'
-   */
-  if (ctrl_TAPM_B.eta[2] > ctrl_TAPM_P.Saturation_UpperSat) {
-    rtb_Row1 = ctrl_TAPM_P.Saturation_UpperSat;
-  } else if (ctrl_TAPM_B.eta[2] < ctrl_TAPM_P.Saturation_LowerSat) {
-    rtb_Row1 = ctrl_TAPM_P.Saturation_LowerSat;
-  } else {
-    rtb_Row1 = ctrl_TAPM_B.eta[2];
-  }
-
-  /* End of Saturate: '<S36>/Saturation' */
-
-  /* Signum: '<S36>/Sign' */
+  /* Signum: '<S20>/Sign' */
   if (rtb_Row1 < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
   } else if (rtb_Row1 > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
   } else if (rtb_Row1 == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
   } else {
-    rtb_eta_w_idx_0 = rtb_Row1;
+    rtb_TmpSignalConversionAtSFun_2 = rtb_Row1;
   }
 
-  /* Gain: '<S36>/Gain' incorporates:
-   *  Signum: '<S36>/Sign'
+  /* Gain: '<S20>/Gain' incorporates:
+   *  Signum: '<S20>/Sign'
    */
-  rtb_Row3 = ctrl_TAPM_P.Gain_Gain * rtb_eta_w_idx_0;
+  rtb_psi_dot = ctrl_TAPM_P.Gain_Gain_a * rtb_TmpSignalConversionAtSFun_2;
 
-  /* Sum: '<S36>/Sum1' */
-  rtb_Row1 += rtb_Row3;
+  /* Sum: '<S20>/Sum1' */
+  rtb_Row1 += rtb_psi_dot;
 
-  /* Math: '<S36>/Math Function' incorporates:
-   *  Constant: '<S36>/Constant'
+  /* Math: '<S20>/Math Function' incorporates:
+   *  Constant: '<S20>/Constant'
    */
-  rtb_Row1 = rt_remd_snf(rtb_Row1, ctrl_TAPM_P.Constant_Value);
+  rtb_Row1 = rt_remd_snf(rtb_Row1, ctrl_TAPM_P.Constant_Value_j);
 
-  /* Sum: '<S36>/Sum' */
-  rtb_Row1 -= rtb_Row3;
+  /* Sum: '<S20>/Sum' */
+  rtb_Row1 -= rtb_psi_dot;
 
-  /* Integrator: '<S20>/Integrator' */
-  rtb_Integrator_idx_0 = ctrl_TAPM_X.Integrator_CSTATE_l[0];
-  rtb_Integrator_idx_1 = ctrl_TAPM_X.Integrator_CSTATE_l[1];
+  /* SignalConversion: '<S19>/TmpSignal ConversionAtMatrix Multiply2Inport2' */
+  ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[0] = rtb_MatrixMultiply5[0];
+  ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[1] = rtb_MatrixMultiply5[1];
+  ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[2] = rtb_Row1;
 
-  /* MATLAB Function: '<S20>/Set-Point Limiter' incorporates:
-   *  Integrator: '<S20>/Integrator'
-   *  MATLAB Function: '<S2>/MATLAB Function3'
-   *  SignalConversion: '<S13>/TmpSignal ConversionAt SFunction Inport1'
+  /* Sum: '<S14>/Sum2' */
+  ctrl_TAPM_B.regulationerror[0] = ctrl_TAPM_B.x_m -
+    ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[0];
+  ctrl_TAPM_B.regulationerror[1] = ctrl_TAPM_B.y_m -
+    ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[1];
+  ctrl_TAPM_B.regulationerror[2] = ctrl_TAPM_B.psi_m -
+    ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[2];
+
+  /* Saturate: '<S17>/Saturation' */
+  if (ctrl_TAPM_B.regulationerror[2] > ctrl_TAPM_P.Saturation_UpperSat_d) {
+    rtb_psi_dot = ctrl_TAPM_P.Saturation_UpperSat_d;
+  } else if (ctrl_TAPM_B.regulationerror[2] < ctrl_TAPM_P.Saturation_LowerSat_c)
+  {
+    rtb_psi_dot = ctrl_TAPM_P.Saturation_LowerSat_c;
+  } else {
+    rtb_psi_dot = ctrl_TAPM_B.regulationerror[2];
+  }
+
+  /* End of Saturate: '<S17>/Saturation' */
+
+  /* Signum: '<S17>/Sign' */
+  if (rtb_psi_dot < 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
+  } else if (rtb_psi_dot > 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
+  } else if (rtb_psi_dot == 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
+  } else {
+    rtb_TmpSignalConversionAtSFun_2 = rtb_psi_dot;
+  }
+
+  /* Gain: '<S17>/Gain' incorporates:
+   *  Signum: '<S17>/Sign'
    */
-  /* MATLAB Function 'Input/MATLAB Function3': '<S13>:1' */
-  /* '<S13>:1:4' */
-  /* MATLAB Function 'TAPM Controller w_observer/SP Generator/Set-Point Limiter': '<S40>:1' */
-  /* '<S40>:1:3' */
-  rtb_TmpSignalConversionAtSFu__0 = ctrl_TAPM_X.Integrator_CSTATE_l[0] -
-    ctrl_TAPM_B.fzp_x;
-  rtb_TmpSignalConversionAtSFu__1 = ctrl_TAPM_X.Integrator_CSTATE_l[1] -
-    ctrl_TAPM_B.fzp_y;
+  rtb_Row1 = ctrl_TAPM_P.Gain_Gain_ag * rtb_TmpSignalConversionAtSFun_2;
 
-  /* '<S40>:1:4' */
-  rtb_eta_w_idx_2 = 2.2250738585072014E-308;
-  rtb_Ta = fabs(rtb_TmpSignalConversionAtSFu__0);
-  if (rtb_Ta > 2.2250738585072014E-308) {
-    offset = 1.0;
-    rtb_eta_w_idx_2 = rtb_Ta;
-  } else {
-    t = rtb_Ta / 2.2250738585072014E-308;
-    offset = t * t;
+  /* Sum: '<S17>/Sum1' */
+  rtb_psi_dot += rtb_Row1;
+
+  /* Math: '<S17>/Math Function' incorporates:
+   *  Constant: '<S17>/Constant'
+   */
+  rtb_psi_dot = rt_remd_snf(rtb_psi_dot, ctrl_TAPM_P.Constant_Value_l);
+
+  /* Sum: '<S17>/Sum' */
+  rtb_psi_dot -= rtb_Row1;
+
+  /* SignalConversion: '<S14>/TmpSignal ConversionAtMatrix MultiplyInport2' incorporates:
+   *  Fcn: '<S15>/Row1'
+   *  Fcn: '<S15>/Row2'
+   *  Fcn: '<S15>/Row3'
+   */
+  ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[0] = cos(rtb_Row2) *
+    ctrl_TAPM_B.regulationerror[0] + sin(rtb_Row2) *
+    ctrl_TAPM_B.regulationerror[1];
+  ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[1] = -sin(rtb_Row2) *
+    ctrl_TAPM_B.regulationerror[0] + cos(rtb_Row2) *
+    ctrl_TAPM_B.regulationerror[1];
+  ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[2] = rtb_psi_dot;
+
+  /* Product: '<S14>/Matrix Multiply' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_MatrixMultiply5[b_ixstart] = 0.0;
+    rtb_MatrixMultiply5[b_ixstart] += ctrl_TAPM_B.sf_Kp.K_p[b_ixstart] *
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[0];
+    rtb_MatrixMultiply5[b_ixstart] += ctrl_TAPM_B.sf_Kp.K_p[b_ixstart + 3] *
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[1];
+    rtb_MatrixMultiply5[b_ixstart] += ctrl_TAPM_B.sf_Kp.K_p[b_ixstart + 6] *
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[2];
   }
 
-  rtb_Ta = fabs(rtb_TmpSignalConversionAtSFu__1);
-  if (rtb_Ta > rtb_eta_w_idx_2) {
-    t = rtb_eta_w_idx_2 / rtb_Ta;
-    offset = offset * t * t + 1.0;
-    rtb_eta_w_idx_2 = rtb_Ta;
-  } else {
-    t = rtb_Ta / rtb_eta_w_idx_2;
-    offset += t * t;
-  }
+  /* End of Product: '<S14>/Matrix Multiply' */
 
-  offset = rtb_eta_w_idx_2 * sqrt(offset);
+  /* Integrator: '<S14>/Integrator' */
+  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
+    ZCEventType zcEvent;
+    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,&ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE,
+                       ctrl_TAPM_B.reset);
 
-  /* '<S40>:1:5' */
-  /* '<S40>:1:6' */
-  /* '<S40>:1:7' */
-  rtb_eta_w_idx_2 = rt_powd_snf(offset / ctrl_TAPM_B.r_max, 5.0);
-  if (rtb_eta_w_idx_2 > 1.0) {
-    /* '<S40>:1:10' */
-    /* '<S40>:1:11' */
-    rtb_eta_w_idx_2 = 1.0;
-  }
-
-  /* '<S40>:1:14' */
-  rtb_TmpSignalConversionAtSFu__0 = (ctrl_TAPM_B.fzp_x +
-    rtb_TmpSignalConversionAtSFu__0) - (rtb_TmpSignalConversionAtSFu__0 -
-    rtb_TmpSignalConversionAtSFu__0 / offset * ctrl_TAPM_B.r_max) *
-    rtb_eta_w_idx_2;
-  Alpha1_idx_0 = (ctrl_TAPM_B.fzp_y + rtb_TmpSignalConversionAtSFu__1) -
-    (rtb_TmpSignalConversionAtSFu__1 - rtb_TmpSignalConversionAtSFu__1 / offset *
-     ctrl_TAPM_B.r_max) * rtb_eta_w_idx_2;
-
-  /* End of MATLAB Function: '<S20>/Set-Point Limiter' */
-
-  /* TransferFcn: '<S20>/Transfer Fcn2' */
-  rtb_Row3 = ctrl_TAPM_P.TransferFcn2_C * ctrl_TAPM_X.TransferFcn2_CSTATE;
-
-  /* Saturate: '<S21>/Saturation' */
-  if (rtb_Row3 > ctrl_TAPM_P.Saturation_UpperSat_g) {
-    rtb_Row3 = ctrl_TAPM_P.Saturation_UpperSat_g;
-  } else {
-    if (rtb_Row3 < ctrl_TAPM_P.Saturation_LowerSat_h) {
-      rtb_Row3 = ctrl_TAPM_P.Saturation_LowerSat_h;
+    /* evaluate zero-crossings */
+    if (zcEvent) {
+      ctrl_TAPM_X.Integrator_CSTATE[0] = ctrl_TAPM_P.Integrator_IC;
+      ctrl_TAPM_X.Integrator_CSTATE[1] = ctrl_TAPM_P.Integrator_IC;
+      ctrl_TAPM_X.Integrator_CSTATE[2] = ctrl_TAPM_P.Integrator_IC;
     }
   }
 
-  /* End of Saturate: '<S21>/Saturation' */
+  rtb_MatrixMultiply2[0] = ctrl_TAPM_X.Integrator_CSTATE[0];
+  rtb_MatrixMultiply2[1] = ctrl_TAPM_X.Integrator_CSTATE[1];
+  rtb_MatrixMultiply2[2] = ctrl_TAPM_X.Integrator_CSTATE[2];
 
-  /* Signum: '<S21>/Sign' */
-  if (rtb_Row3 < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
-  } else if (rtb_Row3 > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
-  } else if (rtb_Row3 == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
-  } else {
-    rtb_eta_w_idx_0 = rtb_Row3;
+  /* Product: '<S14>/Matrix Multiply1' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_MatrixMultiply[b_ixstart] = 0.0;
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Ki.K_i[b_ixstart] *
+      rtb_MatrixMultiply2[0];
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Ki.K_i[b_ixstart + 3] *
+      rtb_MatrixMultiply2[1];
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Ki.K_i[b_ixstart + 6] *
+      rtb_MatrixMultiply2[2];
   }
 
-  /* Gain: '<S21>/Gain' incorporates:
-   *  Signum: '<S21>/Sign'
-   */
-  rtb_eta_w_idx_2 = ctrl_TAPM_P.Gain_Gain_p * rtb_eta_w_idx_0;
+  /* End of Product: '<S14>/Matrix Multiply1' */
 
-  /* Sum: '<S21>/Sum1' */
-  rtb_Row3 += rtb_eta_w_idx_2;
+  /* Integrator: '<S6>/Integrator1' */
+  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
+    ZCEventType zcEvent;
+    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
+                       &ctrl_TAPM_PrevZCX.Integrator1_Reset_ZCE_i,
+                       ctrl_TAPM_B.reset);
 
-  /* Math: '<S21>/Math Function' incorporates:
-   *  Constant: '<S21>/Constant'
-   */
-  rtb_Row3 = rt_remd_snf(rtb_Row3, ctrl_TAPM_P.Constant_Value_k);
-
-  /* Sum: '<S21>/Sum' */
-  rtb_Row3 -= rtb_eta_w_idx_2;
-
-  /* SignalConversion: '<S5>/TmpSignal ConversionAtSPInport1' */
-  ctrl_TAPM_B.TmpSignalConversionAtSPInport1[0] =
-    rtb_TmpSignalConversionAtSFu__0;
-  ctrl_TAPM_B.TmpSignalConversionAtSPInport1[1] = Alpha1_idx_0;
-  ctrl_TAPM_B.TmpSignalConversionAtSPInport1[2] = rtb_Row3;
-
-  /* Sum: '<S31>/Sum2' */
-  rtb_eta_w_idx_0 = ctrl_TAPM_B.TmpSignalConversionAtSPInport1[0] -
-    ctrl_TAPM_B.eta[0];
-  rtb_TmpSignalConversionAtSFu__1 = ctrl_TAPM_B.TmpSignalConversionAtSPInport1[1]
-    - ctrl_TAPM_B.eta[1];
-  rtb_eta_w_idx_2 = ctrl_TAPM_B.TmpSignalConversionAtSPInport1[2] -
-    ctrl_TAPM_B.eta[2];
-
-  /* Saturate: '<S35>/Saturation' */
-  if (rtb_eta_w_idx_2 > ctrl_TAPM_P.Saturation_UpperSat_l) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation_UpperSat_l;
-  } else {
-    if (rtb_eta_w_idx_2 < ctrl_TAPM_P.Saturation_LowerSat_l) {
-      rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation_LowerSat_l;
+    /* evaluate zero-crossings */
+    if (zcEvent) {
+      ctrl_TAPM_X.Integrator1_CSTATE_g[0] = (ctrl_TAPM_P.Integrator1_IC[0]);
+      ctrl_TAPM_X.Integrator1_CSTATE_g[1] = (ctrl_TAPM_P.Integrator1_IC[1]);
+      ctrl_TAPM_X.Integrator1_CSTATE_g[2] = (ctrl_TAPM_P.Integrator1_IC[2]);
     }
   }
 
-  /* End of Saturate: '<S35>/Saturation' */
+  ctrl_TAPM_B.Integrator1[0] = ctrl_TAPM_X.Integrator1_CSTATE_g[0];
+  ctrl_TAPM_B.Integrator1[1] = ctrl_TAPM_X.Integrator1_CSTATE_g[1];
+  ctrl_TAPM_B.Integrator1[2] = ctrl_TAPM_X.Integrator1_CSTATE_g[2];
 
-  /* Signum: '<S35>/Sign' */
-  if (rtb_eta_w_idx_2 < 0.0) {
-    Alpha1_idx_0 = -1.0;
-  } else if (rtb_eta_w_idx_2 > 0.0) {
-    Alpha1_idx_0 = 1.0;
-  } else if (rtb_eta_w_idx_2 == 0.0) {
-    Alpha1_idx_0 = 0.0;
-  } else {
-    Alpha1_idx_0 = rtb_eta_w_idx_2;
-  }
+  /* Fcn: '<S14>/yaw angle1' */
+  rtb_Row1_m = ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[2];
 
-  /* Gain: '<S35>/Gain' incorporates:
-   *  Signum: '<S35>/Sign'
-   */
-  rtb_Row3 = ctrl_TAPM_P.Gain_Gain_l * Alpha1_idx_0;
+  /* Integrator: '<S19>/Integrator3' */
+  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
+    ZCEventType zcEvent;
+    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
+                       &ctrl_TAPM_PrevZCX.Integrator3_Reset_ZCE,
+                       ctrl_TAPM_B.reset);
 
-  /* Sum: '<S35>/Sum1' */
-  rtb_eta_w_idx_2 += rtb_Row3;
-
-  /* Math: '<S35>/Math Function' incorporates:
-   *  Constant: '<S35>/Constant'
-   */
-  rtb_eta_w_idx_2 = rt_remd_snf(rtb_eta_w_idx_2, ctrl_TAPM_P.Constant_Value_e);
-
-  /* Sum: '<S35>/Sum' */
-  rtb_eta_w_idx_2 -= rtb_Row3;
-
-  /* SignalConversion: '<S31>/TmpSignal ConversionAtMatrix MultiplyInport2' incorporates:
-   *  Fcn: '<S34>/Row1'
-   *  Fcn: '<S34>/Row2'
-   *  Fcn: '<S34>/Row3'
-   */
-  ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[0] = cos(rtb_Row1) *
-    rtb_eta_w_idx_0 + sin(rtb_Row1) * rtb_TmpSignalConversionAtSFu__1;
-  ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[1] = -sin(rtb_Row1) *
-    rtb_eta_w_idx_0 + cos(rtb_Row1) * rtb_TmpSignalConversionAtSFu__1;
-  ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[2] = rtb_eta_w_idx_2;
-
-  /* MATLAB Function: '<S2>/MATLAB Function1' */
-  ctrl_TAPM_MATLABFunction1(ctrl_TAPM_B.K_i_x, ctrl_TAPM_B.K_i_y,
-    ctrl_TAPM_B.K_i_psi, &ctrl_TAPM_B.sf_MATLABFunction1);
-
-  /* MATLAB Function: '<S2>/MATLAB Function2' */
-  ctrl_TAPM_MATLABFunction2(ctrl_TAPM_B.K_d_x, ctrl_TAPM_B.K_d_y,
-    ctrl_TAPM_B.K_d_psi, &ctrl_TAPM_B.sf_MATLABFunction2);
-
-  /* Integrator: '<S18>/Integrator4' */
-  ctrl_TAPM_B.nu[0] = ctrl_TAPM_X.Integrator4_CSTATE[0];
-  ctrl_TAPM_B.nu[1] = ctrl_TAPM_X.Integrator4_CSTATE[1];
-  ctrl_TAPM_B.nu[2] = ctrl_TAPM_X.Integrator4_CSTATE[2];
-
-  /* MATLAB Function: '<S2>/MATLAB Function4' */
-  ctrl_TAPM_MATLABFunction(ctrl_TAPM_B.K_p_x1, ctrl_TAPM_B.K_p_y1,
-    ctrl_TAPM_B.K_p_psi1, &ctrl_TAPM_B.sf_MATLABFunction4);
-
-  /* Saturate: '<S39>/Saturation' incorporates:
-   *  Fcn: '<S32>/yaw angle'
-   */
-  if (ctrl_TAPM_B.eta[2] > ctrl_TAPM_P.Saturation_UpperSat_h) {
-    offset = ctrl_TAPM_P.Saturation_UpperSat_h;
-  } else if (ctrl_TAPM_B.eta[2] < ctrl_TAPM_P.Saturation_LowerSat_d) {
-    offset = ctrl_TAPM_P.Saturation_LowerSat_d;
-  } else {
-    offset = ctrl_TAPM_B.eta[2];
-  }
-
-  /* End of Saturate: '<S39>/Saturation' */
-
-  /* Signum: '<S39>/Sign' */
-  if (offset < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
-  } else if (offset > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
-  } else if (offset == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
-  } else {
-    rtb_eta_w_idx_0 = offset;
-  }
-
-  /* Gain: '<S39>/Gain' incorporates:
-   *  Signum: '<S39>/Sign'
-   */
-  rtb_eta_w_idx_2 = ctrl_TAPM_P.Gain_Gain_n * rtb_eta_w_idx_0;
-
-  /* Sum: '<S39>/Sum1' */
-  offset += rtb_eta_w_idx_2;
-
-  /* Math: '<S39>/Math Function' incorporates:
-   *  Constant: '<S39>/Constant'
-   */
-  offset = rt_remd_snf(offset, ctrl_TAPM_P.Constant_Value_d);
-
-  /* Sum: '<S39>/Sum' */
-  offset -= rtb_eta_w_idx_2;
-
-  /* Sum: '<S32>/Sum2' */
-  rtb_eta_w_idx_0 = ctrl_TAPM_B.TmpSignalConversionAtSPInport1[0] -
-    ctrl_TAPM_B.eta[0];
-  rtb_TmpSignalConversionAtSFu__1 = ctrl_TAPM_B.TmpSignalConversionAtSPInport1[1]
-    - ctrl_TAPM_B.eta[1];
-  rtb_eta_w_idx_2 = ctrl_TAPM_B.TmpSignalConversionAtSPInport1[2] -
-    ctrl_TAPM_B.eta[2];
-
-  /* Saturate: '<S38>/Saturation' */
-  if (rtb_eta_w_idx_2 > ctrl_TAPM_P.Saturation_UpperSat_a) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation_UpperSat_a;
-  } else {
-    if (rtb_eta_w_idx_2 < ctrl_TAPM_P.Saturation_LowerSat_lh) {
-      rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation_LowerSat_lh;
+    /* evaluate zero-crossings */
+    if (zcEvent) {
+      ctrl_TAPM_X.Integrator3_CSTATE[0] = ctrl_TAPM_P.Integrator3_IC;
+      ctrl_TAPM_X.Integrator3_CSTATE[1] = ctrl_TAPM_P.Integrator3_IC;
+      ctrl_TAPM_X.Integrator3_CSTATE[2] = ctrl_TAPM_P.Integrator3_IC;
     }
   }
 
-  /* End of Saturate: '<S38>/Saturation' */
+  ctrl_TAPM_B.Integrator3[0] = ctrl_TAPM_X.Integrator3_CSTATE[0];
+  ctrl_TAPM_B.Integrator3[1] = ctrl_TAPM_X.Integrator3_CSTATE[1];
+  ctrl_TAPM_B.Integrator3[2] = ctrl_TAPM_X.Integrator3_CSTATE[2];
 
-  /* Signum: '<S38>/Sign' */
-  if (rtb_eta_w_idx_2 < 0.0) {
-    Alpha1_idx_0 = -1.0;
-  } else if (rtb_eta_w_idx_2 > 0.0) {
-    Alpha1_idx_0 = 1.0;
-  } else if (rtb_eta_w_idx_2 == 0.0) {
-    Alpha1_idx_0 = 0.0;
-  } else {
-    Alpha1_idx_0 = rtb_eta_w_idx_2;
+  /* Sum: '<S14>/Sum4' incorporates:
+   *  Fcn: '<S16>/Row1'
+   *  Fcn: '<S16>/Row2'
+   *  Fcn: '<S16>/Row3'
+   */
+  rtb_MatrixMultiply2[0] = ctrl_TAPM_B.Integrator1[0] - (cos(rtb_Row1_m) *
+    ctrl_TAPM_B.Integrator3[0] + sin(rtb_Row1_m) * ctrl_TAPM_B.Integrator3[1]);
+  rtb_MatrixMultiply2[1] = ctrl_TAPM_B.Integrator1[1] - (-sin(rtb_Row1_m) *
+    ctrl_TAPM_B.Integrator3[0] + cos(rtb_Row1_m) * ctrl_TAPM_B.Integrator3[1]);
+  rtb_MatrixMultiply2[2] = ctrl_TAPM_B.Integrator1[2] - ctrl_TAPM_B.Integrator3
+    [2];
+
+  /* Sum: '<S14>/Sum3' incorporates:
+   *  Product: '<S14>/Matrix Multiply2'
+   */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_Sum3[b_ixstart] = ((0.0 - rtb_MatrixMultiply5[b_ixstart]) -
+      rtb_MatrixMultiply[b_ixstart]) - ((ctrl_TAPM_B.sf_Kd.K_d[b_ixstart + 3] *
+      rtb_MatrixMultiply2[1] + ctrl_TAPM_B.sf_Kd.K_d[b_ixstart] *
+      rtb_MatrixMultiply2[0]) + ctrl_TAPM_B.sf_Kd.K_d[b_ixstart + 6] *
+      rtb_MatrixMultiply2[2]);
   }
 
-  /* Gain: '<S38>/Gain' incorporates:
-   *  Signum: '<S38>/Sign'
+  /* End of Sum: '<S14>/Sum3' */
+
+  /* SignalConversion: '<S69>/TmpSignal ConversionAt SFunction Inport1' incorporates:
+   *  MATLAB Function: '<S10>/angle between  [-180 180]'
    */
-  rtb_Row3 = ctrl_TAPM_P.Gain_Gain_j * Alpha1_idx_0;
+  rtb_TmpSignalConversionAtSFu_ax[0] = ctrl_TAPM_B.thr_angle_1;
+  rtb_TmpSignalConversionAtSFu_ax[1] = ctrl_TAPM_B.thr_angle_2;
+  rtb_TmpSignalConversionAtSFu_ax[2] = ctrl_TAPM_B.thr_angle_3;
+  rtb_TmpSignalConversionAtSFu_ax[3] = ctrl_TAPM_B.thr_angle_4;
+  rtb_TmpSignalConversionAtSFu_ax[4] = ctrl_TAPM_B.thr_angle_5;
+  rtb_TmpSignalConversionAtSFu_ax[5] = ctrl_TAPM_B.thr_angle_6;
 
-  /* Sum: '<S38>/Sum1' */
-  rtb_eta_w_idx_2 += rtb_Row3;
-
-  /* Math: '<S38>/Math Function' incorporates:
-   *  Constant: '<S38>/Constant'
-   */
-  rtb_eta_w_idx_2 = rt_remd_snf(rtb_eta_w_idx_2, ctrl_TAPM_P.Constant_Value_c);
-
-  /* Sum: '<S38>/Sum' */
-  rtb_eta_w_idx_2 -= rtb_Row3;
-
-  /* SignalConversion: '<S32>/TmpSignal ConversionAtMatrix MultiplyInport2' incorporates:
-   *  Fcn: '<S37>/Row1'
-   *  Fcn: '<S37>/Row2'
-   *  Fcn: '<S37>/Row3'
-   */
-  ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b[0] = cos(offset) * rtb_eta_w_idx_0
-    + sin(offset) * rtb_TmpSignalConversionAtSFu__1;
-  ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b[1] = -sin(offset) *
-    rtb_eta_w_idx_0 + cos(offset) * rtb_TmpSignalConversionAtSFu__1;
-  ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b[2] = rtb_eta_w_idx_2;
-
-  /* MATLAB Function: '<S2>/MATLAB Function5' */
-  ctrl_TAPM_MATLABFunction1(ctrl_TAPM_B.K_i_x1, ctrl_TAPM_B.K_i_y1,
-    ctrl_TAPM_B.K_i_psi1, &ctrl_TAPM_B.sf_MATLABFunction5);
-
-  /* MATLAB Function: '<S2>/MATLAB Function6' */
-  ctrl_TAPM_MATLABFunction2(ctrl_TAPM_B.K_d_x1, ctrl_TAPM_B.K_d_y1,
-    ctrl_TAPM_B.K_d_psi1, &ctrl_TAPM_B.sf_MATLABFunction6);
-
-  /* MultiPortSwitch: '<S19>/Multiport Switch' incorporates:
-   *  Product: '<S31>/Matrix Multiply2'
-   *  Product: '<S32>/Matrix Multiply2'
-   *  Sum: '<S31>/Sum1'
-   *  Sum: '<S31>/Sum3'
-   *  Sum: '<S32>/Sum1'
-   *  Sum: '<S32>/Sum3'
-   */
-  if ((int32_T)ctrl_TAPM_B.y == 1) {
-    /* Product: '<S31>/Matrix Multiply' incorporates:
-     *  Sum: '<S31>/Sum3'
-     */
-    for (i_0 = 0; i_0 < 3; i_0++) {
-      rtb_bias[i_0] = ctrl_TAPM_B.sf_MATLABFunction_f.K_p[i_0 + 6] *
-        ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[2] +
-        (ctrl_TAPM_B.sf_MATLABFunction_f.K_p[i_0 + 3] *
-         ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[1] +
-         ctrl_TAPM_B.sf_MATLABFunction_f.K_p[i_0] *
-         ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[0]);
-    }
-
-    /* End of Product: '<S31>/Matrix Multiply' */
-
-    /* Product: '<S31>/Matrix Multiply1' incorporates:
-     *  Integrator: '<S31>/Integrator'
-     *  Sum: '<S31>/Sum3'
-     */
-    for (i_0 = 0; i_0 < 3; i_0++) {
-      tmp_0[i_0] = ctrl_TAPM_B.sf_MATLABFunction1.K_i[i_0 + 6] *
-        ctrl_TAPM_X.Integrator_CSTATE_g[2] +
-        (ctrl_TAPM_B.sf_MATLABFunction1.K_i[i_0 + 3] *
-         ctrl_TAPM_X.Integrator_CSTATE_g[1] +
-         ctrl_TAPM_B.sf_MATLABFunction1.K_i[i_0] *
-         ctrl_TAPM_X.Integrator_CSTATE_g[0]);
-    }
-
-    /* End of Product: '<S31>/Matrix Multiply1' */
-    for (i_0 = 0; i_0 < 3; i_0++) {
-      ctrl_TAPM_B.MultiportSwitch[i_0] = (rtb_bias[i_0] + tmp_0[i_0]) -
-        ((ctrl_TAPM_B.sf_MATLABFunction2.K_d[i_0 + 3] * ctrl_TAPM_B.nu[1] +
-          ctrl_TAPM_B.sf_MATLABFunction2.K_d[i_0] * ctrl_TAPM_B.nu[0]) +
-         ctrl_TAPM_B.sf_MATLABFunction2.K_d[i_0 + 6] * ctrl_TAPM_B.nu[2]);
-    }
-  } else {
-    /* Product: '<S32>/Matrix Multiply' incorporates:
-     *  Sum: '<S32>/Sum3'
-     */
-    for (i_0 = 0; i_0 < 3; i_0++) {
-      rtb_bias[i_0] = ctrl_TAPM_B.sf_MATLABFunction4.K_p[i_0 + 6] *
-        ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b[2] +
-        (ctrl_TAPM_B.sf_MATLABFunction4.K_p[i_0 + 3] *
-         ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b[1] +
-         ctrl_TAPM_B.sf_MATLABFunction4.K_p[i_0] *
-         ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b[0]);
-    }
-
-    /* End of Product: '<S32>/Matrix Multiply' */
-
-    /* Product: '<S32>/Matrix Multiply1' incorporates:
-     *  Integrator: '<S32>/Integrator'
-     *  Sum: '<S32>/Sum3'
-     */
-    for (i_0 = 0; i_0 < 3; i_0++) {
-      tmp_0[i_0] = ctrl_TAPM_B.sf_MATLABFunction5.K_i[i_0 + 6] *
-        ctrl_TAPM_X.Integrator_CSTATE_k[2] +
-        (ctrl_TAPM_B.sf_MATLABFunction5.K_i[i_0 + 3] *
-         ctrl_TAPM_X.Integrator_CSTATE_k[1] +
-         ctrl_TAPM_B.sf_MATLABFunction5.K_i[i_0] *
-         ctrl_TAPM_X.Integrator_CSTATE_k[0]);
-    }
-
-    /* End of Product: '<S32>/Matrix Multiply1' */
-    for (i_0 = 0; i_0 < 3; i_0++) {
-      ctrl_TAPM_B.MultiportSwitch[i_0] = (rtb_bias[i_0] + tmp_0[i_0]) -
-        ((ctrl_TAPM_B.sf_MATLABFunction6.K_d[i_0 + 3] * ctrl_TAPM_B.nu[1] +
-          ctrl_TAPM_B.sf_MATLABFunction6.K_d[i_0] * ctrl_TAPM_B.nu[0]) +
-         ctrl_TAPM_B.sf_MATLABFunction6.K_d[i_0 + 6] * ctrl_TAPM_B.nu[2]);
-    }
-  }
-
-  /* End of MultiPortSwitch: '<S19>/Multiport Switch' */
-
-  /* SignalConversion: '<S44>/TmpSignal ConversionAt SFunction Inport1' incorporates:
-   *  MATLAB Function: '<S6>/angle between  [-180 180]'
-   */
-  rtb_TmpSignalConversionAtSFun_o[0] = ctrl_TAPM_B.thr_angle_1;
-  rtb_TmpSignalConversionAtSFun_o[1] = ctrl_TAPM_B.thr_angle_2;
-  rtb_TmpSignalConversionAtSFun_o[2] = ctrl_TAPM_B.thr_angle_3;
-  rtb_TmpSignalConversionAtSFun_o[3] = ctrl_TAPM_B.thr_angle_4;
-  rtb_TmpSignalConversionAtSFun_o[4] = ctrl_TAPM_B.thr_angle_5;
-  rtb_TmpSignalConversionAtSFun_o[5] = ctrl_TAPM_B.thr_angle_6;
-
-  /* MATLAB Function: '<S6>/angle between  [-180 180]' */
-  /* MATLAB Function 'Thrust allocation/angle between  [-180 180]': '<S44>:1' */
+  /* MATLAB Function: '<S10>/angle between  [-180 180]' */
+  /* MATLAB Function 'Thrust allocation/angle between  [-180 180]': '<S69>:1' */
   /*  RAD2PIPI Converts an angle in rad to the interval (-pi pi] */
   /*           Should be applied to all heading errors in a feedback control system */
   /*           in order to avoid discontinuities. */
@@ -3331,33 +3522,35 @@ void ctrl_TAPM_output(void)
   /*  E-mail: contact@marinecontrol.org */
   /*  URL:    <http://www.marinecontrol.org> */
   /*  convert angle in rad to the interval <-pi pi>  */
-  /* '<S44>:1:39' */
-  /* '<S44>:1:40' */
+  /* '<S69>:1:39' */
+  /* '<S69>:1:40' */
   /*  s = sign(angle); */
-  /* '<S44>:1:43' */
+  /* '<S69>:1:43' */
   for (i = 0; i < 6; i++) {
-    Alpha1_idx_0 = rt_remd_snf(rtb_TmpSignalConversionAtSFun_o[i] +
-      3.1415926535897931, 6.2831853071795862) / 6.2831853071795862;
-    rtb_eta_w_idx_0 = fabs(Alpha1_idx_0);
-    if (rtb_eta_w_idx_0 > 0.0) {
-      rtb_eta_w_idx_0 = 1.0;
+    rtb_TmpSignalConversionAtSFun_1 = rt_remd_snf
+      (rtb_TmpSignalConversionAtSFu_ax[i] + 3.1415926535897931,
+       6.2831853071795862) / 6.2831853071795862;
+    rtb_TmpSignalConversionAtSFun_2 = fabs(rtb_TmpSignalConversionAtSFun_1);
+    if (rtb_TmpSignalConversionAtSFun_2 > 0.0) {
+      rtb_TmpSignalConversionAtSFun_2 = 1.0;
     } else {
-      if (rtb_eta_w_idx_0 == 0.0) {
-        rtb_eta_w_idx_0 = 0.0;
+      if (rtb_TmpSignalConversionAtSFun_2 == 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = 0.0;
       }
     }
 
-    if (rtb_TmpSignalConversionAtSFun_o[i] < 0.0) {
-      rtb_TmpSignalConversionAtSFu__1 = -1.0;
-    } else if (rtb_TmpSignalConversionAtSFun_o[i] > 0.0) {
-      rtb_TmpSignalConversionAtSFu__1 = 1.0;
-    } else if (rtb_TmpSignalConversionAtSFun_o[i] == 0.0) {
-      rtb_TmpSignalConversionAtSFu__1 = 0.0;
+    if (rtb_TmpSignalConversionAtSFu_ax[i] < 0.0) {
+      rtb_TmpSignalConversionAtSFun_0 = -1.0;
+    } else if (rtb_TmpSignalConversionAtSFu_ax[i] > 0.0) {
+      rtb_TmpSignalConversionAtSFun_0 = 1.0;
+    } else if (rtb_TmpSignalConversionAtSFu_ax[i] == 0.0) {
+      rtb_TmpSignalConversionAtSFun_0 = 0.0;
     } else {
-      rtb_TmpSignalConversionAtSFu__1 = rtb_TmpSignalConversionAtSFun_o[i];
+      rtb_TmpSignalConversionAtSFun_0 = rtb_TmpSignalConversionAtSFu_ax[i];
     }
 
-    s_0 = (rtb_eta_w_idx_0 - 1.0) * 2.0 + rtb_TmpSignalConversionAtSFu__1;
+    s_0 = (rtb_TmpSignalConversionAtSFun_2 - 1.0) * 2.0 +
+      rtb_TmpSignalConversionAtSFun_0;
     if (s_0 < 0.0) {
       s_0 = -1.0;
     } else if (s_0 > 0.0) {
@@ -3368,265 +3561,270 @@ void ctrl_TAPM_output(void)
       }
     }
 
-    if (rtb_TmpSignalConversionAtSFun_o[i] < 0.0) {
-      rtb_TmpSignalConversionAtSFu__1 = -1.0;
-    } else if (rtb_TmpSignalConversionAtSFun_o[i] > 0.0) {
-      rtb_TmpSignalConversionAtSFu__1 = 1.0;
-    } else if (rtb_TmpSignalConversionAtSFun_o[i] == 0.0) {
-      rtb_TmpSignalConversionAtSFu__1 = 0.0;
+    if (rtb_TmpSignalConversionAtSFu_ax[i] < 0.0) {
+      rtb_TmpSignalConversionAtSFun_0 = -1.0;
+    } else if (rtb_TmpSignalConversionAtSFu_ax[i] > 0.0) {
+      rtb_TmpSignalConversionAtSFun_0 = 1.0;
+    } else if (rtb_TmpSignalConversionAtSFu_ax[i] == 0.0) {
+      rtb_TmpSignalConversionAtSFun_0 = 0.0;
     } else {
-      rtb_TmpSignalConversionAtSFu__1 = rtb_TmpSignalConversionAtSFun_o[i];
+      rtb_TmpSignalConversionAtSFun_0 = rtb_TmpSignalConversionAtSFu_ax[i];
     }
 
-    rtb_y[i] = rt_remd_snf(rtb_TmpSignalConversionAtSFu__1 * 3.1415926535897931
-      + rtb_TmpSignalConversionAtSFun_o[i], 6.2831853071795862) - s_0 *
+    rtb_y[i] = rt_remd_snf(rtb_TmpSignalConversionAtSFun_0 * 3.1415926535897931
+      + rtb_TmpSignalConversionAtSFu_ax[i], 6.2831853071795862) - s_0 *
       3.1415926535897931;
-    rtb_TmpSignalConversionAtSFun_o[i] = Alpha1_idx_0;
+    rtb_TmpSignalConversionAtSFu_ax[i] = rtb_TmpSignalConversionAtSFun_1;
   }
 
-  /* SignalConversion: '<S41>/TmpSignal ConversionAt SFunction Inport1' incorporates:
-   *  Gain: '<S43>/Gain'
-   *  MATLAB Function: '<S6>/MATLAB Function'
+  /* SignalConversion: '<S66>/TmpSignal ConversionAt SFunction Inport1' incorporates:
+   *  Gain: '<S68>/Gain'
+   *  MATLAB Function: '<S10>/MATLAB Function'
    */
-  rtb_TmpSignalConversionAtSFun_b[0] = ctrl_TAPM_B.MultiportSwitch[0];
-  rtb_TmpSignalConversionAtSFun_b[1] = ctrl_TAPM_B.MultiportSwitch[1];
-  rtb_TmpSignalConversionAtSFun_b[2] = ctrl_TAPM_B.MultiportSwitch[2];
+  rtb_TmpSignalConversionAtSFun_m[0] = rtb_Sum3[0];
+  rtb_TmpSignalConversionAtSFun_m[1] = rtb_Sum3[1];
+  rtb_TmpSignalConversionAtSFun_m[2] = rtb_Sum3[2];
   for (i = 0; i < 6; i++) {
-    rtb_TmpSignalConversionAtSFun_b[i + 3] = ctrl_TAPM_P.Gain_Gain_o * rtb_y[i];
+    rtb_TmpSignalConversionAtSFun_m[i + 3] = ctrl_TAPM_P.Gain_Gain_o * rtb_y[i];
   }
 
-  /* End of SignalConversion: '<S41>/TmpSignal ConversionAt SFunction Inport1' */
+  /* End of SignalConversion: '<S66>/TmpSignal ConversionAt SFunction Inport1' */
 
-  /* MATLAB Function: '<S6>/MATLAB Function' incorporates:
-   *  Constant: '<S6>/C'
-   *  Constant: '<S6>/X-position Thruster'
-   *  Constant: '<S6>/Y-position Thruster'
+  /* MATLAB Function: '<S10>/MATLAB Function' incorporates:
+   *  Constant: '<S10>/C'
+   *  Constant: '<S10>/X-position Thruster'
+   *  Constant: '<S10>/Y-position Thruster'
    */
-  /* MATLAB Function 'Thrust allocation/MATLAB Function': '<S41>:1' */
+  /* MATLAB Function 'Thrust allocation/MATLAB Function': '<S66>:1' */
   /*  Complete system goes here! */
   /*  Allocating dimensions for faster computing */
   /*  Parameters thrusters */
-  /* '<S41>:1:5' */
-  rtb_eta_w_idx_0 = rtb_TmpSignalConversionAtSFun_b[0];
-  rtb_TmpSignalConversionAtSFu__1 = rtb_TmpSignalConversionAtSFun_b[1];
-  rtb_eta_w_idx_2 = rtb_TmpSignalConversionAtSFun_b[2];
+  /* '<S66>:1:5' */
+  rtb_TmpSignalConversionAtSFun_2 = rtb_TmpSignalConversionAtSFun_m[0];
+  rtb_TmpSignalConversionAtSFun_1 = rtb_TmpSignalConversionAtSFun_m[1];
+  rtb_TmpSignalConversionAtSFun_0 = rtb_TmpSignalConversionAtSFun_m[2];
 
-  /* '<S41>:1:6' */
-  rtb_TmpSignalConversionAtSFun_o[0] = rtb_TmpSignalConversionAtSFun_b[3];
-  rtb_TmpSignalConversionAtSFun_o[1] = rtb_TmpSignalConversionAtSFun_b[4];
-  rtb_TmpSignalConversionAtSFun_o[2] = rtb_TmpSignalConversionAtSFun_b[5];
-  rtb_TmpSignalConversionAtSFun_o[3] = rtb_TmpSignalConversionAtSFun_b[6];
-  rtb_TmpSignalConversionAtSFun_o[4] = rtb_TmpSignalConversionAtSFun_b[7];
-  rtb_TmpSignalConversionAtSFun_o[5] = rtb_TmpSignalConversionAtSFun_b[8];
+  /* '<S66>:1:6' */
+  rtb_TmpSignalConversionAtSFu_ax[0] = rtb_TmpSignalConversionAtSFun_m[3];
+  rtb_TmpSignalConversionAtSFu_ax[1] = rtb_TmpSignalConversionAtSFun_m[4];
+  rtb_TmpSignalConversionAtSFu_ax[2] = rtb_TmpSignalConversionAtSFun_m[5];
+  rtb_TmpSignalConversionAtSFu_ax[3] = rtb_TmpSignalConversionAtSFun_m[6];
+  rtb_TmpSignalConversionAtSFu_ax[4] = rtb_TmpSignalConversionAtSFun_m[7];
+  rtb_TmpSignalConversionAtSFu_ax[5] = rtb_TmpSignalConversionAtSFun_m[8];
 
   /*  Constraints for Thruster-Thruster interaction. Can be seen in "Initfile" */
   /*  how they are found */
-  /* '<S41>:1:10' */
-  /* '<S41>:1:11' */
-  /* '<S41>:1:12' */
-  /* '<S41>:1:13' */
-  /* '<S41>:1:14' */
-  /* '<S41>:1:15' */
-  if (((rtb_TmpSignalConversionAtSFun_b[3] < ctrl_TAPM_P.C[0] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[3] > ctrl_TAPM_P.C[6] + 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[3] > ctrl_TAPM_P.C[12] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[3] < ctrl_TAPM_P.C[18] - 0.1))) {
-    /* '<S41>:1:21' */
-    /* '<S41>:1:22' */
+  /* '<S66>:1:10' */
+  /* '<S66>:1:11' */
+  /* '<S66>:1:12' */
+  /* '<S66>:1:13' */
+  /* '<S66>:1:14' */
+  /* '<S66>:1:15' */
+  if (((rtb_TmpSignalConversionAtSFun_m[3] < ctrl_TAPM_P.C[0] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[3] > ctrl_TAPM_P.C[6] + 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[3] > ctrl_TAPM_P.C[12] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[3] < ctrl_TAPM_P.C[18] - 0.1))) {
+    /* '<S66>:1:21' */
+    /* '<S66>:1:22' */
     K[0] = 0.0;
   } else {
-    /* '<S41>:1:24' */
+    /* '<S66>:1:24' */
     K[0] = 1.0;
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[4] > ctrl_TAPM_P.C[1] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[4] < ctrl_TAPM_P.C[7] + 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[4] > ctrl_TAPM_P.C[13] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[4] < ctrl_TAPM_P.C[19] + 0.1))) {
-    /* '<S41>:1:27' */
-    /* '<S41>:1:28' */
+  if (((rtb_TmpSignalConversionAtSFun_m[4] > ctrl_TAPM_P.C[1] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[4] < ctrl_TAPM_P.C[7] + 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[4] > ctrl_TAPM_P.C[13] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[4] < ctrl_TAPM_P.C[19] + 0.1))) {
+    /* '<S66>:1:27' */
+    /* '<S66>:1:28' */
     K[1] = 0.0;
   } else {
-    /* '<S41>:1:30' */
+    /* '<S66>:1:30' */
     K[1] = 1.0;
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[5] < ctrl_TAPM_P.C[2] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[5] > ctrl_TAPM_P.C[8] - 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[5] < ctrl_TAPM_P.C[14] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[5] > ctrl_TAPM_P.C[20] - 0.1))) {
-    /* '<S41>:1:33' */
-    /* '<S41>:1:34' */
+  if (((rtb_TmpSignalConversionAtSFun_m[5] < ctrl_TAPM_P.C[2] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[5] > ctrl_TAPM_P.C[8] - 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[5] < ctrl_TAPM_P.C[14] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[5] > ctrl_TAPM_P.C[20] - 0.1))) {
+    /* '<S66>:1:33' */
+    /* '<S66>:1:34' */
     K[2] = 0.0;
   } else {
-    /* '<S41>:1:36' */
+    /* '<S66>:1:36' */
     K[2] = 1.0;
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[6] > ctrl_TAPM_P.C[3] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[6] < ctrl_TAPM_P.C[9] - 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[6] < ctrl_TAPM_P.C[15] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[6] > ctrl_TAPM_P.C[21] + 0.1))) {
-    /* '<S41>:1:39' */
-    /* '<S41>:1:40' */
+  if (((rtb_TmpSignalConversionAtSFun_m[6] > ctrl_TAPM_P.C[3] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[6] < ctrl_TAPM_P.C[9] - 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[6] < ctrl_TAPM_P.C[15] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[6] > ctrl_TAPM_P.C[21] + 0.1))) {
+    /* '<S66>:1:39' */
+    /* '<S66>:1:40' */
     K[3] = 0.0;
   } else {
-    /* '<S41>:1:42' */
+    /* '<S66>:1:42' */
     K[3] = 1.0;
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[7] < ctrl_TAPM_P.C[4] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[7] > ctrl_TAPM_P.C[10] + 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[7] < ctrl_TAPM_P.C[16] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[7] > ctrl_TAPM_P.C[22] + 0.1))) {
-    /* '<S41>:1:45' */
-    /* '<S41>:1:46' */
+  if (((rtb_TmpSignalConversionAtSFun_m[7] < ctrl_TAPM_P.C[4] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[7] > ctrl_TAPM_P.C[10] + 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[7] < ctrl_TAPM_P.C[16] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[7] > ctrl_TAPM_P.C[22] + 0.1))) {
+    /* '<S66>:1:45' */
+    /* '<S66>:1:46' */
     K[4] = 0.0;
   } else {
-    /* '<S41>:1:48' */
+    /* '<S66>:1:48' */
     K[4] = 1.0;
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[8] > ctrl_TAPM_P.C[5] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[8] < ctrl_TAPM_P.C[11] - 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[8] > ctrl_TAPM_P.C[17] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[8] < ctrl_TAPM_P.C[23] - 0.1))) {
-    /* '<S41>:1:51' */
-    /* '<S41>:1:52' */
+  if (((rtb_TmpSignalConversionAtSFun_m[8] > ctrl_TAPM_P.C[5] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[8] < ctrl_TAPM_P.C[11] - 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[8] > ctrl_TAPM_P.C[17] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[8] < ctrl_TAPM_P.C[23] - 0.1))) {
+    /* '<S66>:1:51' */
+    /* '<S66>:1:52' */
     K[5] = 0.0;
   } else {
-    /* '<S41>:1:54' */
+    /* '<S66>:1:54' */
     K[5] = 1.0;
   }
 
   /*  number of thrusters */
-  /* '<S41>:1:60' */
+  /* '<S66>:1:60' */
   /*  Shells for faster computing */
-  /* '<S41>:1:61' */
+  /* '<S66>:1:61' */
   /*  Shells for faster computing */
-  /* '<S41>:1:62' */
+  /* '<S66>:1:62' */
   /*  Shells for faster computing */
-  /* '<S41>:1:64' */
-  for (res = 0; res < 6; res++) {
-    /* '<S41>:1:64' */
-    /* '<S41>:1:65' */
-    B_surge[res] = rtb_TmpSignalConversionAtSFun_o[res];
-    ctrl_TAPM_cosd_g(&B_surge[res]);
+  /* '<S66>:1:64' */
+  for (ixstart = 0; ixstart < 6; ixstart++) {
+    /* '<S66>:1:64' */
+    /* '<S66>:1:65' */
+    B_surge[ixstart] = rtb_TmpSignalConversionAtSFu_ax[ixstart];
+    ctrl_TAPM_cosd_e(&B_surge[ixstart]);
 
     /* Thrust in x-direction for cartesian */
-    /* '<S41>:1:66' */
-    rtb_y[res] = rtb_TmpSignalConversionAtSFun_o[res];
-    ctrl_TAPM_sind_c(&rtb_y[res]);
+    /* '<S66>:1:66' */
+    rtb_y[ixstart] = rtb_TmpSignalConversionAtSFu_ax[ixstart];
+    ctrl_TAPM_sind_f(&rtb_y[ixstart]);
 
     /* Thrust in y-direction for cartesian */
-    /* '<S41>:1:67' */
-    g = rtb_TmpSignalConversionAtSFun_o[res];
-    ctrl_TAPM_sind_c(&g);
-    h = rtb_TmpSignalConversionAtSFun_o[res];
-    ctrl_TAPM_cosd_g(&h);
-    s[res] = g * ctrl_TAPM_P.XpositionThruster_Value[res] - h *
-      ctrl_TAPM_P.YpositionThruster_Value[res];
+    /* '<S66>:1:67' */
+    g = rtb_TmpSignalConversionAtSFu_ax[ixstart];
+    ctrl_TAPM_sind_f(&g);
+    h = rtb_TmpSignalConversionAtSFu_ax[ixstart];
+    ctrl_TAPM_cosd_e(&h);
+    s[ixstart] = g * ctrl_TAPM_P.XpositionThruster_Value[ixstart] - h *
+      ctrl_TAPM_P.YpositionThruster_Value[ixstart];
 
-    /* '<S41>:1:64' */
+    /* '<S66>:1:64' */
   }
 
-  /* '<S41>:1:71' */
-  /* '<S41>:1:72' */
+  /* '<S66>:1:71' */
+  /* '<S66>:1:72' */
   ctrl_TAPM_diag(K, d_0);
-  for (i_0 = 0; i_0 < 6; i_0++) {
-    B_surge_1[3 * i_0] = B_surge[i_0];
+  for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+    B_surge_1[3 * b_ixstart] = B_surge[b_ixstart];
   }
 
-  for (i_0 = 0; i_0 < 6; i_0++) {
-    B_surge_1[1 + 3 * i_0] = rtb_y[i_0];
+  for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+    B_surge_1[1 + 3 * b_ixstart] = rtb_y[b_ixstart];
   }
 
-  for (i_0 = 0; i_0 < 6; i_0++) {
-    B_surge_1[2 + 3 * i_0] = s[i_0];
+  for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+    B_surge_1[2 + 3 * b_ixstart] = s[b_ixstart];
   }
 
-  for (i_0 = 0; i_0 < 3; i_0++) {
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
     for (i = 0; i < 6; i++) {
-      B_surge_0[i_0 + 3 * i] = 0.0;
-      for (k = 0; k < 6; k++) {
-        B_surge_0[i_0 + 3 * i] += B_surge_1[3 * k + i_0] * d_0[6 * i + k];
+      B_surge_0[b_ixstart + 3 * i] = 0.0;
+      for (p3 = 0; p3 < 6; p3++) {
+        B_surge_0[b_ixstart + 3 * i] += B_surge_1[3 * p3 + b_ixstart] * d_0[6 *
+          i + p3];
       }
     }
   }
 
-  ctrl_TAPM_svd(B_surge_0, U_singular, S_singular_cross, V_singular);
+  ctrl_TAPM_svd(B_surge_0, rtb_y_j, S_singular_cross, V_singular);
 
-  /* '<S41>:1:74' */
-  for (i_0 = 0; i_0 < 9; i_0++) {
-    S_singular_cross[i_0] = 1.0 / S_singular_cross[i_0];
+  /* '<S66>:1:74' */
+  for (b_ixstart = 0; b_ixstart < 9; b_ixstart++) {
+    S_singular_cross[b_ixstart] = 1.0 / S_singular_cross[b_ixstart];
   }
 
-  /* '<S41>:1:75' */
+  /* '<S66>:1:75' */
   ctrl_TAPM_isfinite(S_singular_cross, tmp);
-  res = 0;
-  for (i_0 = 0; i_0 < 9; i_0++) {
-    exitg11 = !tmp[i_0];
+  ixstart = 0;
+  for (b_ixstart = 0; b_ixstart < 9; b_ixstart++) {
+    exitg11 = !tmp[b_ixstart];
     if (exitg11) {
-      res++;
+      ixstart++;
     }
 
-    f[i_0] = exitg11;
+    f[b_ixstart] = exitg11;
   }
 
-  i = res;
-  res = 0;
-  for (k = 0; k < 9; k++) {
-    if (f[k]) {
-      b_data[res] = k + 1;
-      res++;
+  i = ixstart;
+  ixstart = 0;
+  for (b_ixstart = 0; b_ixstart < 9; b_ixstart++) {
+    if (f[b_ixstart]) {
+      b_data[ixstart] = b_ixstart + 1;
+      ixstart++;
     }
   }
 
-  /* '<S41>:1:75' */
-  for (i_0 = 0; i_0 < i; i_0++) {
-    S_singular_cross[b_data[i_0] - 1] = 0.0;
+  /* '<S66>:1:75' */
+  for (b_ixstart = 0; b_ixstart < i; b_ixstart++) {
+    S_singular_cross[b_data[b_ixstart] - 1] = 0.0;
   }
 
   if (S_singular_cross[8] > 10.0 * S_singular_cross[4]) {
-    /* '<S41>:1:76' */
-    /* '<S41>:1:77' */
+    /* '<S66>:1:76' */
+    /* '<S66>:1:77' */
     S_singular_cross[8] = 0.0;
   }
 
-  /* '<S41>:1:80' */
-  /* '<S41>:1:82' */
-  for (i_0 = 0; i_0 < 6; i_0++) {
+  /* '<S66>:1:80' */
+  /* '<S66>:1:82' */
+  for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
     for (i = 0; i < 3; i++) {
-      B_surge_1[i_0 + 6 * i] = 0.0;
-      B_surge_1[i_0 + 6 * i] += S_singular_cross[3 * i] * V_singular[i_0];
-      B_surge_1[i_0 + 6 * i] += S_singular_cross[3 * i + 1] * V_singular[i_0 + 6];
-      B_surge_1[i_0 + 6 * i] += S_singular_cross[3 * i + 2] * V_singular[i_0 +
-        12];
+      B_surge_1[b_ixstart + 6 * i] = 0.0;
+      B_surge_1[b_ixstart + 6 * i] += S_singular_cross[3 * i] *
+        V_singular[b_ixstart];
+      B_surge_1[b_ixstart + 6 * i] += S_singular_cross[3 * i + 1] *
+        V_singular[b_ixstart + 6];
+      B_surge_1[b_ixstart + 6 * i] += S_singular_cross[3 * i + 2] *
+        V_singular[b_ixstart + 12];
     }
   }
 
-  for (i_0 = 0; i_0 < 6; i_0++) {
+  for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
     for (i = 0; i < 3; i++) {
-      V_singular[i_0 + 6 * i] = 0.0;
-      V_singular[i_0 + 6 * i] += B_surge_1[i_0] * U_singular[i];
-      V_singular[i_0 + 6 * i] += B_surge_1[i_0 + 6] * U_singular[i + 3];
-      V_singular[i_0 + 6 * i] += B_surge_1[i_0 + 12] * U_singular[i + 6];
+      V_singular[b_ixstart + 6 * i] = 0.0;
+      V_singular[b_ixstart + 6 * i] += B_surge_1[b_ixstart] * rtb_y_j[i];
+      V_singular[b_ixstart + 6 * i] += B_surge_1[b_ixstart + 6] * rtb_y_j[i + 3];
+      V_singular[b_ixstart + 6 * i] += B_surge_1[b_ixstart + 12] * rtb_y_j[i + 6];
     }
   }
 
-  for (i_0 = 0; i_0 < 6; i_0++) {
-    B_surge[i_0] = V_singular[i_0 + 12] * rtb_eta_w_idx_2 + (V_singular[i_0 + 6]
-      * rtb_TmpSignalConversionAtSFu__1 + V_singular[i_0] * rtb_eta_w_idx_0);
+  for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+    B_surge[b_ixstart] = V_singular[b_ixstart + 12] *
+      rtb_TmpSignalConversionAtSFun_0 + (V_singular[b_ixstart + 6] *
+      rtb_TmpSignalConversionAtSFun_1 + V_singular[b_ixstart] *
+      rtb_TmpSignalConversionAtSFun_2);
   }
 
   /*  Optimized Thrust */
-  /* '<S41>:1:86' */
-  for (i_0 = 0; i_0 < 12; i_0++) {
-    d_0[3 * i_0] = d[i_0];
+  /* '<S66>:1:86' */
+  for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+    d_0[3 * b_ixstart] = d[b_ixstart];
   }
 
-  for (i_0 = 0; i_0 < 12; i_0++) {
-    d_0[1 + 3 * i_0] = e[i_0];
+  for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+    d_0[1 + 3 * b_ixstart] = e[b_ixstart];
   }
 
   d_0[2] = ctrl_TAPM_P.YpositionThruster_Value[0];
@@ -3641,70 +3839,75 @@ void ctrl_TAPM_output(void)
   d_0[29] = ctrl_TAPM_P.XpositionThruster_Value[4];
   d_0[32] = ctrl_TAPM_P.YpositionThruster_Value[5];
   d_0[35] = ctrl_TAPM_P.XpositionThruster_Value[5];
-  ctrl_TAPM_svd_j(d_0, U_singular, S_singular_cross, b_V_singular);
+  ctrl_TAPM_svd_l(d_0, rtb_y_j, S_singular_cross, b_V_singular);
 
-  /* '<S41>:1:92' */
-  for (i_0 = 0; i_0 < 9; i_0++) {
-    S_singular_cross[i_0] = 1.0 / S_singular_cross[i_0];
+  /* '<S66>:1:92' */
+  for (b_ixstart = 0; b_ixstart < 9; b_ixstart++) {
+    S_singular_cross[b_ixstart] = 1.0 / S_singular_cross[b_ixstart];
   }
 
-  /* '<S41>:1:93' */
+  /* '<S66>:1:93' */
   ctrl_TAPM_isfinite(S_singular_cross, tmp);
-  res = 0;
-  for (i_0 = 0; i_0 < 9; i_0++) {
-    exitg11 = !tmp[i_0];
+  ixstart = 0;
+  for (b_ixstart = 0; b_ixstart < 9; b_ixstart++) {
+    exitg11 = !tmp[b_ixstart];
     if (exitg11) {
-      res++;
+      ixstart++;
     }
 
-    f[i_0] = exitg11;
+    f[b_ixstart] = exitg11;
   }
 
-  i = res;
-  res = 0;
-  for (k = 0; k < 9; k++) {
-    if (f[k]) {
-      c_data[res] = k + 1;
-      res++;
+  i = ixstart;
+  ixstart = 0;
+  for (b_ixstart = 0; b_ixstart < 9; b_ixstart++) {
+    if (f[b_ixstart]) {
+      c_data[ixstart] = b_ixstart + 1;
+      ixstart++;
     }
   }
 
-  /* '<S41>:1:93' */
-  for (i_0 = 0; i_0 < i; i_0++) {
-    S_singular_cross[c_data[i_0] - 1] = 0.0;
+  /* '<S66>:1:93' */
+  for (b_ixstart = 0; b_ixstart < i; b_ixstart++) {
+    S_singular_cross[c_data[b_ixstart] - 1] = 0.0;
   }
 
   if (S_singular_cross[8] > 2.0 * S_singular_cross[4]) {
-    /* '<S41>:1:94' */
-    /* '<S41>:1:95' */
+    /* '<S66>:1:94' */
+    /* '<S66>:1:95' */
     S_singular_cross[8] = 0.0;
   }
 
-  /* '<S41>:1:97' */
-  for (i_0 = 0; i_0 < 12; i_0++) {
+  /* '<S66>:1:97' */
+  for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
     for (i = 0; i < 3; i++) {
-      d_0[i_0 + 12 * i] = 0.0;
-      d_0[i_0 + 12 * i] += S_singular_cross[3 * i] * b_V_singular[i_0];
-      d_0[i_0 + 12 * i] += S_singular_cross[3 * i + 1] * b_V_singular[i_0 + 12];
-      d_0[i_0 + 12 * i] += S_singular_cross[3 * i + 2] * b_V_singular[i_0 + 24];
+      d_0[b_ixstart + 12 * i] = 0.0;
+      d_0[b_ixstart + 12 * i] += S_singular_cross[3 * i] *
+        b_V_singular[b_ixstart];
+      d_0[b_ixstart + 12 * i] += S_singular_cross[3 * i + 1] *
+        b_V_singular[b_ixstart + 12];
+      d_0[b_ixstart + 12 * i] += S_singular_cross[3 * i + 2] *
+        b_V_singular[b_ixstart + 24];
     }
   }
 
-  for (i_0 = 0; i_0 < 12; i_0++) {
+  for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
     for (i = 0; i < 3; i++) {
-      b_V_singular[i_0 + 12 * i] = 0.0;
-      b_V_singular[i_0 + 12 * i] += d_0[i_0] * U_singular[i];
-      b_V_singular[i_0 + 12 * i] += d_0[i_0 + 12] * U_singular[i + 3];
-      b_V_singular[i_0 + 12 * i] += d_0[i_0 + 24] * U_singular[i + 6];
+      b_V_singular[b_ixstart + 12 * i] = 0.0;
+      b_V_singular[b_ixstart + 12 * i] += d_0[b_ixstart] * rtb_y_j[i];
+      b_V_singular[b_ixstart + 12 * i] += d_0[b_ixstart + 12] * rtb_y_j[i + 3];
+      b_V_singular[b_ixstart + 12 * i] += d_0[b_ixstart + 24] * rtb_y_j[i + 6];
     }
   }
 
-  for (i_0 = 0; i_0 < 12; i_0++) {
-    T0[i_0] = b_V_singular[i_0 + 24] * rtb_eta_w_idx_2 + (b_V_singular[i_0 + 12]
-      * rtb_TmpSignalConversionAtSFu__1 + b_V_singular[i_0] * rtb_eta_w_idx_0);
+  for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+    T0[b_ixstart] = b_V_singular[b_ixstart + 24] *
+      rtb_TmpSignalConversionAtSFun_0 + (b_V_singular[b_ixstart + 12] *
+      rtb_TmpSignalConversionAtSFun_1 + b_V_singular[b_ixstart] *
+      rtb_TmpSignalConversionAtSFun_2);
   }
 
-  /* '<S41>:1:99' */
+  /* '<S66>:1:99' */
   K[0] = 57.295779513082323 * rt_atan2d_snf(T0[1], T0[0]);
   K[1] = 57.295779513082323 * rt_atan2d_snf(T0[3], T0[2]);
   K[2] = 57.295779513082323 * rt_atan2d_snf(T0[5], T0[4]);
@@ -3718,85 +3921,85 @@ void ctrl_TAPM_output(void)
   if (((K[0] < ctrl_TAPM_P.C[0]) && (K[0] > ctrl_TAPM_P.C[6]) && (B_surge[0] >
         0.0)) || ((K[0] < ctrl_TAPM_P.C[0]) && (K[0] > ctrl_TAPM_P.C[6]) &&
                   (B_surge[0] < 0.0))) {
-    /* '<S41>:1:105' */
-    /* '<S41>:1:106' */
+    /* '<S66>:1:105' */
+    /* '<S66>:1:106' */
     c1[0] = ctrl_TAPM_P.C[0];
     c1[1] = ctrl_TAPM_P.C[6];
     c1_5[0] = ctrl_TAPM_P.C[0] - K[0];
     c1_5[1] = ctrl_TAPM_P.C[6] - K[0];
     ctrl_TAPM_abs(c1_5, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    b_ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        b_ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((b_ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      ixstart = 1;
     }
 
-    /* '<S41>:1:108' */
-    Alpha1_idx_0 = c1[k];
+    /* '<S66>:1:108' */
+    rtb_TmpSignalConversionAtSFun_1 = c1[ixstart];
   } else if (((K[0] > ctrl_TAPM_P.C[12]) && (K[0] < ctrl_TAPM_P.C[18]) &&
               (B_surge[0] > 0.0)) || ((K[0] > ctrl_TAPM_P.C[12]) && (K[0] <
                ctrl_TAPM_P.C[18]) && (B_surge[0] < 0.0))) {
-    /* '<S41>:1:109' */
-    /* '<S41>:1:110' */
+    /* '<S66>:1:109' */
+    /* '<S66>:1:110' */
     c1[0] = ctrl_TAPM_P.C[12];
     c1[1] = ctrl_TAPM_P.C[18];
     c1_5[0] = ctrl_TAPM_P.C[12] - K[0];
     c1_5[1] = ctrl_TAPM_P.C[18] - K[0];
     ctrl_TAPM_abs(c1_5, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    i = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      b_ixstart = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (b_ixstart < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          i = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          b_ixstart = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      i = 1;
     }
 
-    /* '<S41>:1:112' */
-    Alpha1_idx_0 = c1[k];
+    /* '<S66>:1:112' */
+    rtb_TmpSignalConversionAtSFun_1 = c1[i];
   } else {
-    /* '<S41>:1:114' */
-    Alpha1_idx_0 = K[0];
+    /* '<S66>:1:114' */
+    rtb_TmpSignalConversionAtSFun_1 = K[0];
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[3] < ctrl_TAPM_P.C[0] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[3] > ctrl_TAPM_P.C[6] + 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[3] > ctrl_TAPM_P.C[12] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[3] < ctrl_TAPM_P.C[18] - 0.1))) {
-    /* '<S41>:1:116' */
-    /* '<S41>:1:117' */
+  if (((rtb_TmpSignalConversionAtSFun_m[3] < ctrl_TAPM_P.C[0] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[3] > ctrl_TAPM_P.C[6] + 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[3] > ctrl_TAPM_P.C[12] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[3] < ctrl_TAPM_P.C[18] - 0.1))) {
+    /* '<S66>:1:116' */
+    /* '<S66>:1:117' */
     B_surge[0] = 0.0;
   } else {
-    /* '<S41>:1:119' */
+    /* '<S66>:1:119' */
   }
 
   /*  Thruster 2  */
@@ -3804,85 +4007,85 @@ void ctrl_TAPM_output(void)
   if (((K[1] < ctrl_TAPM_P.C[1]) && (K[1] > ctrl_TAPM_P.C[7]) && (B_surge[1] >
         0.0)) || ((K[1] < ctrl_TAPM_P.C[1]) && (K[1] > ctrl_TAPM_P.C[7]) &&
                   (B_surge[1] < 0.0))) {
-    /* '<S41>:1:124' */
-    /* '<S41>:1:125' */
+    /* '<S66>:1:124' */
+    /* '<S66>:1:125' */
     c1[0] = ctrl_TAPM_P.C[1];
     c1[1] = ctrl_TAPM_P.C[7];
     c1_4[0] = ctrl_TAPM_P.C[1] - K[1];
     c1_4[1] = ctrl_TAPM_P.C[7] - K[1];
     ctrl_TAPM_abs(c1_4, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:127' */
-    rtb_TmpSignalConversionAtSFu__1 = c1[k];
+    /* '<S66>:1:127' */
+    rtb_TmpSignalConversionAtSFun_0 = c1[b_ixstart];
   } else if (((K[1] < ctrl_TAPM_P.C[13]) && (K[1] > ctrl_TAPM_P.C[19]) &&
               (B_surge[1] > 0.0)) || ((K[1] < ctrl_TAPM_P.C[13]) && (K[1] >
                ctrl_TAPM_P.C[19]) && (B_surge[1] < 0.0))) {
-    /* '<S41>:1:128' */
-    /* '<S41>:1:129' */
+    /* '<S66>:1:128' */
+    /* '<S66>:1:129' */
     c1[0] = ctrl_TAPM_P.C[13];
     c1[1] = ctrl_TAPM_P.C[19];
     c1_4[0] = ctrl_TAPM_P.C[13] - K[1];
     c1_4[1] = ctrl_TAPM_P.C[19] - K[1];
     ctrl_TAPM_abs(c1_4, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:131' */
-    rtb_TmpSignalConversionAtSFu__1 = c1[k];
+    /* '<S66>:1:131' */
+    rtb_TmpSignalConversionAtSFun_0 = c1[b_ixstart];
   } else {
-    /* '<S41>:1:133' */
-    rtb_TmpSignalConversionAtSFu__1 = K[1];
+    /* '<S66>:1:133' */
+    rtb_TmpSignalConversionAtSFun_0 = K[1];
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[4] < ctrl_TAPM_P.C[1] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[4] > ctrl_TAPM_P.C[7] + 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[4] < ctrl_TAPM_P.C[13] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[4] > ctrl_TAPM_P.C[19] + 0.1))) {
-    /* '<S41>:1:135' */
-    /* '<S41>:1:136' */
+  if (((rtb_TmpSignalConversionAtSFun_m[4] < ctrl_TAPM_P.C[1] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[4] > ctrl_TAPM_P.C[7] + 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[4] < ctrl_TAPM_P.C[13] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[4] > ctrl_TAPM_P.C[19] + 0.1))) {
+    /* '<S66>:1:135' */
+    /* '<S66>:1:136' */
     B_surge[1] = 0.0;
   } else {
-    /* '<S41>:1:138' */
+    /* '<S66>:1:138' */
   }
 
   /*  Thruster 3  */
@@ -3890,85 +4093,85 @@ void ctrl_TAPM_output(void)
   if (((K[2] > ctrl_TAPM_P.C[2]) && (K[2] < ctrl_TAPM_P.C[8]) && (B_surge[2] >
         0.0)) || ((K[2] > ctrl_TAPM_P.C[2]) && (K[2] < ctrl_TAPM_P.C[8]) &&
                   (B_surge[2] < 0.0))) {
-    /* '<S41>:1:144' */
-    /* '<S41>:1:145' */
+    /* '<S66>:1:144' */
+    /* '<S66>:1:145' */
     c1[0] = ctrl_TAPM_P.C[2];
     c1[1] = ctrl_TAPM_P.C[8];
     c1_3[0] = ctrl_TAPM_P.C[2] - K[2];
     c1_3[1] = ctrl_TAPM_P.C[8] - K[2];
     ctrl_TAPM_abs(c1_3, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:147' */
-    rtb_TmpSignalConversionAtSFu__0 = c1[k];
+    /* '<S66>:1:147' */
+    Alpha1_idx_2 = c1[b_ixstart];
   } else if (((K[2] > ctrl_TAPM_P.C[14]) && (K[2] < ctrl_TAPM_P.C[20]) &&
               (B_surge[2] > 0.0)) || ((K[2] > ctrl_TAPM_P.C[14]) && (K[2] <
                ctrl_TAPM_P.C[20]) && (B_surge[2] < 0.0))) {
-    /* '<S41>:1:148' */
-    /* '<S41>:1:149' */
+    /* '<S66>:1:148' */
+    /* '<S66>:1:149' */
     c1[0] = ctrl_TAPM_P.C[14];
     c1[1] = ctrl_TAPM_P.C[20];
     c1_3[0] = ctrl_TAPM_P.C[14] - K[2];
     c1_3[1] = ctrl_TAPM_P.C[20] - K[2];
     ctrl_TAPM_abs(c1_3, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:151' */
-    rtb_TmpSignalConversionAtSFu__0 = c1[k];
+    /* '<S66>:1:151' */
+    Alpha1_idx_2 = c1[b_ixstart];
   } else {
-    /* '<S41>:1:153' */
-    rtb_TmpSignalConversionAtSFu__0 = K[2];
+    /* '<S66>:1:153' */
+    Alpha1_idx_2 = K[2];
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[5] > ctrl_TAPM_P.C[2] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[5] < ctrl_TAPM_P.C[8] - 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[5] > ctrl_TAPM_P.C[14] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[5] < ctrl_TAPM_P.C[20] - 0.1))) {
-    /* '<S41>:1:155' */
-    /* '<S41>:1:156' */
+  if (((rtb_TmpSignalConversionAtSFun_m[5] > ctrl_TAPM_P.C[2] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[5] < ctrl_TAPM_P.C[8] - 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[5] > ctrl_TAPM_P.C[14] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[5] < ctrl_TAPM_P.C[20] - 0.1))) {
+    /* '<S66>:1:155' */
+    /* '<S66>:1:156' */
     B_surge[2] = 0.0;
   } else {
-    /* '<S41>:1:158' */
+    /* '<S66>:1:158' */
   }
 
   /*  Thruster 4 OK */
@@ -3976,85 +4179,85 @@ void ctrl_TAPM_output(void)
   if (((K[3] > ctrl_TAPM_P.C[3]) && (K[3] < ctrl_TAPM_P.C[9]) && (B_surge[3] >
         0.0)) || ((K[3] > ctrl_TAPM_P.C[3]) && (K[3] < ctrl_TAPM_P.C[9]) &&
                   (B_surge[3] < 0.0))) {
-    /* '<S41>:1:163' */
-    /* '<S41>:1:164' */
+    /* '<S66>:1:163' */
+    /* '<S66>:1:164' */
     c1[0] = ctrl_TAPM_P.C[3];
     c1[1] = ctrl_TAPM_P.C[9];
     c1_2[0] = ctrl_TAPM_P.C[3] - K[3];
     c1_2[1] = ctrl_TAPM_P.C[9] - K[3];
     ctrl_TAPM_abs(c1_2, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:166' */
-    Alpha1_idx_3 = c1[k];
+    /* '<S66>:1:166' */
+    Alpha1_idx_3 = c1[b_ixstart];
   } else if (((K[3] < ctrl_TAPM_P.C[15]) && (K[3] > ctrl_TAPM_P.C[21]) &&
               (B_surge[3] > 0.0)) || ((K[3] < ctrl_TAPM_P.C[15]) && (K[3] >
                ctrl_TAPM_P.C[21]) && (B_surge[3] < 0.0))) {
-    /* '<S41>:1:167' */
-    /* '<S41>:1:168' */
+    /* '<S66>:1:167' */
+    /* '<S66>:1:168' */
     c1[0] = ctrl_TAPM_P.C[15];
     c1[1] = ctrl_TAPM_P.C[21];
     c1_2[0] = ctrl_TAPM_P.C[15] - K[3];
     c1_2[1] = ctrl_TAPM_P.C[21] - K[3];
     ctrl_TAPM_abs(c1_2, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:170' */
-    Alpha1_idx_3 = c1[k];
+    /* '<S66>:1:170' */
+    Alpha1_idx_3 = c1[b_ixstart];
   } else {
-    /* '<S41>:1:172' */
+    /* '<S66>:1:172' */
     Alpha1_idx_3 = K[3];
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[6] > ctrl_TAPM_P.C[3] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[6] < ctrl_TAPM_P.C[9] - 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[6] < ctrl_TAPM_P.C[15] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[6] > ctrl_TAPM_P.C[21] + 0.1))) {
-    /* '<S41>:1:174' */
-    /* '<S41>:1:175' */
+  if (((rtb_TmpSignalConversionAtSFun_m[6] > ctrl_TAPM_P.C[3] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[6] < ctrl_TAPM_P.C[9] - 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[6] < ctrl_TAPM_P.C[15] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[6] > ctrl_TAPM_P.C[21] + 0.1))) {
+    /* '<S66>:1:174' */
+    /* '<S66>:1:175' */
     B_surge[3] = 0.0;
   } else {
-    /* '<S41>:1:177' */
+    /* '<S66>:1:177' */
   }
 
   /*  Thruster 5 */
@@ -4062,85 +4265,85 @@ void ctrl_TAPM_output(void)
   if (((K[4] < ctrl_TAPM_P.C[4]) && (K[4] > ctrl_TAPM_P.C[10]) && (B_surge[4] >
         0.0)) || ((K[4] < ctrl_TAPM_P.C[4]) && (K[4] > ctrl_TAPM_P.C[10]) &&
                   (B_surge[4] < 0.0))) {
-    /* '<S41>:1:182' */
-    /* '<S41>:1:183' */
+    /* '<S66>:1:182' */
+    /* '<S66>:1:183' */
     c1[0] = ctrl_TAPM_P.C[4];
     c1[1] = ctrl_TAPM_P.C[10];
     c1_1[0] = ctrl_TAPM_P.C[4] - K[4];
     c1_1[1] = ctrl_TAPM_P.C[10] - K[4];
     ctrl_TAPM_abs(c1_1, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:185' */
-    Alpha1_idx_4 = c1[k];
+    /* '<S66>:1:185' */
+    Alpha1_idx_4 = c1[b_ixstart];
   } else if (((K[4] < ctrl_TAPM_P.C[16]) && (K[4] > ctrl_TAPM_P.C[22]) &&
               (B_surge[4] > 0.0)) || ((K[4] < ctrl_TAPM_P.C[16]) && (K[4] >
                ctrl_TAPM_P.C[22]) && (B_surge[4] < 0.0))) {
-    /* '<S41>:1:186' */
-    /* '<S41>:1:187' */
+    /* '<S66>:1:186' */
+    /* '<S66>:1:187' */
     c1[0] = ctrl_TAPM_P.C[16];
     c1[1] = ctrl_TAPM_P.C[22];
     c1_1[0] = ctrl_TAPM_P.C[16] - K[4];
     c1_1[1] = ctrl_TAPM_P.C[22] - K[4];
     ctrl_TAPM_abs(c1_1, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:189' */
-    Alpha1_idx_4 = c1[k];
+    /* '<S66>:1:189' */
+    Alpha1_idx_4 = c1[b_ixstart];
   } else {
-    /* '<S41>:1:191' */
+    /* '<S66>:1:191' */
     Alpha1_idx_4 = K[4];
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[7] < ctrl_TAPM_P.C[4] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[7] > ctrl_TAPM_P.C[10] + 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[7] < ctrl_TAPM_P.C[16] - 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[7] > ctrl_TAPM_P.C[22] + 0.1))) {
-    /* '<S41>:1:193' */
-    /* '<S41>:1:194' */
+  if (((rtb_TmpSignalConversionAtSFun_m[7] < ctrl_TAPM_P.C[4] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[7] > ctrl_TAPM_P.C[10] + 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[7] < ctrl_TAPM_P.C[16] - 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[7] > ctrl_TAPM_P.C[22] + 0.1))) {
+    /* '<S66>:1:193' */
+    /* '<S66>:1:194' */
     B_surge[4] = 0.0;
   } else {
-    /* '<S41>:1:196' */
+    /* '<S66>:1:196' */
   }
 
   /*  Thruster 6 */
@@ -4148,221 +4351,221 @@ void ctrl_TAPM_output(void)
   if (((K[5] > ctrl_TAPM_P.C[5]) && (K[5] < ctrl_TAPM_P.C[11]) && (B_surge[5] >
         0.0)) || ((K[5] > ctrl_TAPM_P.C[5]) && (K[5] < ctrl_TAPM_P.C[11]) &&
                   (B_surge[5] < 0.0))) {
-    /* '<S41>:1:201' */
-    /* '<S41>:1:202' */
+    /* '<S66>:1:201' */
+    /* '<S66>:1:202' */
     c1[0] = ctrl_TAPM_P.C[5];
     c1[1] = ctrl_TAPM_P.C[11];
     c1_0[0] = ctrl_TAPM_P.C[5] - K[5];
     c1_0[1] = ctrl_TAPM_P.C[11] - K[5];
     ctrl_TAPM_abs(c1_0, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:204' */
-    rtb_eta_w_idx_0 = c1[k];
+    /* '<S66>:1:204' */
+    rtb_TmpSignalConversionAtSFun_2 = c1[b_ixstart];
   } else if (((K[5] > ctrl_TAPM_P.C[17]) && (K[5] < ctrl_TAPM_P.C[23]) &&
               (B_surge[5] > 0.0)) || ((K[5] > ctrl_TAPM_P.C[17]) && (K[5] <
                ctrl_TAPM_P.C[23]) && (B_surge[5] < 0.0))) {
-    /* '<S41>:1:205' */
-    /* '<S41>:1:206' */
+    /* '<S66>:1:205' */
+    /* '<S66>:1:206' */
     c1[0] = ctrl_TAPM_P.C[17];
     c1[1] = ctrl_TAPM_P.C[23];
     c1_0[0] = ctrl_TAPM_P.C[17] - K[5];
     c1_0[1] = ctrl_TAPM_P.C[23] - K[5];
     ctrl_TAPM_abs(c1_0, varargin_1);
-    res = 1;
-    rtb_eta_w_idx_2 = varargin_1[0];
-    k = 0;
+    ixstart = 1;
+    rtb_Row2 = varargin_1[0];
+    b_ixstart = 0;
     if (rtIsNaN(varargin_1[0])) {
-      i = 2;
+      p3 = 2;
       exitg11 = false;
-      while ((!exitg11) && (i < 3)) {
-        res = 2;
+      while ((!exitg11) && (p3 < 3)) {
+        ixstart = 2;
         if (!rtIsNaN(varargin_1[1])) {
-          rtb_eta_w_idx_2 = varargin_1[1];
-          k = 1;
+          rtb_Row2 = varargin_1[1];
+          b_ixstart = 1;
           exitg11 = true;
         } else {
-          i = 3;
+          p3 = 3;
         }
       }
     }
 
-    if ((res < 2) && (varargin_1[1] < rtb_eta_w_idx_2)) {
-      k = 1;
+    if ((ixstart < 2) && (varargin_1[1] < rtb_Row2)) {
+      b_ixstart = 1;
     }
 
-    /* '<S41>:1:208' */
-    rtb_eta_w_idx_0 = c1[k];
+    /* '<S66>:1:208' */
+    rtb_TmpSignalConversionAtSFun_2 = c1[b_ixstart];
   } else {
-    /* '<S41>:1:210' */
-    rtb_eta_w_idx_0 = K[5];
+    /* '<S66>:1:210' */
+    rtb_TmpSignalConversionAtSFun_2 = K[5];
   }
 
-  if (((rtb_TmpSignalConversionAtSFun_b[8] > ctrl_TAPM_P.C[5] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[8] < ctrl_TAPM_P.C[11] - 0.1)) ||
-      ((rtb_TmpSignalConversionAtSFun_b[8] > ctrl_TAPM_P.C[17] + 0.1) &&
-       (rtb_TmpSignalConversionAtSFun_b[8] < ctrl_TAPM_P.C[23] - 0.1))) {
-    /* '<S41>:1:212' */
-    /* '<S41>:1:213' */
+  if (((rtb_TmpSignalConversionAtSFun_m[8] > ctrl_TAPM_P.C[5] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[8] < ctrl_TAPM_P.C[11] - 0.1)) ||
+      ((rtb_TmpSignalConversionAtSFun_m[8] > ctrl_TAPM_P.C[17] + 0.1) &&
+       (rtb_TmpSignalConversionAtSFun_m[8] < ctrl_TAPM_P.C[23] - 0.1))) {
+    /* '<S66>:1:212' */
+    /* '<S66>:1:213' */
     B_surge[5] = 0.0;
   } else {
-    /* '<S41>:1:215' */
+    /* '<S66>:1:215' */
   }
 
   /*  Thruster 2&3  */
-  if (rtb_TmpSignalConversionAtSFu__1 == ctrl_TAPM_P.C[7]) {
-    /* '<S41>:1:219' */
-    /* '<S41>:1:220' */
-    rtb_TmpSignalConversionAtSFu__0 = K[1] - (ctrl_TAPM_P.C[7] - K[1]);
-  } else if (rtb_TmpSignalConversionAtSFu__1 == ctrl_TAPM_P.C[1]) {
-    /* '<S41>:1:221' */
-    /* '<S41>:1:222' */
-    rtb_TmpSignalConversionAtSFu__0 = K[1] - (ctrl_TAPM_P.C[1] - K[1]);
-  } else if (rtb_TmpSignalConversionAtSFu__1 == ctrl_TAPM_P.C[13]) {
-    /* '<S41>:1:223' */
-    /* '<S41>:1:224' */
-    rtb_TmpSignalConversionAtSFu__0 = K[1] - (ctrl_TAPM_P.C[13] - K[1]);
-  } else if (rtb_TmpSignalConversionAtSFu__1 == ctrl_TAPM_P.C[19]) {
-    /* '<S41>:1:225' */
-    /* '<S41>:1:226' */
-    rtb_TmpSignalConversionAtSFu__0 = K[1] - (ctrl_TAPM_P.C[19] - K[1]);
-  } else if (rtb_TmpSignalConversionAtSFu__0 == ctrl_TAPM_P.C[8]) {
-    /* '<S41>:1:228' */
-    /* '<S41>:1:229' */
-    rtb_TmpSignalConversionAtSFu__1 = K[2] - (ctrl_TAPM_P.C[8] - K[2]);
-  } else if (rtb_TmpSignalConversionAtSFu__0 == ctrl_TAPM_P.C[2]) {
-    /* '<S41>:1:230' */
-    /* '<S41>:1:231' */
-    rtb_TmpSignalConversionAtSFu__1 = K[2] - (ctrl_TAPM_P.C[2] - K[2]);
-  } else if (rtb_TmpSignalConversionAtSFu__0 == ctrl_TAPM_P.C[14]) {
-    /* '<S41>:1:232' */
-    /* '<S41>:1:233' */
-    rtb_TmpSignalConversionAtSFu__1 = K[2] - (ctrl_TAPM_P.C[14] - K[2]);
+  if (rtb_TmpSignalConversionAtSFun_0 == ctrl_TAPM_P.C[7]) {
+    /* '<S66>:1:219' */
+    /* '<S66>:1:220' */
+    Alpha1_idx_2 = K[1] - (ctrl_TAPM_P.C[7] - K[1]);
+  } else if (rtb_TmpSignalConversionAtSFun_0 == ctrl_TAPM_P.C[1]) {
+    /* '<S66>:1:221' */
+    /* '<S66>:1:222' */
+    Alpha1_idx_2 = K[1] - (ctrl_TAPM_P.C[1] - K[1]);
+  } else if (rtb_TmpSignalConversionAtSFun_0 == ctrl_TAPM_P.C[13]) {
+    /* '<S66>:1:223' */
+    /* '<S66>:1:224' */
+    Alpha1_idx_2 = K[1] - (ctrl_TAPM_P.C[13] - K[1]);
+  } else if (rtb_TmpSignalConversionAtSFun_0 == ctrl_TAPM_P.C[19]) {
+    /* '<S66>:1:225' */
+    /* '<S66>:1:226' */
+    Alpha1_idx_2 = K[1] - (ctrl_TAPM_P.C[19] - K[1]);
+  } else if (Alpha1_idx_2 == ctrl_TAPM_P.C[8]) {
+    /* '<S66>:1:228' */
+    /* '<S66>:1:229' */
+    rtb_TmpSignalConversionAtSFun_0 = K[2] - (ctrl_TAPM_P.C[8] - K[2]);
+  } else if (Alpha1_idx_2 == ctrl_TAPM_P.C[2]) {
+    /* '<S66>:1:230' */
+    /* '<S66>:1:231' */
+    rtb_TmpSignalConversionAtSFun_0 = K[2] - (ctrl_TAPM_P.C[2] - K[2]);
+  } else if (Alpha1_idx_2 == ctrl_TAPM_P.C[14]) {
+    /* '<S66>:1:232' */
+    /* '<S66>:1:233' */
+    rtb_TmpSignalConversionAtSFun_0 = K[2] - (ctrl_TAPM_P.C[14] - K[2]);
   } else {
-    if (rtb_TmpSignalConversionAtSFu__0 == ctrl_TAPM_P.C[20]) {
-      /* '<S41>:1:234' */
-      /* '<S41>:1:235' */
-      rtb_TmpSignalConversionAtSFu__1 = K[2] - (ctrl_TAPM_P.C[20] - K[2]);
+    if (Alpha1_idx_2 == ctrl_TAPM_P.C[20]) {
+      /* '<S66>:1:234' */
+      /* '<S66>:1:235' */
+      rtb_TmpSignalConversionAtSFun_0 = K[2] - (ctrl_TAPM_P.C[20] - K[2]);
     }
   }
 
   /*  Thruster 5&6 */
   if (Alpha1_idx_4 == ctrl_TAPM_P.C[10]) {
-    /* '<S41>:1:239' */
-    /* '<S41>:1:240' */
-    rtb_eta_w_idx_0 = K[4] - (ctrl_TAPM_P.C[10] - K[4]);
+    /* '<S66>:1:239' */
+    /* '<S66>:1:240' */
+    rtb_TmpSignalConversionAtSFun_2 = K[4] - (ctrl_TAPM_P.C[10] - K[4]);
   } else if (Alpha1_idx_4 == ctrl_TAPM_P.C[4]) {
-    /* '<S41>:1:241' */
-    /* '<S41>:1:242' */
-    rtb_eta_w_idx_0 = K[4] - (ctrl_TAPM_P.C[4] - K[4]);
+    /* '<S66>:1:241' */
+    /* '<S66>:1:242' */
+    rtb_TmpSignalConversionAtSFun_2 = K[4] - (ctrl_TAPM_P.C[4] - K[4]);
   } else if (Alpha1_idx_4 == ctrl_TAPM_P.C[16]) {
-    /* '<S41>:1:243' */
-    /* '<S41>:1:244' */
-    rtb_eta_w_idx_0 = K[4] - (ctrl_TAPM_P.C[16] - K[4]);
+    /* '<S66>:1:243' */
+    /* '<S66>:1:244' */
+    rtb_TmpSignalConversionAtSFun_2 = K[4] - (ctrl_TAPM_P.C[16] - K[4]);
   } else if (Alpha1_idx_4 == ctrl_TAPM_P.C[22]) {
-    /* '<S41>:1:245' */
-    /* '<S41>:1:246' */
-    rtb_eta_w_idx_0 = K[4] - (ctrl_TAPM_P.C[22] - K[4]);
-  } else if (rtb_eta_w_idx_0 == ctrl_TAPM_P.C[11]) {
-    /* '<S41>:1:248' */
-    /* '<S41>:1:249' */
+    /* '<S66>:1:245' */
+    /* '<S66>:1:246' */
+    rtb_TmpSignalConversionAtSFun_2 = K[4] - (ctrl_TAPM_P.C[22] - K[4]);
+  } else if (rtb_TmpSignalConversionAtSFun_2 == ctrl_TAPM_P.C[11]) {
+    /* '<S66>:1:248' */
+    /* '<S66>:1:249' */
     Alpha1_idx_4 = K[5] - (ctrl_TAPM_P.C[11] - K[5]);
-  } else if (rtb_eta_w_idx_0 == ctrl_TAPM_P.C[5]) {
-    /* '<S41>:1:250' */
-    /* '<S41>:1:251' */
+  } else if (rtb_TmpSignalConversionAtSFun_2 == ctrl_TAPM_P.C[5]) {
+    /* '<S66>:1:250' */
+    /* '<S66>:1:251' */
     Alpha1_idx_4 = K[5] - (ctrl_TAPM_P.C[5] - K[5]);
-  } else if (rtb_eta_w_idx_0 == ctrl_TAPM_P.C[17]) {
-    /* '<S41>:1:252' */
-    /* '<S41>:1:253' */
+  } else if (rtb_TmpSignalConversionAtSFun_2 == ctrl_TAPM_P.C[17]) {
+    /* '<S66>:1:252' */
+    /* '<S66>:1:253' */
     Alpha1_idx_4 = K[5] - (ctrl_TAPM_P.C[17] - K[5]);
   } else {
-    if (rtb_eta_w_idx_0 == ctrl_TAPM_P.C[23]) {
-      /* '<S41>:1:254' */
-      /* '<S41>:1:255' */
+    if (rtb_TmpSignalConversionAtSFun_2 == ctrl_TAPM_P.C[23]) {
+      /* '<S66>:1:254' */
+      /* '<S66>:1:255' */
       Alpha1_idx_4 = K[5] - (ctrl_TAPM_P.C[23] - K[5]);
     }
   }
 
   /*  Thruster 4 & 1 */
   if (Alpha1_idx_3 == ctrl_TAPM_P.C[9]) {
-    /* '<S41>:1:258' */
-    /* '<S41>:1:259' */
-    Alpha1_idx_0 = K[3] - (ctrl_TAPM_P.C[9] - K[3]);
+    /* '<S66>:1:258' */
+    /* '<S66>:1:259' */
+    rtb_TmpSignalConversionAtSFun_1 = K[3] - (ctrl_TAPM_P.C[9] - K[3]);
   } else if (Alpha1_idx_3 == ctrl_TAPM_P.C[3]) {
-    /* '<S41>:1:260' */
-    /* '<S41>:1:261' */
-    Alpha1_idx_0 = K[3] - (ctrl_TAPM_P.C[3] - K[3]);
+    /* '<S66>:1:260' */
+    /* '<S66>:1:261' */
+    rtb_TmpSignalConversionAtSFun_1 = K[3] - (ctrl_TAPM_P.C[3] - K[3]);
   } else if (Alpha1_idx_3 == ctrl_TAPM_P.C[15]) {
-    /* '<S41>:1:262' */
-    /* '<S41>:1:263' */
-    Alpha1_idx_0 = K[3] - (ctrl_TAPM_P.C[15] - K[3]);
+    /* '<S66>:1:262' */
+    /* '<S66>:1:263' */
+    rtb_TmpSignalConversionAtSFun_1 = K[3] - (ctrl_TAPM_P.C[15] - K[3]);
   } else {
     if (Alpha1_idx_3 == ctrl_TAPM_P.C[21]) {
-      /* '<S41>:1:264' */
-      /* '<S41>:1:265' */
-      Alpha1_idx_0 = K[3] - (ctrl_TAPM_P.C[21] - K[3]);
+      /* '<S66>:1:264' */
+      /* '<S66>:1:265' */
+      rtb_TmpSignalConversionAtSFun_1 = K[3] - (ctrl_TAPM_P.C[21] - K[3]);
     }
   }
 
-  if (Alpha1_idx_0 == ctrl_TAPM_P.C[6]) {
-    /* '<S41>:1:268' */
-    /* '<S41>:1:269' */
+  if (rtb_TmpSignalConversionAtSFun_1 == ctrl_TAPM_P.C[6]) {
+    /* '<S66>:1:268' */
+    /* '<S66>:1:269' */
     Alpha1_idx_3 = K[0] - (ctrl_TAPM_P.C[6] - K[0]);
-  } else if (Alpha1_idx_0 == ctrl_TAPM_P.C[0]) {
-    /* '<S41>:1:270' */
-    /* '<S41>:1:271' */
+  } else if (rtb_TmpSignalConversionAtSFun_1 == ctrl_TAPM_P.C[0]) {
+    /* '<S66>:1:270' */
+    /* '<S66>:1:271' */
     Alpha1_idx_3 = K[0] - (ctrl_TAPM_P.C[0] - K[0]);
-  } else if (Alpha1_idx_0 == ctrl_TAPM_P.C[12]) {
-    /* '<S41>:1:272' */
-    /* '<S41>:1:273' */
+  } else if (rtb_TmpSignalConversionAtSFun_1 == ctrl_TAPM_P.C[12]) {
+    /* '<S66>:1:272' */
+    /* '<S66>:1:273' */
     Alpha1_idx_3 = K[0] - (ctrl_TAPM_P.C[12] - K[0]);
   } else {
-    if (Alpha1_idx_0 == ctrl_TAPM_P.C[18]) {
-      /* '<S41>:1:274' */
-      /* '<S41>:1:275' */
+    if (rtb_TmpSignalConversionAtSFun_1 == ctrl_TAPM_P.C[18]) {
+      /* '<S66>:1:274' */
+      /* '<S66>:1:275' */
       Alpha1_idx_3 = K[0] - (ctrl_TAPM_P.C[18] - K[0]);
     }
   }
 
-  /* '<S41>:1:278' */
+  /* '<S66>:1:278' */
   /*  u_d = -Desired_thrust; */
   /* % Update outputs */
-  /* '<S41>:1:285' */
-  rtb_sys[0] = Alpha1_idx_0;
-  rtb_sys[1] = rtb_TmpSignalConversionAtSFu__1;
-  rtb_sys[2] = rtb_TmpSignalConversionAtSFu__0;
+  /* '<S66>:1:285' */
+  rtb_sys[0] = rtb_TmpSignalConversionAtSFun_1;
+  rtb_sys[1] = rtb_TmpSignalConversionAtSFun_0;
+  rtb_sys[2] = Alpha1_idx_2;
   rtb_sys[3] = Alpha1_idx_3;
   rtb_sys[4] = Alpha1_idx_4;
-  rtb_sys[5] = rtb_eta_w_idx_0;
-  for (i_0 = 0; i_0 < 6; i_0++) {
-    rtb_sys[i_0 + 6] = B_surge[i_0];
+  rtb_sys[5] = rtb_TmpSignalConversionAtSFun_2;
+  for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+    rtb_sys[b_ixstart + 6] = B_surge[b_ixstart];
   }
 
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
   }
 
-  /* Switch: '<S6>/Choosing Fixed // Azimuth angle' incorporates:
-   *  Constant: '<S6>/constant angle'
+  /* Switch: '<S10>/Choosing Fixed // Azimuth angle' incorporates:
+   *  Constant: '<S10>/constant angle'
    */
   for (i = 0; i < 6; i++) {
     if (ctrl_TAPM_B.Angle_controller >=
@@ -4374,18 +4577,18 @@ void ctrl_TAPM_output(void)
     }
   }
 
-  /* End of Switch: '<S6>/Choosing Fixed // Azimuth angle' */
+  /* End of Switch: '<S10>/Choosing Fixed // Azimuth angle' */
 
-  /* Outputs for Iterator SubSystem: '<S6>/Optimal angle path and  constraints on rotation speed' incorporates:
-   *  ForEach: '<S42>/For Each'
+  /* Outputs for Iterator SubSystem: '<S10>/Optimal angle path and  constraints on rotation speed' incorporates:
+   *  ForEach: '<S67>/For Each'
    */
   for (ForEach_itr = 0; ForEach_itr < 6; ForEach_itr++) {
-    /* ForEachSliceSelector: '<S42>/ImpSel_InsertedFor_reset_at_outport_0' */
-    rtb_ImpSel_InsertedFor_reset_at = ctrl_TAPM_B.reset[ForEach_itr];
+    /* ForEachSliceSelector: '<S67>/ImpSel_InsertedFor_reset_at_outport_0' */
+    rtb_ImpSel_InsertedFor_reset_at = ctrl_TAPM_B.reset_g[ForEach_itr];
     if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-      /* DiscreteIntegrator: '<S42>/Discrete-Time Integrator' incorporates:
-       *  Constant: '<S6>/constant angle'
-       *  ForEachSliceSelector: '<S42>/ImpSel_InsertedFor_initial angle _at_outport_0'
+      /* DiscreteIntegrator: '<S67>/Discrete-Time Integrator' incorporates:
+       *  Constant: '<S10>/constant angle'
+       *  ForEachSliceSelector: '<S67>/ImpSel_InsertedFor_initial angle _at_outport_0'
        */
       if (ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_IC_LOADI
           != 0) {
@@ -4405,18 +4608,18 @@ void ctrl_TAPM_output(void)
       ctrl_TAPM_B.CoreSubsys[ForEach_itr].angle =
         ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_DSTATE;
 
-      /* End of DiscreteIntegrator: '<S42>/Discrete-Time Integrator' */
+      /* End of DiscreteIntegrator: '<S67>/Discrete-Time Integrator' */
 
-      /* Gain: '<S45>/Gain1' */
-      rtb_eta_w_idx_2 = ctrl_TAPM_P.CoreSubsys.Gain1_Gain *
+      /* Gain: '<S70>/Gain1' */
+      rtb_Row2 = ctrl_TAPM_P.CoreSubsys.Gain1_Gain *
         ctrl_TAPM_B.CoreSubsys[ForEach_itr].angle;
 
-      /* Delay: '<S42>/Delay' */
+      /* Delay: '<S67>/Delay' */
       ctrl_TAPM_B.CoreSubsys[ForEach_itr].Delay =
         ctrl_TAPM_DW.CoreSubsys[ForEach_itr].Delay_DSTATE;
 
-      /* MATLAB Function: '<S42>/MATLAB Function' */
-      /* MATLAB Function 'Thrust allocation/Optimal angle path and  constraints on rotation speed/MATLAB Function': '<S46>:1' */
+      /* MATLAB Function: '<S67>/Ensuring angle is  [-pi pi]' */
+      /* MATLAB Function 'Thrust allocation/Optimal angle path and  constraints on rotation speed/Ensuring angle is  [-pi pi]': '<S71>:1' */
       /*  RAD2PIPI Converts an angle in rad to the interval (-pi pi] */
       /*           Should be applied to all heading errors in a feedback control system */
       /*           in order to avoid discontinuities. */
@@ -4452,20 +4655,20 @@ void ctrl_TAPM_output(void)
       /*  E-mail: contact@marinecontrol.org */
       /*  URL:    <http://www.marinecontrol.org> */
       /*  convert angle in rad to the interval <-pi pi>  */
-      /* '<S46>:1:39' */
-      /* '<S46>:1:40' */
+      /* '<S71>:1:39' */
+      /* '<S71>:1:40' */
       /*  s = sign(angle); */
-      /* '<S46>:1:43' */
-      u = fabs(rt_remd_snf(rtb_eta_w_idx_2 + 3.1415926535897931,
-                           6.2831853071795862) / 6.2831853071795862);
-      if (rtb_eta_w_idx_2 < 0.0) {
-        Alpha1_idx_0 = -1.0;
-      } else if (rtb_eta_w_idx_2 > 0.0) {
-        Alpha1_idx_0 = 1.0;
-      } else if (rtb_eta_w_idx_2 == 0.0) {
-        Alpha1_idx_0 = 0.0;
+      /* '<S71>:1:43' */
+      u = fabs(rt_remd_snf(rtb_Row2 + 3.1415926535897931, 6.2831853071795862) /
+               6.2831853071795862);
+      if (rtb_Row2 < 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = -1.0;
+      } else if (rtb_Row2 > 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = 1.0;
+      } else if (rtb_Row2 == 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = 0.0;
       } else {
-        Alpha1_idx_0 = rtb_eta_w_idx_2;
+        rtb_TmpSignalConversionAtSFun_2 = rtb_Row2;
       }
 
       if (u > 0.0) {
@@ -4476,15 +4679,15 @@ void ctrl_TAPM_output(void)
         }
       }
 
-      u = (u - 1.0) * 2.0 + Alpha1_idx_0;
-      if (rtb_eta_w_idx_2 < 0.0) {
-        Alpha1_idx_0 = -1.0;
-      } else if (rtb_eta_w_idx_2 > 0.0) {
-        Alpha1_idx_0 = 1.0;
-      } else if (rtb_eta_w_idx_2 == 0.0) {
-        Alpha1_idx_0 = 0.0;
+      u = (u - 1.0) * 2.0 + rtb_TmpSignalConversionAtSFun_2;
+      if (rtb_Row2 < 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = -1.0;
+      } else if (rtb_Row2 > 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = 1.0;
+      } else if (rtb_Row2 == 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = 0.0;
       } else {
-        Alpha1_idx_0 = rtb_eta_w_idx_2;
+        rtb_TmpSignalConversionAtSFun_2 = rtb_Row2;
       }
 
       if (u < 0.0) {
@@ -4497,44 +4700,45 @@ void ctrl_TAPM_output(void)
         }
       }
 
-      rtb_Out2_CoreSubsysCanOut = rt_remd_snf(Alpha1_idx_0 * 3.1415926535897931
-        + rtb_eta_w_idx_2, 6.2831853071795862) - u * 3.1415926535897931;
+      rtb_commandedAngle_CoreSubsysCa = rt_remd_snf
+        (rtb_TmpSignalConversionAtSFun_2 * 3.1415926535897931 + rtb_Row2,
+         6.2831853071795862) - u * 3.1415926535897931;
 
-      /* End of MATLAB Function: '<S42>/MATLAB Function' */
+      /* End of MATLAB Function: '<S67>/Ensuring angle is  [-pi pi]' */
     }
 
-    /* MATLAB Function: '<S42>/MATLAB Function1' incorporates:
-     *  ForEachSliceSelector: '<S42>/ImpSel_InsertedFor_Desired Angle_at_outport_0'
+    /* MATLAB Function: '<S67>/MATLAB Function1' incorporates:
+     *  ForEachSliceSelector: '<S67>/ImpSel_InsertedFor_Desired Angle_at_outport_0'
      */
-    /* MATLAB Function 'Thrust allocation/Optimal angle path and  constraints on rotation speed/MATLAB Function1': '<S47>:1' */
-    /* '<S47>:1:3' */
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.ChoosingFixedAzimuthangle[ForEach_itr] -
+    /* MATLAB Function 'Thrust allocation/Optimal angle path and  constraints on rotation speed/MATLAB Function1': '<S72>:1' */
+    /* '<S72>:1:3' */
+    rtb_Row2 = ctrl_TAPM_B.ChoosingFixedAzimuthangle[ForEach_itr] -
       ctrl_TAPM_B.CoreSubsys[ForEach_itr].Delay;
-    if (fabs(rtb_eta_w_idx_2) >= 360.0) {
-      /* '<S47>:1:4' */
-      /* '<S47>:1:5' */
-      rtb_eta_w_idx_2 = rt_remd_snf(rtb_eta_w_idx_2, 360.0);
+    if (fabs(rtb_Row2) >= 360.0) {
+      /* '<S72>:1:4' */
+      /* '<S72>:1:5' */
+      rtb_Row2 = rt_remd_snf(rtb_Row2, 360.0);
     }
 
-    if (fabs(rtb_eta_w_idx_2) >= 180.0) {
-      /* '<S47>:1:8' */
-      /* '<S47>:1:9' */
-      if (rtb_eta_w_idx_2 < 0.0) {
-        Alpha1_idx_0 = -1.0;
-      } else if (rtb_eta_w_idx_2 > 0.0) {
-        Alpha1_idx_0 = 1.0;
-      } else if (rtb_eta_w_idx_2 == 0.0) {
-        Alpha1_idx_0 = 0.0;
+    if (fabs(rtb_Row2) >= 180.0) {
+      /* '<S72>:1:8' */
+      /* '<S72>:1:9' */
+      if (rtb_Row2 < 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = -1.0;
+      } else if (rtb_Row2 > 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = 1.0;
+      } else if (rtb_Row2 == 0.0) {
+        rtb_TmpSignalConversionAtSFun_2 = 0.0;
       } else {
-        Alpha1_idx_0 = rtb_eta_w_idx_2;
+        rtb_TmpSignalConversionAtSFun_2 = rtb_Row2;
       }
 
-      rtb_eta_w_idx_2 -= Alpha1_idx_0 * 360.0;
+      rtb_Row2 -= rtb_TmpSignalConversionAtSFun_2 * 360.0;
     }
 
-    /* End of MATLAB Function: '<S42>/MATLAB Function1' */
+    /* End of MATLAB Function: '<S67>/MATLAB Function1' */
 
-    /* Saturate: '<S42>/Max Rotation Rate' */
+    /* Saturate: '<S67>/Max Rotation Rate' */
     /*  if desired < 0 %&& abs(desired+actual) > 180 */
     /*      y = actual+360; */
     /*  else */
@@ -4587,107 +4791,110 @@ void ctrl_TAPM_output(void)
     /*  else  */
     /*      u = actual; */
     /*  end */
-    if (rtb_eta_w_idx_2 > ctrl_TAPM_P.Max_rotation) {
+    if (rtb_Row2 > ctrl_TAPM_P.Max_rotation) {
       ctrl_TAPM_B.CoreSubsys[ForEach_itr].MaxRotationRate =
         ctrl_TAPM_P.Max_rotation;
-    } else if (rtb_eta_w_idx_2 < -ctrl_TAPM_P.Max_rotation) {
+    } else if (rtb_Row2 < -ctrl_TAPM_P.Max_rotation) {
       ctrl_TAPM_B.CoreSubsys[ForEach_itr].MaxRotationRate =
         -ctrl_TAPM_P.Max_rotation;
     } else {
-      ctrl_TAPM_B.CoreSubsys[ForEach_itr].MaxRotationRate = rtb_eta_w_idx_2;
+      ctrl_TAPM_B.CoreSubsys[ForEach_itr].MaxRotationRate = rtb_Row2;
     }
 
-    /* End of Saturate: '<S42>/Max Rotation Rate' */
+    /* End of Saturate: '<S67>/Max Rotation Rate' */
     if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-      /* ForEachSliceAssignment: '<S42>/ImpAsg_InsertedFor_Out2 _at_inport_0' */
-      rtb_ImpAsg_InsertedFor_Out2_at_[ForEach_itr] = rtb_Out2_CoreSubsysCanOut;
+      /* ForEachSliceAssignment: '<S67>/ImpAsg_InsertedFor_commanded Angle_at_inport_0' */
+      rtb_ImpAsg_InsertedFor_commande[ForEach_itr] =
+        rtb_commandedAngle_CoreSubsysCa;
     }
   }
 
-  /* End of Outputs for SubSystem: '<S6>/Optimal angle path and  constraints on rotation speed' */
+  /* End of Outputs for SubSystem: '<S10>/Optimal angle path and  constraints on rotation speed' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Saturate: '<S48>/Saturation 1' */
-    if (rtb_ImpAsg_InsertedFor_Out2_at_[0] > ctrl_TAPM_P.Saturation1_UpperSat) {
+    /* Saturate: '<S73>/Saturation 1' */
+    if (rtb_ImpAsg_InsertedFor_commande[0] > ctrl_TAPM_P.Saturation1_UpperSat) {
       ctrl_TAPM_B.Saturation1 = ctrl_TAPM_P.Saturation1_UpperSat;
-    } else if (rtb_ImpAsg_InsertedFor_Out2_at_[0] <
+    } else if (rtb_ImpAsg_InsertedFor_commande[0] <
                ctrl_TAPM_P.Saturation1_LowerSat) {
       ctrl_TAPM_B.Saturation1 = ctrl_TAPM_P.Saturation1_LowerSat;
     } else {
-      ctrl_TAPM_B.Saturation1 = rtb_ImpAsg_InsertedFor_Out2_at_[0];
+      ctrl_TAPM_B.Saturation1 = rtb_ImpAsg_InsertedFor_commande[0];
     }
 
-    /* End of Saturate: '<S48>/Saturation 1' */
+    /* End of Saturate: '<S73>/Saturation 1' */
   }
 
-  /* Integrator: '<S64>/Integrator' */
+  /* Integrator: '<S89>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
-    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,&ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE,
+    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
+                       &ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_g,
                        ctrl_TAPM_B.reset_o);
 
     /* evaluate zero-crossings */
     if (zcEvent) {
-      ctrl_TAPM_X.Integrator_CSTATE_c = ctrl_TAPM_P.Integrator_IC_fg;
+      ctrl_TAPM_X.Integrator_CSTATE_c = ctrl_TAPM_P.Integrator_IC_f;
     }
   }
 
-  rtb_Integrator_p = ctrl_TAPM_X.Integrator_CSTATE_c;
+  rtb_Integrator = ctrl_TAPM_X.Integrator_CSTATE_c;
 
-  /* MATLAB Function: '<S63>/Actual Force and Torque' incorporates:
-   *  Constant: '<S50>/Losses (placeholder)'
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr1'
-   *  Constant: '<S7>/K_Qr7'
-   *  Constant: '<S7>/K_Tf1'
-   *  Constant: '<S7>/K_Tr1'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S88>/Actual Force and Torque' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr1'
+   *  Constant: '<S11>/K_Qr7'
+   *  Constant: '<S11>/K_Tf1'
+   *  Constant: '<S11>/K_Tr1'
+   *  Constant: '<S11>/Rho'
+   *  Constant: '<S75>/Losses (placeholder)'
    */
-  /* MATLAB Function 'Thruster control /Thruster 1/Propeller Hydrodynamics/Actual Force and Torque': '<S66>:1' */
-  /* '<S66>:1:3' */
-  offset = tanh(ctrl_TAPM_P.eps_c * rtb_Integrator_p / 5.0) * 0.5 + 0.5;
+  /* MATLAB Function 'Thruster control /Thruster 1/Propeller Hydrodynamics/Actual Force and Torque': '<S91>:1' */
+  /* '<S91>:1:3' */
+  rtb_Row1 = tanh(ctrl_TAPM_P.eps_c * rtb_Integrator / 5.0) * 0.5 + 0.5;
 
   /*  Smooth switching between positive and negative thrust. 5 makes switch happen between -5 and 5 */
-  /* '<S66>:1:4' */
-  /* '<S66>:1:5' */
-  /* '<S66>:1:7' */
-  if (rtb_Integrator_p < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
-  } else if (rtb_Integrator_p > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
-  } else if (rtb_Integrator_p == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
+  /* '<S91>:1:4' */
+  /* '<S91>:1:5' */
+  /* '<S91>:1:7' */
+  if (rtb_Integrator < 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
+  } else if (rtb_Integrator > 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
+  } else if (rtb_Integrator == 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
   } else {
-    rtb_eta_w_idx_0 = rtb_Integrator_p;
+    rtb_TmpSignalConversionAtSFun_2 = rtb_Integrator;
   }
 
-  rtb_Ta = ((1.0 - offset) * ctrl_TAPM_P.K_T1r + ctrl_TAPM_P.K_T1f * offset) *
-    rtb_eta_w_idx_0 * ctrl_TAPM_P.Rho * rt_powd_snf(ctrl_TAPM_P.D, 4.0) *
-    (rtb_Integrator_p * rtb_Integrator_p) - ctrl_TAPM_P.Lossesplaceholder_Value;
-
-  /* '<S66>:1:8' */
-  if (rtb_Integrator_p < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
-  } else if (rtb_Integrator_p > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
-  } else if (rtb_Integrator_p == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
-  } else {
-    rtb_eta_w_idx_0 = rtb_Integrator_p;
-  }
-
-  rtb_eta_w_idx_2 = ((1.0 - offset) * ctrl_TAPM_P.K_q1r + ctrl_TAPM_P.K_q1f *
-                     offset) * rtb_eta_w_idx_0 * ctrl_TAPM_P.Rho * rt_powd_snf
-    (ctrl_TAPM_P.D, 5.0) * (rtb_Integrator_p * rtb_Integrator_p) -
+  rtb_Row1_m = ((1.0 - rtb_Row1) * ctrl_TAPM_P.K_T1r + ctrl_TAPM_P.K_T1f *
+                rtb_Row1) * rtb_TmpSignalConversionAtSFun_2 * ctrl_TAPM_P.Rho *
+    rt_powd_snf(ctrl_TAPM_P.D, 4.0) * (rtb_Integrator * rtb_Integrator) -
     ctrl_TAPM_P.Lossesplaceholder_Value;
 
-  /* '<S66>:1:9' */
-  ctrl_TAPM_B.Pa = 6.2831853071795862 * rtb_Integrator_p * rtb_eta_w_idx_2;
-  ctrl_TAPM_B.Qa = rtb_eta_w_idx_2;
+  /* '<S91>:1:8' */
+  if (rtb_Integrator < 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
+  } else if (rtb_Integrator > 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
+  } else if (rtb_Integrator == 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
+  } else {
+    rtb_TmpSignalConversionAtSFun_2 = rtb_Integrator;
+  }
 
-  /* End of MATLAB Function: '<S63>/Actual Force and Torque' */
+  rtb_Row2 = ((1.0 - rtb_Row1) * ctrl_TAPM_P.K_q1r + ctrl_TAPM_P.K_q1f *
+              rtb_Row1) * rtb_TmpSignalConversionAtSFun_2 * ctrl_TAPM_P.Rho *
+    rt_powd_snf(ctrl_TAPM_P.D, 5.0) * (rtb_Integrator * rtb_Integrator) -
+    ctrl_TAPM_P.Lossesplaceholder_Value;
 
-  /* Integrator: '<S73>/Integrator' */
+  /* '<S91>:1:9' */
+  ctrl_TAPM_B.Pa = 6.2831853071795862 * rtb_Integrator * rtb_Row2;
+  ctrl_TAPM_B.Qa = rtb_Row2;
+
+  /* End of MATLAB Function: '<S88>/Actual Force and Torque' */
+
+  /* Integrator: '<S98>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -4696,28 +4903,28 @@ void ctrl_TAPM_output(void)
 
     /* evaluate zero-crossings */
     if (zcEvent) {
-      ctrl_TAPM_X.Integrator_CSTATE_p = ctrl_TAPM_P.Integrator_IC_fgw;
+      ctrl_TAPM_X.Integrator_CSTATE_p = ctrl_TAPM_P.Integrator_IC_fg;
     }
   }
 
   rtb_Integrator_h = ctrl_TAPM_X.Integrator_CSTATE_p;
 
-  /* MATLAB Function: '<S72>/Actual Force and Torque' incorporates:
-   *  Constant: '<S51>/Losses (placeholder)'
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr2'
-   *  Constant: '<S7>/K_Qr8'
-   *  Constant: '<S7>/K_Tf2'
-   *  Constant: '<S7>/K_Tr2'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S97>/Actual Force and Torque' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr2'
+   *  Constant: '<S11>/K_Qr8'
+   *  Constant: '<S11>/K_Tf2'
+   *  Constant: '<S11>/K_Tr2'
+   *  Constant: '<S11>/Rho'
+   *  Constant: '<S76>/Losses (placeholder)'
    */
   ctrl_TAPM_ActualForceandTorque(rtb_Integrator_h, ctrl_TAPM_P.K_q2f,
     ctrl_TAPM_P.K_T2f, ctrl_TAPM_P.K_T2r, ctrl_TAPM_P.K_q2r, ctrl_TAPM_P.Rho,
     ctrl_TAPM_P.D, ctrl_TAPM_P.eps_c, ctrl_TAPM_P.Lossesplaceholder_Value_k,
     &ctrl_TAPM_B.sf_ActualForceandTorque_f);
 
-  /* Integrator: '<S82>/Integrator' */
+  /* Integrator: '<S107>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -4726,28 +4933,28 @@ void ctrl_TAPM_output(void)
 
     /* evaluate zero-crossings */
     if (zcEvent) {
-      ctrl_TAPM_X.Integrator_CSTATE_km = ctrl_TAPM_P.Integrator_IC_pl;
+      ctrl_TAPM_X.Integrator_CSTATE_k = ctrl_TAPM_P.Integrator_IC_p;
     }
   }
 
-  rtb_Integrator_a = ctrl_TAPM_X.Integrator_CSTATE_km;
+  rtb_Integrator_a = ctrl_TAPM_X.Integrator_CSTATE_k;
 
-  /* MATLAB Function: '<S81>/Actual Force and Torque' incorporates:
-   *  Constant: '<S52>/Losses (placeholder)'
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr3'
-   *  Constant: '<S7>/K_Qr9'
-   *  Constant: '<S7>/K_Tf3'
-   *  Constant: '<S7>/K_Tr3'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S106>/Actual Force and Torque' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr3'
+   *  Constant: '<S11>/K_Qr9'
+   *  Constant: '<S11>/K_Tf3'
+   *  Constant: '<S11>/K_Tr3'
+   *  Constant: '<S11>/Rho'
+   *  Constant: '<S77>/Losses (placeholder)'
    */
   ctrl_TAPM_ActualForceandTorque(rtb_Integrator_a, ctrl_TAPM_P.K_q3f,
     ctrl_TAPM_P.K_T3f, ctrl_TAPM_P.K_T3r, ctrl_TAPM_P.K_q3r, ctrl_TAPM_P.Rho,
     ctrl_TAPM_P.D, ctrl_TAPM_P.eps_c, ctrl_TAPM_P.Lossesplaceholder_Value_n,
     &ctrl_TAPM_B.sf_ActualForceandTorque_h);
 
-  /* Integrator: '<S91>/Integrator' */
+  /* Integrator: '<S116>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -4762,22 +4969,22 @@ void ctrl_TAPM_output(void)
 
   rtb_Integrator_k = ctrl_TAPM_X.Integrator_CSTATE_n;
 
-  /* MATLAB Function: '<S90>/Actual Force and Torque' incorporates:
-   *  Constant: '<S53>/Losses (placeholder)'
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr10'
-   *  Constant: '<S7>/K_Qr4'
-   *  Constant: '<S7>/K_Tf4'
-   *  Constant: '<S7>/K_Tr4'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S115>/Actual Force and Torque' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr10'
+   *  Constant: '<S11>/K_Qr4'
+   *  Constant: '<S11>/K_Tf4'
+   *  Constant: '<S11>/K_Tr4'
+   *  Constant: '<S11>/Rho'
+   *  Constant: '<S78>/Losses (placeholder)'
    */
   ctrl_TAPM_ActualForceandTorque(rtb_Integrator_k, ctrl_TAPM_P.K_q4f,
     ctrl_TAPM_P.K_T4f, ctrl_TAPM_P.K_T4r, ctrl_TAPM_P.K_q4r, ctrl_TAPM_P.Rho,
     ctrl_TAPM_P.D, ctrl_TAPM_P.eps_c, ctrl_TAPM_P.Lossesplaceholder_Value_d,
     &ctrl_TAPM_B.sf_ActualForceandTorque_m);
 
-  /* Integrator: '<S100>/Integrator' */
+  /* Integrator: '<S125>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -4792,22 +4999,22 @@ void ctrl_TAPM_output(void)
 
   rtb_Integrator_c = ctrl_TAPM_X.Integrator_CSTATE_cd;
 
-  /* MATLAB Function: '<S99>/Actual Force and Torque' incorporates:
-   *  Constant: '<S54>/Losses (placeholder)'
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr11'
-   *  Constant: '<S7>/K_Qr5'
-   *  Constant: '<S7>/K_Tf5'
-   *  Constant: '<S7>/K_Tr5'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S124>/Actual Force and Torque' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr11'
+   *  Constant: '<S11>/K_Qr5'
+   *  Constant: '<S11>/K_Tf5'
+   *  Constant: '<S11>/K_Tr5'
+   *  Constant: '<S11>/Rho'
+   *  Constant: '<S79>/Losses (placeholder)'
    */
   ctrl_TAPM_ActualForceandTorque(rtb_Integrator_c, ctrl_TAPM_P.K_q5f,
     ctrl_TAPM_P.K_T5f, ctrl_TAPM_P.K_T5r, ctrl_TAPM_P.K_q5r, ctrl_TAPM_P.Rho,
     ctrl_TAPM_P.D, ctrl_TAPM_P.eps_c, ctrl_TAPM_P.Lossesplaceholder_Value_f,
     &ctrl_TAPM_B.sf_ActualForceandTorque_o);
 
-  /* Integrator: '<S109>/Integrator' */
+  /* Integrator: '<S134>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -4822,351 +5029,324 @@ void ctrl_TAPM_output(void)
 
   rtb_Integrator_m = ctrl_TAPM_X.Integrator_CSTATE_h;
 
-  /* MATLAB Function: '<S108>/Actual Force and Torque' incorporates:
-   *  Constant: '<S55>/Losses (placeholder)'
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr12'
-   *  Constant: '<S7>/K_Qr6'
-   *  Constant: '<S7>/K_Tf6'
-   *  Constant: '<S7>/K_Tr6'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S133>/Actual Force and Torque' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr12'
+   *  Constant: '<S11>/K_Qr6'
+   *  Constant: '<S11>/K_Tf6'
+   *  Constant: '<S11>/K_Tr6'
+   *  Constant: '<S11>/Rho'
+   *  Constant: '<S80>/Losses (placeholder)'
    */
   ctrl_TAPM_ActualForceandTorque(rtb_Integrator_m, ctrl_TAPM_P.K_q6f,
     ctrl_TAPM_P.K_T6f, ctrl_TAPM_P.K_T6r, ctrl_TAPM_P.K_q6r, ctrl_TAPM_P.Rho,
     ctrl_TAPM_P.D, ctrl_TAPM_P.eps_c, ctrl_TAPM_P.Lossesplaceholder_Value_h,
     &ctrl_TAPM_B.sf_ActualForceandTorque_j);
 
-  /* MATLAB Function: '<S49>/MATLAB Function' incorporates:
-   *  Gain: '<S49>/Gain'
-   *  Gain: '<S49>/Gain1'
-   *  Gain: '<S49>/Gain2'
-   *  Gain: '<S49>/Gain3'
-   *  Gain: '<S49>/Gain4'
-   *  Gain: '<S49>/Gain5'
-   *  SignalConversion: '<S56>/TmpSignal ConversionAt SFunction Inport1'
+  /* MATLAB Function: '<S74>/MATLAB Function' incorporates:
+   *  SignalConversion: '<S81>/TmpSignal ConversionAt SFunction Inport1'
    */
-  /* MATLAB Function 'Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function': '<S56>:1' */
-  if (ctrl_TAPM_B.Core_controller == 1.0) {
-    /* '<S56>:1:3' */
-    /* '<S56>:1:4' */
-    ctrl_TAPM_B.output[0] = rtb_Ta;
-    ctrl_TAPM_B.output[1] = ctrl_TAPM_P.Gain_Gain_d * ctrl_TAPM_B.rpm1;
-    ctrl_TAPM_B.output[2] = ctrl_TAPM_B.sf_ActualForceandTorque_f.Ta;
-    ctrl_TAPM_B.output[3] = ctrl_TAPM_P.Gain1_Gain * ctrl_TAPM_B.rpm2;
-    ctrl_TAPM_B.output[4] = ctrl_TAPM_B.sf_ActualForceandTorque_h.Ta;
-    ctrl_TAPM_B.output[5] = ctrl_TAPM_P.Gain2_Gain * ctrl_TAPM_B.rpm3;
-    ctrl_TAPM_B.output[6] = ctrl_TAPM_B.sf_ActualForceandTorque_m.Ta;
-    ctrl_TAPM_B.output[7] = ctrl_TAPM_P.Gain3_Gain * ctrl_TAPM_B.rpm4;
-    ctrl_TAPM_B.output[8] = ctrl_TAPM_B.sf_ActualForceandTorque_o.Ta;
-    ctrl_TAPM_B.output[9] = ctrl_TAPM_P.Gain4_Gain * ctrl_TAPM_B.rpm5;
-    ctrl_TAPM_B.output[10] = ctrl_TAPM_B.sf_ActualForceandTorque_j.Ta;
-    ctrl_TAPM_B.output[11] = ctrl_TAPM_P.Gain5_Gain * ctrl_TAPM_B.rpm6;
+  /* MATLAB Function 'Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function': '<S81>:1' */
+  /* '<S81>:1:8' */
+  ctrl_TAPM_B.output[0] = rtb_Row1_m;
+  ctrl_TAPM_B.output[1] = rtb_Integrator;
+  ctrl_TAPM_B.output[2] = ctrl_TAPM_B.sf_ActualForceandTorque_f.Ta;
+  ctrl_TAPM_B.output[3] = rtb_Integrator_h;
+  ctrl_TAPM_B.output[4] = ctrl_TAPM_B.sf_ActualForceandTorque_h.Ta;
+  ctrl_TAPM_B.output[5] = rtb_Integrator_a;
+  ctrl_TAPM_B.output[6] = ctrl_TAPM_B.sf_ActualForceandTorque_m.Ta;
+  ctrl_TAPM_B.output[7] = rtb_Integrator_k;
+  ctrl_TAPM_B.output[8] = ctrl_TAPM_B.sf_ActualForceandTorque_o.Ta;
+  ctrl_TAPM_B.output[9] = rtb_Integrator_c;
+  ctrl_TAPM_B.output[10] = ctrl_TAPM_B.sf_ActualForceandTorque_j.Ta;
+  ctrl_TAPM_B.output[11] = rtb_Integrator_m;
 
-    /*      output = [input(1) input(2) input(3) input(4) input(5) input(6) input(7) input(8) input(9) input(10) input(11) input(12)]'; */
-  } else {
-    /* '<S56>:1:8' */
-    ctrl_TAPM_B.output[0] = rtb_Ta;
-    ctrl_TAPM_B.output[1] = rtb_Integrator_p;
-    ctrl_TAPM_B.output[2] = ctrl_TAPM_B.sf_ActualForceandTorque_f.Ta;
-    ctrl_TAPM_B.output[3] = rtb_Integrator_h;
-    ctrl_TAPM_B.output[4] = ctrl_TAPM_B.sf_ActualForceandTorque_h.Ta;
-    ctrl_TAPM_B.output[5] = rtb_Integrator_a;
-    ctrl_TAPM_B.output[6] = ctrl_TAPM_B.sf_ActualForceandTorque_m.Ta;
-    ctrl_TAPM_B.output[7] = rtb_Integrator_k;
-    ctrl_TAPM_B.output[8] = ctrl_TAPM_B.sf_ActualForceandTorque_o.Ta;
-    ctrl_TAPM_B.output[9] = rtb_Integrator_c;
-    ctrl_TAPM_B.output[10] = ctrl_TAPM_B.sf_ActualForceandTorque_j.Ta;
-    ctrl_TAPM_B.output[11] = rtb_Integrator_m;
-  }
-
-  /* End of MATLAB Function: '<S49>/MATLAB Function' */
-
-  /* Saturate: '<S49>/Saturation 8' */
+  /* Saturate: '<S74>/Saturation 8' */
   if (ctrl_TAPM_B.output[2] > ctrl_TAPM_P.Max_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Max_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Max_thrust;
   } else if (ctrl_TAPM_B.output[2] < ctrl_TAPM_P.Saturation8_LowerSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation8_LowerSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation8_LowerSat;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[2];
+    rtb_Row2 = ctrl_TAPM_B.output[2];
   }
 
-  /* End of Saturate: '<S49>/Saturation 8' */
+  /* End of Saturate: '<S74>/Saturation 8' */
 
-  /* Polyval: '<S49>/positive thrust 2' */
+  /* Polyval: '<S74>/positive thrust 2' */
   rtb_positivethrust2 = ctrl_TAPM_P.pwm_thr2_forward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_positivethrust2 = rtb_positivethrust2 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr2_forward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_positivethrust2 = rtb_positivethrust2 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr2_forward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/positive thrust 2' */
+  /* End of Polyval: '<S74>/positive thrust 2' */
 
-  /* Saturate: '<S49>/Saturation 9' */
+  /* Saturate: '<S74>/Saturation 9' */
   if (ctrl_TAPM_B.output[2] > ctrl_TAPM_P.Saturation9_UpperSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation9_UpperSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation9_UpperSat;
   } else if (ctrl_TAPM_B.output[2] < ctrl_TAPM_P.Min_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Min_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Min_thrust;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[2];
+    rtb_Row2 = ctrl_TAPM_B.output[2];
   }
 
-  /* End of Saturate: '<S49>/Saturation 9' */
+  /* End of Saturate: '<S74>/Saturation 9' */
 
-  /* Polyval: '<S49>/negative thrust 2' */
+  /* Polyval: '<S74>/negative thrust 2' */
   rtb_negativethrust2 = ctrl_TAPM_P.pwm_thr2_backward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_negativethrust2 = rtb_negativethrust2 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr2_backward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_negativethrust2 = rtb_negativethrust2 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr2_backward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/negative thrust 2' */
+  /* End of Polyval: '<S74>/negative thrust 2' */
 
-  /* MATLAB Function: '<S49>/MATLAB Function2' */
-  ctrl_TAPM_MATLABFunction2_i(rtb_positivethrust2, ctrl_TAPM_B.output[2],
-    rtb_negativethrust2, &ctrl_TAPM_B.sf_MATLABFunction2_i);
+  /* MATLAB Function: '<S74>/MATLAB Function2' */
+  ctrl_TAPM_MATLABFunction2(rtb_positivethrust2, ctrl_TAPM_B.output[2],
+    rtb_negativethrust2, &ctrl_TAPM_B.sf_MATLABFunction2);
 
-  /* Saturate: '<S49>/Saturation 10' */
+  /* Saturate: '<S74>/Saturation 10' */
   if (ctrl_TAPM_B.output[4] > ctrl_TAPM_P.Max_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Max_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Max_thrust;
   } else if (ctrl_TAPM_B.output[4] < ctrl_TAPM_P.Saturation10_LowerSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation10_LowerSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation10_LowerSat;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[4];
+    rtb_Row2 = ctrl_TAPM_B.output[4];
   }
 
-  /* End of Saturate: '<S49>/Saturation 10' */
+  /* End of Saturate: '<S74>/Saturation 10' */
 
-  /* Polyval: '<S49>/positive thrust 3' */
+  /* Polyval: '<S74>/positive thrust 3' */
   rtb_positivethrust3 = ctrl_TAPM_P.pwm_thr3_forward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_positivethrust3 = rtb_positivethrust3 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr3_forward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_positivethrust3 = rtb_positivethrust3 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr3_forward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/positive thrust 3' */
+  /* End of Polyval: '<S74>/positive thrust 3' */
 
-  /* Saturate: '<S49>/Saturation 11' */
+  /* Saturate: '<S74>/Saturation 11' */
   if (ctrl_TAPM_B.output[4] > ctrl_TAPM_P.Saturation11_UpperSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation11_UpperSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation11_UpperSat;
   } else if (ctrl_TAPM_B.output[4] < ctrl_TAPM_P.Min_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Min_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Min_thrust;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[4];
+    rtb_Row2 = ctrl_TAPM_B.output[4];
   }
 
-  /* End of Saturate: '<S49>/Saturation 11' */
+  /* End of Saturate: '<S74>/Saturation 11' */
 
-  /* Polyval: '<S49>/negative thrust 3' */
+  /* Polyval: '<S74>/negative thrust 3' */
   rtb_negativethrust3 = ctrl_TAPM_P.pwm_thr3_backward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_negativethrust3 = rtb_negativethrust3 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr3_backward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_negativethrust3 = rtb_negativethrust3 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr3_backward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/negative thrust 3' */
+  /* End of Polyval: '<S74>/negative thrust 3' */
 
-  /* MATLAB Function: '<S49>/MATLAB Function3' */
-  ctrl_TAPM_MATLABFunction2_i(rtb_positivethrust3, ctrl_TAPM_B.output[4],
-    rtb_negativethrust3, &ctrl_TAPM_B.sf_MATLABFunction3_p);
+  /* MATLAB Function: '<S74>/MATLAB Function3' */
+  ctrl_TAPM_MATLABFunction2(rtb_positivethrust3, ctrl_TAPM_B.output[4],
+    rtb_negativethrust3, &ctrl_TAPM_B.sf_MATLABFunction3);
 
-  /* Saturate: '<S49>/Saturation 3' */
+  /* Saturate: '<S74>/Saturation 3' */
   if (ctrl_TAPM_B.output[6] > ctrl_TAPM_P.Max_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Max_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Max_thrust;
   } else if (ctrl_TAPM_B.output[6] < ctrl_TAPM_P.Saturation3_LowerSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation3_LowerSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation3_LowerSat;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[6];
+    rtb_Row2 = ctrl_TAPM_B.output[6];
   }
 
-  /* End of Saturate: '<S49>/Saturation 3' */
+  /* End of Saturate: '<S74>/Saturation 3' */
 
-  /* Polyval: '<S49>/positive thrust 4' */
+  /* Polyval: '<S74>/positive thrust 4' */
   rtb_positivethrust4 = ctrl_TAPM_P.pwm_thr4_forward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_positivethrust4 = rtb_positivethrust4 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr4_forward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_positivethrust4 = rtb_positivethrust4 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr4_forward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/positive thrust 4' */
+  /* End of Polyval: '<S74>/positive thrust 4' */
 
-  /* Saturate: '<S49>/Saturation 4' */
+  /* Saturate: '<S74>/Saturation 4' */
   if (ctrl_TAPM_B.output[6] > ctrl_TAPM_P.Saturation4_UpperSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation4_UpperSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation4_UpperSat;
   } else if (ctrl_TAPM_B.output[6] < ctrl_TAPM_P.Min_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Min_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Min_thrust;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[6];
+    rtb_Row2 = ctrl_TAPM_B.output[6];
   }
 
-  /* End of Saturate: '<S49>/Saturation 4' */
+  /* End of Saturate: '<S74>/Saturation 4' */
 
-  /* Polyval: '<S49>/negative thrust 4' */
+  /* Polyval: '<S74>/negative thrust 4' */
   rtb_negativethrust4 = ctrl_TAPM_P.pwm_thr4_backward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_negativethrust4 = rtb_negativethrust4 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr4_backward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_negativethrust4 = rtb_negativethrust4 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr4_backward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/negative thrust 4' */
+  /* End of Polyval: '<S74>/negative thrust 4' */
 
-  /* MATLAB Function: '<S49>/MATLAB Function4' */
-  ctrl_TAPM_MATLABFunction2_i(rtb_positivethrust4, ctrl_TAPM_B.output[6],
-    rtb_negativethrust4, &ctrl_TAPM_B.sf_MATLABFunction4_b);
+  /* MATLAB Function: '<S74>/MATLAB Function4' */
+  ctrl_TAPM_MATLABFunction2(rtb_positivethrust4, ctrl_TAPM_B.output[6],
+    rtb_negativethrust4, &ctrl_TAPM_B.sf_MATLABFunction4);
 
-  /* Saturate: '<S49>/Saturation 5' */
+  /* Saturate: '<S74>/Saturation 5' */
   if (ctrl_TAPM_B.output[8] > ctrl_TAPM_P.Max_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Max_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Max_thrust;
   } else if (ctrl_TAPM_B.output[8] < ctrl_TAPM_P.Saturation5_LowerSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation5_LowerSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation5_LowerSat;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[8];
+    rtb_Row2 = ctrl_TAPM_B.output[8];
   }
 
-  /* End of Saturate: '<S49>/Saturation 5' */
+  /* End of Saturate: '<S74>/Saturation 5' */
 
-  /* Polyval: '<S49>/positive thrust 5' */
+  /* Polyval: '<S74>/positive thrust 5' */
   rtb_positivethrust5 = ctrl_TAPM_P.pwm_thr5_forward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_positivethrust5 = rtb_positivethrust5 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr5_forward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_positivethrust5 = rtb_positivethrust5 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr5_forward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/positive thrust 5' */
+  /* End of Polyval: '<S74>/positive thrust 5' */
 
-  /* Saturate: '<S49>/Saturation 6' */
+  /* Saturate: '<S74>/Saturation 6' */
   if (ctrl_TAPM_B.output[8] > ctrl_TAPM_P.Saturation6_UpperSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation6_UpperSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation6_UpperSat;
   } else if (ctrl_TAPM_B.output[8] < ctrl_TAPM_P.Min_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Min_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Min_thrust;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[8];
+    rtb_Row2 = ctrl_TAPM_B.output[8];
   }
 
-  /* End of Saturate: '<S49>/Saturation 6' */
+  /* End of Saturate: '<S74>/Saturation 6' */
 
-  /* Polyval: '<S49>/negative thrust 5' */
+  /* Polyval: '<S74>/negative thrust 5' */
   rtb_negativethrust5 = ctrl_TAPM_P.pwm_thr5_backward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_negativethrust5 = rtb_negativethrust5 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr5_backward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_negativethrust5 = rtb_negativethrust5 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr5_backward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/negative thrust 5' */
+  /* End of Polyval: '<S74>/negative thrust 5' */
 
-  /* MATLAB Function: '<S49>/MATLAB Function5' */
-  ctrl_TAPM_MATLABFunction2_i(rtb_positivethrust5, ctrl_TAPM_B.output[8],
-    rtb_negativethrust5, &ctrl_TAPM_B.sf_MATLABFunction5_h);
+  /* MATLAB Function: '<S74>/MATLAB Function5' */
+  ctrl_TAPM_MATLABFunction2(rtb_positivethrust5, ctrl_TAPM_B.output[8],
+    rtb_negativethrust5, &ctrl_TAPM_B.sf_MATLABFunction5);
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Saturate: '<S48>/Saturation 2' */
-    if (rtb_ImpAsg_InsertedFor_Out2_at_[1] > ctrl_TAPM_P.Saturation2_UpperSat) {
+    /* Saturate: '<S73>/Saturation 2' */
+    if (rtb_ImpAsg_InsertedFor_commande[1] > ctrl_TAPM_P.Saturation2_UpperSat) {
       ctrl_TAPM_B.Saturation2 = ctrl_TAPM_P.Saturation2_UpperSat;
-    } else if (rtb_ImpAsg_InsertedFor_Out2_at_[1] <
+    } else if (rtb_ImpAsg_InsertedFor_commande[1] <
                ctrl_TAPM_P.Saturation2_LowerSat) {
       ctrl_TAPM_B.Saturation2 = ctrl_TAPM_P.Saturation2_LowerSat;
     } else {
-      ctrl_TAPM_B.Saturation2 = rtb_ImpAsg_InsertedFor_Out2_at_[1];
+      ctrl_TAPM_B.Saturation2 = rtb_ImpAsg_InsertedFor_commande[1];
     }
 
-    /* End of Saturate: '<S48>/Saturation 2' */
+    /* End of Saturate: '<S73>/Saturation 2' */
   }
 
-  /* Saturate: '<S49>/Saturation 12' */
+  /* Saturate: '<S74>/Saturation 12' */
   if (ctrl_TAPM_B.output[10] > ctrl_TAPM_P.Max_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Max_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Max_thrust;
   } else if (ctrl_TAPM_B.output[10] < ctrl_TAPM_P.Saturation12_LowerSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation12_LowerSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation12_LowerSat;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[10];
+    rtb_Row2 = ctrl_TAPM_B.output[10];
   }
 
-  /* End of Saturate: '<S49>/Saturation 12' */
+  /* End of Saturate: '<S74>/Saturation 12' */
 
-  /* Polyval: '<S49>/positive thrust 6' */
+  /* Polyval: '<S74>/positive thrust 6' */
   rtb_positivethrust6 = ctrl_TAPM_P.pwm_thr6_forward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_positivethrust6 = rtb_positivethrust6 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr6_forward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_positivethrust6 = rtb_positivethrust6 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr6_forward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/positive thrust 6' */
+  /* End of Polyval: '<S74>/positive thrust 6' */
 
-  /* Saturate: '<S49>/Saturation 13' */
+  /* Saturate: '<S74>/Saturation 13' */
   if (ctrl_TAPM_B.output[10] > ctrl_TAPM_P.Saturation13_UpperSat) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation13_UpperSat;
+    rtb_Row2 = ctrl_TAPM_P.Saturation13_UpperSat;
   } else if (ctrl_TAPM_B.output[10] < ctrl_TAPM_P.Min_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Min_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Min_thrust;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[10];
+    rtb_Row2 = ctrl_TAPM_B.output[10];
   }
 
-  /* End of Saturate: '<S49>/Saturation 13' */
+  /* End of Saturate: '<S74>/Saturation 13' */
 
-  /* Polyval: '<S49>/negative thrust 6' */
+  /* Polyval: '<S74>/negative thrust 6' */
   rtb_negativethrust6 = ctrl_TAPM_P.pwm_thr6_backward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_negativethrust6 = rtb_negativethrust6 * rtb_eta_w_idx_2 +
-      ctrl_TAPM_P.pwm_thr6_backward[res + 1];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_negativethrust6 = rtb_negativethrust6 * rtb_Row2 +
+      ctrl_TAPM_P.pwm_thr6_backward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/negative thrust 6' */
+  /* End of Polyval: '<S74>/negative thrust 6' */
 
-  /* MATLAB Function: '<S49>/MATLAB Function6' */
-  ctrl_TAPM_MATLABFunction2_i(rtb_positivethrust6, ctrl_TAPM_B.output[10],
-    rtb_negativethrust6, &ctrl_TAPM_B.sf_MATLABFunction6_k);
+  /* MATLAB Function: '<S74>/MATLAB Function6' */
+  ctrl_TAPM_MATLABFunction2(rtb_positivethrust6, ctrl_TAPM_B.output[10],
+    rtb_negativethrust6, &ctrl_TAPM_B.sf_MATLABFunction6);
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Saturate: '<S48>/Saturation 3' */
-    if (rtb_ImpAsg_InsertedFor_Out2_at_[2] > ctrl_TAPM_P.Saturation3_UpperSat) {
+    /* Saturate: '<S73>/Saturation 3' */
+    if (rtb_ImpAsg_InsertedFor_commande[2] > ctrl_TAPM_P.Saturation3_UpperSat) {
       ctrl_TAPM_B.Saturation3 = ctrl_TAPM_P.Saturation3_UpperSat;
-    } else if (rtb_ImpAsg_InsertedFor_Out2_at_[2] <
+    } else if (rtb_ImpAsg_InsertedFor_commande[2] <
                ctrl_TAPM_P.Saturation3_LowerSat_f) {
       ctrl_TAPM_B.Saturation3 = ctrl_TAPM_P.Saturation3_LowerSat_f;
     } else {
-      ctrl_TAPM_B.Saturation3 = rtb_ImpAsg_InsertedFor_Out2_at_[2];
+      ctrl_TAPM_B.Saturation3 = rtb_ImpAsg_InsertedFor_commande[2];
     }
 
-    /* End of Saturate: '<S48>/Saturation 3' */
+    /* End of Saturate: '<S73>/Saturation 3' */
 
-    /* Saturate: '<S48>/Saturation 4' */
-    if (rtb_ImpAsg_InsertedFor_Out2_at_[3] > ctrl_TAPM_P.Saturation4_UpperSat_p)
+    /* Saturate: '<S73>/Saturation 4' */
+    if (rtb_ImpAsg_InsertedFor_commande[3] > ctrl_TAPM_P.Saturation4_UpperSat_p)
     {
       ctrl_TAPM_B.Saturation4 = ctrl_TAPM_P.Saturation4_UpperSat_p;
-    } else if (rtb_ImpAsg_InsertedFor_Out2_at_[3] <
+    } else if (rtb_ImpAsg_InsertedFor_commande[3] <
                ctrl_TAPM_P.Saturation4_LowerSat) {
       ctrl_TAPM_B.Saturation4 = ctrl_TAPM_P.Saturation4_LowerSat;
     } else {
-      ctrl_TAPM_B.Saturation4 = rtb_ImpAsg_InsertedFor_Out2_at_[3];
+      ctrl_TAPM_B.Saturation4 = rtb_ImpAsg_InsertedFor_commande[3];
     }
 
-    /* End of Saturate: '<S48>/Saturation 4' */
+    /* End of Saturate: '<S73>/Saturation 4' */
 
-    /* Saturate: '<S48>/Saturation 5' */
-    if (rtb_ImpAsg_InsertedFor_Out2_at_[4] > ctrl_TAPM_P.Saturation5_UpperSat) {
+    /* Saturate: '<S73>/Saturation 5' */
+    if (rtb_ImpAsg_InsertedFor_commande[4] > ctrl_TAPM_P.Saturation5_UpperSat) {
       ctrl_TAPM_B.Saturation5 = ctrl_TAPM_P.Saturation5_UpperSat;
-    } else if (rtb_ImpAsg_InsertedFor_Out2_at_[4] <
+    } else if (rtb_ImpAsg_InsertedFor_commande[4] <
                ctrl_TAPM_P.Saturation5_LowerSat_h) {
       ctrl_TAPM_B.Saturation5 = ctrl_TAPM_P.Saturation5_LowerSat_h;
     } else {
-      ctrl_TAPM_B.Saturation5 = rtb_ImpAsg_InsertedFor_Out2_at_[4];
+      ctrl_TAPM_B.Saturation5 = rtb_ImpAsg_InsertedFor_commande[4];
     }
 
-    /* End of Saturate: '<S48>/Saturation 5' */
+    /* End of Saturate: '<S73>/Saturation 5' */
 
-    /* Saturate: '<S48>/Saturation 6' */
-    if (rtb_ImpAsg_InsertedFor_Out2_at_[5] > ctrl_TAPM_P.Saturation6_UpperSat_g)
+    /* Saturate: '<S73>/Saturation 6' */
+    if (rtb_ImpAsg_InsertedFor_commande[5] > ctrl_TAPM_P.Saturation6_UpperSat_g)
     {
       ctrl_TAPM_B.Saturation6 = ctrl_TAPM_P.Saturation6_UpperSat_g;
-    } else if (rtb_ImpAsg_InsertedFor_Out2_at_[5] <
+    } else if (rtb_ImpAsg_InsertedFor_commande[5] <
                ctrl_TAPM_P.Saturation6_LowerSat) {
       ctrl_TAPM_B.Saturation6 = ctrl_TAPM_P.Saturation6_LowerSat;
     } else {
-      ctrl_TAPM_B.Saturation6 = rtb_ImpAsg_InsertedFor_Out2_at_[5];
+      ctrl_TAPM_B.Saturation6 = rtb_ImpAsg_InsertedFor_commande[5];
     }
 
-    /* End of Saturate: '<S48>/Saturation 6' */
+    /* End of Saturate: '<S73>/Saturation 6' */
   }
 
-  /* Saturate: '<S49>/Saturation 7' */
+  /* Saturate: '<S74>/Saturation 7' */
   if (ctrl_TAPM_B.output[0] > ctrl_TAPM_P.Max_thrust) {
     ctrl_TAPM_B.Saturation7[0] = ctrl_TAPM_P.Max_thrust;
   } else if (ctrl_TAPM_B.output[0] < -ctrl_TAPM_P.Max_thrust) {
@@ -5215,109 +5395,387 @@ void ctrl_TAPM_output(void)
     ctrl_TAPM_B.Saturation7[5] = ctrl_TAPM_B.output[10];
   }
 
-  /* End of Saturate: '<S49>/Saturation 7' */
+  /* End of Saturate: '<S74>/Saturation 7' */
 
-  /* Saturate: '<S49>/Saturation 1' */
+  /* Saturate: '<S74>/Saturation 1' */
   if (ctrl_TAPM_B.output[0] > ctrl_TAPM_P.Max_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Max_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Max_thrust;
   } else if (ctrl_TAPM_B.output[0] < ctrl_TAPM_P.Saturation1_LowerSat_h) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation1_LowerSat_h;
+    rtb_Row2 = ctrl_TAPM_P.Saturation1_LowerSat_h;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[0];
+    rtb_Row2 = ctrl_TAPM_B.output[0];
   }
 
-  /* End of Saturate: '<S49>/Saturation 1' */
+  /* End of Saturate: '<S74>/Saturation 1' */
 
-  /* Polyval: '<S49>/positive thrust 1' */
-  rtb_Ta = ctrl_TAPM_P.pwm_thr1_forward[0];
-  for (res = 0; res < 5; res++) {
-    rtb_Ta = rtb_Ta * rtb_eta_w_idx_2 + ctrl_TAPM_P.pwm_thr1_forward[res + 1];
+  /* Polyval: '<S74>/positive thrust 1' */
+  rtb_Row1_m = ctrl_TAPM_P.pwm_thr1_forward[0];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_Row1_m = rtb_Row1_m * rtb_Row2 + ctrl_TAPM_P.pwm_thr1_forward[ixstart +
+      1];
   }
 
-  /* End of Polyval: '<S49>/positive thrust 1' */
+  /* End of Polyval: '<S74>/positive thrust 1' */
 
-  /* Saturate: '<S49>/Saturation 2' */
+  /* Saturate: '<S74>/Saturation 2' */
   if (ctrl_TAPM_B.output[0] > ctrl_TAPM_P.Saturation2_UpperSat_p) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Saturation2_UpperSat_p;
+    rtb_Row2 = ctrl_TAPM_P.Saturation2_UpperSat_p;
   } else if (ctrl_TAPM_B.output[0] < ctrl_TAPM_P.Min_thrust) {
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.Min_thrust;
+    rtb_Row2 = ctrl_TAPM_P.Min_thrust;
   } else {
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.output[0];
+    rtb_Row2 = ctrl_TAPM_B.output[0];
   }
 
-  /* End of Saturate: '<S49>/Saturation 2' */
+  /* End of Saturate: '<S74>/Saturation 2' */
 
-  /* Polyval: '<S49>/negative thrust 1' */
-  offset = ctrl_TAPM_P.pwm_thr1_backward[0];
-  for (res = 0; res < 5; res++) {
-    offset = offset * rtb_eta_w_idx_2 + ctrl_TAPM_P.pwm_thr1_backward[res + 1];
+  /* Polyval: '<S74>/negative thrust 1' */
+  rtb_Row1 = ctrl_TAPM_P.pwm_thr1_backward[0];
+  for (ixstart = 0; ixstart < 5; ixstart++) {
+    rtb_Row1 = rtb_Row1 * rtb_Row2 + ctrl_TAPM_P.pwm_thr1_backward[ixstart + 1];
   }
 
-  /* End of Polyval: '<S49>/negative thrust 1' */
+  /* End of Polyval: '<S74>/negative thrust 1' */
 
-  /* MATLAB Function: '<S49>/MATLAB Function1' */
-  /* MATLAB Function 'Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function1': '<S57>:1' */
+  /* MATLAB Function: '<S74>/MATLAB Function1' */
+  /* MATLAB Function 'Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function1': '<S82>:1' */
   if (ctrl_TAPM_B.output[0] >= 0.0) {
-    /* '<S57>:1:4' */
-    /* '<S57>:1:5' */
-    ctrl_TAPM_B.Tc_out = rtb_Ta;
+    /* '<S82>:1:4' */
+    /* '<S82>:1:5' */
+    ctrl_TAPM_B.Tc_out = rtb_Row1_m;
   } else {
     /* signal < 0 */
-    /* '<S57>:1:7' */
-    ctrl_TAPM_B.Tc_out = offset;
+    /* '<S82>:1:7' */
+    ctrl_TAPM_B.Tc_out = rtb_Row1;
   }
 
-  /* End of MATLAB Function: '<S49>/MATLAB Function1' */
+  /* End of MATLAB Function: '<S74>/MATLAB Function1' */
+
+  /* Integrator: '<S6>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Gain: '<S4>/Gain' */
-    ctrl_TAPM_B.Gain[0] = ctrl_TAPM_P.Gain_Gain_f * ctrl_TAPM_B.Saturation1;
-    ctrl_TAPM_B.Gain[1] = ctrl_TAPM_P.Gain_Gain_f * ctrl_TAPM_B.Saturation2;
-    ctrl_TAPM_B.Gain[2] = ctrl_TAPM_P.Gain_Gain_f * ctrl_TAPM_B.Saturation3;
-    ctrl_TAPM_B.Gain[3] = ctrl_TAPM_P.Gain_Gain_f * ctrl_TAPM_B.Saturation4;
-    ctrl_TAPM_B.Gain[4] = ctrl_TAPM_P.Gain_Gain_f * ctrl_TAPM_B.Saturation5;
-    ctrl_TAPM_B.Gain[5] = ctrl_TAPM_P.Gain_Gain_f * ctrl_TAPM_B.Saturation6;
+    ZCEventType zcEvent;
+    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
+                       &ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_nt,
+                       ctrl_TAPM_B.reset);
+
+    /* evaluate zero-crossings */
+    if (zcEvent || ctrl_TAPM_DW.Integrator_IWORK.IcNeedsLoading) {
+      ctrl_TAPM_X.Integrator_CSTATE_a[0] = 0.0;
+      ctrl_TAPM_X.Integrator_CSTATE_a[1] = 0.0;
+      ctrl_TAPM_X.Integrator_CSTATE_a[2] = 0.0;
+    }
+  }
+
+  ctrl_TAPM_B.Integrator[0] = ctrl_TAPM_X.Integrator_CSTATE_a[0];
+  ctrl_TAPM_B.Integrator[1] = ctrl_TAPM_X.Integrator_CSTATE_a[1];
+  ctrl_TAPM_B.Integrator[2] = ctrl_TAPM_X.Integrator_CSTATE_a[2];
+
+  /* Saturate: '<S60>/Saturation' */
+  if (ctrl_TAPM_B.Integrator[2] > ctrl_TAPM_P.Saturation_UpperSat_i) {
+    rtb_Row1_m = ctrl_TAPM_P.Saturation_UpperSat_i;
+  } else if (ctrl_TAPM_B.Integrator[2] < ctrl_TAPM_P.Saturation_LowerSat_o) {
+    rtb_Row1_m = ctrl_TAPM_P.Saturation_LowerSat_o;
+  } else {
+    rtb_Row1_m = ctrl_TAPM_B.Integrator[2];
+  }
+
+  /* End of Saturate: '<S60>/Saturation' */
+
+  /* Signum: '<S60>/Sign' */
+  if (rtb_Row1_m < 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
+  } else if (rtb_Row1_m > 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
+  } else if (rtb_Row1_m == 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
+  } else {
+    rtb_TmpSignalConversionAtSFun_2 = rtb_Row1_m;
+  }
+
+  /* Gain: '<S60>/Gain' incorporates:
+   *  Signum: '<S60>/Sign'
+   */
+  rtb_psi_dot = ctrl_TAPM_P.Gain_Gain_pg * rtb_TmpSignalConversionAtSFun_2;
+
+  /* Sum: '<S60>/Sum1' */
+  rtb_Row1_m += rtb_psi_dot;
+
+  /* Math: '<S60>/Math Function' incorporates:
+   *  Constant: '<S60>/Constant'
+   */
+  rtb_Row1_m = rt_remd_snf(rtb_Row1_m, ctrl_TAPM_P.Constant_Value_kq);
+
+  /* Sum: '<S60>/Sum' */
+  ctrl_TAPM_B.Sum = rtb_Row1_m - rtb_psi_dot;
+
+  /* Saturate: '<S61>/Saturation' */
+  if (ctrl_TAPM_B.psi_m > ctrl_TAPM_P.Saturation_UpperSat_e) {
+    rtb_Row1_m = ctrl_TAPM_P.Saturation_UpperSat_e;
+  } else if (ctrl_TAPM_B.psi_m < ctrl_TAPM_P.Saturation_LowerSat_g) {
+    rtb_Row1_m = ctrl_TAPM_P.Saturation_LowerSat_g;
+  } else {
+    rtb_Row1_m = ctrl_TAPM_B.psi_m;
+  }
+
+  /* End of Saturate: '<S61>/Saturation' */
+
+  /* Signum: '<S61>/Sign' */
+  if (rtb_Row1_m < 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
+  } else if (rtb_Row1_m > 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
+  } else if (rtb_Row1_m == 0.0) {
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
+  } else {
+    rtb_TmpSignalConversionAtSFun_2 = rtb_Row1_m;
+  }
+
+  /* Gain: '<S61>/Gain' incorporates:
+   *  Signum: '<S61>/Sign'
+   */
+  rtb_psi_dot = ctrl_TAPM_P.Gain_Gain_f * rtb_TmpSignalConversionAtSFun_2;
+
+  /* Sum: '<S61>/Sum1' */
+  rtb_Row1_m += rtb_psi_dot;
+
+  /* Math: '<S61>/Math Function' incorporates:
+   *  Constant: '<S61>/Constant'
+   */
+  rtb_Row1_m = rt_remd_snf(rtb_Row1_m, ctrl_TAPM_P.Constant_Value_p0);
+
+  /* Sum: '<S61>/Sum' */
+  rtb_Row1_m -= rtb_psi_dot;
+
+  /* Fcn: '<S6>/Fcn' */
+  rtb_psi_dot = rtb_Row1_m;
+
+  /* Integrator: '<S6>/Integrator2' */
+  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
+    ZCEventType zcEvent;
+    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
+                       &ctrl_TAPM_PrevZCX.Integrator2_Reset_ZCE,
+                       ctrl_TAPM_B.reset);
+
+    /* evaluate zero-crossings */
+    if (zcEvent) {
+      ctrl_TAPM_X.Integrator2_CSTATE[0] = (ctrl_TAPM_P.Integrator2_IC[0]);
+      ctrl_TAPM_X.Integrator2_CSTATE[1] = (ctrl_TAPM_P.Integrator2_IC[1]);
+      ctrl_TAPM_X.Integrator2_CSTATE[2] = (ctrl_TAPM_P.Integrator2_IC[2]);
+    }
+  }
+
+  ctrl_TAPM_B.Integrator2[0] = ctrl_TAPM_X.Integrator2_CSTATE[0];
+  ctrl_TAPM_B.Integrator2[1] = ctrl_TAPM_X.Integrator2_CSTATE[1];
+  ctrl_TAPM_B.Integrator2[2] = ctrl_TAPM_X.Integrator2_CSTATE[2];
+
+  /* Sum: '<S6>/Sum' */
+  rtb_Sum_on_idx_0 = ctrl_TAPM_B.x_m - ctrl_TAPM_B.Integrator[0];
+  rtb_Sum_on_idx_1 = ctrl_TAPM_B.y_m - ctrl_TAPM_B.Integrator[1];
+  rtb_Sum_on_idx_2 = rtb_Row1_m - ctrl_TAPM_B.Sum;
+
+  /* Product: '<S6>/Matrix Multiply2' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_MatrixMultiply[b_ixstart] = 0.0;
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Kd_p.K_d[b_ixstart] *
+      rtb_Sum_on_idx_0;
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Kd_p.K_d[b_ixstart + 3] *
+      rtb_Sum_on_idx_1;
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Kd_p.K_d[b_ixstart + 6] *
+      rtb_Sum_on_idx_2;
+  }
+
+  /* End of Product: '<S6>/Matrix Multiply2' */
+
+  /* Fcn: '<S58>/Row2' */
+  rtb_TmpSignalConversionAtSFun_2 = rtb_MatrixMultiply[0];
+  rtb_TmpSignalConversionAtSFun_1 = rtb_MatrixMultiply[1];
+
+  /* Fcn: '<S58>/Row3' */
+  rtb_TmpSignalConversionAtSFun_0 = rtb_MatrixMultiply[2];
+
+  /* Sum: '<S6>/Sum2' incorporates:
+   *  Fcn: '<S58>/Row1'
+   *  Fcn: '<S58>/Row2'
+   *  Fcn: '<S58>/Row3'
+   *  Fcn: '<S6>/Fcn'
+   */
+  rtb_MatrixMultiply[0] = (cos(rtb_Row1_m) * rtb_MatrixMultiply[0] + sin
+    (rtb_Row1_m) * rtb_MatrixMultiply[1]) + rtb_Sum3[0];
+  rtb_MatrixMultiply[1] = (-sin(rtb_Row1_m) * rtb_TmpSignalConversionAtSFun_2 +
+    cos(rtb_Row1_m) * rtb_TmpSignalConversionAtSFun_1) + rtb_Sum3[1];
+  rtb_MatrixMultiply[2] = rtb_TmpSignalConversionAtSFun_0 + rtb_Sum3[2];
+
+  /* MATLAB Function: '<S6>/C(nu)*nu' */
+  /* MATLAB Function 'Nonlinear Passisve Observer/D(nu)*nu': '<S56>:1' */
+  /* '<S56>:1:3' */
+  /* '<S56>:1:4' */
+  /* '<S56>:1:5' */
+  /* % DAMPING  */
+  /*  Surge: */
+  /*  Based on fitting of towing data from -0.8 < u < 0.8 m/s */
+  /* '<S56>:1:11' */
+  /*  Sway: */
+  /*  Based on fitting of towing data from -0.45 < u < 0.45 m/s */
+  /* '<S56>:1:17' */
+  /*  Yaw: */
+  /*  Based on fitting of towing data from -8 < u < 8 deg/s */
+  /*  The fitting range is limited. Towing should be performed for higher */
+  /*  velocities. */
+  /* '<S56>:1:25' */
+  /*  Y_vvv og N_rrr er fra curvefitting uten minus, men ser ut til å fungere */
+  /*  med minus.  */
+  /* % Assembly of the damping matrix */
+  /* '<S56>:1:40' */
+  /* '<S56>:1:41' */
+  /* '<S56>:1:42' */
+  /*  Y_r + Y_rr*abs(r) + Y_rrr*r^2 + Y_vr*abs(v); Not verified, temporarily disabled */
+  /*  N_v + N_vv*abs(v) + N_vvv*v^2 + N_rv*abs(r); Not verified, temporarily disabled */
+  /* '<S56>:1:47' */
+  /* '<S56>:1:54' */
+  /* MATLAB Function 'Nonlinear Passisve Observer/C(nu)*nu': '<S55>:1' */
+  /* '<S55>:1:3' */
+  /* '<S55>:1:4' */
+  /* '<S55>:1:5' */
+  /* % MATRICES */
+  /* 0.0432; */
+  /* % Added mass */
+  /* % Correolis matrix */
+  /* '<S55>:1:14' */
+  rtb_Row2 = -99.03 * ctrl_TAPM_B.Integrator1[1] - -0.525 *
+    ctrl_TAPM_B.Integrator1[2];
+
+  /* '<S55>:1:15' */
+  rtb_Row1 = 124.658 * ctrl_TAPM_B.Integrator1[0];
+
+  /* Sum: '<S6>/Sum3' incorporates:
+   *  Fcn: '<S59>/Row1'
+   *  Fcn: '<S59>/Row2'
+   *  Fcn: '<S59>/Row3'
+   *  Fcn: '<S6>/Fcn'
+   */
+  /* '<S55>:1:17' */
+  /* '<S55>:1:24' */
+  tmp_0[0] = cos(rtb_Row1_m) * ctrl_TAPM_B.Integrator2[0] + sin(rtb_Row1_m) *
+    ctrl_TAPM_B.Integrator2[1];
+  tmp_0[1] = -sin(rtb_Row1_m) * ctrl_TAPM_B.Integrator2[0] + cos(rtb_Row1_m) *
+    ctrl_TAPM_B.Integrator2[1];
+  tmp_0[2] = ctrl_TAPM_B.Integrator2[2];
+
+  /* MATLAB Function: '<S6>/D(nu)*nu' */
+  tmp_1[0] = (0.0 * fabs(ctrl_TAPM_B.Integrator1[0]) + -2.332) +
+    ctrl_TAPM_B.Integrator1[0] * ctrl_TAPM_B.Integrator1[0] * -8.557;
+  tmp_1[3] = 0.0;
+  tmp_1[6] = 0.0;
+  tmp_1[1] = 0.0;
+  tmp_1[4] = (0.3976 * fabs(ctrl_TAPM_B.Integrator1[1]) + -4.673) +
+    ctrl_TAPM_B.Integrator1[1] * ctrl_TAPM_B.Integrator1[1] * -313.3;
+  tmp_1[7] = 0.0;
+  tmp_1[2] = 0.0;
+  tmp_1[5] = 0.0;
+  tmp_1[8] = (-0.01148 * fabs(ctrl_TAPM_B.Integrator1[2]) + -0.01675) +
+    ctrl_TAPM_B.Integrator1[2] * ctrl_TAPM_B.Integrator1[2] * -0.0003578;
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    S_singular_cross[3 * b_ixstart] = -tmp_1[3 * b_ixstart];
+    S_singular_cross[1 + 3 * b_ixstart] = -tmp_1[3 * b_ixstart + 1];
+    S_singular_cross[2 + 3 * b_ixstart] = -tmp_1[3 * b_ixstart + 2];
+  }
+
+  /* MATLAB Function: '<S6>/C(nu)*nu' */
+  tmp_2[0] = 0.0;
+  tmp_2[3] = 0.0;
+  tmp_2[6] = rtb_Row2;
+  tmp_2[1] = 0.0;
+  tmp_2[4] = 0.0;
+  tmp_2[7] = rtb_Row1;
+  tmp_2[2] = -rtb_Row2;
+  tmp_2[5] = -rtb_Row1;
+  tmp_2[8] = 0.0;
+
+  /* Sum: '<S6>/Sum3' incorporates:
+   *  MATLAB Function: '<S6>/D(nu)*nu'
+   */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_Sum3[b_ixstart] = (tmp_0[b_ixstart] + rtb_MatrixMultiply[b_ixstart]) -
+      ((S_singular_cross[b_ixstart + 3] * ctrl_TAPM_B.Integrator1[1] +
+        S_singular_cross[b_ixstart] * ctrl_TAPM_B.Integrator1[0]) +
+       S_singular_cross[b_ixstart + 6] * ctrl_TAPM_B.Integrator1[2]);
+  }
+
+  /* MATLAB Function: '<S6>/C(nu)*nu' incorporates:
+   *  Sum: '<S6>/Sum3'
+   */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    tmp_0[b_ixstart] = tmp_2[b_ixstart + 6] * ctrl_TAPM_B.Integrator1[2] +
+      (tmp_2[b_ixstart + 3] * ctrl_TAPM_B.Integrator1[1] + tmp_2[b_ixstart] *
+       ctrl_TAPM_B.Integrator1[0]);
+  }
+
+  /* Sum: '<S6>/Sum3' */
+  rtb_MatrixMultiply[0] = rtb_Sum3[0] - tmp_0[0];
+  rtb_MatrixMultiply[1] = rtb_Sum3[1] - tmp_0[1];
+  rtb_MatrixMultiply[2] = rtb_Sum3[2] - tmp_0[2];
+
+  /* Gain: '<S6>/M^-1' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    ctrl_TAPM_B.M1[b_ixstart] = 0.0;
+    ctrl_TAPM_B.M1[b_ixstart] += ctrl_TAPM_P.M1_Gain[b_ixstart] *
+      rtb_MatrixMultiply[0];
+    ctrl_TAPM_B.M1[b_ixstart] += ctrl_TAPM_P.M1_Gain[b_ixstart + 3] *
+      rtb_MatrixMultiply[1];
+    ctrl_TAPM_B.M1[b_ixstart] += ctrl_TAPM_P.M1_Gain[b_ixstart + 6] *
+      rtb_MatrixMultiply[2];
+  }
+
+  /* End of Gain: '<S6>/M^-1' */
+  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
+    /* Gain: '<S9>/Gain' */
+    ctrl_TAPM_B.Gain[0] = ctrl_TAPM_P.Gain_Gain_f0 * ctrl_TAPM_B.Saturation1;
+    ctrl_TAPM_B.Gain[1] = ctrl_TAPM_P.Gain_Gain_f0 * ctrl_TAPM_B.Saturation2;
+    ctrl_TAPM_B.Gain[2] = ctrl_TAPM_P.Gain_Gain_f0 * ctrl_TAPM_B.Saturation3;
+    ctrl_TAPM_B.Gain[3] = ctrl_TAPM_P.Gain_Gain_f0 * ctrl_TAPM_B.Saturation4;
+    ctrl_TAPM_B.Gain[4] = ctrl_TAPM_P.Gain_Gain_f0 * ctrl_TAPM_B.Saturation5;
+    ctrl_TAPM_B.Gain[5] = ctrl_TAPM_P.Gain_Gain_f0 * ctrl_TAPM_B.Saturation6;
   }
 
   /* MATLAB Function: '<Root>/Finding commanded forces in: [Surge,Sway,Yaw]' incorporates:
    *  Constant: '<Root>/X-position Thruster'
    *  Constant: '<Root>/Y-position Thruster'
    */
-  /* MATLAB Function 'Finding commanded forces in: [Surge,Sway,Yaw]': '<S1>:1' */
-  /* '<S1>:1:4' */
-  /* '<S1>:1:5' */
-  /* '<S1>:1:6' */
-  /* '<S1>:1:10' */
+  /* MATLAB Function 'Finding commanded forces in: [Surge,Sway,Yaw]': '<S2>:1' */
+  /* '<S2>:1:4' */
+  /* '<S2>:1:5' */
+  /* '<S2>:1:6' */
+  /* '<S2>:1:10' */
   ctrl_TAPM_B.commanded_tau[0] = 0.0;
   ctrl_TAPM_B.commanded_tau[1] = 0.0;
   ctrl_TAPM_B.commanded_tau[2] = 0.0;
-  rtb_eta_w_idx_2 = ctrl_TAPM_B.Gain[0];
-  ctrl_TAPM_cosd(&rtb_eta_w_idx_2);
-  rtb_Ta = ctrl_TAPM_B.Gain[1];
-  ctrl_TAPM_cosd(&rtb_Ta);
-  offset = ctrl_TAPM_B.Gain[2];
-  ctrl_TAPM_cosd(&offset);
-  rtb_Row1 = ctrl_TAPM_B.Gain[3];
+  rtb_Row2 = ctrl_TAPM_B.Gain[0];
+  ctrl_TAPM_cosd(&rtb_Row2);
+  rtb_Row1 = ctrl_TAPM_B.Gain[1];
   ctrl_TAPM_cosd(&rtb_Row1);
-  rtb_Row3 = ctrl_TAPM_B.Gain[4];
-  ctrl_TAPM_cosd(&rtb_Row3);
+  rtb_Row1_m = ctrl_TAPM_B.Gain[2];
+  ctrl_TAPM_cosd(&rtb_Row1_m);
+  rtb_commandedAngle_CoreSubsysCa = ctrl_TAPM_B.Gain[3];
+  ctrl_TAPM_cosd(&rtb_commandedAngle_CoreSubsysCa);
+  rtb_TmpSignalConversionAtSFun_2 = ctrl_TAPM_B.Gain[4];
+  ctrl_TAPM_cosd(&rtb_TmpSignalConversionAtSFun_2);
   g = ctrl_TAPM_B.Gain[5];
   ctrl_TAPM_cosd(&g);
   h = ctrl_TAPM_B.Gain[0];
   ctrl_TAPM_sind(&h);
-  rtb_Out2_CoreSubsysCanOut = ctrl_TAPM_B.Gain[1];
-  ctrl_TAPM_sind(&rtb_Out2_CoreSubsysCanOut);
-  rtb_TmpSignalConversionAtSFu__1 = ctrl_TAPM_B.Gain[2];
-  ctrl_TAPM_sind(&rtb_TmpSignalConversionAtSFu__1);
-  Alpha1_idx_0 = ctrl_TAPM_B.Gain[3];
-  ctrl_TAPM_sind(&Alpha1_idx_0);
+  rtb_TmpSignalConversionAtSFun_1 = ctrl_TAPM_B.Gain[1];
+  ctrl_TAPM_sind(&rtb_TmpSignalConversionAtSFun_1);
+  rtb_TmpSignalConversionAtSFun_0 = ctrl_TAPM_B.Gain[2];
+  ctrl_TAPM_sind(&rtb_TmpSignalConversionAtSFun_0);
+  Alpha1_idx_2 = ctrl_TAPM_B.Gain[3];
+  ctrl_TAPM_sind(&Alpha1_idx_2);
   Alpha1_idx_3 = ctrl_TAPM_B.Gain[4];
   ctrl_TAPM_sind(&Alpha1_idx_3);
   Alpha1_idx_4 = ctrl_TAPM_B.Gain[5];
   ctrl_TAPM_sind(&Alpha1_idx_4);
-  rtb_eta_w_idx_0 = ctrl_TAPM_B.Gain[0];
-  ctrl_TAPM_sind(&rtb_eta_w_idx_0);
-  rtb_TmpSignalConversionAtSFu__0 = ctrl_TAPM_B.Gain[0];
-  ctrl_TAPM_cosd(&rtb_TmpSignalConversionAtSFu__0);
+  n = ctrl_TAPM_B.Gain[0];
+  ctrl_TAPM_sind(&n);
+  o = ctrl_TAPM_B.Gain[0];
+  ctrl_TAPM_cosd(&o);
   p = ctrl_TAPM_B.Gain[1];
   ctrl_TAPM_sind(&p);
   q = ctrl_TAPM_B.Gain[1];
@@ -5338,301 +5796,442 @@ void ctrl_TAPM_output(void)
   ctrl_TAPM_sind(&x);
   y = ctrl_TAPM_B.Gain[5];
   ctrl_TAPM_cosd(&y);
-  pos[0] = rtb_eta_w_idx_2;
-  pos[3] = rtb_Ta;
-  pos[6] = offset;
-  pos[9] = rtb_Row1;
-  pos[12] = rtb_Row3;
-  pos[15] = g;
-  pos[1] = h;
-  pos[4] = rtb_Out2_CoreSubsysCanOut;
-  pos[7] = rtb_TmpSignalConversionAtSFu__1;
-  pos[10] = Alpha1_idx_0;
-  pos[13] = Alpha1_idx_3;
-  pos[16] = Alpha1_idx_4;
-  pos[2] = rtb_eta_w_idx_0 * ctrl_TAPM_P.XpositionThruster_Value_e[0] -
-    rtb_TmpSignalConversionAtSFu__0 * ctrl_TAPM_P.YpositionThruster_Value_o[0];
-  pos[5] = p * ctrl_TAPM_P.XpositionThruster_Value_e[1] - q *
+  rtb_Row2_0[0] = rtb_Row2;
+  rtb_Row2_0[3] = rtb_Row1;
+  rtb_Row2_0[6] = rtb_Row1_m;
+  rtb_Row2_0[9] = rtb_commandedAngle_CoreSubsysCa;
+  rtb_Row2_0[12] = rtb_TmpSignalConversionAtSFun_2;
+  rtb_Row2_0[15] = g;
+  rtb_Row2_0[1] = h;
+  rtb_Row2_0[4] = rtb_TmpSignalConversionAtSFun_1;
+  rtb_Row2_0[7] = rtb_TmpSignalConversionAtSFun_0;
+  rtb_Row2_0[10] = Alpha1_idx_2;
+  rtb_Row2_0[13] = Alpha1_idx_3;
+  rtb_Row2_0[16] = Alpha1_idx_4;
+  rtb_Row2_0[2] = n * ctrl_TAPM_P.XpositionThruster_Value_e[0] - o *
+    ctrl_TAPM_P.YpositionThruster_Value_o[0];
+  rtb_Row2_0[5] = p * ctrl_TAPM_P.XpositionThruster_Value_e[1] - q *
     ctrl_TAPM_P.YpositionThruster_Value_o[1];
-  pos[8] = r * ctrl_TAPM_P.XpositionThruster_Value_e[2] - s_0 *
+  rtb_Row2_0[8] = r * ctrl_TAPM_P.XpositionThruster_Value_e[2] - s_0 *
     ctrl_TAPM_P.YpositionThruster_Value_o[2];
-  pos[11] = t * ctrl_TAPM_P.XpositionThruster_Value_e[3] - u *
+  rtb_Row2_0[11] = t * ctrl_TAPM_P.XpositionThruster_Value_e[3] - u *
     ctrl_TAPM_P.YpositionThruster_Value_o[3];
-  pos[14] = v * ctrl_TAPM_P.XpositionThruster_Value_e[4] - w *
+  rtb_Row2_0[14] = v * ctrl_TAPM_P.XpositionThruster_Value_e[4] - w *
     ctrl_TAPM_P.YpositionThruster_Value_o[4];
-  pos[17] = x * ctrl_TAPM_P.XpositionThruster_Value_e[5] - y *
+  rtb_Row2_0[17] = x * ctrl_TAPM_P.XpositionThruster_Value_e[5] - y *
     ctrl_TAPM_P.YpositionThruster_Value_o[5];
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    ctrl_TAPM_B.commanded_tau[i_0] = 0.0;
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    ctrl_TAPM_B.commanded_tau[b_ixstart] = 0.0;
     for (i = 0; i < 6; i++) {
-      ctrl_TAPM_B.commanded_tau[i_0] += pos[3 * i + i_0] *
+      ctrl_TAPM_B.commanded_tau[b_ixstart] += rtb_Row2_0[3 * i + b_ixstart] *
         ctrl_TAPM_B.Saturation7[i];
     }
   }
 
   /* End of MATLAB Function: '<Root>/Finding commanded forces in: [Surge,Sway,Yaw]' */
 
-  /* Sum: '<S18>/Sum2' incorporates:
-   *  Integrator: '<S18>/Integrator1'
-   *  Sum: '<S18>/Sum4'
-   */
-  rtb_eta_w_idx_0 = ctrl_TAPM_B.x_m - (ctrl_TAPM_X.Integrator1_CSTATE[0] +
-    ctrl_TAPM_B.eta[0]);
-  rtb_TmpSignalConversionAtSFu__1 = ctrl_TAPM_B.y_m -
-    (ctrl_TAPM_X.Integrator1_CSTATE[1] + ctrl_TAPM_B.eta[1]);
-  rtb_eta_w_idx_2 = ctrl_TAPM_B.psi_m - (ctrl_TAPM_X.Integrator1_CSTATE[2] +
-    ctrl_TAPM_B.eta[2]);
-
-  /* Gain: '<S18>/K4' */
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    rtb_bias[i_0] = ctrl_TAPM_P.Nonlinearpassiveobserver_K4[i_0 + 6] *
-      rtb_eta_w_idx_2 + (ctrl_TAPM_P.Nonlinearpassiveobserver_K4[i_0 + 3] *
-                         rtb_TmpSignalConversionAtSFu__1 +
-                         ctrl_TAPM_P.Nonlinearpassiveobserver_K4[i_0] *
-                         rtb_eta_w_idx_0);
-  }
-
-  /* End of Gain: '<S18>/K4' */
-
-  /* Sum: '<S18>/Sum1' incorporates:
-   *  Fcn: '<S30>/Row1'
-   *  Fcn: '<S30>/Row2'
-   *  Fcn: '<S30>/Row3'
-   *  Integrator: '<S18>/Integrator3'
-   */
-  tmp_1[0] = cos(ctrl_TAPM_B.psi_m) * ctrl_TAPM_X.Integrator3_CSTATE[0] + sin
-    (ctrl_TAPM_B.psi_m) * ctrl_TAPM_X.Integrator3_CSTATE[1];
-  tmp_1[1] = -sin(ctrl_TAPM_B.psi_m) * ctrl_TAPM_X.Integrator3_CSTATE[0] + cos
-    (ctrl_TAPM_B.psi_m) * ctrl_TAPM_X.Integrator3_CSTATE[1];
-  tmp_1[2] = ctrl_TAPM_X.Integrator3_CSTATE[2];
-
-  /* Sum: '<S18>/Sum8' incorporates:
-   *  Fcn: '<S29>/Row1'
-   *  Fcn: '<S29>/Row2'
-   *  Fcn: '<S29>/Row3'
-   *  Gain: '<S18>/Gain3'
-   *  Gain: '<S18>/Gain6'
-   *  Sum: '<S18>/Sum1'
-   */
-  tmp_2[0] = cos(ctrl_TAPM_B.psi_m) * rtb_bias[0] + sin(ctrl_TAPM_B.psi_m) *
-    rtb_bias[1];
-  tmp_2[1] = -sin(ctrl_TAPM_B.psi_m) * rtb_bias[0] + cos(ctrl_TAPM_B.psi_m) *
-    rtb_bias[1];
-  tmp_2[2] = rtb_bias[2];
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    rtb_bias[i_0] = ((tmp_1[i_0] + ctrl_TAPM_B.commanded_tau[i_0]) + tmp_2[i_0])
-      - ((ctrl_TAPM_P.Nonlinearpassiveobserver_D[i_0 + 3] * ctrl_TAPM_B.nu[1] +
-          ctrl_TAPM_P.Nonlinearpassiveobserver_D[i_0] * ctrl_TAPM_B.nu[0]) +
-         ctrl_TAPM_P.Nonlinearpassiveobserver_D[i_0 + 6] * ctrl_TAPM_B.nu[2]);
-  }
-
-  /* End of Sum: '<S18>/Sum8' */
-
-  /* Gain: '<S18>/Gain3' */
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    ctrl_TAPM_B.Gain3[i_0] = 0.0;
-    ctrl_TAPM_B.Gain3[i_0] += ctrl_TAPM_P.Gain3_Gain_b[i_0] * rtb_bias[0];
-    ctrl_TAPM_B.Gain3[i_0] += ctrl_TAPM_P.Gain3_Gain_b[i_0 + 3] * rtb_bias[1];
-    ctrl_TAPM_B.Gain3[i_0] += ctrl_TAPM_P.Gain3_Gain_b[i_0 + 6] * rtb_bias[2];
-  }
-
-  /* Sum: '<S18>/Sum3' incorporates:
-   *  Fcn: '<S28>/Fcn'
-   *  Fcn: '<S28>/Fcn1'
-   *  Fcn: '<S28>/Fcn2'
-   *  Gain: '<S18>/K2'
-   */
-  tmp_3[0] = cos(ctrl_TAPM_B.psi_m) * ctrl_TAPM_B.nu[0] - sin(ctrl_TAPM_B.psi_m)
-    * ctrl_TAPM_B.nu[1];
-  tmp_3[1] = sin(ctrl_TAPM_B.psi_m) * ctrl_TAPM_B.nu[0] + cos(ctrl_TAPM_B.psi_m)
-    * ctrl_TAPM_B.nu[1];
-  tmp_3[2] = ctrl_TAPM_B.nu[2];
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    ctrl_TAPM_B.Sum3[i_0] = ((ctrl_TAPM_P.Nonlinearpassiveobserver_w_c[i_0 + 3] *
-      rtb_TmpSignalConversionAtSFu__1 +
-      ctrl_TAPM_P.Nonlinearpassiveobserver_w_c[i_0] * rtb_eta_w_idx_0) +
-      ctrl_TAPM_P.Nonlinearpassiveobserver_w_c[i_0 + 6] * rtb_eta_w_idx_2) +
-      tmp_3[i_0];
-  }
-
-  /* End of Sum: '<S18>/Sum3' */
-
-  /* Sum: '<S18>/Sum5' incorporates:
-   *  Gain: '<S18>/K11'
-   *  Integrator: '<S18>/Integrator1'
-   */
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    ctrl_TAPM_B.psi_WF[i_0] = ((ctrl_TAPM_P.K11_Gain[i_0 + 3] *
-      rtb_TmpSignalConversionAtSFu__1 + ctrl_TAPM_P.K11_Gain[i_0] *
-      rtb_eta_w_idx_0) + ctrl_TAPM_P.K11_Gain[i_0 + 6] * rtb_eta_w_idx_2) +
-      ctrl_TAPM_X.Integrator1_CSTATE[i_0];
-  }
-
-  /* End of Sum: '<S18>/Sum5' */
-
-  /* Gain: '<S18>/K12' incorporates:
-   *  Sum: '<S18>/Sum6'
-   */
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    rtb_bias[i_0] = ctrl_TAPM_P.K12_Gain[i_0 + 6] * rtb_eta_w_idx_2 +
-      (ctrl_TAPM_P.K12_Gain[i_0 + 3] * rtb_TmpSignalConversionAtSFu__1 +
-       ctrl_TAPM_P.K12_Gain[i_0] * rtb_eta_w_idx_0);
-  }
-
-  /* End of Gain: '<S18>/K12' */
-
-  /* Gain: '<S18>/Gain2' incorporates:
-   *  Integrator: '<S18>/Integrator2'
-   *  Sum: '<S18>/Sum6'
-   */
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    tmp_0[i_0] = ctrl_TAPM_P.Gain2_Gain_a[i_0 + 6] *
-      ctrl_TAPM_X.Integrator2_CSTATE[2] + (ctrl_TAPM_P.Gain2_Gain_a[i_0 + 3] *
-      ctrl_TAPM_X.Integrator2_CSTATE[1] + ctrl_TAPM_P.Gain2_Gain_a[i_0] *
-      ctrl_TAPM_X.Integrator2_CSTATE[0]);
-  }
-
-  /* End of Gain: '<S18>/Gain2' */
-
-  /* Sum: '<S18>/Sum6' incorporates:
-   *  Gain: '<S18>/Gain1'
-   *  Integrator: '<S18>/Integrator1'
-   */
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    ctrl_TAPM_B.Sum6[i_0] = (rtb_bias[i_0] - tmp_0[i_0]) -
-      ((ctrl_TAPM_P.Gain1_Gain_i[i_0 + 3] * ctrl_TAPM_X.Integrator1_CSTATE[1] +
-        ctrl_TAPM_P.Gain1_Gain_i[i_0] * ctrl_TAPM_X.Integrator1_CSTATE[0]) +
-       ctrl_TAPM_P.Gain1_Gain_i[i_0 + 6] * ctrl_TAPM_X.Integrator1_CSTATE[2]);
-  }
-
-  /* Gain: '<S18>/inv(T_b)' incorporates:
-   *  Integrator: '<S18>/Integrator3'
-   *  Sum: '<S18>/Sum7'
-   */
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    rtb_bias[i_0] = ctrl_TAPM_P.invT_b_Gain[i_0 + 6] *
-      ctrl_TAPM_X.Integrator3_CSTATE[2] + (ctrl_TAPM_P.invT_b_Gain[i_0 + 3] *
-      ctrl_TAPM_X.Integrator3_CSTATE[1] + ctrl_TAPM_P.invT_b_Gain[i_0] *
-      ctrl_TAPM_X.Integrator3_CSTATE[0]);
-  }
-
-  /* End of Gain: '<S18>/inv(T_b)' */
-
-  /* Sum: '<S18>/Sum7' incorporates:
-   *  Gain: '<S18>/K3'
-   */
-  for (i_0 = 0; i_0 < 3; i_0++) {
-    ctrl_TAPM_B.Sum7[i_0] = ((ctrl_TAPM_P.Nonlinearpassiveobserver_K3[i_0 + 3] *
-      rtb_TmpSignalConversionAtSFu__1 +
-      ctrl_TAPM_P.Nonlinearpassiveobserver_K3[i_0] * rtb_eta_w_idx_0) +
-      ctrl_TAPM_P.Nonlinearpassiveobserver_K3[i_0 + 6] * rtb_eta_w_idx_2) -
-      rtb_bias[i_0];
-  }
-
-  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-  }
-
-  /* Integrator: '<S19>/Integrator' */
+  /* Integrator: '<S19>/Integrator2' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
-    zcEvent = rt_ZCFcn(RISING_ZERO_CROSSING,
-                       &ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_ax,
-                       ctrl_TAPM_B.reset_n0);
+    zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
+                       &ctrl_TAPM_PrevZCX.Integrator2_Reset_ZCE_h,
+                       ctrl_TAPM_B.reset);
 
     /* evaluate zero-crossings */
     if (zcEvent) {
-      ctrl_TAPM_X.Integrator_CSTATE_d = ctrl_TAPM_P.Integrator_IC_d;
+      ctrl_TAPM_X.Integrator2_CSTATE_c[0] = ctrl_TAPM_P.Integrator2_IC_p;
+      ctrl_TAPM_X.Integrator2_CSTATE_c[1] = ctrl_TAPM_P.Integrator2_IC_p;
+      ctrl_TAPM_X.Integrator2_CSTATE_c[2] = ctrl_TAPM_P.Integrator2_IC_p;
     }
   }
 
-  ctrl_TAPM_B.Integrator = ctrl_TAPM_X.Integrator_CSTATE_d;
+  rtb_MatrixMultiply[0] = ctrl_TAPM_X.Integrator2_CSTATE_c[0];
+  rtb_MatrixMultiply[1] = ctrl_TAPM_X.Integrator2_CSTATE_c[1];
+  rtb_MatrixMultiply[2] = ctrl_TAPM_X.Integrator2_CSTATE_c[2];
 
-  /* Sum: '<S20>/Sum' incorporates:
-   *  Constant: '<S20>/Constant1'
-   *  Gain: '<S2>/deg2rad'
-   */
-  ctrl_TAPM_B.Sum = ctrl_TAPM_P.deg2rad_Gain * ctrl_TAPM_B.wave_dir +
-    ctrl_TAPM_P.Constant1_Value;
+  /* MATLAB Function: '<S19>/w_d^-2' */
+  /* MATLAB Function 'Guidance/Reference model/w_d^3': '<S24>:1' */
+  /* '<S24>:1:4' */
+  /* MATLAB Function 'Guidance/Reference model/w_d^-2': '<S23>:1' */
+  /* '<S23>:1:4' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    for (i = 0; i < 3; i++) {
+      rtb_y_j[b_ixstart + 3 * i] = 0.0;
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i] * rtb_w_d[b_ixstart];
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i + 1] * rtb_w_d[b_ixstart + 3];
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i + 2] * rtb_w_d[b_ixstart + 6];
+    }
+  }
 
-  /* Sum: '<S20>/Sum1' incorporates:
-   *  Gain: '<S20>/Gain'
-   *  Gain: '<S20>/Gain1'
+  memcpy(&S_singular_cross[0], &rtb_y_j[0], 9U * sizeof(real_T));
+  ixstart = 0;
+  b_ixstart = 3;
+  p3 = 6;
+  rtb_Row2 = fabs(rtb_y_j[0]);
+  rtb_Row1 = fabs(rtb_y_j[1]);
+  rtb_Row1_m = fabs(rtb_y_j[2]);
+  if ((rtb_Row1 > rtb_Row2) && (rtb_Row1 > rtb_Row1_m)) {
+    ixstart = 3;
+    b_ixstart = 0;
+    S_singular_cross[0] = rtb_y_j[1];
+    S_singular_cross[1] = rtb_y_j[0];
+    S_singular_cross[3] = rtb_y_j[4];
+    S_singular_cross[4] = rtb_y_j[3];
+    S_singular_cross[6] = rtb_y_j[7];
+    S_singular_cross[7] = rtb_y_j[6];
+  } else {
+    if (rtb_Row1_m > rtb_Row2) {
+      ixstart = 6;
+      p3 = 0;
+      S_singular_cross[0] = rtb_y_j[2];
+      S_singular_cross[2] = rtb_y_j[0];
+      S_singular_cross[3] = rtb_y_j[5];
+      S_singular_cross[5] = rtb_y_j[3];
+      S_singular_cross[6] = rtb_y_j[8];
+      S_singular_cross[8] = rtb_y_j[6];
+    }
+  }
+
+  rtb_Row2 = S_singular_cross[1] / S_singular_cross[0];
+  S_singular_cross[1] /= S_singular_cross[0];
+  rtb_Row1 = S_singular_cross[2] / S_singular_cross[0];
+  S_singular_cross[2] /= S_singular_cross[0];
+  S_singular_cross[4] -= rtb_Row2 * S_singular_cross[3];
+  S_singular_cross[5] -= rtb_Row1 * S_singular_cross[3];
+  S_singular_cross[7] -= rtb_Row2 * S_singular_cross[6];
+  S_singular_cross[8] -= rtb_Row1 * S_singular_cross[6];
+  if (fabs(S_singular_cross[5]) > fabs(S_singular_cross[4])) {
+    i = b_ixstart;
+    b_ixstart = p3;
+    p3 = i;
+    S_singular_cross[1] = rtb_Row1;
+    S_singular_cross[2] = rtb_Row2;
+    rtb_Row2 = S_singular_cross[4];
+    S_singular_cross[4] = S_singular_cross[5];
+    S_singular_cross[5] = rtb_Row2;
+    rtb_Row2 = S_singular_cross[7];
+    S_singular_cross[7] = S_singular_cross[8];
+    S_singular_cross[8] = rtb_Row2;
+  }
+
+  rtb_Row1_m = S_singular_cross[5];
+  rtb_commandedAngle_CoreSubsysCa = S_singular_cross[4];
+  rtb_Row2 = S_singular_cross[5] / S_singular_cross[4];
+  S_singular_cross[8] -= rtb_Row2 * S_singular_cross[7];
+  rtb_Row2 = (rtb_Row2 * S_singular_cross[1] - S_singular_cross[2]) /
+    S_singular_cross[8];
+  rtb_Row1 = -(S_singular_cross[7] * rtb_Row2 + S_singular_cross[1]) /
+    S_singular_cross[4];
+  rtb_y_j[ixstart] = ((1.0 - S_singular_cross[3] * rtb_Row1) - S_singular_cross
+                      [6] * rtb_Row2) / S_singular_cross[0];
+  rtb_y_j[ixstart + 1] = rtb_Row1;
+  rtb_y_j[ixstart + 2] = rtb_Row2;
+  rtb_Row2 = -(rtb_Row1_m / rtb_commandedAngle_CoreSubsysCa) / S_singular_cross
+    [8];
+  rtb_Row1 = (1.0 - S_singular_cross[7] * rtb_Row2) / S_singular_cross[4];
+  rtb_y_j[b_ixstart] = -(S_singular_cross[3] * rtb_Row1 + S_singular_cross[6] *
+    rtb_Row2) / S_singular_cross[0];
+  rtb_y_j[b_ixstart + 1] = rtb_Row1;
+  rtb_y_j[b_ixstart + 2] = rtb_Row2;
+  rtb_Row2 = 1.0 / S_singular_cross[8];
+  rtb_Row1 = -S_singular_cross[7] * rtb_Row2 / S_singular_cross[4];
+  rtb_y_j[p3] = -(S_singular_cross[3] * rtb_Row1 + S_singular_cross[6] *
+                  rtb_Row2) / S_singular_cross[0];
+  rtb_y_j[p3 + 1] = rtb_Row1;
+  rtb_y_j[p3 + 2] = rtb_Row2;
+
+  /* End of MATLAB Function: '<S19>/w_d^-2' */
+
+  /* Product: '<S19>/Matrix Multiply1' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_MatrixMultiply2[b_ixstart] = 0.0;
+    rtb_MatrixMultiply2[b_ixstart] += rtb_y_j[b_ixstart] * rtb_MatrixMultiply[0];
+    rtb_MatrixMultiply2[b_ixstart] += rtb_y_j[b_ixstart + 3] *
+      rtb_MatrixMultiply[1];
+    rtb_MatrixMultiply2[b_ixstart] += rtb_y_j[b_ixstart + 6] *
+      rtb_MatrixMultiply[2];
+  }
+
+  /* End of Product: '<S19>/Matrix Multiply1' */
+
+  /* Sum: '<S19>/Sum' */
+  rtb_MatrixMultiply2[0] = ctrl_TAPM_B.x_ref - rtb_MatrixMultiply2[0];
+  rtb_MatrixMultiply2[1] = ctrl_TAPM_B.y_ref - rtb_MatrixMultiply2[1];
+  rtb_MatrixMultiply2[2] = ctrl_TAPM_B.psi_ref - rtb_MatrixMultiply2[2];
+
+  /* MATLAB Function: '<S19>/w_d^3' incorporates:
+   *  Product: '<S19>/Matrix Multiply'
    */
-  ctrl_TAPM_B.Sum1[0] = (ctrl_TAPM_P.Gain1_Gain_ib[0] * ctrl_TAPM_B.eta[0] +
-    ctrl_TAPM_P.Gain1_Gain_ib[2] * ctrl_TAPM_B.eta[1]) -
-    (ctrl_TAPM_P.Gain_Gain_dl[0] * rtb_Integrator_idx_0 +
-     ctrl_TAPM_P.Gain_Gain_dl[2] * rtb_Integrator_idx_1);
-  ctrl_TAPM_B.Sum1[1] = (ctrl_TAPM_P.Gain1_Gain_ib[1] * ctrl_TAPM_B.eta[0] +
-    ctrl_TAPM_P.Gain1_Gain_ib[3] * ctrl_TAPM_B.eta[1]) -
-    (ctrl_TAPM_P.Gain_Gain_dl[1] * rtb_Integrator_idx_0 +
-     ctrl_TAPM_P.Gain_Gain_dl[3] * rtb_Integrator_idx_1);
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    for (i = 0; i < 3; i++) {
+      rtb_y_j[b_ixstart + 3 * i] = 0.0;
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i] * rtb_w_d[b_ixstart];
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i + 1] * rtb_w_d[b_ixstart + 3];
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i + 2] * rtb_w_d[b_ixstart + 6];
+    }
+  }
+
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    for (i = 0; i < 3; i++) {
+      S_singular_cross[b_ixstart + 3 * i] = 0.0;
+      S_singular_cross[b_ixstart + 3 * i] += rtb_y_j[3 * i] * rtb_w_d[b_ixstart];
+      S_singular_cross[b_ixstart + 3 * i] += rtb_y_j[3 * i + 1] *
+        rtb_w_d[b_ixstart + 3];
+      S_singular_cross[b_ixstart + 3 * i] += rtb_y_j[3 * i + 2] *
+        rtb_w_d[b_ixstart + 6];
+    }
+  }
+
+  /* End of MATLAB Function: '<S19>/w_d^3' */
+
+  /* Product: '<S19>/Matrix Multiply' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    ctrl_TAPM_B.MatrixMultiply[b_ixstart] = 0.0;
+    ctrl_TAPM_B.MatrixMultiply[b_ixstart] += S_singular_cross[b_ixstart] *
+      rtb_MatrixMultiply2[0];
+    ctrl_TAPM_B.MatrixMultiply[b_ixstart] += S_singular_cross[b_ixstart + 3] *
+      rtb_MatrixMultiply2[1];
+    ctrl_TAPM_B.MatrixMultiply[b_ixstart] += S_singular_cross[b_ixstart + 6] *
+      rtb_MatrixMultiply2[2];
+  }
+
+  /* MATLAB Function: '<S19>/w_d*w_d' incorporates:
+   *  Product: '<S19>/Matrix Multiply2'
+   */
+  /* MATLAB Function 'Guidance/Reference model/w_d*w_d': '<S21>:1' */
+  /* '<S21>:1:4' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    for (i = 0; i < 3; i++) {
+      rtb_y_j[b_ixstart + 3 * i] = 0.0;
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i] * rtb_w_d[b_ixstart];
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i + 1] * rtb_w_d[b_ixstart + 3];
+      rtb_y_j[b_ixstart + 3 * i] += rtb_w_d[3 * i + 2] * rtb_w_d[b_ixstart + 6];
+    }
+  }
+
+  /* End of MATLAB Function: '<S19>/w_d*w_d' */
+
+  /* Product: '<S19>/Matrix Multiply2' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_MatrixMultiply2[b_ixstart] = 0.0;
+    rtb_MatrixMultiply2[b_ixstart] += rtb_y_j[b_ixstart] *
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[0];
+    rtb_MatrixMultiply2[b_ixstart] += rtb_y_j[b_ixstart + 3] *
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[1];
+    rtb_MatrixMultiply2[b_ixstart] += rtb_y_j[b_ixstart + 6] *
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMult[2];
+  }
+
+  /* MATLAB Function: '<S45>/zeta' incorporates:
+   *  SignalConversion: '<S51>/TmpSignal ConversionAt SFunction Inport1'
+   */
+  /* MATLAB Function 'Input1/Guidance gains/zeta': '<S51>:1' */
+  /* '<S51>:1:4' */
+  memset(&rtb_y_j[0], 0, 9U * sizeof(real_T));
+  rtb_y_j[0] = ctrl_TAPM_B.zeta_x;
+  rtb_y_j[4] = ctrl_TAPM_B.zeta_y;
+  rtb_y_j[8] = ctrl_TAPM_B.zeta_psi;
+
+  /* MATLAB Function: '<S19>/w_d*w_d1' incorporates:
+   *  Product: '<S19>/Matrix Multiply5'
+   */
+  /* MATLAB Function 'Guidance/Reference model/w_d*w_d1': '<S22>:1' */
+  /* '<S22>:1:4' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    for (i = 0; i < 3; i++) {
+      tmp_1[b_ixstart + 3 * i] = 0.0;
+      tmp_1[b_ixstart + 3 * i] += 2.0 * rtb_y_j[b_ixstart] * rtb_w_d[3 * i];
+      tmp_1[b_ixstart + 3 * i] += rtb_y_j[b_ixstart + 3] * 2.0 * rtb_w_d[3 * i +
+        1];
+      tmp_1[b_ixstart + 3 * i] += rtb_y_j[b_ixstart + 6] * 2.0 * rtb_w_d[3 * i +
+        2];
+    }
+  }
+
+  /* End of MATLAB Function: '<S19>/w_d*w_d1' */
+
+  /* Product: '<S19>/Matrix Multiply5' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_MatrixMultiply5[b_ixstart] = 0.0;
+    rtb_MatrixMultiply5[b_ixstart] += tmp_1[b_ixstart] *
+      ctrl_TAPM_B.Integrator3[0];
+    rtb_MatrixMultiply5[b_ixstart] += tmp_1[b_ixstart + 3] *
+      ctrl_TAPM_B.Integrator3[1];
+    rtb_MatrixMultiply5[b_ixstart] += tmp_1[b_ixstart + 6] *
+      ctrl_TAPM_B.Integrator3[2];
+  }
+
+  /* Sum: '<S19>/Sum5' incorporates:
+   *  Sum: '<S19>/Sum2'
+   */
+  ctrl_TAPM_B.Sum5[0] = (rtb_MatrixMultiply[0] - rtb_MatrixMultiply2[0]) -
+    rtb_MatrixMultiply5[0];
+  ctrl_TAPM_B.Sum5[1] = (rtb_MatrixMultiply[1] - rtb_MatrixMultiply2[1]) -
+    rtb_MatrixMultiply5[1];
+  ctrl_TAPM_B.Sum5[2] = (rtb_MatrixMultiply[2] - rtb_MatrixMultiply2[2]) -
+    rtb_MatrixMultiply5[2];
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Delay: '<S8>/Delay' */
-    for (i = 0; i < 6; i++) {
-      ctrl_TAPM_B.Delay_n[i] = ctrl_TAPM_DW.Delay_DSTATE_i[i];
+    /* MATLAB Function: '<S46>/Kp' incorporates:
+     *  Constant: '<S46>/Constant'
+     *  Constant: '<S46>/Constant1'
+     *  Constant: '<S46>/Constant2'
+     */
+    ctrl_TAPM_Kp(ctrl_TAPM_P.Constant_Value_c, ctrl_TAPM_P.Constant1_Value_p,
+                 ctrl_TAPM_P.Constant2_Value, &ctrl_TAPM_B.sf_Kp_m);
+
+    /* MATLAB Function: '<S46>/Ki' incorporates:
+     *  Constant: '<S46>/Constant3'
+     *  Constant: '<S46>/Constant4'
+     *  Constant: '<S46>/Constant5'
+     */
+    ctrl_TAPM_Ki(ctrl_TAPM_P.Constant3_Value_f, ctrl_TAPM_P.Constant4_Value_a,
+                 ctrl_TAPM_P.Constant5_Value_j, &ctrl_TAPM_B.sf_Ki_k);
+  }
+
+  /* Product: '<S6>/Matrix Multiply' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    rtb_MatrixMultiply[b_ixstart] = 0.0;
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Kp_m.K_p[b_ixstart] *
+      rtb_Sum_on_idx_0;
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Kp_m.K_p[b_ixstart + 3] *
+      rtb_Sum_on_idx_1;
+    rtb_MatrixMultiply[b_ixstart] += ctrl_TAPM_B.sf_Kp_m.K_p[b_ixstart + 6] *
+      rtb_Sum_on_idx_2;
+  }
+
+  /* End of Product: '<S6>/Matrix Multiply' */
+
+  /* Product: '<S6>/Matrix Multiply1' */
+  for (b_ixstart = 0; b_ixstart < 3; b_ixstart++) {
+    ctrl_TAPM_B.MatrixMultiply1[b_ixstart] = 0.0;
+    ctrl_TAPM_B.MatrixMultiply1[b_ixstart] += ctrl_TAPM_B.sf_Ki_k.K_i[b_ixstart]
+      * rtb_Sum_on_idx_0;
+    ctrl_TAPM_B.MatrixMultiply1[b_ixstart] += ctrl_TAPM_B.sf_Ki_k.K_i[b_ixstart
+      + 3] * rtb_Sum_on_idx_1;
+    ctrl_TAPM_B.MatrixMultiply1[b_ixstart] += ctrl_TAPM_B.sf_Ki_k.K_i[b_ixstart
+      + 6] * rtb_Sum_on_idx_2;
+  }
+
+  /* End of Product: '<S6>/Matrix Multiply1' */
+
+  /* Sum: '<S6>/Sum1' incorporates:
+   *  Fcn: '<S57>/Fcn'
+   *  Fcn: '<S57>/Fcn1'
+   *  Fcn: '<S57>/Fcn2'
+   */
+  ctrl_TAPM_B.Sum1[0] = (cos(rtb_psi_dot) * ctrl_TAPM_B.Integrator1[0] - sin
+    (rtb_psi_dot) * ctrl_TAPM_B.Integrator1[1]) + rtb_MatrixMultiply[0];
+  ctrl_TAPM_B.Sum1[1] = (sin(rtb_psi_dot) * ctrl_TAPM_B.Integrator1[0] + cos
+    (rtb_psi_dot) * ctrl_TAPM_B.Integrator1[1]) + rtb_MatrixMultiply[1];
+  ctrl_TAPM_B.Sum1[2] = rtb_MatrixMultiply[2] + ctrl_TAPM_B.Integrator1[2];
+  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
+    /* SignalConversion: '<S8>/TmpSignal ConversionAtTo FileInport1' */
+    rtb_TmpSignalConversionAtToFile[0] = ctrl_TAPM_B.X_oqus;
+    rtb_TmpSignalConversionAtToFile[1] = ctrl_TAPM_B.Y_oqus;
+    rtb_TmpSignalConversionAtToFile[2] = ctrl_TAPM_B.Z_oqus;
+    rtb_TmpSignalConversionAtToFile[3] = ctrl_TAPM_B.roll_oqus;
+    rtb_TmpSignalConversionAtToFile[4] = ctrl_TAPM_B.pitch_oqus;
+    rtb_TmpSignalConversionAtToFile[5] = ctrl_TAPM_B.yaw_oqus;
+
+    /* ToFile: '<S8>/To File' */
+    {
+      if (!(++ctrl_TAPM_DW.ToFile_IWORK.Decimation % 1) &&
+          (ctrl_TAPM_DW.ToFile_IWORK.Count*7)+1 < 100000000 ) {
+        FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile_PWORK.FilePtr;
+        if (fp != (NULL)) {
+          real_T u[7];
+          ctrl_TAPM_DW.ToFile_IWORK.Decimation = 0;
+          u[0] = ctrl_TAPM_M->Timing.t[1];
+          u[1] = rtb_TmpSignalConversionAtToFile[0];
+          u[2] = rtb_TmpSignalConversionAtToFile[1];
+          u[3] = rtb_TmpSignalConversionAtToFile[2];
+          u[4] = rtb_TmpSignalConversionAtToFile[3];
+          u[5] = rtb_TmpSignalConversionAtToFile[4];
+          u[6] = rtb_TmpSignalConversionAtToFile[5];
+          if (fwrite(u, sizeof(real_T), 7, fp) != 7) {
+            rtmSetErrorStatus(ctrl_TAPM_M,
+                              "Error writing to MAT-file oqus_measured.mat");
+            return;
+          }
+
+          if (((++ctrl_TAPM_DW.ToFile_IWORK.Count)*7)+1 >= 100000000) {
+            (void)fprintf(stdout,
+                          "*** The ToFile block will stop logging data before\n"
+                          "    the simulation has ended, because it has reached\n"
+                          "    the maximum number of elements (100000000)\n"
+                          "    allowed in MAT-file oqus_measured.mat.\n");
+          }
+        }
+      }
     }
 
-    /* End of Delay: '<S8>/Delay' */
+    /* Delay: '<S12>/Delay' */
+    for (i = 0; i < 6; i++) {
+      ctrl_TAPM_B.Delay[i] = ctrl_TAPM_DW.Delay_DSTATE[i];
+    }
 
-    /* Delay: '<S50>/Delay' */
+    /* End of Delay: '<S12>/Delay' */
+
+    /* Delay: '<S75>/Delay' */
     ctrl_TAPM_B.Delay_e = ctrl_TAPM_DW.Delay_DSTATE_f;
 
-    /* Delay: '<S65>/Delay' */
+    /* Delay: '<S90>/Delay' */
     ctrl_TAPM_B.Delay_a = ctrl_TAPM_DW.Delay_DSTATE_fu;
   }
 
-  /* MATLAB Function: '<S65>/MATLAB Function' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Tf1'
-   *  Constant: '<S7>/K_Tr1'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S90>/MATLAB Function' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Tf1'
+   *  Constant: '<S11>/K_Tr1'
+   *  Constant: '<S11>/Rho'
    */
-  /* MATLAB Function 'Thruster control /Thruster 1/Thruster control/MATLAB Function': '<S69>:1' */
-  /* '<S69>:1:5' */
+  /* MATLAB Function 'Thruster control /Thruster 1/Thruster control/MATLAB Function': '<S94>:1' */
+  /* '<S94>:1:5' */
   if (rtb_sys[6] < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
   } else if (rtb_sys[6] > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
   } else if (rtb_sys[6] == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
   } else {
-    rtb_eta_w_idx_0 = rtb_sys[6];
+    rtb_TmpSignalConversionAtSFun_2 = rtb_sys[6];
   }
 
-  rtb_eta_w_idx_2 = sqrt(fabs(rtb_sys[6]) / (ctrl_TAPM_P.Rho * rt_powd_snf
-    (ctrl_TAPM_P.D, 4.0) * ctrl_TAPM_P.K_T1f)) * rtb_eta_w_idx_0;
+  rtb_Row2 = sqrt(fabs(rtb_sys[6]) / (ctrl_TAPM_P.Rho * rt_powd_snf
+    (ctrl_TAPM_P.D, 4.0) * ctrl_TAPM_P.K_T1f)) * rtb_TmpSignalConversionAtSFun_2;
 
-  /* '<S69>:1:7' */
-  offset = tanh(ctrl_TAPM_P.eps_c * rtb_eta_w_idx_2 / 5.0) * 0.5 + 0.5;
+  /* '<S94>:1:7' */
+  rtb_Row1 = tanh(ctrl_TAPM_P.eps_c * rtb_Row2 / 5.0) * 0.5 + 0.5;
 
   /*  Smooth switching between positive and negative thrust. 5 makes switch happen between -5 and 5 */
-  /* '<S69>:1:8' */
-  /* '<S69>:1:10' */
+  /* '<S94>:1:8' */
+  /* '<S94>:1:10' */
   if (ctrl_TAPM_B.Delay_a < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
   } else if (ctrl_TAPM_B.Delay_a > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
   } else if (ctrl_TAPM_B.Delay_a == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
   } else {
-    rtb_eta_w_idx_0 = ctrl_TAPM_B.Delay_a;
+    rtb_TmpSignalConversionAtSFun_2 = ctrl_TAPM_B.Delay_a;
   }
 
-  rtb_T_r_c = ((1.0 - offset) * ctrl_TAPM_P.K_T1r + ctrl_TAPM_P.K_T1f * offset) *
-    rtb_eta_w_idx_0 * ctrl_TAPM_P.Rho * rt_powd_snf(ctrl_TAPM_P.D, 4.0) *
-    (ctrl_TAPM_B.Delay_a * ctrl_TAPM_B.Delay_a);
-  ctrl_TAPM_B.n_d_b = rtb_eta_w_idx_2;
+  rtb_T_r_e = ((1.0 - rtb_Row1) * ctrl_TAPM_P.K_T1r + ctrl_TAPM_P.K_T1f *
+               rtb_Row1) * rtb_TmpSignalConversionAtSFun_2 * ctrl_TAPM_P.Rho *
+    rt_powd_snf(ctrl_TAPM_P.D, 4.0) * (ctrl_TAPM_B.Delay_a * ctrl_TAPM_B.Delay_a);
+  ctrl_TAPM_B.n_d_h = rtb_Row2;
 
-  /* End of MATLAB Function: '<S65>/MATLAB Function' */
+  /* End of MATLAB Function: '<S90>/MATLAB Function' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S65>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S65>/Constant1'
-     *  Constant: '<S65>/Constant2'
+    /* DiscreteTransferFcn: '<S90>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S90>/Constant1'
+     *  Constant: '<S90>/Constant2'
      */
-    ctrl_TAPM_DW.DiscreteTransferFcn_tmp = (ctrl_TAPM_B.n_d_b -
-      ctrl_TAPM_P.Constant2_Value[1] * ctrl_TAPM_DW.DiscreteTransferFcn_states[0])
-      - ctrl_TAPM_P.Constant2_Value[2] *
+    ctrl_TAPM_DW.DiscreteTransferFcn_tmp = (ctrl_TAPM_B.n_d_h -
+      ctrl_TAPM_P.Constant2_Value_b[1] *
+      ctrl_TAPM_DW.DiscreteTransferFcn_states[0]) -
+      ctrl_TAPM_P.Constant2_Value_b[2] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states[1];
     ctrl_TAPM_B.DiscreteTransferFcn = (ctrl_TAPM_P.Constant1_Value_o[0] *
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp + ctrl_TAPM_P.Constant1_Value_o[1] *
@@ -5640,24 +6239,24 @@ void ctrl_TAPM_output(void)
       ctrl_TAPM_P.Constant1_Value_o[2] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states[1];
 
-    /* SampleTimeMath: '<S68>/TSamp'
+    /* SampleTimeMath: '<S93>/TSamp'
      *
-     * About '<S68>/TSamp':
+     * About '<S93>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     ctrl_TAPM_B.TSamp = ctrl_TAPM_B.DiscreteTransferFcn * ctrl_TAPM_P.TSamp_WtEt;
 
-    /* Sum: '<S68>/Diff' incorporates:
-     *  UnitDelay: '<S68>/UD'
+    /* Sum: '<S93>/Diff' incorporates:
+     *  UnitDelay: '<S93>/UD'
      */
     rtb_Sum_b = ctrl_TAPM_B.TSamp - ctrl_TAPM_DW.UD_DSTATE;
 
-    /* RateLimiter: '<S65>/Acceleration Limit' */
-    rtb_eta_w_idx_2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY;
-    if (rtb_eta_w_idx_2 > ctrl_TAPM_P.AccelerationLimit_RisingLim) {
+    /* RateLimiter: '<S90>/Acceleration Limit' */
+    rtb_Row2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY;
+    if (rtb_Row2 > ctrl_TAPM_P.AccelerationLimit_RisingLim) {
       rtb_Sum_b = ctrl_TAPM_DW.PrevY + ctrl_TAPM_P.AccelerationLimit_RisingLim;
     } else {
-      if (rtb_eta_w_idx_2 < ctrl_TAPM_P.AccelerationLimit_FallingLim) {
+      if (rtb_Row2 < ctrl_TAPM_P.AccelerationLimit_FallingLim) {
         rtb_Sum_b = ctrl_TAPM_DW.PrevY +
           ctrl_TAPM_P.AccelerationLimit_FallingLim;
       }
@@ -5665,33 +6264,33 @@ void ctrl_TAPM_output(void)
 
     ctrl_TAPM_DW.PrevY = rtb_Sum_b;
 
-    /* End of RateLimiter: '<S65>/Acceleration Limit' */
+    /* End of RateLimiter: '<S90>/Acceleration Limit' */
 
-    /* Gain: '<S65>/Inertia compensation' */
+    /* Gain: '<S90>/Inertia compensation' */
     ctrl_TAPM_B.Inertiacompensation = ctrl_TAPM_P.I_s * 2.0 * 3.1415926535897931
       * rtb_Sum_b;
 
-    /* Sum: '<S65>/Sum1' incorporates:
-     *  Gain: '<S65>/Qf_0'
-     *  Gain: '<S65>/Qff_0(nr)'
-     *  Gain: '<S65>/Qff_1(nr)'
-     *  Trigonometry: '<S65>/Trigonometric Function'
+    /* Sum: '<S90>/Sum1' incorporates:
+     *  Gain: '<S90>/Qf_0'
+     *  Gain: '<S90>/Qff_0(nr)'
+     *  Gain: '<S90>/Qff_1(nr)'
+     *  Trigonometry: '<S90>/Trigonometric Function'
      */
     ctrl_TAPM_B.Sum1_n = tanh(ctrl_TAPM_P.epsilon / ctrl_TAPM_P.n_max *
       ctrl_TAPM_B.DiscreteTransferFcn) * ctrl_TAPM_P.Q_f0 + ctrl_TAPM_P.K_omega *
       2.0 * 3.1415926535897931 * ctrl_TAPM_B.DiscreteTransferFcn;
 
-    /* Memory: '<S65>/Memory' */
+    /* Memory: '<S90>/Memory' */
     ctrl_TAPM_B.Memory = ctrl_TAPM_DW.Memory_PreviousInput;
 
-    /* Sum: '<S67>/Sum' */
-    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn - ctrl_TAPM_B.Delay_n[0];
+    /* Sum: '<S92>/Sum' */
+    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn - ctrl_TAPM_B.Delay[0];
 
-    /* Gain: '<S67>/Kp' */
+    /* Gain: '<S92>/Kp' */
     ctrl_TAPM_B.Kp = ctrl_TAPM_P.Kp * rtb_Sum_b;
   }
 
-  /* Integrator: '<S67>/Integrator' */
+  /* Integrator: '<S92>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -5704,61 +6303,61 @@ void ctrl_TAPM_output(void)
     }
   }
 
-  rtb_Integrator_gu = ctrl_TAPM_X.Integrator_CSTATE_e;
+  rtb_Integrator_g = ctrl_TAPM_X.Integrator_CSTATE_e;
 
-  /* MATLAB Function: '<S67>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/Constant1'
-   *  Constant: '<S7>/Constant2'
-   *  Constant: '<S7>/Constant3'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr1'
-   *  Constant: '<S7>/K_Qr7'
-   *  Constant: '<S7>/K_Tf1'
-   *  Constant: '<S7>/K_Tr1'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S92>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/Constant1'
+   *  Constant: '<S11>/Constant2'
+   *  Constant: '<S11>/Constant3'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr1'
+   *  Constant: '<S11>/K_Qr7'
+   *  Constant: '<S11>/K_Tf1'
+   *  Constant: '<S11>/K_Tr1'
+   *  Constant: '<S11>/Rho'
    */
   CorecontrollerTorquePowerandCom(ctrl_TAPM_P.k_cc, ctrl_TAPM_P.p_cc,
-    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay_n[0], ctrl_TAPM_P.K_T1f,
-    ctrl_TAPM_P.K_q1f, ctrl_TAPM_P.D, rtb_T_r_c, ctrl_TAPM_P.Rho,
-    ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T1r, ctrl_TAPM_P.K_q1r,
+    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay[0], ctrl_TAPM_P.K_T1f, ctrl_TAPM_P.K_q1f,
+    ctrl_TAPM_P.D, rtb_T_r_e, ctrl_TAPM_P.Rho, ctrl_TAPM_P.eps_c,
+    ctrl_TAPM_P.K_T1r, ctrl_TAPM_P.K_q1r,
     &ctrl_TAPM_B.sf_CorecontrollerTorquePowerand);
 
-  /* MultiPortSwitch: '<S65>/Controller chosen' incorporates:
-   *  Constant: '<S65>/NaN'
-   *  Sum: '<S67>/Sum1'
+  /* MultiPortSwitch: '<S90>/Controller chosen' incorporates:
+   *  Constant: '<S90>/NaN'
+   *  Sum: '<S92>/Sum1'
    */
   switch ((int32_T)ctrl_TAPM_B.Memory) {
    case 1:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.Kp + rtb_Integrator_gu;
+    rtb_Row2 = ctrl_TAPM_B.Kp + rtb_Integrator_g;
     break;
 
    case 2:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowerand.Qcq;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowerand.Qcq;
     break;
 
    case 3:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowerand.Qcp;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowerand.Qcp;
     break;
 
    case 4:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowerand.Qcc;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowerand.Qcc;
     break;
 
    default:
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.NaN_Value;
+    rtb_Row2 = ctrl_TAPM_P.NaN_Value;
     break;
   }
 
-  /* End of MultiPortSwitch: '<S65>/Controller chosen' */
+  /* End of MultiPortSwitch: '<S90>/Controller chosen' */
 
-  /* Sum: '<S65>/Sum' */
+  /* Sum: '<S90>/Sum' */
   ctrl_TAPM_B.Sum_k = (ctrl_TAPM_B.Inertiacompensation + ctrl_TAPM_B.Sum1_n) +
-    rtb_eta_w_idx_2;
+    rtb_Row2;
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S50>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S50>/Constant'
-     *  Constant: '<S50>/Constant1'
+    /* DiscreteTransferFcn: '<S75>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S75>/Constant'
+     *  Constant: '<S75>/Constant1'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_a = ctrl_TAPM_B.Sum_k -
       ctrl_TAPM_P.Constant_Value_cs[1] *
@@ -5768,43 +6367,42 @@ void ctrl_TAPM_output(void)
       ctrl_TAPM_DW.DiscreteTransferFcn_states_d;
   }
 
-  /* Gain: '<S64>/Finding rotation speed' incorporates:
-   *  Gain: '<S64>/K_omega'
-   *  Sum: '<S64>/Sum'
+  /* Gain: '<S89>/Finding rotation speed' incorporates:
+   *  Gain: '<S89>/K_omega'
+   *  Sum: '<S89>/Sum'
    */
   ctrl_TAPM_B.Findingrotationspeed = ((ctrl_TAPM_B.DiscreteTransferFcn_d -
     ctrl_TAPM_B.Delay_e) - ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
-    rtb_Integrator_p) * (1.0 / (6.2831853071795862 * ctrl_TAPM_P.I_s));
+    rtb_Integrator) * (1.0 / (6.2831853071795862 * ctrl_TAPM_P.I_s));
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Gain: '<S67>/Ki' */
+    /* Gain: '<S92>/Ki' */
     ctrl_TAPM_B.Ki = ctrl_TAPM_P.Kp / 0.05 * rtb_Sum_b;
-  }
 
-  /* MATLAB Function: '<S65>/Supervisor' */
-  ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory, ctrl_TAPM_B.Core_controller,
-                       ctrl_TAPM_B.Delay_n[0], &ctrl_TAPM_B.sf_Supervisor);
-  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Delay: '<S51>/Delay' */
+    /* MATLAB Function: '<S90>/Supervisor' */
+    ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory, 0.0, ctrl_TAPM_B.Delay[0],
+                         &ctrl_TAPM_B.sf_Supervisor);
+
+    /* Delay: '<S76>/Delay' */
     ctrl_TAPM_B.Delay_b = ctrl_TAPM_DW.Delay_DSTATE_b;
 
-    /* Delay: '<S74>/Delay' */
+    /* Delay: '<S99>/Delay' */
     ctrl_TAPM_B.Delay_bs = ctrl_TAPM_DW.Delay_DSTATE_d;
   }
 
-  /* MATLAB Function: '<S74>/MATLAB Function' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Tf2'
-   *  Constant: '<S7>/K_Tr2'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S99>/MATLAB Function' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Tf2'
+   *  Constant: '<S11>/K_Tr2'
+   *  Constant: '<S11>/Rho'
    */
-  ctrl_TAPM_MATLABFunction_i(rtb_sys[7], ctrl_TAPM_P.K_T2f, ctrl_TAPM_P.K_T2r,
+  ctrl_TAPM_MATLABFunction(rtb_sys[7], ctrl_TAPM_P.K_T2f, ctrl_TAPM_P.K_T2r,
     ctrl_TAPM_P.Rho, ctrl_TAPM_P.D, ctrl_TAPM_P.eps_c, ctrl_TAPM_B.Delay_bs,
     &ctrl_TAPM_B.sf_MATLABFunction_i);
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S74>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S74>/Constant1'
-     *  Constant: '<S74>/Constant2'
+    /* DiscreteTransferFcn: '<S99>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S99>/Constant1'
+     *  Constant: '<S99>/Constant2'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_d =
       (ctrl_TAPM_B.sf_MATLABFunction_i.n_d - ctrl_TAPM_P.Constant2_Value_i[1] *
@@ -5817,26 +6415,26 @@ void ctrl_TAPM_output(void)
       ctrl_TAPM_P.Constant1_Value_b[2] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_h[1];
 
-    /* SampleTimeMath: '<S77>/TSamp'
+    /* SampleTimeMath: '<S102>/TSamp'
      *
-     * About '<S77>/TSamp':
+     * About '<S102>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     ctrl_TAPM_B.TSamp_n = ctrl_TAPM_B.DiscreteTransferFcn_e *
       ctrl_TAPM_P.TSamp_WtEt_k;
 
-    /* Sum: '<S77>/Diff' incorporates:
-     *  UnitDelay: '<S77>/UD'
+    /* Sum: '<S102>/Diff' incorporates:
+     *  UnitDelay: '<S102>/UD'
      */
     rtb_Sum_b = ctrl_TAPM_B.TSamp_n - ctrl_TAPM_DW.UD_DSTATE_n;
 
-    /* RateLimiter: '<S74>/Acceleration Limit' */
-    rtb_eta_w_idx_2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_e;
-    if (rtb_eta_w_idx_2 > ctrl_TAPM_P.AccelerationLimit_RisingLim_n) {
+    /* RateLimiter: '<S99>/Acceleration Limit' */
+    rtb_Row2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_e;
+    if (rtb_Row2 > ctrl_TAPM_P.AccelerationLimit_RisingLim_n) {
       rtb_Sum_b = ctrl_TAPM_DW.PrevY_e +
         ctrl_TAPM_P.AccelerationLimit_RisingLim_n;
     } else {
-      if (rtb_eta_w_idx_2 < ctrl_TAPM_P.AccelerationLimit_FallingLim_n) {
+      if (rtb_Row2 < ctrl_TAPM_P.AccelerationLimit_FallingLim_n) {
         rtb_Sum_b = ctrl_TAPM_DW.PrevY_e +
           ctrl_TAPM_P.AccelerationLimit_FallingLim_n;
       }
@@ -5844,34 +6442,34 @@ void ctrl_TAPM_output(void)
 
     ctrl_TAPM_DW.PrevY_e = rtb_Sum_b;
 
-    /* End of RateLimiter: '<S74>/Acceleration Limit' */
+    /* End of RateLimiter: '<S99>/Acceleration Limit' */
 
-    /* Gain: '<S74>/Inertia compensation' */
+    /* Gain: '<S99>/Inertia compensation' */
     ctrl_TAPM_B.Inertiacompensation_e = ctrl_TAPM_P.I_s * 2.0 *
       3.1415926535897931 * rtb_Sum_b;
 
-    /* Sum: '<S74>/Sum1' incorporates:
-     *  Gain: '<S74>/Qf_0'
-     *  Gain: '<S74>/Qff_0(nr)'
-     *  Gain: '<S74>/Qff_1(nr)'
-     *  Trigonometry: '<S74>/Trigonometric Function'
+    /* Sum: '<S99>/Sum1' incorporates:
+     *  Gain: '<S99>/Qf_0'
+     *  Gain: '<S99>/Qff_0(nr)'
+     *  Gain: '<S99>/Qff_1(nr)'
+     *  Trigonometry: '<S99>/Trigonometric Function'
      */
     ctrl_TAPM_B.Sum1_nn = tanh(ctrl_TAPM_P.epsilon / ctrl_TAPM_P.n_max *
       ctrl_TAPM_B.DiscreteTransferFcn_e) * ctrl_TAPM_P.Q_f0 +
       ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
       ctrl_TAPM_B.DiscreteTransferFcn_e;
 
-    /* Memory: '<S74>/Memory' */
+    /* Memory: '<S99>/Memory' */
     ctrl_TAPM_B.Memory_c = ctrl_TAPM_DW.Memory_PreviousInput_n;
 
-    /* Sum: '<S76>/Sum' */
-    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_e - ctrl_TAPM_B.Delay_n[1];
+    /* Sum: '<S101>/Sum' */
+    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_e - ctrl_TAPM_B.Delay[1];
 
-    /* Gain: '<S76>/Kp' */
+    /* Gain: '<S101>/Kp' */
     ctrl_TAPM_B.Kp_p = ctrl_TAPM_P.Kp * rtb_Sum_b;
   }
 
-  /* Integrator: '<S76>/Integrator' */
+  /* Integrator: '<S101>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -5880,65 +6478,65 @@ void ctrl_TAPM_output(void)
 
     /* evaluate zero-crossings */
     if (zcEvent) {
-      ctrl_TAPM_X.Integrator_CSTATE_gg = ctrl_TAPM_P.Integrator_IC_fy;
+      ctrl_TAPM_X.Integrator_CSTATE_g = ctrl_TAPM_P.Integrator_IC_fy;
     }
   }
 
-  rtb_Integrator_f = ctrl_TAPM_X.Integrator_CSTATE_gg;
+  rtb_Integrator_f = ctrl_TAPM_X.Integrator_CSTATE_g;
 
-  /* MATLAB Function: '<S76>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/Constant1'
-   *  Constant: '<S7>/Constant2'
-   *  Constant: '<S7>/Constant3'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr2'
-   *  Constant: '<S7>/K_Qr8'
-   *  Constant: '<S7>/K_Tf2'
-   *  Constant: '<S7>/K_Tr2'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S101>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/Constant1'
+   *  Constant: '<S11>/Constant2'
+   *  Constant: '<S11>/Constant3'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr2'
+   *  Constant: '<S11>/K_Qr8'
+   *  Constant: '<S11>/K_Tf2'
+   *  Constant: '<S11>/K_Tr2'
+   *  Constant: '<S11>/Rho'
    */
   CorecontrollerTorquePowerandCom(ctrl_TAPM_P.k_cc, ctrl_TAPM_P.p_cc,
-    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay_n[1], ctrl_TAPM_P.K_T2f,
-    ctrl_TAPM_P.K_q2f, ctrl_TAPM_P.D, ctrl_TAPM_B.sf_MATLABFunction_i.T_r,
-    ctrl_TAPM_P.Rho, ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T2r, ctrl_TAPM_P.K_q2r,
+    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay[1], ctrl_TAPM_P.K_T2f, ctrl_TAPM_P.K_q2f,
+    ctrl_TAPM_P.D, ctrl_TAPM_B.sf_MATLABFunction_i.T_r, ctrl_TAPM_P.Rho,
+    ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T2r, ctrl_TAPM_P.K_q2r,
     &ctrl_TAPM_B.sf_CorecontrollerTorquePowera_o);
 
-  /* MultiPortSwitch: '<S74>/Controller chosen' incorporates:
-   *  Constant: '<S74>/NaN'
-   *  Sum: '<S76>/Sum1'
+  /* MultiPortSwitch: '<S99>/Controller chosen' incorporates:
+   *  Constant: '<S99>/NaN'
+   *  Sum: '<S101>/Sum1'
    */
   switch ((int32_T)ctrl_TAPM_B.Memory_c) {
    case 1:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.Kp_p + rtb_Integrator_f;
+    rtb_Row2 = ctrl_TAPM_B.Kp_p + rtb_Integrator_f;
     break;
 
    case 2:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_o.Qcq;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_o.Qcq;
     break;
 
    case 3:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_o.Qcp;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_o.Qcp;
     break;
 
    case 4:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_o.Qcc;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_o.Qcc;
     break;
 
    default:
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.NaN_Value_l;
+    rtb_Row2 = ctrl_TAPM_P.NaN_Value_l;
     break;
   }
 
-  /* End of MultiPortSwitch: '<S74>/Controller chosen' */
+  /* End of MultiPortSwitch: '<S99>/Controller chosen' */
 
-  /* Sum: '<S74>/Sum' */
+  /* Sum: '<S99>/Sum' */
   ctrl_TAPM_B.Sum_h = (ctrl_TAPM_B.Inertiacompensation_e + ctrl_TAPM_B.Sum1_nn)
-    + rtb_eta_w_idx_2;
+    + rtb_Row2;
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S51>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S51>/Constant'
-     *  Constant: '<S51>/Constant1'
+    /* DiscreteTransferFcn: '<S76>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S76>/Constant'
+     *  Constant: '<S76>/Constant1'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_h = ctrl_TAPM_B.Sum_h -
       ctrl_TAPM_P.Constant_Value_h[1] *
@@ -5948,108 +6546,108 @@ void ctrl_TAPM_output(void)
       ctrl_TAPM_DW.DiscreteTransferFcn_states_m;
   }
 
-  /* Gain: '<S73>/Finding rotation speed' incorporates:
-   *  Gain: '<S73>/K_omega'
-   *  Sum: '<S73>/Sum'
+  /* Gain: '<S98>/Finding rotation speed' incorporates:
+   *  Gain: '<S98>/K_omega'
+   *  Sum: '<S98>/Sum'
    */
   ctrl_TAPM_B.Findingrotationspeed_a = ((ctrl_TAPM_B.DiscreteTransferFcn_k -
     ctrl_TAPM_B.Delay_b) - ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
     rtb_Integrator_h) * (1.0 / (6.2831853071795862 * ctrl_TAPM_P.I_s));
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Gain: '<S76>/Ki' */
+    /* Gain: '<S101>/Ki' */
     ctrl_TAPM_B.Ki_o = ctrl_TAPM_P.Kp / 0.05 * rtb_Sum_b;
-  }
 
-  /* MATLAB Function: '<S74>/Supervisor' */
-  ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_c, ctrl_TAPM_B.Core_controller,
-                       ctrl_TAPM_B.Delay_n[1], &ctrl_TAPM_B.sf_Supervisor_h);
-  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Delay: '<S52>/Delay' */
+    /* MATLAB Function: '<S99>/Supervisor' */
+    ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_c, 0.0, ctrl_TAPM_B.Delay[1],
+                         &ctrl_TAPM_B.sf_Supervisor_h);
+
+    /* Delay: '<S77>/Delay' */
     ctrl_TAPM_B.Delay_i = ctrl_TAPM_DW.Delay_DSTATE_n;
 
-    /* Delay: '<S83>/Delay' */
+    /* Delay: '<S108>/Delay' */
     ctrl_TAPM_B.Delay_by = ctrl_TAPM_DW.Delay_DSTATE_no;
   }
 
-  /* MATLAB Function: '<S83>/MATLAB Function' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Tf3'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S108>/MATLAB Function' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Tf3'
+   *  Constant: '<S11>/Rho'
    */
-  /* MATLAB Function 'Thruster control /Thruster 3/Thruster control/MATLAB Function': '<S87>:1' */
-  /* '<S87>:1:5' */
+  /* MATLAB Function 'Thruster control /Thruster 3/Thruster control/MATLAB Function': '<S112>:1' */
+  /* '<S112>:1:5' */
   if (rtb_sys[8] < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
   } else if (rtb_sys[8] > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
   } else if (rtb_sys[8] == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
   } else {
-    rtb_eta_w_idx_0 = rtb_sys[8];
+    rtb_TmpSignalConversionAtSFun_2 = rtb_sys[8];
   }
 
-  rtb_eta_w_idx_2 = sqrt(fabs(rtb_sys[8]) / (ctrl_TAPM_P.Rho * rt_powd_snf
-    (ctrl_TAPM_P.D, 4.0) * ctrl_TAPM_P.K_T3f)) * rtb_eta_w_idx_0;
+  rtb_Row2 = sqrt(fabs(rtb_sys[8]) / (ctrl_TAPM_P.Rho * rt_powd_snf
+    (ctrl_TAPM_P.D, 4.0) * ctrl_TAPM_P.K_T3f)) * rtb_TmpSignalConversionAtSFun_2;
 
-  /* '<S87>:1:7' */
-  offset = tanh(ctrl_TAPM_P.eps_c * rtb_eta_w_idx_2 / 5.0) * 0.5 + 0.5;
+  /* '<S112>:1:7' */
+  rtb_Row1 = tanh(ctrl_TAPM_P.eps_c * rtb_Row2 / 5.0) * 0.5 + 0.5;
 
   /*  Smooth switching between positive and negative thrust */
-  /* '<S87>:1:8' */
-  /* '<S87>:1:10' */
+  /* '<S112>:1:8' */
+  /* '<S112>:1:10' */
   if (ctrl_TAPM_B.Delay_by < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
   } else if (ctrl_TAPM_B.Delay_by > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
   } else if (ctrl_TAPM_B.Delay_by == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
   } else {
-    rtb_eta_w_idx_0 = ctrl_TAPM_B.Delay_by;
+    rtb_TmpSignalConversionAtSFun_2 = ctrl_TAPM_B.Delay_by;
   }
 
-  rtb_T_r_b = ((1.0 - offset) * ctrl_TAPM_P.K_T3f + ctrl_TAPM_P.K_T3f * offset) *
-    rtb_eta_w_idx_0 * ctrl_TAPM_P.Rho * rt_powd_snf(ctrl_TAPM_P.D, 4.0) *
-    (ctrl_TAPM_B.Delay_by * ctrl_TAPM_B.Delay_by);
-  ctrl_TAPM_B.n_d_j = rtb_eta_w_idx_2;
+  rtb_T_r_h = ((1.0 - rtb_Row1) * ctrl_TAPM_P.K_T3f + ctrl_TAPM_P.K_T3f *
+               rtb_Row1) * rtb_TmpSignalConversionAtSFun_2 * ctrl_TAPM_P.Rho *
+    rt_powd_snf(ctrl_TAPM_P.D, 4.0) * (ctrl_TAPM_B.Delay_by *
+    ctrl_TAPM_B.Delay_by);
+  ctrl_TAPM_B.n_d_p = rtb_Row2;
 
-  /* End of MATLAB Function: '<S83>/MATLAB Function' */
+  /* End of MATLAB Function: '<S108>/MATLAB Function' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S83>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S83>/Constant1'
-     *  Constant: '<S83>/Constant2'
+    /* DiscreteTransferFcn: '<S108>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S108>/Constant1'
+     *  Constant: '<S108>/Constant2'
      */
-    ctrl_TAPM_DW.DiscreteTransferFcn_tmp_e = (ctrl_TAPM_B.n_d_j -
+    ctrl_TAPM_DW.DiscreteTransferFcn_tmp_e = (ctrl_TAPM_B.n_d_p -
       ctrl_TAPM_P.Constant2_Value_h[1] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_j[0]) -
       ctrl_TAPM_P.Constant2_Value_h[2] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_j[1];
-    ctrl_TAPM_B.DiscreteTransferFcn_f = (ctrl_TAPM_P.Constant1_Value_g[0] *
-      ctrl_TAPM_DW.DiscreteTransferFcn_tmp_e + ctrl_TAPM_P.Constant1_Value_g[1] *
-      ctrl_TAPM_DW.DiscreteTransferFcn_states_j[0]) +
-      ctrl_TAPM_P.Constant1_Value_g[2] *
+    ctrl_TAPM_B.DiscreteTransferFcn_f = (ctrl_TAPM_P.Constant1_Value_gf[0] *
+      ctrl_TAPM_DW.DiscreteTransferFcn_tmp_e + ctrl_TAPM_P.Constant1_Value_gf[1]
+      * ctrl_TAPM_DW.DiscreteTransferFcn_states_j[0]) +
+      ctrl_TAPM_P.Constant1_Value_gf[2] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_j[1];
 
-    /* SampleTimeMath: '<S86>/TSamp'
+    /* SampleTimeMath: '<S111>/TSamp'
      *
-     * About '<S86>/TSamp':
+     * About '<S111>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     ctrl_TAPM_B.TSamp_k = ctrl_TAPM_B.DiscreteTransferFcn_f *
       ctrl_TAPM_P.TSamp_WtEt_m;
 
-    /* Sum: '<S86>/Diff' incorporates:
-     *  UnitDelay: '<S86>/UD'
+    /* Sum: '<S111>/Diff' incorporates:
+     *  UnitDelay: '<S111>/UD'
      */
     rtb_Sum_b = ctrl_TAPM_B.TSamp_k - ctrl_TAPM_DW.UD_DSTATE_i;
 
-    /* RateLimiter: '<S83>/Acceleration limiter' */
-    rtb_eta_w_idx_2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_o;
-    if (rtb_eta_w_idx_2 > ctrl_TAPM_P.Accelerationlimiter_RisingLim) {
+    /* RateLimiter: '<S108>/Acceleration limiter' */
+    rtb_Row2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_o;
+    if (rtb_Row2 > ctrl_TAPM_P.Accelerationlimiter_RisingLim) {
       rtb_Sum_b = ctrl_TAPM_DW.PrevY_o +
         ctrl_TAPM_P.Accelerationlimiter_RisingLim;
     } else {
-      if (rtb_eta_w_idx_2 < ctrl_TAPM_P.Accelerationlimiter_FallingLim) {
+      if (rtb_Row2 < ctrl_TAPM_P.Accelerationlimiter_FallingLim) {
         rtb_Sum_b = ctrl_TAPM_DW.PrevY_o +
           ctrl_TAPM_P.Accelerationlimiter_FallingLim;
       }
@@ -6057,34 +6655,34 @@ void ctrl_TAPM_output(void)
 
     ctrl_TAPM_DW.PrevY_o = rtb_Sum_b;
 
-    /* End of RateLimiter: '<S83>/Acceleration limiter' */
+    /* End of RateLimiter: '<S108>/Acceleration limiter' */
 
-    /* Gain: '<S83>/Inertia compensation' */
+    /* Gain: '<S108>/Inertia compensation' */
     ctrl_TAPM_B.Inertiacompensation_c = ctrl_TAPM_P.I_s * 2.0 *
       3.1415926535897931 * rtb_Sum_b;
 
-    /* Sum: '<S83>/Sum1' incorporates:
-     *  Gain: '<S83>/Qf_0'
-     *  Gain: '<S83>/Qff_0(nr)'
-     *  Gain: '<S83>/Qff_1(nr)'
-     *  Trigonometry: '<S83>/Trigonometric Function'
+    /* Sum: '<S108>/Sum1' incorporates:
+     *  Gain: '<S108>/Qf_0'
+     *  Gain: '<S108>/Qff_0(nr)'
+     *  Gain: '<S108>/Qff_1(nr)'
+     *  Trigonometry: '<S108>/Trigonometric Function'
      */
     ctrl_TAPM_B.Sum1_i = tanh(ctrl_TAPM_P.epsilon / ctrl_TAPM_P.n_max *
       ctrl_TAPM_B.DiscreteTransferFcn_f) * ctrl_TAPM_P.Q_f0 +
       ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
       ctrl_TAPM_B.DiscreteTransferFcn_f;
 
-    /* Memory: '<S83>/Memory' */
+    /* Memory: '<S108>/Memory' */
     ctrl_TAPM_B.Memory_i = ctrl_TAPM_DW.Memory_PreviousInput_d;
 
-    /* Sum: '<S85>/Sum' */
-    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_f - ctrl_TAPM_B.Delay_n[2];
+    /* Sum: '<S110>/Sum' */
+    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_f - ctrl_TAPM_B.Delay[2];
 
-    /* Gain: '<S85>/Kp' */
+    /* Gain: '<S110>/Kp' */
     ctrl_TAPM_B.Kp_i = ctrl_TAPM_P.Kp * rtb_Sum_b;
   }
 
-  /* Integrator: '<S85>/Integrator' */
+  /* Integrator: '<S110>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -6099,59 +6697,59 @@ void ctrl_TAPM_output(void)
 
   rtb_Integrator_hl = ctrl_TAPM_X.Integrator_CSTATE_i;
 
-  /* MATLAB Function: '<S85>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/Constant1'
-   *  Constant: '<S7>/Constant2'
-   *  Constant: '<S7>/Constant3'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr3'
-   *  Constant: '<S7>/K_Qr9'
-   *  Constant: '<S7>/K_Tf3'
-   *  Constant: '<S7>/K_Tr3'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S110>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/Constant1'
+   *  Constant: '<S11>/Constant2'
+   *  Constant: '<S11>/Constant3'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr3'
+   *  Constant: '<S11>/K_Qr9'
+   *  Constant: '<S11>/K_Tf3'
+   *  Constant: '<S11>/K_Tr3'
+   *  Constant: '<S11>/Rho'
    */
   CorecontrollerTorquePowerandCom(ctrl_TAPM_P.k_cc, ctrl_TAPM_P.p_cc,
-    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay_n[2], ctrl_TAPM_P.K_T3f,
-    ctrl_TAPM_P.K_q3f, ctrl_TAPM_P.D, rtb_T_r_b, ctrl_TAPM_P.Rho,
-    ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T3r, ctrl_TAPM_P.K_q3r,
+    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay[2], ctrl_TAPM_P.K_T3f, ctrl_TAPM_P.K_q3f,
+    ctrl_TAPM_P.D, rtb_T_r_h, ctrl_TAPM_P.Rho, ctrl_TAPM_P.eps_c,
+    ctrl_TAPM_P.K_T3r, ctrl_TAPM_P.K_q3r,
     &ctrl_TAPM_B.sf_CorecontrollerTorquePowera_n);
 
-  /* MultiPortSwitch: '<S83>/Controller chosen' incorporates:
-   *  Constant: '<S83>/NaN'
-   *  Sum: '<S85>/Sum1'
+  /* MultiPortSwitch: '<S108>/Controller chosen' incorporates:
+   *  Constant: '<S108>/NaN'
+   *  Sum: '<S110>/Sum1'
    */
   switch ((int32_T)ctrl_TAPM_B.Memory_i) {
    case 1:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.Kp_i + rtb_Integrator_hl;
+    rtb_Row2 = ctrl_TAPM_B.Kp_i + rtb_Integrator_hl;
     break;
 
    case 2:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_n.Qcq;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_n.Qcq;
     break;
 
    case 3:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_n.Qcp;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_n.Qcp;
     break;
 
    case 4:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_n.Qcc;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_n.Qcc;
     break;
 
    default:
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.NaN_Value_g;
+    rtb_Row2 = ctrl_TAPM_P.NaN_Value_g;
     break;
   }
 
-  /* End of MultiPortSwitch: '<S83>/Controller chosen' */
+  /* End of MultiPortSwitch: '<S108>/Controller chosen' */
 
-  /* Sum: '<S83>/Sum' */
+  /* Sum: '<S108>/Sum' */
   ctrl_TAPM_B.Sum_hf = (ctrl_TAPM_B.Inertiacompensation_c + ctrl_TAPM_B.Sum1_i)
-    + rtb_eta_w_idx_2;
+    + rtb_Row2;
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S52>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S52>/Constant'
-     *  Constant: '<S52>/Constant1'
+    /* DiscreteTransferFcn: '<S77>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S77>/Constant'
+     *  Constant: '<S77>/Constant1'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_hh = ctrl_TAPM_B.Sum_hf -
       ctrl_TAPM_P.Constant_Value_n[1] *
@@ -6161,43 +6759,42 @@ void ctrl_TAPM_output(void)
       * ctrl_TAPM_DW.DiscreteTransferFcn_states_k;
   }
 
-  /* Gain: '<S82>/Finding rotation speed' incorporates:
-   *  Gain: '<S82>/K_omega'
-   *  Sum: '<S82>/Sum'
+  /* Gain: '<S107>/Finding rotation speed' incorporates:
+   *  Gain: '<S107>/K_omega'
+   *  Sum: '<S107>/Sum'
    */
   ctrl_TAPM_B.Findingrotationspeed_m = ((ctrl_TAPM_B.DiscreteTransferFcn_n -
     ctrl_TAPM_B.Delay_i) - ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
     rtb_Integrator_a) * (1.0 / (6.2831853071795862 * ctrl_TAPM_P.I_s));
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Gain: '<S85>/Ki' */
+    /* Gain: '<S110>/Ki' */
     ctrl_TAPM_B.Ki_n = ctrl_TAPM_P.Kp / 0.05 * rtb_Sum_b;
-  }
 
-  /* MATLAB Function: '<S83>/Supervisor' */
-  ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_i, ctrl_TAPM_B.Core_controller,
-                       ctrl_TAPM_B.Delay_n[2], &ctrl_TAPM_B.sf_Supervisor_l);
-  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Delay: '<S53>/Delay' */
+    /* MATLAB Function: '<S108>/Supervisor' */
+    ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_i, 0.0, ctrl_TAPM_B.Delay[2],
+                         &ctrl_TAPM_B.sf_Supervisor_l);
+
+    /* Delay: '<S78>/Delay' */
     ctrl_TAPM_B.Delay_g = ctrl_TAPM_DW.Delay_DSTATE_e;
 
-    /* Delay: '<S92>/Delay' */
-    ctrl_TAPM_B.Delay_l = ctrl_TAPM_DW.Delay_DSTATE_id;
+    /* Delay: '<S117>/Delay' */
+    ctrl_TAPM_B.Delay_l = ctrl_TAPM_DW.Delay_DSTATE_i;
   }
 
-  /* MATLAB Function: '<S92>/MATLAB Function' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Tf4'
-   *  Constant: '<S7>/K_Tr4'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S117>/MATLAB Function' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Tf4'
+   *  Constant: '<S11>/K_Tr4'
+   *  Constant: '<S11>/Rho'
    */
-  ctrl_TAPM_MATLABFunction_i(rtb_sys[9], ctrl_TAPM_P.K_T4f, ctrl_TAPM_P.K_T4r,
+  ctrl_TAPM_MATLABFunction(rtb_sys[9], ctrl_TAPM_P.K_T4f, ctrl_TAPM_P.K_T4r,
     ctrl_TAPM_P.Rho, ctrl_TAPM_P.D, ctrl_TAPM_P.eps_c, ctrl_TAPM_B.Delay_l,
     &ctrl_TAPM_B.sf_MATLABFunction_go);
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S92>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S92>/Constant1'
-     *  Constant: '<S92>/Constant2'
+    /* DiscreteTransferFcn: '<S117>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S117>/Constant1'
+     *  Constant: '<S117>/Constant2'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_k =
       (ctrl_TAPM_B.sf_MATLABFunction_go.n_d - ctrl_TAPM_P.Constant2_Value_l[1] *
@@ -6210,26 +6807,26 @@ void ctrl_TAPM_output(void)
       ctrl_TAPM_P.Constant1_Value_m[2] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_i[1];
 
-    /* SampleTimeMath: '<S95>/TSamp'
+    /* SampleTimeMath: '<S120>/TSamp'
      *
-     * About '<S95>/TSamp':
+     * About '<S120>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     ctrl_TAPM_B.TSamp_a = ctrl_TAPM_B.DiscreteTransferFcn_l *
       ctrl_TAPM_P.TSamp_WtEt_h;
 
-    /* Sum: '<S95>/Diff' incorporates:
-     *  UnitDelay: '<S95>/UD'
+    /* Sum: '<S120>/Diff' incorporates:
+     *  UnitDelay: '<S120>/UD'
      */
     rtb_Sum_b = ctrl_TAPM_B.TSamp_a - ctrl_TAPM_DW.UD_DSTATE_n4;
 
-    /* RateLimiter: '<S92>/Acceleration limiter' */
-    rtb_eta_w_idx_2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_c;
-    if (rtb_eta_w_idx_2 > ctrl_TAPM_P.Accelerationlimiter_RisingLim_e) {
+    /* RateLimiter: '<S117>/Acceleration limiter' */
+    rtb_Row2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_c;
+    if (rtb_Row2 > ctrl_TAPM_P.Accelerationlimiter_RisingLim_e) {
       rtb_Sum_b = ctrl_TAPM_DW.PrevY_c +
         ctrl_TAPM_P.Accelerationlimiter_RisingLim_e;
     } else {
-      if (rtb_eta_w_idx_2 < ctrl_TAPM_P.Accelerationlimiter_FallingLi_b) {
+      if (rtb_Row2 < ctrl_TAPM_P.Accelerationlimiter_FallingLi_b) {
         rtb_Sum_b = ctrl_TAPM_DW.PrevY_c +
           ctrl_TAPM_P.Accelerationlimiter_FallingLi_b;
       }
@@ -6237,34 +6834,34 @@ void ctrl_TAPM_output(void)
 
     ctrl_TAPM_DW.PrevY_c = rtb_Sum_b;
 
-    /* End of RateLimiter: '<S92>/Acceleration limiter' */
+    /* End of RateLimiter: '<S117>/Acceleration limiter' */
 
-    /* Gain: '<S92>/Inertia compensation' */
+    /* Gain: '<S117>/Inertia compensation' */
     ctrl_TAPM_B.Inertiacompensation_k = ctrl_TAPM_P.I_s * 2.0 *
       3.1415926535897931 * rtb_Sum_b;
 
-    /* Sum: '<S92>/Sum1' incorporates:
-     *  Gain: '<S92>/Qf_0'
-     *  Gain: '<S92>/Qff_0(nr)'
-     *  Gain: '<S92>/Qff_1(nr)'
-     *  Trigonometry: '<S92>/Trigonometric Function'
+    /* Sum: '<S117>/Sum1' incorporates:
+     *  Gain: '<S117>/Qf_0'
+     *  Gain: '<S117>/Qff_0(nr)'
+     *  Gain: '<S117>/Qff_1(nr)'
+     *  Trigonometry: '<S117>/Trigonometric Function'
      */
     ctrl_TAPM_B.Sum1_b = tanh(ctrl_TAPM_P.epsilon / ctrl_TAPM_P.n_max *
       ctrl_TAPM_B.DiscreteTransferFcn_l) * ctrl_TAPM_P.Q_f0 +
       ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
       ctrl_TAPM_B.DiscreteTransferFcn_l;
 
-    /* Memory: '<S92>/Memory' */
+    /* Memory: '<S117>/Memory' */
     ctrl_TAPM_B.Memory_j = ctrl_TAPM_DW.Memory_PreviousInput_a;
 
-    /* Sum: '<S94>/Sum' */
-    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_l - ctrl_TAPM_B.Delay_n[3];
+    /* Sum: '<S119>/Sum' */
+    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_l - ctrl_TAPM_B.Delay[3];
 
-    /* Gain: '<S94>/Kp' */
+    /* Gain: '<S119>/Kp' */
     ctrl_TAPM_B.Kp_c = ctrl_TAPM_P.Kp * rtb_Sum_b;
   }
 
-  /* Integrator: '<S94>/Integrator' */
+  /* Integrator: '<S119>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -6273,111 +6870,110 @@ void ctrl_TAPM_output(void)
 
     /* evaluate zero-crossings */
     if (zcEvent) {
-      ctrl_TAPM_X.Integrator_CSTATE_le = ctrl_TAPM_P.Integrator_IC_g;
+      ctrl_TAPM_X.Integrator_CSTATE_l = ctrl_TAPM_P.Integrator_IC_g;
     }
   }
 
-  rtb_Integrator_an = ctrl_TAPM_X.Integrator_CSTATE_le;
+  rtb_Integrator_an = ctrl_TAPM_X.Integrator_CSTATE_l;
 
-  /* MATLAB Function: '<S94>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/Constant1'
-   *  Constant: '<S7>/Constant2'
-   *  Constant: '<S7>/Constant3'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr10'
-   *  Constant: '<S7>/K_Qr4'
-   *  Constant: '<S7>/K_Tf4'
-   *  Constant: '<S7>/K_Tr4'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S119>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/Constant1'
+   *  Constant: '<S11>/Constant2'
+   *  Constant: '<S11>/Constant3'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr10'
+   *  Constant: '<S11>/K_Qr4'
+   *  Constant: '<S11>/K_Tf4'
+   *  Constant: '<S11>/K_Tr4'
+   *  Constant: '<S11>/Rho'
    */
   CorecontrollerTorquePowerandCom(ctrl_TAPM_P.k_cc, ctrl_TAPM_P.p_cc,
-    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay_n[3], ctrl_TAPM_P.K_T4f,
-    ctrl_TAPM_P.K_q4f, ctrl_TAPM_P.D, ctrl_TAPM_B.sf_MATLABFunction_go.T_r,
-    ctrl_TAPM_P.Rho, ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T4r, ctrl_TAPM_P.K_q4r,
+    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay[3], ctrl_TAPM_P.K_T4f, ctrl_TAPM_P.K_q4f,
+    ctrl_TAPM_P.D, ctrl_TAPM_B.sf_MATLABFunction_go.T_r, ctrl_TAPM_P.Rho,
+    ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T4r, ctrl_TAPM_P.K_q4r,
     &ctrl_TAPM_B.sf_CorecontrollerTorquePower_n3);
 
-  /* MultiPortSwitch: '<S92>/Controller chosen' incorporates:
-   *  Constant: '<S92>/NaN'
-   *  Sum: '<S94>/Sum1'
+  /* MultiPortSwitch: '<S117>/Controller chosen' incorporates:
+   *  Constant: '<S117>/NaN'
+   *  Sum: '<S119>/Sum1'
    */
   switch ((int32_T)ctrl_TAPM_B.Memory_j) {
    case 1:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.Kp_c + rtb_Integrator_an;
+    rtb_Row2 = ctrl_TAPM_B.Kp_c + rtb_Integrator_an;
     break;
 
    case 2:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_n3.Qcq;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_n3.Qcq;
     break;
 
    case 3:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_n3.Qcp;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_n3.Qcp;
     break;
 
    case 4:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_n3.Qcc;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_n3.Qcc;
     break;
 
    default:
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.NaN_Value_p;
+    rtb_Row2 = ctrl_TAPM_P.NaN_Value_p;
     break;
   }
 
-  /* End of MultiPortSwitch: '<S92>/Controller chosen' */
+  /* End of MultiPortSwitch: '<S117>/Controller chosen' */
 
-  /* Sum: '<S92>/Sum' */
+  /* Sum: '<S117>/Sum' */
   ctrl_TAPM_B.Sum_k2 = (ctrl_TAPM_B.Inertiacompensation_k + ctrl_TAPM_B.Sum1_b)
-    + rtb_eta_w_idx_2;
+    + rtb_Row2;
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S53>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S53>/Constant'
-     *  Constant: '<S53>/Constant1'
+    /* DiscreteTransferFcn: '<S78>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S78>/Constant'
+     *  Constant: '<S78>/Constant1'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_n = ctrl_TAPM_B.Sum_k2 -
-      ctrl_TAPM_P.Constant_Value_j[1] *
+      ctrl_TAPM_P.Constant_Value_j4[1] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_h0;
     ctrl_TAPM_B.DiscreteTransferFcn_b = ctrl_TAPM_P.Constant1_Value_oi[0] *
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_n + ctrl_TAPM_P.Constant1_Value_oi[1]
       * ctrl_TAPM_DW.DiscreteTransferFcn_states_h0;
   }
 
-  /* Gain: '<S91>/Finding rotation speed' incorporates:
-   *  Gain: '<S91>/K_omega'
-   *  Sum: '<S91>/Sum'
+  /* Gain: '<S116>/Finding rotation speed' incorporates:
+   *  Gain: '<S116>/K_omega'
+   *  Sum: '<S116>/Sum'
    */
   ctrl_TAPM_B.Findingrotationspeed_ms = ((ctrl_TAPM_B.DiscreteTransferFcn_b -
     ctrl_TAPM_B.Delay_g) - ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
     rtb_Integrator_k) * (1.0 / (6.2831853071795862 * ctrl_TAPM_P.I_s));
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Gain: '<S94>/Ki' */
+    /* Gain: '<S119>/Ki' */
     ctrl_TAPM_B.Ki_b = ctrl_TAPM_P.Kp / 0.05 * rtb_Sum_b;
-  }
 
-  /* MATLAB Function: '<S92>/Supervisor' */
-  ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_j, ctrl_TAPM_B.Core_controller,
-                       ctrl_TAPM_B.Delay_n[3], &ctrl_TAPM_B.sf_Supervisor_n);
-  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Delay: '<S54>/Delay' */
+    /* MATLAB Function: '<S117>/Supervisor' */
+    ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_j, 0.0, ctrl_TAPM_B.Delay[3],
+                         &ctrl_TAPM_B.sf_Supervisor_n);
+
+    /* Delay: '<S79>/Delay' */
     ctrl_TAPM_B.Delay_a5 = ctrl_TAPM_DW.Delay_DSTATE_j;
 
-    /* Delay: '<S101>/Delay' */
+    /* Delay: '<S126>/Delay' */
     ctrl_TAPM_B.Delay_id = ctrl_TAPM_DW.Delay_DSTATE_a;
   }
 
-  /* MATLAB Function: '<S101>/MATLAB Function' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Tf5'
-   *  Constant: '<S7>/K_Tr5'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S126>/MATLAB Function' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Tf5'
+   *  Constant: '<S11>/K_Tr5'
+   *  Constant: '<S11>/Rho'
    */
-  ctrl_TAPM_MATLABFunction_i(rtb_sys[10], ctrl_TAPM_P.K_T5f, ctrl_TAPM_P.K_T5r,
+  ctrl_TAPM_MATLABFunction(rtb_sys[10], ctrl_TAPM_P.K_T5f, ctrl_TAPM_P.K_T5r,
     ctrl_TAPM_P.Rho, ctrl_TAPM_P.D, ctrl_TAPM_P.eps_c, ctrl_TAPM_B.Delay_id,
     &ctrl_TAPM_B.sf_MATLABFunction_j);
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S101>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S101>/Constant1'
-     *  Constant: '<S101>/Constant2'
+    /* DiscreteTransferFcn: '<S126>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S126>/Constant1'
+     *  Constant: '<S126>/Constant2'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_c =
       (ctrl_TAPM_B.sf_MATLABFunction_j.n_d - ctrl_TAPM_P.Constant2_Value_p[1] *
@@ -6390,26 +6986,26 @@ void ctrl_TAPM_output(void)
       ctrl_TAPM_P.Constant1_Value_mk[2] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_hb[1];
 
-    /* SampleTimeMath: '<S104>/TSamp'
+    /* SampleTimeMath: '<S129>/TSamp'
      *
-     * About '<S104>/TSamp':
+     * About '<S129>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     ctrl_TAPM_B.TSamp_m = ctrl_TAPM_B.DiscreteTransferFcn_o *
       ctrl_TAPM_P.TSamp_WtEt_o;
 
-    /* Sum: '<S104>/Diff' incorporates:
-     *  UnitDelay: '<S104>/UD'
+    /* Sum: '<S129>/Diff' incorporates:
+     *  UnitDelay: '<S129>/UD'
      */
     rtb_Sum_b = ctrl_TAPM_B.TSamp_m - ctrl_TAPM_DW.UD_DSTATE_m;
 
-    /* RateLimiter: '<S101>/Acceleration limiter' */
-    rtb_eta_w_idx_2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_j;
-    if (rtb_eta_w_idx_2 > ctrl_TAPM_P.Accelerationlimiter_RisingLim_b) {
+    /* RateLimiter: '<S126>/Acceleration limiter' */
+    rtb_Row2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_j;
+    if (rtb_Row2 > ctrl_TAPM_P.Accelerationlimiter_RisingLim_b) {
       rtb_Sum_b = ctrl_TAPM_DW.PrevY_j +
         ctrl_TAPM_P.Accelerationlimiter_RisingLim_b;
     } else {
-      if (rtb_eta_w_idx_2 < ctrl_TAPM_P.Accelerationlimiter_FallingLi_d) {
+      if (rtb_Row2 < ctrl_TAPM_P.Accelerationlimiter_FallingLi_d) {
         rtb_Sum_b = ctrl_TAPM_DW.PrevY_j +
           ctrl_TAPM_P.Accelerationlimiter_FallingLi_d;
       }
@@ -6417,34 +7013,34 @@ void ctrl_TAPM_output(void)
 
     ctrl_TAPM_DW.PrevY_j = rtb_Sum_b;
 
-    /* End of RateLimiter: '<S101>/Acceleration limiter' */
+    /* End of RateLimiter: '<S126>/Acceleration limiter' */
 
-    /* Gain: '<S101>/Inertia compensation' */
+    /* Gain: '<S126>/Inertia compensation' */
     ctrl_TAPM_B.Inertiacompensation_f = ctrl_TAPM_P.I_s * 2.0 *
       3.1415926535897931 * rtb_Sum_b;
 
-    /* Sum: '<S101>/Sum1' incorporates:
-     *  Gain: '<S101>/Qf_0'
-     *  Gain: '<S101>/Qff_0(nr)'
-     *  Gain: '<S101>/Qff_1(nr)'
-     *  Trigonometry: '<S101>/Trigonometric Function'
+    /* Sum: '<S126>/Sum1' incorporates:
+     *  Gain: '<S126>/Qf_0'
+     *  Gain: '<S126>/Qff_0(nr)'
+     *  Gain: '<S126>/Qff_1(nr)'
+     *  Trigonometry: '<S126>/Trigonometric Function'
      */
     ctrl_TAPM_B.Sum1_o = tanh(ctrl_TAPM_P.epsilon / ctrl_TAPM_P.n_max *
       ctrl_TAPM_B.DiscreteTransferFcn_o) * ctrl_TAPM_P.Q_f0 +
       ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
       ctrl_TAPM_B.DiscreteTransferFcn_o;
 
-    /* Memory: '<S101>/Memory' */
+    /* Memory: '<S126>/Memory' */
     ctrl_TAPM_B.Memory_d = ctrl_TAPM_DW.Memory_PreviousInput_b;
 
-    /* Sum: '<S103>/Sum' */
-    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_o - ctrl_TAPM_B.Delay_n[4];
+    /* Sum: '<S128>/Sum' */
+    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_o - ctrl_TAPM_B.Delay[4];
 
-    /* Gain: '<S103>/Kp' */
+    /* Gain: '<S128>/Kp' */
     ctrl_TAPM_B.Kp_j = ctrl_TAPM_P.Kp * rtb_Sum_b;
   }
 
-  /* Integrator: '<S103>/Integrator' */
+  /* Integrator: '<S128>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -6459,139 +7055,138 @@ void ctrl_TAPM_output(void)
 
   rtb_Integrator_i = ctrl_TAPM_X.Integrator_CSTATE_n4;
 
-  /* MATLAB Function: '<S103>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/Constant1'
-   *  Constant: '<S7>/Constant2'
-   *  Constant: '<S7>/Constant3'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr11'
-   *  Constant: '<S7>/K_Qr5'
-   *  Constant: '<S7>/K_Tf5'
-   *  Constant: '<S7>/K_Tr5'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S128>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/Constant1'
+   *  Constant: '<S11>/Constant2'
+   *  Constant: '<S11>/Constant3'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr11'
+   *  Constant: '<S11>/K_Qr5'
+   *  Constant: '<S11>/K_Tf5'
+   *  Constant: '<S11>/K_Tr5'
+   *  Constant: '<S11>/Rho'
    */
   CorecontrollerTorquePowerandCom(ctrl_TAPM_P.k_cc, ctrl_TAPM_P.p_cc,
-    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay_n[4], ctrl_TAPM_P.K_T5f,
-    ctrl_TAPM_P.K_q5f, ctrl_TAPM_P.D, ctrl_TAPM_B.sf_MATLABFunction_j.T_r,
-    ctrl_TAPM_P.Rho, ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T5r, ctrl_TAPM_P.K_q5r,
+    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay[4], ctrl_TAPM_P.K_T5f, ctrl_TAPM_P.K_q5f,
+    ctrl_TAPM_P.D, ctrl_TAPM_B.sf_MATLABFunction_j.T_r, ctrl_TAPM_P.Rho,
+    ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T5r, ctrl_TAPM_P.K_q5r,
     &ctrl_TAPM_B.sf_CorecontrollerTorquePowera_h);
 
-  /* MultiPortSwitch: '<S101>/Controller chosen' incorporates:
-   *  Constant: '<S101>/NaN'
-   *  Sum: '<S103>/Sum1'
+  /* MultiPortSwitch: '<S126>/Controller chosen' incorporates:
+   *  Constant: '<S126>/NaN'
+   *  Sum: '<S128>/Sum1'
    */
   switch ((int32_T)ctrl_TAPM_B.Memory_d) {
    case 1:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.Kp_j + rtb_Integrator_i;
+    rtb_Row2 = ctrl_TAPM_B.Kp_j + rtb_Integrator_i;
     break;
 
    case 2:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_h.Qcq;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_h.Qcq;
     break;
 
    case 3:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_h.Qcp;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_h.Qcp;
     break;
 
    case 4:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_h.Qcc;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePowera_h.Qcc;
     break;
 
    default:
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.NaN_Value_lq;
+    rtb_Row2 = ctrl_TAPM_P.NaN_Value_lq;
     break;
   }
 
-  /* End of MultiPortSwitch: '<S101>/Controller chosen' */
+  /* End of MultiPortSwitch: '<S126>/Controller chosen' */
 
-  /* Sum: '<S101>/Sum' */
+  /* Sum: '<S126>/Sum' */
   ctrl_TAPM_B.Sum_i = (ctrl_TAPM_B.Inertiacompensation_f + ctrl_TAPM_B.Sum1_o) +
-    rtb_eta_w_idx_2;
+    rtb_Row2;
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S54>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S54>/Constant'
-     *  Constant: '<S54>/Constant1'
+    /* DiscreteTransferFcn: '<S79>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S79>/Constant'
+     *  Constant: '<S79>/Constant1'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_f = ctrl_TAPM_B.Sum_i -
-      ctrl_TAPM_P.Constant_Value_i[1] *
+      ctrl_TAPM_P.Constant_Value_ib[1] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_dt;
     ctrl_TAPM_B.DiscreteTransferFcn_lz = ctrl_TAPM_P.Constant1_Value_h[0] *
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_f + ctrl_TAPM_P.Constant1_Value_h[1] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_dt;
   }
 
-  /* Gain: '<S100>/Finding rotation speed' incorporates:
-   *  Gain: '<S100>/K_omega'
-   *  Sum: '<S100>/Sum'
+  /* Gain: '<S125>/Finding rotation speed' incorporates:
+   *  Gain: '<S125>/K_omega'
+   *  Sum: '<S125>/Sum'
    */
   ctrl_TAPM_B.Findingrotationspeed_ag = ((ctrl_TAPM_B.DiscreteTransferFcn_lz -
     ctrl_TAPM_B.Delay_a5) - ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
     rtb_Integrator_c) * (1.0 / (6.2831853071795862 * ctrl_TAPM_P.I_s));
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Gain: '<S103>/Ki' */
+    /* Gain: '<S128>/Ki' */
     ctrl_TAPM_B.Ki_a = ctrl_TAPM_P.Kp / 0.05 * rtb_Sum_b;
-  }
 
-  /* MATLAB Function: '<S101>/Supervisor' */
-  ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_d, ctrl_TAPM_B.Core_controller,
-                       ctrl_TAPM_B.Delay_n[4], &ctrl_TAPM_B.sf_Supervisor_b);
-  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Delay: '<S55>/Delay' */
+    /* MATLAB Function: '<S126>/Supervisor' */
+    ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_d, 0.0, ctrl_TAPM_B.Delay[4],
+                         &ctrl_TAPM_B.sf_Supervisor_b);
+
+    /* Delay: '<S80>/Delay' */
     ctrl_TAPM_B.Delay_h = ctrl_TAPM_DW.Delay_DSTATE_dv;
 
-    /* Delay: '<S110>/Delay' */
+    /* Delay: '<S135>/Delay' */
     ctrl_TAPM_B.Delay_il = ctrl_TAPM_DW.Delay_DSTATE_m;
   }
 
-  /* MATLAB Function: '<S110>/MATLAB Function' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Tf6'
-   *  Constant: '<S7>/K_Tr6'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S135>/MATLAB Function' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Tf6'
+   *  Constant: '<S11>/K_Tr6'
+   *  Constant: '<S11>/Rho'
    */
-  /* MATLAB Function 'Thruster control /Thruster 6/Thruster control/MATLAB Function': '<S114>:1' */
-  /* '<S114>:1:5' */
+  /* MATLAB Function 'Thruster control /Thruster 6/Thruster control/MATLAB Function': '<S139>:1' */
+  /* '<S139>:1:5' */
   if (rtb_sys[11] < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
   } else if (rtb_sys[11] > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
   } else if (rtb_sys[11] == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
   } else {
-    rtb_eta_w_idx_0 = rtb_sys[11];
+    rtb_TmpSignalConversionAtSFun_2 = rtb_sys[11];
   }
 
-  rtb_eta_w_idx_2 = sqrt(fabs(rtb_sys[11]) / (ctrl_TAPM_P.Rho * rt_powd_snf
-    (ctrl_TAPM_P.D, 4.0) * ctrl_TAPM_P.K_T6f)) * rtb_eta_w_idx_0;
+  rtb_Row2 = sqrt(fabs(rtb_sys[11]) / (ctrl_TAPM_P.Rho * rt_powd_snf
+    (ctrl_TAPM_P.D, 4.0) * ctrl_TAPM_P.K_T6f)) * rtb_TmpSignalConversionAtSFun_2;
 
-  /* '<S114>:1:7' */
-  offset = tanh(ctrl_TAPM_P.eps_c * rtb_eta_w_idx_2 / 27.0) * 0.5 + 0.5;
+  /* '<S139>:1:7' */
+  rtb_Row1 = tanh(ctrl_TAPM_P.eps_c * rtb_Row2 / 27.0) * 0.5 + 0.5;
 
   /*  Smooth switching between positive and negative thrust */
-  /* '<S114>:1:8' */
-  /* '<S114>:1:10' */
+  /* '<S139>:1:8' */
+  /* '<S139>:1:10' */
   if (ctrl_TAPM_B.Delay_il < 0.0) {
-    rtb_eta_w_idx_0 = -1.0;
+    rtb_TmpSignalConversionAtSFun_2 = -1.0;
   } else if (ctrl_TAPM_B.Delay_il > 0.0) {
-    rtb_eta_w_idx_0 = 1.0;
+    rtb_TmpSignalConversionAtSFun_2 = 1.0;
   } else if (ctrl_TAPM_B.Delay_il == 0.0) {
-    rtb_eta_w_idx_0 = 0.0;
+    rtb_TmpSignalConversionAtSFun_2 = 0.0;
   } else {
-    rtb_eta_w_idx_0 = ctrl_TAPM_B.Delay_il;
+    rtb_TmpSignalConversionAtSFun_2 = ctrl_TAPM_B.Delay_il;
   }
 
-  rtb_T_r = ((1.0 - offset) * ctrl_TAPM_P.K_T6r + ctrl_TAPM_P.K_T6f * offset) *
-    rtb_eta_w_idx_0 * ctrl_TAPM_P.Rho * rt_powd_snf(ctrl_TAPM_P.D, 4.0) *
-    (ctrl_TAPM_B.Delay_il * ctrl_TAPM_B.Delay_il);
-  ctrl_TAPM_B.n_d = rtb_eta_w_idx_2;
+  rtb_T_r = ((1.0 - rtb_Row1) * ctrl_TAPM_P.K_T6r + ctrl_TAPM_P.K_T6f * rtb_Row1)
+    * rtb_TmpSignalConversionAtSFun_2 * ctrl_TAPM_P.Rho * rt_powd_snf
+    (ctrl_TAPM_P.D, 4.0) * (ctrl_TAPM_B.Delay_il * ctrl_TAPM_B.Delay_il);
+  ctrl_TAPM_B.n_d = rtb_Row2;
 
-  /* End of MATLAB Function: '<S110>/MATLAB Function' */
+  /* End of MATLAB Function: '<S135>/MATLAB Function' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S110>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S110>/Constant1'
-     *  Constant: '<S110>/Constant2'
+    /* DiscreteTransferFcn: '<S135>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S135>/Constant1'
+     *  Constant: '<S135>/Constant2'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_h4 = (ctrl_TAPM_B.n_d -
       ctrl_TAPM_P.Constant2_Value_p3[1] *
@@ -6604,26 +7199,26 @@ void ctrl_TAPM_output(void)
       ctrl_TAPM_P.Constant1_Value_oa[2] *
       ctrl_TAPM_DW.DiscreteTransferFcn_states_l[1];
 
-    /* SampleTimeMath: '<S113>/TSamp'
+    /* SampleTimeMath: '<S138>/TSamp'
      *
-     * About '<S113>/TSamp':
+     * About '<S138>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     ctrl_TAPM_B.TSamp_o = ctrl_TAPM_B.DiscreteTransferFcn_j *
       ctrl_TAPM_P.TSamp_WtEt_kk;
 
-    /* Sum: '<S113>/Diff' incorporates:
-     *  UnitDelay: '<S113>/UD'
+    /* Sum: '<S138>/Diff' incorporates:
+     *  UnitDelay: '<S138>/UD'
      */
     rtb_Sum_b = ctrl_TAPM_B.TSamp_o - ctrl_TAPM_DW.UD_DSTATE_l;
 
-    /* RateLimiter: '<S110>/Acceleration limiter' */
-    rtb_eta_w_idx_2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_h;
-    if (rtb_eta_w_idx_2 > ctrl_TAPM_P.Accelerationlimiter_RisingLi_bi) {
+    /* RateLimiter: '<S135>/Acceleration limiter' */
+    rtb_Row2 = rtb_Sum_b - ctrl_TAPM_DW.PrevY_h;
+    if (rtb_Row2 > ctrl_TAPM_P.Accelerationlimiter_RisingLi_bi) {
       rtb_Sum_b = ctrl_TAPM_DW.PrevY_h +
         ctrl_TAPM_P.Accelerationlimiter_RisingLi_bi;
     } else {
-      if (rtb_eta_w_idx_2 < ctrl_TAPM_P.Accelerationlimiter_FallingLi_p) {
+      if (rtb_Row2 < ctrl_TAPM_P.Accelerationlimiter_FallingLi_p) {
         rtb_Sum_b = ctrl_TAPM_DW.PrevY_h +
           ctrl_TAPM_P.Accelerationlimiter_FallingLi_p;
       }
@@ -6631,34 +7226,34 @@ void ctrl_TAPM_output(void)
 
     ctrl_TAPM_DW.PrevY_h = rtb_Sum_b;
 
-    /* End of RateLimiter: '<S110>/Acceleration limiter' */
+    /* End of RateLimiter: '<S135>/Acceleration limiter' */
 
-    /* Gain: '<S110>/Inertia compensation' */
+    /* Gain: '<S135>/Inertia compensation' */
     ctrl_TAPM_B.Inertiacompensation_e3 = ctrl_TAPM_P.I_s * 2.0 *
       3.1415926535897931 * rtb_Sum_b;
 
-    /* Sum: '<S110>/Sum1' incorporates:
-     *  Gain: '<S110>/Qf_0'
-     *  Gain: '<S110>/Qff_0(nr)'
-     *  Gain: '<S110>/Qff_1(nr)'
-     *  Trigonometry: '<S110>/Trigonometric Function'
+    /* Sum: '<S135>/Sum1' incorporates:
+     *  Gain: '<S135>/Qf_0'
+     *  Gain: '<S135>/Qff_0(nr)'
+     *  Gain: '<S135>/Qff_1(nr)'
+     *  Trigonometry: '<S135>/Trigonometric Function'
      */
     ctrl_TAPM_B.Sum1_io = tanh(ctrl_TAPM_P.epsilon / ctrl_TAPM_P.n_max *
       ctrl_TAPM_B.DiscreteTransferFcn_j) * ctrl_TAPM_P.Q_f0 +
       ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
       ctrl_TAPM_B.DiscreteTransferFcn_j;
 
-    /* Memory: '<S110>/Memory' */
+    /* Memory: '<S135>/Memory' */
     ctrl_TAPM_B.Memory_o = ctrl_TAPM_DW.Memory_PreviousInput_a4;
 
-    /* Sum: '<S112>/Sum' */
-    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_j - ctrl_TAPM_B.Delay_n[5];
+    /* Sum: '<S137>/Sum' */
+    rtb_Sum_b = ctrl_TAPM_B.DiscreteTransferFcn_j - ctrl_TAPM_B.Delay[5];
 
-    /* Gain: '<S112>/Kp' */
+    /* Gain: '<S137>/Kp' */
     ctrl_TAPM_B.Kp_l = ctrl_TAPM_P.Kp * rtb_Sum_b;
   }
 
-  /* Integrator: '<S112>/Integrator' */
+  /* Integrator: '<S137>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -6671,61 +7266,61 @@ void ctrl_TAPM_output(void)
     }
   }
 
-  rtb_Integrator_ld = ctrl_TAPM_X.Integrator_CSTATE_gj;
+  rtb_Integrator_l = ctrl_TAPM_X.Integrator_CSTATE_gj;
 
-  /* MATLAB Function: '<S112>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
-   *  Constant: '<S7>/Constant'
-   *  Constant: '<S7>/Constant1'
-   *  Constant: '<S7>/Constant2'
-   *  Constant: '<S7>/Constant3'
-   *  Constant: '<S7>/D'
-   *  Constant: '<S7>/K_Qr12'
-   *  Constant: '<S7>/K_Qr6'
-   *  Constant: '<S7>/K_Tf6'
-   *  Constant: '<S7>/K_Tr6'
-   *  Constant: '<S7>/Rho'
+  /* MATLAB Function: '<S137>/Core controller: Torque,Power and Combined Torque//Power' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/Constant1'
+   *  Constant: '<S11>/Constant2'
+   *  Constant: '<S11>/Constant3'
+   *  Constant: '<S11>/D'
+   *  Constant: '<S11>/K_Qr12'
+   *  Constant: '<S11>/K_Qr6'
+   *  Constant: '<S11>/K_Tf6'
+   *  Constant: '<S11>/K_Tr6'
+   *  Constant: '<S11>/Rho'
    */
   CorecontrollerTorquePowerandCom(ctrl_TAPM_P.k_cc, ctrl_TAPM_P.p_cc,
-    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay_n[5], ctrl_TAPM_P.K_T6f,
-    ctrl_TAPM_P.K_q6f, ctrl_TAPM_P.D, rtb_T_r, ctrl_TAPM_P.Rho,
-    ctrl_TAPM_P.eps_c, ctrl_TAPM_P.K_T6r, ctrl_TAPM_P.K_q6r,
+    ctrl_TAPM_P.r_cc, ctrl_TAPM_B.Delay[5], ctrl_TAPM_P.K_T6f, ctrl_TAPM_P.K_q6f,
+    ctrl_TAPM_P.D, rtb_T_r, ctrl_TAPM_P.Rho, ctrl_TAPM_P.eps_c,
+    ctrl_TAPM_P.K_T6r, ctrl_TAPM_P.K_q6r,
     &ctrl_TAPM_B.sf_CorecontrollerTorquePower_nf);
 
-  /* MultiPortSwitch: '<S110>/Controller chosen' incorporates:
-   *  Constant: '<S110>/NaN'
-   *  Sum: '<S112>/Sum1'
+  /* MultiPortSwitch: '<S135>/Controller chosen' incorporates:
+   *  Constant: '<S135>/NaN'
+   *  Sum: '<S137>/Sum1'
    */
   switch ((int32_T)ctrl_TAPM_B.Memory_o) {
    case 1:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.Kp_l + rtb_Integrator_ld;
+    rtb_Row2 = ctrl_TAPM_B.Kp_l + rtb_Integrator_l;
     break;
 
    case 2:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_nf.Qcq;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_nf.Qcq;
     break;
 
    case 3:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_nf.Qcp;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_nf.Qcp;
     break;
 
    case 4:
-    rtb_eta_w_idx_2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_nf.Qcc;
+    rtb_Row2 = ctrl_TAPM_B.sf_CorecontrollerTorquePower_nf.Qcc;
     break;
 
    default:
-    rtb_eta_w_idx_2 = ctrl_TAPM_P.NaN_Value_j;
+    rtb_Row2 = ctrl_TAPM_P.NaN_Value_j;
     break;
   }
 
-  /* End of MultiPortSwitch: '<S110>/Controller chosen' */
+  /* End of MultiPortSwitch: '<S135>/Controller chosen' */
 
-  /* Sum: '<S110>/Sum' */
+  /* Sum: '<S135>/Sum' */
   ctrl_TAPM_B.Sum_f = (ctrl_TAPM_B.Inertiacompensation_e3 + ctrl_TAPM_B.Sum1_io)
-    + rtb_eta_w_idx_2;
+    + rtb_Row2;
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* DiscreteTransferFcn: '<S55>/Discrete Transfer Fcn' incorporates:
-     *  Constant: '<S55>/Constant'
-     *  Constant: '<S55>/Constant1'
+    /* DiscreteTransferFcn: '<S80>/Discrete Transfer Fcn' incorporates:
+     *  Constant: '<S80>/Constant'
+     *  Constant: '<S80>/Constant1'
      */
     ctrl_TAPM_DW.DiscreteTransferFcn_tmp_cw = ctrl_TAPM_B.Sum_f -
       ctrl_TAPM_P.Constant_Value_ht[1] *
@@ -6735,29 +7330,1733 @@ void ctrl_TAPM_output(void)
       * ctrl_TAPM_DW.DiscreteTransferFcn_states_o;
   }
 
-  /* Gain: '<S109>/Finding rotation speed' incorporates:
-   *  Gain: '<S109>/K_omega'
-   *  Sum: '<S109>/Sum'
+  /* Gain: '<S134>/Finding rotation speed' incorporates:
+   *  Gain: '<S134>/K_omega'
+   *  Sum: '<S134>/Sum'
    */
   ctrl_TAPM_B.Findingrotationspeed_c = ((ctrl_TAPM_B.DiscreteTransferFcn_ea -
     ctrl_TAPM_B.Delay_h) - ctrl_TAPM_P.K_omega * 2.0 * 3.1415926535897931 *
     rtb_Integrator_m) * (1.0 / (6.2831853071795862 * ctrl_TAPM_P.I_s));
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Gain: '<S112>/Ki' */
+    /* Gain: '<S137>/Ki' */
     ctrl_TAPM_B.Ki_p = ctrl_TAPM_P.Kp / 0.05 * rtb_Sum_b;
-  }
 
-  /* MATLAB Function: '<S110>/Supervisor' */
-  ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_o, ctrl_TAPM_B.Core_controller,
-                       ctrl_TAPM_B.Delay_n[5], &ctrl_TAPM_B.sf_Supervisor_e);
-  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* SignalConversion: '<S8>/TmpSignal ConversionAtDelayInport1' */
+    /* MATLAB Function: '<S135>/Supervisor' */
+    ctrl_TAPM_Supervisor(ctrl_TAPM_B.Memory_o, 0.0, ctrl_TAPM_B.Delay[5],
+                         &ctrl_TAPM_B.sf_Supervisor_e);
+
+    /* SignalConversion: '<S12>/TmpSignal ConversionAtDelayInport1' */
     ctrl_TAPM_B.TmpSignalConversionAtDelayInpor[0] = ctrl_TAPM_B.output[1];
     ctrl_TAPM_B.TmpSignalConversionAtDelayInpor[1] = ctrl_TAPM_B.output[3];
     ctrl_TAPM_B.TmpSignalConversionAtDelayInpor[2] = ctrl_TAPM_B.output[5];
     ctrl_TAPM_B.TmpSignalConversionAtDelayInpor[3] = ctrl_TAPM_B.output[7];
     ctrl_TAPM_B.TmpSignalConversionAtDelayInpor[4] = ctrl_TAPM_B.output[9];
     ctrl_TAPM_B.TmpSignalConversionAtDelayInpor[5] = ctrl_TAPM_B.output[11];
+
+    /* RelationalOperator: '<S4>/Relational Operator' incorporates:
+     *  Memory: '<S4>/Memory'
+     */
+    rtb_RelationalOperator[0] = (ctrl_TAPM_B.IMU_AX1 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[0]);
+    rtb_RelationalOperator[1] = (ctrl_TAPM_B.IMU_AY1 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[1]);
+    rtb_RelationalOperator[2] = (ctrl_TAPM_B.IMU_AZ1 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[2]);
+    rtb_RelationalOperator[3] = (ctrl_TAPM_B.IMU_RX1 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[3]);
+    rtb_RelationalOperator[4] = (ctrl_TAPM_B.IMU_RY1 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[4]);
+    rtb_RelationalOperator[5] = (ctrl_TAPM_B.IMU_RZ1 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[5]);
+    rtb_RelationalOperator[6] = (ctrl_TAPM_B.IMU_V1 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[6]);
+    rtb_RelationalOperator[7] = (ctrl_TAPM_B.IMU_AX2 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[7]);
+    rtb_RelationalOperator[8] = (ctrl_TAPM_B.IMU_AY2 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[8]);
+    rtb_RelationalOperator[9] = (ctrl_TAPM_B.IMU_AZ2 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[9]);
+    rtb_RelationalOperator[10] = (ctrl_TAPM_B.IMU_RX2 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[10]);
+    rtb_RelationalOperator[11] = (ctrl_TAPM_B.IMU_RY2 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[11]);
+    rtb_RelationalOperator[12] = (ctrl_TAPM_B.IMU_RZ2 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[12]);
+    rtb_RelationalOperator[13] = (ctrl_TAPM_B.IMU_V2 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[13]);
+    rtb_RelationalOperator[14] = (ctrl_TAPM_B.IMU_AX3 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[14]);
+    rtb_RelationalOperator[15] = (ctrl_TAPM_B.IMU_AY3 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[15]);
+    rtb_RelationalOperator[16] = (ctrl_TAPM_B.IMU_AZ3 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[16]);
+    rtb_RelationalOperator[17] = (ctrl_TAPM_B.IMU_RX3 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[17]);
+    rtb_RelationalOperator[18] = (ctrl_TAPM_B.IMU_RY3 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[18]);
+    rtb_RelationalOperator[19] = (ctrl_TAPM_B.IMU_RZ3 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[19]);
+    rtb_RelationalOperator[20] = (ctrl_TAPM_B.IMU_V3 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[20]);
+    rtb_RelationalOperator[21] = (ctrl_TAPM_B.IMU_AX4 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[21]);
+    rtb_RelationalOperator[22] = (ctrl_TAPM_B.IMU_AY4 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[22]);
+    rtb_RelationalOperator[23] = (ctrl_TAPM_B.IMU_AZ4 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[23]);
+    rtb_RelationalOperator[24] = (ctrl_TAPM_B.IMU_RX4 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[24]);
+    rtb_RelationalOperator[25] = (ctrl_TAPM_B.IMU_RY4 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[25]);
+    rtb_RelationalOperator[26] = (ctrl_TAPM_B.IMU_RZ4 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[26]);
+    rtb_RelationalOperator[27] = (ctrl_TAPM_B.IMU_V4 !=
+      ctrl_TAPM_DW.Memory_PreviousInput_l[27]);
+
+    /* Outputs for Triggered SubSystem: '<S4>/Filtering' incorporates:
+     *  TriggerPort: '<S25>/Trigger'
+     */
+    if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
+      exitg11 = false;
+      for (b_ixstart = 0; b_ixstart < 28; b_ixstart++) {
+        exitg11 = (exitg11 || (rtb_RelationalOperator[b_ixstart] &&
+                    (ctrl_TAPM_PrevZCX.Filtering_Trig_ZCE[b_ixstart] !=
+                     POS_ZCSIG)));
+      }
+
+      if (exitg11) {
+        /* Product: '<S30>/H*P*H'' incorporates:
+         *  Constant: '<S30>/Constant'
+         *  Delay: '<S30>/Delay'
+         *  Math: '<S30>/Math Function1'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            tmp_3[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              tmp_3[b_ixstart + 12 * i] += ctrl_TAPM_DW.Delay_DSTATE_fv[12 * p3
+                + b_ixstart] * ctrl_TAPM_P.Constant_Value[6 * p3 + i];
+            }
+          }
+        }
+
+        /* Sum: '<S30>/Sum' incorporates:
+         *  Constant: '<S30>/Constant'
+         *  Constant: '<S30>/Constant1'
+         *  Product: '<S30>/H*P*H''
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += ctrl_TAPM_P.Constant_Value[6 *
+                p3 + b_ixstart] * tmp_3[12 * i + p3];
+            }
+
+            d_0[b_ixstart + 6 * i] = ctrl_TAPM_P.Constant1_Value[6 * i +
+              b_ixstart] + rtb_TmpSignalConversionAtSFun_2;
+          }
+        }
+
+        /* End of Sum: '<S30>/Sum' */
+
+        /* Product: '<S30>/Matrix Multiply' */
+        rt_invd6x6_snf(d_0, b_V_singular);
+
+        /* Product: '<S30>/P*H'' incorporates:
+         *  Constant: '<S30>/Constant'
+         *  Delay: '<S30>/Delay'
+         *  Math: '<S30>/Math Function'
+         *  Product: '<S30>/P*H'*inv(H*P*H'+R)'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            tmp_3[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              tmp_3[b_ixstart + 12 * i] += ctrl_TAPM_DW.Delay_DSTATE_fv[12 * p3
+                + b_ixstart] * ctrl_TAPM_P.Constant_Value[6 * p3 + i];
+            }
+          }
+        }
+
+        /* End of Product: '<S30>/P*H'' */
+
+        /* Product: '<S30>/P*H'*inv(H*P*H'+R)' */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            rtb_PHinvHPHR[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_PHinvHPHR[b_ixstart + 12 * i] += tmp_3[12 * p3 + b_ixstart] *
+                b_V_singular[6 * i + p3];
+            }
+          }
+        }
+
+        /* Gain: '<S30>/H' incorporates:
+         *  Delay: '<S30>/Delay1'
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          rtb_TmpSignalConversionAtToFi_i[b_ixstart] = 0.0;
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtToFi_i[b_ixstart] += ctrl_TAPM_P.H_Gain[6 *
+              i + b_ixstart] * ctrl_TAPM_DW.Delay1_DSTATE[i];
+          }
+        }
+
+        /* End of Gain: '<S30>/H' */
+
+        /* Memory: '<S31>/Memory2' */
+        for (i = 0; i < 5; i++) {
+          rtb_Memory2[i] = ctrl_TAPM_DW.Memory2_PreviousInput[i];
+        }
+
+        /* End of Memory: '<S31>/Memory2' */
+
+        /* S-Function (sdspmdn2): '<S31>/Median' */
+        for (ixstart = 0; ixstart < 5; ixstart += 5) {
+          for (i = ixstart; i < ixstart + 1; i++) {
+            MDNQSort_D(0, 4, i, ctrl_TAPM_DW.Median_Index, rtb_Memory2);
+            rtb_Median1 = rtb_Memory2[ctrl_TAPM_DW.Median_Index[2] + i];
+          }
+        }
+
+        /* End of S-Function (sdspmdn2): '<S31>/Median' */
+
+        /* Abs: '<S31>/Abs' incorporates:
+         *  Sum: '<S31>/Sum'
+         */
+        for (i = 0; i < 5; i++) {
+          rtb_Abs[i] = fabs(rtb_Memory2[i] - rtb_Median1);
+        }
+
+        /* End of Abs: '<S31>/Abs' */
+
+        /* S-Function (sdspmdn2): '<S31>/Median1' */
+        for (ixstart = 0; ixstart < 5; ixstart += 5) {
+          for (i = ixstart; i < ixstart + 1; i++) {
+            MDNQSort_D(0, 4, i, ctrl_TAPM_DW.Median1_Index, rtb_Abs);
+            rtb_Abs1 = rtb_Abs[ctrl_TAPM_DW.Median1_Index[2] + i];
+          }
+        }
+
+        /* End of S-Function (sdspmdn2): '<S31>/Median1' */
+
+        /* Inport: '<S25>/In1' */
+        ctrl_TAPM_B.In1[0] = ctrl_TAPM_B.IMU_AX1;
+        ctrl_TAPM_B.In1[1] = ctrl_TAPM_B.IMU_AY1;
+        ctrl_TAPM_B.In1[2] = ctrl_TAPM_B.IMU_AZ1;
+        ctrl_TAPM_B.In1[3] = ctrl_TAPM_B.IMU_RX1;
+        ctrl_TAPM_B.In1[4] = ctrl_TAPM_B.IMU_RY1;
+        ctrl_TAPM_B.In1[5] = ctrl_TAPM_B.IMU_RZ1;
+        ctrl_TAPM_B.In1[6] = ctrl_TAPM_B.IMU_V1;
+        ctrl_TAPM_B.In1[7] = ctrl_TAPM_B.IMU_AX2;
+        ctrl_TAPM_B.In1[8] = ctrl_TAPM_B.IMU_AY2;
+        ctrl_TAPM_B.In1[9] = ctrl_TAPM_B.IMU_AZ2;
+        ctrl_TAPM_B.In1[10] = ctrl_TAPM_B.IMU_RX2;
+        ctrl_TAPM_B.In1[11] = ctrl_TAPM_B.IMU_RY2;
+        ctrl_TAPM_B.In1[12] = ctrl_TAPM_B.IMU_RZ2;
+        ctrl_TAPM_B.In1[13] = ctrl_TAPM_B.IMU_V2;
+        ctrl_TAPM_B.In1[14] = ctrl_TAPM_B.IMU_AX3;
+        ctrl_TAPM_B.In1[15] = ctrl_TAPM_B.IMU_AY3;
+        ctrl_TAPM_B.In1[16] = ctrl_TAPM_B.IMU_AZ3;
+        ctrl_TAPM_B.In1[17] = ctrl_TAPM_B.IMU_RX3;
+        ctrl_TAPM_B.In1[18] = ctrl_TAPM_B.IMU_RY3;
+        ctrl_TAPM_B.In1[19] = ctrl_TAPM_B.IMU_RZ3;
+        ctrl_TAPM_B.In1[20] = ctrl_TAPM_B.IMU_V3;
+        ctrl_TAPM_B.In1[21] = ctrl_TAPM_B.IMU_AX4;
+        ctrl_TAPM_B.In1[22] = ctrl_TAPM_B.IMU_AY4;
+        ctrl_TAPM_B.In1[23] = ctrl_TAPM_B.IMU_AZ4;
+        ctrl_TAPM_B.In1[24] = ctrl_TAPM_B.IMU_RX4;
+        ctrl_TAPM_B.In1[25] = ctrl_TAPM_B.IMU_RY4;
+        ctrl_TAPM_B.In1[26] = ctrl_TAPM_B.IMU_RZ4;
+        ctrl_TAPM_B.In1[27] = ctrl_TAPM_B.IMU_V4;
+
+        /* Sum: '<S31>/Sum1' */
+        rtb_Median1 = ctrl_TAPM_B.In1[6] - rtb_Median1;
+
+        /* Abs: '<S31>/Abs1' */
+        rtb_Median1 = fabs(rtb_Median1);
+
+        /* Memory: '<S31>/Memory3' */
+        for (i = 0; i < 7; i++) {
+          rtb_Memory3[i] = ctrl_TAPM_DW.Memory3_PreviousInput[i];
+        }
+
+        /* End of Memory: '<S31>/Memory3' */
+
+        /* If: '<S31>/If' incorporates:
+         *  Gain: '<S31>/Gain'
+         */
+        if (ctrl_TAPM_P.Gain_Gain * rtb_Abs1 < rtb_Median1) {
+          /* Outputs for IfAction SubSystem: '<S31>/Outlier detected' incorporates:
+           *  ActionPort: '<S36>/Action Port'
+           */
+          ctrl_TAPM_Outlierdetected(rtb_Memory3, rtb_Memory2, rtb_Merge,
+            ctrl_TAPM_B.Merge1);
+
+          /* End of Outputs for SubSystem: '<S31>/Outlier detected' */
+        } else {
+          /* Outputs for IfAction SubSystem: '<S31>/No outlier' incorporates:
+           *  ActionPort: '<S35>/Action Port'
+           */
+          ctrl_TAPM_Nooutlier(&ctrl_TAPM_B.In1[0], rtb_Memory2, rtb_Merge,
+                              ctrl_TAPM_B.Merge1);
+
+          /* End of Outputs for SubSystem: '<S31>/No outlier' */
+        }
+
+        /* End of If: '<S31>/If' */
+
+        /* Sum: '<S30>/Sum1' */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          rtb_TmpSignalConversionAtToFi_i[b_ixstart] = rtb_Merge[b_ixstart] -
+            rtb_TmpSignalConversionAtToFi_i[b_ixstart];
+        }
+
+        /* End of Sum: '<S30>/Sum1' */
+
+        /* Sum: '<S30>/Sum2' incorporates:
+         *  Delay: '<S30>/Delay1'
+         *  Product: '<S30>/Product'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          rtb_TmpSignalConversionAtSFun_2 = 0.0;
+          for (i = 0; i < 6; i++) {
+            rtb_TmpSignalConversionAtSFun_2 += rtb_PHinvHPHR[12 * i + b_ixstart]
+              * rtb_TmpSignalConversionAtToFi_i[i];
+          }
+
+          T0[b_ixstart] = rtb_TmpSignalConversionAtSFun_2 +
+            ctrl_TAPM_DW.Delay1_DSTATE[b_ixstart];
+        }
+
+        /* End of Sum: '<S30>/Sum2' */
+
+        /* SignalConversion: '<S25>/TmpSignal ConversionAtTo FileInport1' */
+        rtb_TmpSignalConversionAtToFi_i[0] = T0[3];
+        rtb_TmpSignalConversionAtToFi_i[1] = T0[4];
+        rtb_TmpSignalConversionAtToFi_i[2] = T0[5];
+        rtb_TmpSignalConversionAtToFi_i[3] = T0[9];
+        rtb_TmpSignalConversionAtToFi_i[4] = T0[10];
+        rtb_TmpSignalConversionAtToFi_i[5] = T0[11];
+
+        /* ToFile: '<S25>/To File' */
+        {
+          if (!(++ctrl_TAPM_DW.ToFile_IWORK_e.Decimation % 1) &&
+              (ctrl_TAPM_DW.ToFile_IWORK_e.Count*7)+1 < 100000000 ) {
+            FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile_PWORK_a.FilePtr;
+            if (fp != (NULL)) {
+              real_T u[7];
+              ctrl_TAPM_DW.ToFile_IWORK_e.Decimation = 0;
+              u[0] = ctrl_TAPM_M->Timing.t[1];
+              u[1] = rtb_TmpSignalConversionAtToFi_i[0];
+              u[2] = rtb_TmpSignalConversionAtToFi_i[1];
+              u[3] = rtb_TmpSignalConversionAtToFi_i[2];
+              u[4] = rtb_TmpSignalConversionAtToFi_i[3];
+              u[5] = rtb_TmpSignalConversionAtToFi_i[4];
+              u[6] = rtb_TmpSignalConversionAtToFi_i[5];
+              if (fwrite(u, sizeof(real_T), 7, fp) != 7) {
+                rtmSetErrorStatus(ctrl_TAPM_M,
+                                  "Error writing to MAT-file IMU1.mat");
+                return;
+              }
+
+              if (((++ctrl_TAPM_DW.ToFile_IWORK_e.Count)*7)+1 >= 100000000) {
+                (void)fprintf(stdout,
+                              "*** The ToFile block will stop logging data before\n"
+                              "    the simulation has ended, because it has reached\n"
+                              "    the maximum number of elements (100000000)\n"
+                              "    allowed in MAT-file IMU1.mat.\n");
+              }
+            }
+          }
+        }
+
+        /* Product: '<S27>/H*P*H'' incorporates:
+         *  Constant: '<S27>/Constant'
+         *  Delay: '<S27>/Delay'
+         *  Math: '<S27>/Math Function1'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            tmp_3[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              tmp_3[b_ixstart + 12 * i] += ctrl_TAPM_DW.Delay_DSTATE_mc[12 * p3
+                + b_ixstart] * ctrl_TAPM_P.Constant_Value_p[6 * p3 + i];
+            }
+          }
+        }
+
+        /* Sum: '<S27>/Sum' incorporates:
+         *  Constant: '<S27>/Constant'
+         *  Constant: '<S27>/Constant1'
+         *  Product: '<S27>/H*P*H''
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += ctrl_TAPM_P.Constant_Value_p[6 *
+                p3 + b_ixstart] * tmp_3[12 * i + p3];
+            }
+
+            d_0[b_ixstart + 6 * i] = ctrl_TAPM_P.Constant1_Value_e[6 * i +
+              b_ixstart] + rtb_TmpSignalConversionAtSFun_2;
+          }
+        }
+
+        /* End of Sum: '<S27>/Sum' */
+
+        /* Product: '<S27>/Matrix Multiply' */
+        rt_invd6x6_snf(d_0, b_V_singular);
+
+        /* Product: '<S27>/P*H'' incorporates:
+         *  Constant: '<S27>/Constant'
+         *  Delay: '<S27>/Delay'
+         *  Math: '<S27>/Math Function'
+         *  Product: '<S27>/P*H'*inv(H*P*H'+R)'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            tmp_3[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              tmp_3[b_ixstart + 12 * i] += ctrl_TAPM_DW.Delay_DSTATE_mc[12 * p3
+                + b_ixstart] * ctrl_TAPM_P.Constant_Value_p[6 * p3 + i];
+            }
+          }
+        }
+
+        /* End of Product: '<S27>/P*H'' */
+
+        /* Product: '<S27>/P*H'*inv(H*P*H'+R)' */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            rtb_PHinvHPHR_o[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_PHinvHPHR_o[b_ixstart + 12 * i] += tmp_3[12 * p3 + b_ixstart] *
+                b_V_singular[6 * i + p3];
+            }
+          }
+        }
+
+        /* Gain: '<S27>/H' incorporates:
+         *  Delay: '<S27>/Delay1'
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          rtb_TmpSignalConversionAtToFi_i[b_ixstart] = 0.0;
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtToFi_i[b_ixstart] += ctrl_TAPM_P.H_Gain_i[6
+              * i + b_ixstart] * ctrl_TAPM_DW.Delay1_DSTATE_f[i];
+          }
+        }
+
+        /* End of Gain: '<S27>/H' */
+
+        /* Memory: '<S32>/Memory2' */
+        for (i = 0; i < 5; i++) {
+          rtb_Memory2_p[i] = ctrl_TAPM_DW.Memory2_PreviousInput_d[i];
+        }
+
+        /* End of Memory: '<S32>/Memory2' */
+
+        /* S-Function (sdspmdn2): '<S32>/Median' */
+        for (ixstart = 0; ixstart < 5; ixstart += 5) {
+          for (i = ixstart; i < ixstart + 1; i++) {
+            MDNQSort_D(0, 4, i, ctrl_TAPM_DW.Median_Index_f, rtb_Memory2_p);
+            rtb_Abs1 = rtb_Memory2_p[ctrl_TAPM_DW.Median_Index_f[2] + i];
+          }
+        }
+
+        /* End of S-Function (sdspmdn2): '<S32>/Median' */
+
+        /* Abs: '<S32>/Abs' incorporates:
+         *  Sum: '<S32>/Sum'
+         */
+        for (i = 0; i < 5; i++) {
+          rtb_Abs[i] = fabs(rtb_Memory2_p[i] - rtb_Abs1);
+        }
+
+        /* End of Abs: '<S32>/Abs' */
+
+        /* S-Function (sdspmdn2): '<S32>/Median1' */
+        for (ixstart = 0; ixstart < 5; ixstart += 5) {
+          for (i = ixstart; i < ixstart + 1; i++) {
+            MDNQSort_D(0, 4, i, ctrl_TAPM_DW.Median1_Index_p, rtb_Abs);
+            rtb_Median1 = rtb_Abs[ctrl_TAPM_DW.Median1_Index_p[2] + i];
+          }
+        }
+
+        /* End of S-Function (sdspmdn2): '<S32>/Median1' */
+
+        /* Sum: '<S32>/Sum1' */
+        rtb_Abs1 = ctrl_TAPM_B.In1[13] - rtb_Abs1;
+
+        /* Abs: '<S32>/Abs1' */
+        rtb_Abs1 = fabs(rtb_Abs1);
+
+        /* Memory: '<S32>/Memory3' */
+        for (i = 0; i < 7; i++) {
+          rtb_Memory3_b[i] = ctrl_TAPM_DW.Memory3_PreviousInput_p[i];
+        }
+
+        /* End of Memory: '<S32>/Memory3' */
+
+        /* If: '<S32>/If' incorporates:
+         *  Gain: '<S32>/Gain'
+         */
+        if (ctrl_TAPM_P.Gain_Gain_c * rtb_Median1 < rtb_Abs1) {
+          /* Outputs for IfAction SubSystem: '<S32>/Outlier detected' incorporates:
+           *  ActionPort: '<S38>/Action Port'
+           */
+          ctrl_TAPM_Outlierdetected(rtb_Memory3_b, rtb_Memory2_p, rtb_Merge_i,
+            ctrl_TAPM_B.Merge1_e);
+
+          /* End of Outputs for SubSystem: '<S32>/Outlier detected' */
+        } else {
+          /* Outputs for IfAction SubSystem: '<S32>/No outlier' incorporates:
+           *  ActionPort: '<S37>/Action Port'
+           */
+          ctrl_TAPM_Nooutlier(&ctrl_TAPM_B.In1[7], rtb_Memory2_p, rtb_Merge_i,
+                              ctrl_TAPM_B.Merge1_e);
+
+          /* End of Outputs for SubSystem: '<S32>/No outlier' */
+        }
+
+        /* End of If: '<S32>/If' */
+
+        /* Sum: '<S27>/Sum1' */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          rtb_TmpSignalConversionAtToFi_i[b_ixstart] = rtb_Merge_i[b_ixstart] -
+            rtb_TmpSignalConversionAtToFi_i[b_ixstart];
+        }
+
+        /* End of Sum: '<S27>/Sum1' */
+
+        /* Sum: '<S27>/Sum2' incorporates:
+         *  Delay: '<S27>/Delay1'
+         *  Product: '<S27>/Product'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          rtb_TmpSignalConversionAtSFun_2 = 0.0;
+          for (i = 0; i < 6; i++) {
+            rtb_TmpSignalConversionAtSFun_2 += rtb_PHinvHPHR_o[12 * i +
+              b_ixstart] * rtb_TmpSignalConversionAtToFi_i[i];
+          }
+
+          rtb_Sum2_j[b_ixstart] = rtb_TmpSignalConversionAtSFun_2 +
+            ctrl_TAPM_DW.Delay1_DSTATE_f[b_ixstart];
+        }
+
+        /* End of Sum: '<S27>/Sum2' */
+
+        /* SignalConversion: '<S25>/TmpSignal ConversionAtTo File1Inport1' */
+        rtb_TmpSignalConversionAtToFi_i[0] = rtb_Sum2_j[3];
+        rtb_TmpSignalConversionAtToFi_i[1] = rtb_Sum2_j[4];
+        rtb_TmpSignalConversionAtToFi_i[2] = rtb_Sum2_j[5];
+        rtb_TmpSignalConversionAtToFi_i[3] = rtb_Sum2_j[9];
+        rtb_TmpSignalConversionAtToFi_i[4] = rtb_Sum2_j[10];
+        rtb_TmpSignalConversionAtToFi_i[5] = rtb_Sum2_j[11];
+
+        /* ToFile: '<S25>/To File1' */
+        {
+          if (!(++ctrl_TAPM_DW.ToFile1_IWORK.Decimation % 1) &&
+              (ctrl_TAPM_DW.ToFile1_IWORK.Count*7)+1 < 100000000 ) {
+            FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile1_PWORK.FilePtr;
+            if (fp != (NULL)) {
+              real_T u[7];
+              ctrl_TAPM_DW.ToFile1_IWORK.Decimation = 0;
+              u[0] = ctrl_TAPM_M->Timing.t[1];
+              u[1] = rtb_TmpSignalConversionAtToFi_i[0];
+              u[2] = rtb_TmpSignalConversionAtToFi_i[1];
+              u[3] = rtb_TmpSignalConversionAtToFi_i[2];
+              u[4] = rtb_TmpSignalConversionAtToFi_i[3];
+              u[5] = rtb_TmpSignalConversionAtToFi_i[4];
+              u[6] = rtb_TmpSignalConversionAtToFi_i[5];
+              if (fwrite(u, sizeof(real_T), 7, fp) != 7) {
+                rtmSetErrorStatus(ctrl_TAPM_M,
+                                  "Error writing to MAT-file IMU2.mat");
+                return;
+              }
+
+              if (((++ctrl_TAPM_DW.ToFile1_IWORK.Count)*7)+1 >= 100000000) {
+                (void)fprintf(stdout,
+                              "*** The ToFile block will stop logging data before\n"
+                              "    the simulation has ended, because it has reached\n"
+                              "    the maximum number of elements (100000000)\n"
+                              "    allowed in MAT-file IMU2.mat.\n");
+              }
+            }
+          }
+        }
+
+        /* Product: '<S28>/H*P*H'' incorporates:
+         *  Constant: '<S28>/Constant'
+         *  Delay: '<S28>/Delay'
+         *  Math: '<S28>/Math Function1'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            tmp_3[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              tmp_3[b_ixstart + 12 * i] += ctrl_TAPM_DW.Delay_DSTATE_dd[12 * p3
+                + b_ixstart] * ctrl_TAPM_P.Constant_Value_f[6 * p3 + i];
+            }
+          }
+        }
+
+        /* Sum: '<S28>/Sum' incorporates:
+         *  Constant: '<S28>/Constant'
+         *  Constant: '<S28>/Constant1'
+         *  Product: '<S28>/H*P*H''
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += ctrl_TAPM_P.Constant_Value_f[6 *
+                p3 + b_ixstart] * tmp_3[12 * i + p3];
+            }
+
+            d_0[b_ixstart + 6 * i] = ctrl_TAPM_P.Constant1_Value_f[6 * i +
+              b_ixstart] + rtb_TmpSignalConversionAtSFun_2;
+          }
+        }
+
+        /* End of Sum: '<S28>/Sum' */
+
+        /* Product: '<S28>/Matrix Multiply' */
+        rt_invd6x6_snf(d_0, b_V_singular);
+
+        /* Product: '<S28>/P*H'' incorporates:
+         *  Constant: '<S28>/Constant'
+         *  Delay: '<S28>/Delay'
+         *  Math: '<S28>/Math Function'
+         *  Product: '<S28>/P*H'*inv(H*P*H'+R)'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            tmp_3[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              tmp_3[b_ixstart + 12 * i] += ctrl_TAPM_DW.Delay_DSTATE_dd[12 * p3
+                + b_ixstart] * ctrl_TAPM_P.Constant_Value_f[6 * p3 + i];
+            }
+          }
+        }
+
+        /* End of Product: '<S28>/P*H'' */
+
+        /* Product: '<S28>/P*H'*inv(H*P*H'+R)' */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            rtb_PHinvHPHR_i[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_PHinvHPHR_i[b_ixstart + 12 * i] += tmp_3[12 * p3 + b_ixstart] *
+                b_V_singular[6 * i + p3];
+            }
+          }
+        }
+
+        /* Gain: '<S28>/H' incorporates:
+         *  Delay: '<S28>/Delay1'
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          rtb_TmpSignalConversionAtToFi_i[b_ixstart] = 0.0;
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtToFi_i[b_ixstart] += ctrl_TAPM_P.H_Gain_b[6
+              * i + b_ixstart] * ctrl_TAPM_DW.Delay1_DSTATE_j[i];
+          }
+        }
+
+        /* End of Gain: '<S28>/H' */
+
+        /* Memory: '<S33>/Memory2' */
+        for (i = 0; i < 5; i++) {
+          rtb_Memory2_g[i] = ctrl_TAPM_DW.Memory2_PreviousInput_n[i];
+        }
+
+        /* End of Memory: '<S33>/Memory2' */
+
+        /* S-Function (sdspmdn2): '<S33>/Median' */
+        for (ixstart = 0; ixstart < 5; ixstart += 5) {
+          for (i = ixstart; i < ixstart + 1; i++) {
+            MDNQSort_D(0, 4, i, ctrl_TAPM_DW.Median_Index_j, rtb_Memory2_g);
+            rtb_Abs1 = rtb_Memory2_g[ctrl_TAPM_DW.Median_Index_j[2] + i];
+          }
+        }
+
+        /* End of S-Function (sdspmdn2): '<S33>/Median' */
+
+        /* Abs: '<S33>/Abs' incorporates:
+         *  Sum: '<S33>/Sum'
+         */
+        for (i = 0; i < 5; i++) {
+          rtb_Abs[i] = fabs(rtb_Memory2_g[i] - rtb_Abs1);
+        }
+
+        /* End of Abs: '<S33>/Abs' */
+
+        /* S-Function (sdspmdn2): '<S33>/Median1' */
+        for (ixstart = 0; ixstart < 5; ixstart += 5) {
+          for (i = ixstart; i < ixstart + 1; i++) {
+            MDNQSort_D(0, 4, i, ctrl_TAPM_DW.Median1_Index_j, rtb_Abs);
+            rtb_Median1 = rtb_Abs[ctrl_TAPM_DW.Median1_Index_j[2] + i];
+          }
+        }
+
+        /* End of S-Function (sdspmdn2): '<S33>/Median1' */
+
+        /* Sum: '<S33>/Sum1' */
+        rtb_Abs1 = ctrl_TAPM_B.In1[20] - rtb_Abs1;
+
+        /* Abs: '<S33>/Abs1' */
+        rtb_Abs1 = fabs(rtb_Abs1);
+
+        /* Memory: '<S33>/Memory3' */
+        for (i = 0; i < 7; i++) {
+          rtb_Memory3_m[i] = ctrl_TAPM_DW.Memory3_PreviousInput_j[i];
+        }
+
+        /* End of Memory: '<S33>/Memory3' */
+
+        /* If: '<S33>/If' incorporates:
+         *  Gain: '<S33>/Gain'
+         */
+        if (ctrl_TAPM_P.Gain_Gain_j * rtb_Median1 < rtb_Abs1) {
+          /* Outputs for IfAction SubSystem: '<S33>/Outlier detected' incorporates:
+           *  ActionPort: '<S40>/Action Port'
+           */
+          ctrl_TAPM_Outlierdetected(rtb_Memory3_m, rtb_Memory2_g, rtb_Merge_a,
+            ctrl_TAPM_B.Merge1_k);
+
+          /* End of Outputs for SubSystem: '<S33>/Outlier detected' */
+        } else {
+          /* Outputs for IfAction SubSystem: '<S33>/No outlier' incorporates:
+           *  ActionPort: '<S39>/Action Port'
+           */
+          ctrl_TAPM_Nooutlier(&ctrl_TAPM_B.In1[14], rtb_Memory2_g, rtb_Merge_a,
+                              ctrl_TAPM_B.Merge1_k);
+
+          /* End of Outputs for SubSystem: '<S33>/No outlier' */
+        }
+
+        /* End of If: '<S33>/If' */
+
+        /* Sum: '<S28>/Sum1' */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          rtb_TmpSignalConversionAtToFi_i[b_ixstart] = rtb_Merge_a[b_ixstart] -
+            rtb_TmpSignalConversionAtToFi_i[b_ixstart];
+        }
+
+        /* End of Sum: '<S28>/Sum1' */
+
+        /* Sum: '<S28>/Sum2' incorporates:
+         *  Delay: '<S28>/Delay1'
+         *  Product: '<S28>/Product'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          rtb_TmpSignalConversionAtSFun_2 = 0.0;
+          for (i = 0; i < 6; i++) {
+            rtb_TmpSignalConversionAtSFun_2 += rtb_PHinvHPHR_i[12 * i +
+              b_ixstart] * rtb_TmpSignalConversionAtToFi_i[i];
+          }
+
+          rtb_Sum2_a[b_ixstart] = rtb_TmpSignalConversionAtSFun_2 +
+            ctrl_TAPM_DW.Delay1_DSTATE_j[b_ixstart];
+        }
+
+        /* End of Sum: '<S28>/Sum2' */
+
+        /* SignalConversion: '<S25>/TmpSignal ConversionAtTo File2Inport1' */
+        rtb_TmpSignalConversionAtToFi_i[0] = rtb_Sum2_a[3];
+        rtb_TmpSignalConversionAtToFi_i[1] = rtb_Sum2_a[4];
+        rtb_TmpSignalConversionAtToFi_i[2] = rtb_Sum2_a[5];
+        rtb_TmpSignalConversionAtToFi_i[3] = rtb_Sum2_a[9];
+        rtb_TmpSignalConversionAtToFi_i[4] = rtb_Sum2_a[10];
+        rtb_TmpSignalConversionAtToFi_i[5] = rtb_Sum2_a[11];
+
+        /* ToFile: '<S25>/To File2' */
+        {
+          if (!(++ctrl_TAPM_DW.ToFile2_IWORK.Decimation % 1) &&
+              (ctrl_TAPM_DW.ToFile2_IWORK.Count*7)+1 < 100000000 ) {
+            FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile2_PWORK.FilePtr;
+            if (fp != (NULL)) {
+              real_T u[7];
+              ctrl_TAPM_DW.ToFile2_IWORK.Decimation = 0;
+              u[0] = ctrl_TAPM_M->Timing.t[1];
+              u[1] = rtb_TmpSignalConversionAtToFi_i[0];
+              u[2] = rtb_TmpSignalConversionAtToFi_i[1];
+              u[3] = rtb_TmpSignalConversionAtToFi_i[2];
+              u[4] = rtb_TmpSignalConversionAtToFi_i[3];
+              u[5] = rtb_TmpSignalConversionAtToFi_i[4];
+              u[6] = rtb_TmpSignalConversionAtToFi_i[5];
+              if (fwrite(u, sizeof(real_T), 7, fp) != 7) {
+                rtmSetErrorStatus(ctrl_TAPM_M,
+                                  "Error writing to MAT-file IMU3.mat");
+                return;
+              }
+
+              if (((++ctrl_TAPM_DW.ToFile2_IWORK.Count)*7)+1 >= 100000000) {
+                (void)fprintf(stdout,
+                              "*** The ToFile block will stop logging data before\n"
+                              "    the simulation has ended, because it has reached\n"
+                              "    the maximum number of elements (100000000)\n"
+                              "    allowed in MAT-file IMU3.mat.\n");
+              }
+            }
+          }
+        }
+
+        /* Product: '<S29>/H*P*H'' incorporates:
+         *  Constant: '<S29>/Constant'
+         *  Delay: '<S29>/Delay'
+         *  Math: '<S29>/Math Function1'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            tmp_3[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              tmp_3[b_ixstart + 12 * i] += ctrl_TAPM_DW.Delay_DSTATE_fg[12 * p3
+                + b_ixstart] * ctrl_TAPM_P.Constant_Value_k[6 * p3 + i];
+            }
+          }
+        }
+
+        /* Sum: '<S29>/Sum' incorporates:
+         *  Constant: '<S29>/Constant'
+         *  Constant: '<S29>/Constant1'
+         *  Product: '<S29>/H*P*H''
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += ctrl_TAPM_P.Constant_Value_k[6 *
+                p3 + b_ixstart] * tmp_3[12 * i + p3];
+            }
+
+            d_0[b_ixstart + 6 * i] = ctrl_TAPM_P.Constant1_Value_g[6 * i +
+              b_ixstart] + rtb_TmpSignalConversionAtSFun_2;
+          }
+        }
+
+        /* End of Sum: '<S29>/Sum' */
+
+        /* Product: '<S29>/Matrix Multiply' */
+        rt_invd6x6_snf(d_0, b_V_singular);
+
+        /* Product: '<S29>/P*H'' incorporates:
+         *  Constant: '<S29>/Constant'
+         *  Delay: '<S29>/Delay'
+         *  Math: '<S29>/Math Function'
+         *  Product: '<S29>/P*H'*inv(H*P*H'+R)'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            tmp_3[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              tmp_3[b_ixstart + 12 * i] += ctrl_TAPM_DW.Delay_DSTATE_fg[12 * p3
+                + b_ixstart] * ctrl_TAPM_P.Constant_Value_k[6 * p3 + i];
+            }
+          }
+        }
+
+        /* End of Product: '<S29>/P*H'' */
+
+        /* Product: '<S29>/P*H'*inv(H*P*H'+R)' */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 6; i++) {
+            rtb_PHinvHPHR_du[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_PHinvHPHR_du[b_ixstart + 12 * i] += tmp_3[12 * p3 + b_ixstart]
+                * b_V_singular[6 * i + p3];
+            }
+          }
+        }
+
+        /* Gain: '<S29>/H' incorporates:
+         *  Delay: '<S29>/Delay1'
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          rtb_TmpSignalConversionAtToFi_i[b_ixstart] = 0.0;
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtToFi_i[b_ixstart] += ctrl_TAPM_P.H_Gain_p[6
+              * i + b_ixstart] * ctrl_TAPM_DW.Delay1_DSTATE_i[i];
+          }
+        }
+
+        /* End of Gain: '<S29>/H' */
+
+        /* Memory: '<S34>/Memory2' */
+        for (i = 0; i < 5; i++) {
+          rtb_Memory2_i[i] = ctrl_TAPM_DW.Memory2_PreviousInput_c[i];
+        }
+
+        /* End of Memory: '<S34>/Memory2' */
+
+        /* S-Function (sdspmdn2): '<S34>/Median' */
+        for (ixstart = 0; ixstart < 5; ixstart += 5) {
+          for (i = ixstart; i < ixstart + 1; i++) {
+            MDNQSort_D(0, 4, i, ctrl_TAPM_DW.Median_Index_d, rtb_Memory2_i);
+            rtb_Abs1 = rtb_Memory2_i[ctrl_TAPM_DW.Median_Index_d[2] + i];
+          }
+        }
+
+        /* End of S-Function (sdspmdn2): '<S34>/Median' */
+
+        /* Abs: '<S34>/Abs' incorporates:
+         *  Sum: '<S34>/Sum'
+         */
+        for (i = 0; i < 5; i++) {
+          rtb_Abs[i] = fabs(rtb_Memory2_i[i] - rtb_Abs1);
+        }
+
+        /* End of Abs: '<S34>/Abs' */
+
+        /* S-Function (sdspmdn2): '<S34>/Median1' */
+        for (ixstart = 0; ixstart < 5; ixstart += 5) {
+          for (i = ixstart; i < ixstart + 1; i++) {
+            MDNQSort_D(0, 4, i, ctrl_TAPM_DW.Median1_Index_d, rtb_Abs);
+            rtb_Median1 = rtb_Abs[ctrl_TAPM_DW.Median1_Index_d[2] + i];
+          }
+        }
+
+        /* End of S-Function (sdspmdn2): '<S34>/Median1' */
+
+        /* Sum: '<S34>/Sum1' */
+        rtb_Abs1 = ctrl_TAPM_B.In1[27] - rtb_Abs1;
+
+        /* Abs: '<S34>/Abs1' */
+        rtb_Abs1 = fabs(rtb_Abs1);
+
+        /* Memory: '<S34>/Memory3' */
+        for (i = 0; i < 7; i++) {
+          rtb_Memory3_c[i] = ctrl_TAPM_DW.Memory3_PreviousInput_k[i];
+        }
+
+        /* End of Memory: '<S34>/Memory3' */
+
+        /* If: '<S34>/If' incorporates:
+         *  Gain: '<S34>/Gain'
+         */
+        if (ctrl_TAPM_P.Gain_Gain_k * rtb_Median1 < rtb_Abs1) {
+          /* Outputs for IfAction SubSystem: '<S34>/Outlier detected' incorporates:
+           *  ActionPort: '<S42>/Action Port'
+           */
+          ctrl_TAPM_Outlierdetected(rtb_Memory3_c, rtb_Memory2_i, rtb_Merge_c,
+            ctrl_TAPM_B.Merge1_h);
+
+          /* End of Outputs for SubSystem: '<S34>/Outlier detected' */
+        } else {
+          /* Outputs for IfAction SubSystem: '<S34>/No outlier' incorporates:
+           *  ActionPort: '<S41>/Action Port'
+           */
+          ctrl_TAPM_Nooutlier(&ctrl_TAPM_B.In1[21], rtb_Memory2_i, rtb_Merge_c,
+                              ctrl_TAPM_B.Merge1_h);
+
+          /* End of Outputs for SubSystem: '<S34>/No outlier' */
+        }
+
+        /* End of If: '<S34>/If' */
+
+        /* Sum: '<S29>/Sum1' */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          rtb_TmpSignalConversionAtToFi_i[b_ixstart] = rtb_Merge_c[b_ixstart] -
+            rtb_TmpSignalConversionAtToFi_i[b_ixstart];
+        }
+
+        /* End of Sum: '<S29>/Sum1' */
+
+        /* Sum: '<S29>/Sum2' incorporates:
+         *  Delay: '<S29>/Delay1'
+         *  Product: '<S29>/Product'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          rtb_TmpSignalConversionAtSFun_2 = 0.0;
+          for (i = 0; i < 6; i++) {
+            rtb_TmpSignalConversionAtSFun_2 += rtb_PHinvHPHR_du[12 * i +
+              b_ixstart] * rtb_TmpSignalConversionAtToFi_i[i];
+          }
+
+          rtb_Sum2_h[b_ixstart] = rtb_TmpSignalConversionAtSFun_2 +
+            ctrl_TAPM_DW.Delay1_DSTATE_i[b_ixstart];
+        }
+
+        /* End of Sum: '<S29>/Sum2' */
+
+        /* SignalConversion: '<S25>/TmpSignal ConversionAtTo File3Inport1' */
+        rtb_TmpSignalConversionAtToFi_i[0] = rtb_Sum2_h[3];
+        rtb_TmpSignalConversionAtToFi_i[1] = rtb_Sum2_h[4];
+        rtb_TmpSignalConversionAtToFi_i[2] = rtb_Sum2_h[5];
+        rtb_TmpSignalConversionAtToFi_i[3] = rtb_Sum2_h[9];
+        rtb_TmpSignalConversionAtToFi_i[4] = rtb_Sum2_h[10];
+        rtb_TmpSignalConversionAtToFi_i[5] = rtb_Sum2_h[11];
+
+        /* ToFile: '<S25>/To File3' */
+        {
+          if (!(++ctrl_TAPM_DW.ToFile3_IWORK.Decimation % 1) &&
+              (ctrl_TAPM_DW.ToFile3_IWORK.Count*7)+1 < 100000000 ) {
+            FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile3_PWORK.FilePtr;
+            if (fp != (NULL)) {
+              real_T u[7];
+              ctrl_TAPM_DW.ToFile3_IWORK.Decimation = 0;
+              u[0] = ctrl_TAPM_M->Timing.t[1];
+              u[1] = rtb_TmpSignalConversionAtToFi_i[0];
+              u[2] = rtb_TmpSignalConversionAtToFi_i[1];
+              u[3] = rtb_TmpSignalConversionAtToFi_i[2];
+              u[4] = rtb_TmpSignalConversionAtToFi_i[3];
+              u[5] = rtb_TmpSignalConversionAtToFi_i[4];
+              u[6] = rtb_TmpSignalConversionAtToFi_i[5];
+              if (fwrite(u, sizeof(real_T), 7, fp) != 7) {
+                rtmSetErrorStatus(ctrl_TAPM_M,
+                                  "Error writing to MAT-file IMU4.mat");
+                return;
+              }
+
+              if (((++ctrl_TAPM_DW.ToFile3_IWORK.Count)*7)+1 >= 100000000) {
+                (void)fprintf(stdout,
+                              "*** The ToFile block will stop logging data before\n"
+                              "    the simulation has ended, because it has reached\n"
+                              "    the maximum number of elements (100000000)\n"
+                              "    allowed in MAT-file IMU4.mat.\n");
+              }
+            }
+          }
+        }
+
+        /* ToFile: '<S25>/To File4' */
+        {
+          if (!(++ctrl_TAPM_DW.ToFile4_IWORK.Decimation % 1) &&
+              (ctrl_TAPM_DW.ToFile4_IWORK.Count*8)+1 < 100000000 ) {
+            FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile4_PWORK.FilePtr;
+            if (fp != (NULL)) {
+              real_T u[8];
+              ctrl_TAPM_DW.ToFile4_IWORK.Decimation = 0;
+              u[0] = ctrl_TAPM_M->Timing.t[1];
+              u[1] = ctrl_TAPM_B.In1[0];
+              u[2] = ctrl_TAPM_B.In1[1];
+              u[3] = ctrl_TAPM_B.In1[2];
+              u[4] = ctrl_TAPM_B.In1[3];
+              u[5] = ctrl_TAPM_B.In1[4];
+              u[6] = ctrl_TAPM_B.In1[5];
+              u[7] = ctrl_TAPM_B.In1[6];
+              if (fwrite(u, sizeof(real_T), 8, fp) != 8) {
+                rtmSetErrorStatus(ctrl_TAPM_M,
+                                  "Error writing to MAT-file IMU1_raw.mat");
+                return;
+              }
+
+              if (((++ctrl_TAPM_DW.ToFile4_IWORK.Count)*8)+1 >= 100000000) {
+                (void)fprintf(stdout,
+                              "*** The ToFile block will stop logging data before\n"
+                              "    the simulation has ended, because it has reached\n"
+                              "    the maximum number of elements (100000000)\n"
+                              "    allowed in MAT-file IMU1_raw.mat.\n");
+              }
+            }
+          }
+        }
+
+        /* ToFile: '<S25>/To File5' */
+        {
+          if (!(++ctrl_TAPM_DW.ToFile5_IWORK.Decimation % 1) &&
+              (ctrl_TAPM_DW.ToFile5_IWORK.Count*8)+1 < 100000000 ) {
+            FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile5_PWORK.FilePtr;
+            if (fp != (NULL)) {
+              real_T u[8];
+              ctrl_TAPM_DW.ToFile5_IWORK.Decimation = 0;
+              u[0] = ctrl_TAPM_M->Timing.t[1];
+              u[1] = ctrl_TAPM_B.In1[7];
+              u[2] = ctrl_TAPM_B.In1[8];
+              u[3] = ctrl_TAPM_B.In1[9];
+              u[4] = ctrl_TAPM_B.In1[10];
+              u[5] = ctrl_TAPM_B.In1[11];
+              u[6] = ctrl_TAPM_B.In1[12];
+              u[7] = ctrl_TAPM_B.In1[13];
+              if (fwrite(u, sizeof(real_T), 8, fp) != 8) {
+                rtmSetErrorStatus(ctrl_TAPM_M,
+                                  "Error writing to MAT-file IMU2_raw.mat");
+                return;
+              }
+
+              if (((++ctrl_TAPM_DW.ToFile5_IWORK.Count)*8)+1 >= 100000000) {
+                (void)fprintf(stdout,
+                              "*** The ToFile block will stop logging data before\n"
+                              "    the simulation has ended, because it has reached\n"
+                              "    the maximum number of elements (100000000)\n"
+                              "    allowed in MAT-file IMU2_raw.mat.\n");
+              }
+            }
+          }
+        }
+
+        /* ToFile: '<S25>/To File6' */
+        {
+          if (!(++ctrl_TAPM_DW.ToFile6_IWORK.Decimation % 1) &&
+              (ctrl_TAPM_DW.ToFile6_IWORK.Count*8)+1 < 100000000 ) {
+            FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile6_PWORK.FilePtr;
+            if (fp != (NULL)) {
+              real_T u[8];
+              ctrl_TAPM_DW.ToFile6_IWORK.Decimation = 0;
+              u[0] = ctrl_TAPM_M->Timing.t[1];
+              u[1] = ctrl_TAPM_B.In1[14];
+              u[2] = ctrl_TAPM_B.In1[15];
+              u[3] = ctrl_TAPM_B.In1[16];
+              u[4] = ctrl_TAPM_B.In1[17];
+              u[5] = ctrl_TAPM_B.In1[18];
+              u[6] = ctrl_TAPM_B.In1[19];
+              u[7] = ctrl_TAPM_B.In1[20];
+              if (fwrite(u, sizeof(real_T), 8, fp) != 8) {
+                rtmSetErrorStatus(ctrl_TAPM_M,
+                                  "Error writing to MAT-file IMU3_raw.mat");
+                return;
+              }
+
+              if (((++ctrl_TAPM_DW.ToFile6_IWORK.Count)*8)+1 >= 100000000) {
+                (void)fprintf(stdout,
+                              "*** The ToFile block will stop logging data before\n"
+                              "    the simulation has ended, because it has reached\n"
+                              "    the maximum number of elements (100000000)\n"
+                              "    allowed in MAT-file IMU3_raw.mat.\n");
+              }
+            }
+          }
+        }
+
+        /* ToFile: '<S25>/To File7' */
+        {
+          if (!(++ctrl_TAPM_DW.ToFile7_IWORK.Decimation % 1) &&
+              (ctrl_TAPM_DW.ToFile7_IWORK.Count*8)+1 < 100000000 ) {
+            FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile7_PWORK.FilePtr;
+            if (fp != (NULL)) {
+              real_T u[8];
+              ctrl_TAPM_DW.ToFile7_IWORK.Decimation = 0;
+              u[0] = ctrl_TAPM_M->Timing.t[1];
+              u[1] = ctrl_TAPM_B.In1[21];
+              u[2] = ctrl_TAPM_B.In1[22];
+              u[3] = ctrl_TAPM_B.In1[23];
+              u[4] = ctrl_TAPM_B.In1[24];
+              u[5] = ctrl_TAPM_B.In1[25];
+              u[6] = ctrl_TAPM_B.In1[26];
+              u[7] = ctrl_TAPM_B.In1[27];
+              if (fwrite(u, sizeof(real_T), 8, fp) != 8) {
+                rtmSetErrorStatus(ctrl_TAPM_M,
+                                  "Error writing to MAT-file IMU4_raw.mat");
+                return;
+              }
+
+              if (((++ctrl_TAPM_DW.ToFile7_IWORK.Count)*8)+1 >= 100000000) {
+                (void)fprintf(stdout,
+                              "*** The ToFile block will stop logging data before\n"
+                              "    the simulation has ended, because it has reached\n"
+                              "    the maximum number of elements (100000000)\n"
+                              "    allowed in MAT-file IMU4_raw.mat.\n");
+              }
+            }
+          }
+        }
+
+        /* Sum: '<S27>/Sum4' incorporates:
+         *  Constant: '<S27>/Constant3'
+         *  Constant: '<S27>/Identity'
+         *  Product: '<S27>/K*H'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += rtb_PHinvHPHR_o[12 * p3 +
+                b_ixstart] * ctrl_TAPM_P.Constant3_Value[6 * i + p3];
+            }
+
+            rtb_Sum5_0[b_ixstart + 12 * i] = rtb_TmpSignalConversionAtSFun_2 -
+              ctrl_TAPM_P.Identity_Value[12 * i + b_ixstart];
+          }
+        }
+
+        /* End of Sum: '<S27>/Sum4' */
+
+        /* Sum: '<S28>/Sum4' incorporates:
+         *  Constant: '<S28>/Constant3'
+         *  Constant: '<S28>/Identity'
+         *  Product: '<S28>/K*H'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += rtb_PHinvHPHR_i[12 * p3 +
+                b_ixstart] * ctrl_TAPM_P.Constant3_Value_j[6 * i + p3];
+            }
+
+            rtb_MathFunction4[b_ixstart + 12 * i] =
+              rtb_TmpSignalConversionAtSFun_2 - ctrl_TAPM_P.Identity_Value_h[12 *
+              i + b_ixstart];
+          }
+        }
+
+        /* End of Sum: '<S28>/Sum4' */
+
+        /* Product: '<S28>/Matrix Multiply1' incorporates:
+         *  Delay: '<S28>/Delay'
+         *  Math: '<S28>/Math Function2'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_d[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_PHinvHPHR_d[b_ixstart + 12 * i] +=
+                ctrl_TAPM_DW.Delay_DSTATE_dd[12 * p3 + b_ixstart] *
+                rtb_MathFunction4[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Product: '<S28>/K*R*K'' incorporates:
+         *  Constant: '<S28>/Constant4'
+         *  Math: '<S28>/Math Function3'
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            tmp_3[b_ixstart + 6 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              tmp_3[b_ixstart + 6 * i] += ctrl_TAPM_P.Constant4_Value_k[6 * p3 +
+                b_ixstart] * rtb_PHinvHPHR_i[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Product: '<S28>/Matrix Multiply1' incorporates:
+         *  Sum: '<S28>/Sum5'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_MathFunction4_0[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_MathFunction4_0[b_ixstart + 12 * i] += rtb_MathFunction4[12 *
+                p3 + b_ixstart] * rtb_PHinvHPHR_d[12 * i + p3];
+            }
+          }
+        }
+
+        /* Product: '<S28>/K*R*K'' incorporates:
+         *  Sum: '<S28>/Sum5'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_d[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_PHinvHPHR_d[b_ixstart + 12 * i] += rtb_PHinvHPHR_i[12 * p3 +
+                b_ixstart] * tmp_3[6 * i + p3];
+            }
+          }
+        }
+
+        /* Sum: '<S28>/Sum5' incorporates:
+         *  Product: '<S28>/A*P_hat*A''
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_MathFunction4_1[i + 12 * b_ixstart] = rtb_MathFunction4_0[12 *
+              b_ixstart + i] + rtb_PHinvHPHR_d[12 * b_ixstart + i];
+          }
+        }
+
+        /* Product: '<S28>/A*P_hat*A'' incorporates:
+         *  Constant: '<S28>/Constant6'
+         *  Math: '<S28>/Math Function4'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            v1[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              v1[b_ixstart + 12 * i] += rtb_MathFunction4_1[12 * p3 + b_ixstart]
+                * ctrl_TAPM_P.Constant6_Value_c[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Sum: '<S29>/Sum4' incorporates:
+         *  Constant: '<S29>/Constant3'
+         *  Constant: '<S29>/Identity'
+         *  Product: '<S29>/K*H'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += rtb_PHinvHPHR_du[12 * p3 +
+                b_ixstart] * ctrl_TAPM_P.Constant3_Value_o[6 * i + p3];
+            }
+
+            rtb_MathFunction4[b_ixstart + 12 * i] =
+              rtb_TmpSignalConversionAtSFun_2 - ctrl_TAPM_P.Identity_Value_f[12 *
+              i + b_ixstart];
+          }
+        }
+
+        /* End of Sum: '<S29>/Sum4' */
+
+        /* Product: '<S29>/Matrix Multiply1' incorporates:
+         *  Delay: '<S29>/Delay'
+         *  Math: '<S29>/Math Function2'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_d[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_PHinvHPHR_d[b_ixstart + 12 * i] +=
+                ctrl_TAPM_DW.Delay_DSTATE_fg[12 * p3 + b_ixstart] *
+                rtb_MathFunction4[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Product: '<S29>/K*R*K'' incorporates:
+         *  Constant: '<S29>/Constant4'
+         *  Math: '<S29>/Math Function3'
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            tmp_3[b_ixstart + 6 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              tmp_3[b_ixstart + 6 * i] += ctrl_TAPM_P.Constant4_Value_i[6 * p3 +
+                b_ixstart] * rtb_PHinvHPHR_du[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Product: '<S29>/Matrix Multiply1' incorporates:
+         *  Sum: '<S29>/Sum5'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_MathFunction4_0[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_MathFunction4_0[b_ixstart + 12 * i] += rtb_MathFunction4[12 *
+                p3 + b_ixstart] * rtb_PHinvHPHR_d[12 * i + p3];
+            }
+          }
+        }
+
+        /* Product: '<S29>/K*R*K'' incorporates:
+         *  Sum: '<S29>/Sum5'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_e[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_PHinvHPHR_e[b_ixstart + 12 * i] += rtb_PHinvHPHR_du[12 * p3 +
+                b_ixstart] * tmp_3[6 * i + p3];
+            }
+          }
+        }
+
+        /* Sum: '<S29>/Sum5' incorporates:
+         *  Product: '<S29>/A*P_hat*A''
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_MathFunction4_1[i + 12 * b_ixstart] = rtb_MathFunction4_0[12 *
+              b_ixstart + i] + rtb_PHinvHPHR_e[12 * b_ixstart + i];
+          }
+        }
+
+        /* Product: '<S29>/A*P_hat*A'' incorporates:
+         *  Constant: '<S29>/Constant6'
+         *  Math: '<S29>/Math Function4'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            v1_0[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              v1_0[b_ixstart + 12 * i] += rtb_MathFunction4_1[12 * p3 +
+                b_ixstart] * ctrl_TAPM_P.Constant6_Value_a[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Sum: '<S30>/Sum4' incorporates:
+         *  Constant: '<S30>/Constant3'
+         *  Constant: '<S30>/Identity'
+         *  Product: '<S30>/K*H'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += rtb_PHinvHPHR[12 * p3 +
+                b_ixstart] * ctrl_TAPM_P.Constant3_Value_b[6 * i + p3];
+            }
+
+            rtb_MathFunction4[b_ixstart + 12 * i] =
+              rtb_TmpSignalConversionAtSFun_2 - ctrl_TAPM_P.Identity_Value_h4[12
+              * i + b_ixstart];
+          }
+        }
+
+        /* End of Sum: '<S30>/Sum4' */
+
+        /* Product: '<S30>/Matrix Multiply1' incorporates:
+         *  Delay: '<S30>/Delay'
+         *  Math: '<S30>/Math Function2'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_d[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_PHinvHPHR_d[b_ixstart + 12 * i] +=
+                ctrl_TAPM_DW.Delay_DSTATE_fv[12 * p3 + b_ixstart] *
+                rtb_MathFunction4[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Product: '<S30>/K*R*K'' incorporates:
+         *  Constant: '<S30>/Constant4'
+         *  Math: '<S30>/Math Function3'
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            tmp_3[b_ixstart + 6 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              tmp_3[b_ixstart + 6 * i] += ctrl_TAPM_P.Constant4_Value_iu[6 * p3
+                + b_ixstart] * rtb_PHinvHPHR[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Product: '<S30>/Matrix Multiply1' incorporates:
+         *  Sum: '<S30>/Sum5'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_MathFunction4_0[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_MathFunction4_0[b_ixstart + 12 * i] += rtb_MathFunction4[12 *
+                p3 + b_ixstart] * rtb_PHinvHPHR_d[12 * i + p3];
+            }
+          }
+        }
+
+        /* Product: '<S30>/K*R*K'' incorporates:
+         *  Sum: '<S30>/Sum5'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_d[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_PHinvHPHR_d[b_ixstart + 12 * i] += rtb_PHinvHPHR[12 * p3 +
+                b_ixstart] * tmp_3[6 * i + p3];
+            }
+          }
+        }
+
+        /* Sum: '<S30>/Sum5' incorporates:
+         *  Product: '<S30>/A*P_hat*A''
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_MathFunction4_1[i + 12 * b_ixstart] = rtb_MathFunction4_0[12 *
+              b_ixstart + i] + rtb_PHinvHPHR_d[12 * b_ixstart + i];
+          }
+        }
+
+        /* Product: '<S30>/A*P_hat*A'' incorporates:
+         *  Constant: '<S30>/Constant6'
+         *  Math: '<S30>/Math Function4'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_MathFunction4_0[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_MathFunction4_0[b_ixstart + 12 * i] += rtb_MathFunction4_1[12 *
+                p3 + b_ixstart] * ctrl_TAPM_P.Constant6_Value_j[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Update for Delay: '<S30>/Delay' incorporates:
+         *  Constant: '<S30>/Constant5'
+         *  Constant: '<S30>/Constant6'
+         *  Product: '<S30>/A*P_hat*A''
+         *  Sum: '<S30>/Sum6'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += ctrl_TAPM_P.Constant6_Value_j
+                [12 * p3 + b_ixstart] * rtb_MathFunction4_0[12 * i + p3];
+            }
+
+            ctrl_TAPM_DW.Delay_DSTATE_fv[b_ixstart + 12 * i] =
+              ctrl_TAPM_P.Constant5_Value_nj[12 * i + b_ixstart] +
+              rtb_TmpSignalConversionAtSFun_2;
+          }
+        }
+
+        /* End of Update for Delay: '<S30>/Delay' */
+
+        /* Update for Delay: '<S30>/Delay1' incorporates:
+         *  Gain: '<S30>/A'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          ctrl_TAPM_DW.Delay1_DSTATE[b_ixstart] = 0.0;
+          for (i = 0; i < 12; i++) {
+            ctrl_TAPM_DW.Delay1_DSTATE[b_ixstart] += ctrl_TAPM_P.A_Gain_j[12 * i
+              + b_ixstart] * T0[i];
+          }
+        }
+
+        /* End of Update for Delay: '<S30>/Delay1' */
+
+        /* Update for Memory: '<S31>/Memory2' */
+        for (i = 0; i < 5; i++) {
+          ctrl_TAPM_DW.Memory2_PreviousInput[i] = ctrl_TAPM_B.Merge1[i];
+        }
+
+        /* End of Update for Memory: '<S31>/Memory2' */
+
+        /* Update for Memory: '<S31>/Memory3' */
+        for (i = 0; i < 7; i++) {
+          ctrl_TAPM_DW.Memory3_PreviousInput[i] = ctrl_TAPM_B.In1[i];
+        }
+
+        /* End of Update for Memory: '<S31>/Memory3' */
+
+        /* Product: '<S27>/Matrix Multiply1' incorporates:
+         *  Delay: '<S27>/Delay'
+         *  Math: '<S27>/Math Function2'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_d[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_PHinvHPHR_d[b_ixstart + 12 * i] +=
+                ctrl_TAPM_DW.Delay_DSTATE_mc[12 * p3 + b_ixstart] * rtb_Sum5_0
+                [12 * p3 + i];
+            }
+          }
+        }
+
+        /* Product: '<S27>/K*R*K'' incorporates:
+         *  Constant: '<S27>/Constant4'
+         *  Math: '<S27>/Math Function3'
+         */
+        for (b_ixstart = 0; b_ixstart < 6; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            tmp_3[b_ixstart + 6 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              tmp_3[b_ixstart + 6 * i] += ctrl_TAPM_P.Constant4_Value[6 * p3 +
+                b_ixstart] * rtb_PHinvHPHR_o[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Product: '<S27>/Matrix Multiply1' incorporates:
+         *  Sum: '<S27>/Sum5'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_e[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_PHinvHPHR_e[b_ixstart + 12 * i] += rtb_Sum5_0[12 * p3 +
+                b_ixstart] * rtb_PHinvHPHR_d[12 * i + p3];
+            }
+          }
+        }
+
+        /* Product: '<S27>/K*R*K'' incorporates:
+         *  Sum: '<S27>/Sum5'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_d[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 6; p3++) {
+              rtb_PHinvHPHR_d[b_ixstart + 12 * i] += rtb_PHinvHPHR_o[12 * p3 +
+                b_ixstart] * tmp_3[6 * i + p3];
+            }
+          }
+        }
+
+        /* Sum: '<S27>/Sum5' incorporates:
+         *  Product: '<S27>/A*P_hat*A''
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_Sum5_0[i + 12 * b_ixstart] = rtb_PHinvHPHR_e[12 * b_ixstart + i]
+              + rtb_PHinvHPHR_d[12 * b_ixstart + i];
+          }
+        }
+
+        /* Product: '<S27>/A*P_hat*A'' incorporates:
+         *  Constant: '<S27>/Constant6'
+         *  Math: '<S27>/Math Function4'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_PHinvHPHR_e[b_ixstart + 12 * i] = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_PHinvHPHR_e[b_ixstart + 12 * i] += rtb_Sum5_0[12 * p3 +
+                b_ixstart] * ctrl_TAPM_P.Constant6_Value[12 * p3 + i];
+            }
+          }
+        }
+
+        /* Update for Delay: '<S27>/Delay' incorporates:
+         *  Constant: '<S27>/Constant5'
+         *  Constant: '<S27>/Constant6'
+         *  Product: '<S27>/A*P_hat*A''
+         *  Sum: '<S27>/Sum6'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += ctrl_TAPM_P.Constant6_Value[12 *
+                p3 + b_ixstart] * rtb_PHinvHPHR_e[12 * i + p3];
+            }
+
+            ctrl_TAPM_DW.Delay_DSTATE_mc[b_ixstart + 12 * i] =
+              ctrl_TAPM_P.Constant5_Value[12 * i + b_ixstart] +
+              rtb_TmpSignalConversionAtSFun_2;
+          }
+        }
+
+        /* End of Update for Delay: '<S27>/Delay' */
+
+        /* Update for Delay: '<S27>/Delay1' incorporates:
+         *  Gain: '<S27>/A'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          ctrl_TAPM_DW.Delay1_DSTATE_f[b_ixstart] = 0.0;
+          for (i = 0; i < 12; i++) {
+            ctrl_TAPM_DW.Delay1_DSTATE_f[b_ixstart] += ctrl_TAPM_P.A_Gain[12 * i
+              + b_ixstart] * rtb_Sum2_j[i];
+          }
+        }
+
+        /* End of Update for Delay: '<S27>/Delay1' */
+
+        /* Update for Memory: '<S32>/Memory2' */
+        for (i = 0; i < 5; i++) {
+          ctrl_TAPM_DW.Memory2_PreviousInput_d[i] = ctrl_TAPM_B.Merge1_e[i];
+        }
+
+        /* End of Update for Memory: '<S32>/Memory2' */
+
+        /* Update for Memory: '<S32>/Memory3' */
+        for (i = 0; i < 7; i++) {
+          ctrl_TAPM_DW.Memory3_PreviousInput_p[i] = ctrl_TAPM_B.In1[i + 7];
+        }
+
+        /* End of Update for Memory: '<S32>/Memory3' */
+
+        /* Update for Delay: '<S28>/Delay' incorporates:
+         *  Constant: '<S28>/Constant5'
+         *  Constant: '<S28>/Constant6'
+         *  Product: '<S28>/A*P_hat*A''
+         *  Sum: '<S28>/Sum6'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += ctrl_TAPM_P.Constant6_Value_c
+                [12 * p3 + b_ixstart] * v1[12 * i + p3];
+            }
+
+            ctrl_TAPM_DW.Delay_DSTATE_dd[b_ixstart + 12 * i] =
+              ctrl_TAPM_P.Constant5_Value_n[12 * i + b_ixstart] +
+              rtb_TmpSignalConversionAtSFun_2;
+          }
+        }
+
+        /* End of Update for Delay: '<S28>/Delay' */
+
+        /* Update for Delay: '<S28>/Delay1' incorporates:
+         *  Gain: '<S28>/A'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          ctrl_TAPM_DW.Delay1_DSTATE_j[b_ixstart] = 0.0;
+          for (i = 0; i < 12; i++) {
+            ctrl_TAPM_DW.Delay1_DSTATE_j[b_ixstart] += ctrl_TAPM_P.A_Gain_n[12 *
+              i + b_ixstart] * rtb_Sum2_a[i];
+          }
+        }
+
+        /* End of Update for Delay: '<S28>/Delay1' */
+
+        /* Update for Memory: '<S33>/Memory2' */
+        for (i = 0; i < 5; i++) {
+          ctrl_TAPM_DW.Memory2_PreviousInput_n[i] = ctrl_TAPM_B.Merge1_k[i];
+        }
+
+        /* End of Update for Memory: '<S33>/Memory2' */
+
+        /* Update for Memory: '<S33>/Memory3' */
+        for (i = 0; i < 7; i++) {
+          ctrl_TAPM_DW.Memory3_PreviousInput_j[i] = ctrl_TAPM_B.In1[i + 14];
+        }
+
+        /* End of Update for Memory: '<S33>/Memory3' */
+
+        /* Update for Delay: '<S29>/Delay' incorporates:
+         *  Constant: '<S29>/Constant5'
+         *  Constant: '<S29>/Constant6'
+         *  Product: '<S29>/A*P_hat*A''
+         *  Sum: '<S29>/Sum6'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          for (i = 0; i < 12; i++) {
+            rtb_TmpSignalConversionAtSFun_2 = 0.0;
+            for (p3 = 0; p3 < 12; p3++) {
+              rtb_TmpSignalConversionAtSFun_2 += ctrl_TAPM_P.Constant6_Value_a
+                [12 * p3 + b_ixstart] * v1_0[12 * i + p3];
+            }
+
+            ctrl_TAPM_DW.Delay_DSTATE_fg[b_ixstart + 12 * i] =
+              ctrl_TAPM_P.Constant5_Value_m[12 * i + b_ixstart] +
+              rtb_TmpSignalConversionAtSFun_2;
+          }
+        }
+
+        /* End of Update for Delay: '<S29>/Delay' */
+
+        /* Update for Delay: '<S29>/Delay1' incorporates:
+         *  Gain: '<S29>/A'
+         */
+        for (b_ixstart = 0; b_ixstart < 12; b_ixstart++) {
+          ctrl_TAPM_DW.Delay1_DSTATE_i[b_ixstart] = 0.0;
+          for (i = 0; i < 12; i++) {
+            ctrl_TAPM_DW.Delay1_DSTATE_i[b_ixstart] += ctrl_TAPM_P.A_Gain_k[12 *
+              i + b_ixstart] * rtb_Sum2_h[i];
+          }
+        }
+
+        /* End of Update for Delay: '<S29>/Delay1' */
+
+        /* Update for Memory: '<S34>/Memory2' */
+        for (i = 0; i < 5; i++) {
+          ctrl_TAPM_DW.Memory2_PreviousInput_c[i] = ctrl_TAPM_B.Merge1_h[i];
+        }
+
+        /* End of Update for Memory: '<S34>/Memory2' */
+
+        /* Update for Memory: '<S34>/Memory3' */
+        for (i = 0; i < 7; i++) {
+          ctrl_TAPM_DW.Memory3_PreviousInput_k[i] = ctrl_TAPM_B.In1[i + 21];
+        }
+
+        /* End of Update for Memory: '<S34>/Memory3' */
+      }
+
+      for (i = 0; i < 28; i++) {
+        ctrl_TAPM_PrevZCX.Filtering_Trig_ZCE[i] = rtb_RelationalOperator[i];
+      }
+    }
+
+    /* End of Outputs for SubSystem: '<S4>/Filtering' */
   }
 }
 
@@ -6770,17 +9069,16 @@ void ctrl_TAPM_update(void)
   /* local scratch DWork variables */
   int32_T ForEach_itr;
   int32_T i;
-  if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Update for Delay: '<S19>/Delay' */
-    ctrl_TAPM_DW.Delay_DSTATE = ctrl_TAPM_B.Integrator;
-  }
 
-  /* Update for Iterator SubSystem: '<S6>/Optimal angle path and  constraints on rotation speed' */
+  /* Update for Integrator: '<S19>/Integrator1' */
+  ctrl_TAPM_DW.Integrator1_IWORK.IcNeedsLoading = 0;
+
+  /* Update for Iterator SubSystem: '<S10>/Optimal angle path and  constraints on rotation speed' */
   for (ForEach_itr = 0; ForEach_itr < 6; ForEach_itr++) {
-    /* Update for ForEachSliceSelector: '<S42>/ImpSel_InsertedFor_reset_at_outport_0' */
-    rtb_ImpSel_InsertedFor_reset_at = ctrl_TAPM_B.reset[ForEach_itr];
+    /* Update for ForEachSliceSelector: '<S67>/ImpSel_InsertedFor_reset_at_outport_0' */
+    rtb_ImpSel_InsertedFor_reset_at = ctrl_TAPM_B.reset_g[ForEach_itr];
     if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-      /* Update for DiscreteIntegrator: '<S42>/Discrete-Time Integrator' */
+      /* Update for DiscreteIntegrator: '<S67>/Discrete-Time Integrator' */
       ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_IC_LOADI = 0U;
       ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_DSTATE +=
         ctrl_TAPM_P.CoreSubsys.DiscreteTimeIntegrator_gainval *
@@ -6796,167 +9094,173 @@ void ctrl_TAPM_update(void)
         ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_PrevRese = 2;
       }
 
-      /* End of Update for DiscreteIntegrator: '<S42>/Discrete-Time Integrator' */
+      /* End of Update for DiscreteIntegrator: '<S67>/Discrete-Time Integrator' */
 
-      /* Update for Delay: '<S42>/Delay' */
+      /* Update for Delay: '<S67>/Delay' */
       ctrl_TAPM_DW.CoreSubsys[ForEach_itr].Delay_DSTATE =
         ctrl_TAPM_B.CoreSubsys[ForEach_itr].angle;
     }
   }
 
-  /* End of Update for SubSystem: '<S6>/Optimal angle path and  constraints on rotation speed' */
+  /* End of Update for SubSystem: '<S10>/Optimal angle path and  constraints on rotation speed' */
+  /* Update for Integrator: '<S6>/Integrator' */
+  ctrl_TAPM_DW.Integrator_IWORK.IcNeedsLoading = 0;
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Update for Delay: '<S8>/Delay' */
+    /* Update for Delay: '<S12>/Delay' */
     for (i = 0; i < 6; i++) {
-      ctrl_TAPM_DW.Delay_DSTATE_i[i] =
+      ctrl_TAPM_DW.Delay_DSTATE[i] =
         ctrl_TAPM_B.TmpSignalConversionAtDelayInpor[i];
     }
 
-    /* End of Update for Delay: '<S8>/Delay' */
+    /* End of Update for Delay: '<S12>/Delay' */
 
-    /* Update for Delay: '<S50>/Delay' */
+    /* Update for Delay: '<S75>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_f = ctrl_TAPM_B.Qa;
 
-    /* Update for Delay: '<S65>/Delay' */
+    /* Update for Delay: '<S90>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_fu = ctrl_TAPM_B.DiscreteTransferFcn;
 
-    /* Update for DiscreteTransferFcn: '<S65>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S90>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states[1] =
       ctrl_TAPM_DW.DiscreteTransferFcn_states[0];
     ctrl_TAPM_DW.DiscreteTransferFcn_states[0] =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp;
 
-    /* Update for UnitDelay: '<S68>/UD' */
+    /* Update for UnitDelay: '<S93>/UD' */
     ctrl_TAPM_DW.UD_DSTATE = ctrl_TAPM_B.TSamp;
 
-    /* Update for Memory: '<S65>/Memory' */
+    /* Update for Memory: '<S90>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput = ctrl_TAPM_B.sf_Supervisor.u;
   }
 
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Update for DiscreteTransferFcn: '<S50>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S75>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_d =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_a;
 
-    /* Update for Delay: '<S51>/Delay' */
+    /* Update for Delay: '<S76>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_b = ctrl_TAPM_B.sf_ActualForceandTorque_f.Qa;
 
-    /* Update for Delay: '<S74>/Delay' */
+    /* Update for Delay: '<S99>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_d = ctrl_TAPM_B.DiscreteTransferFcn_e;
 
-    /* Update for DiscreteTransferFcn: '<S74>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S99>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_h[1] =
       ctrl_TAPM_DW.DiscreteTransferFcn_states_h[0];
     ctrl_TAPM_DW.DiscreteTransferFcn_states_h[0] =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_d;
 
-    /* Update for UnitDelay: '<S77>/UD' */
+    /* Update for UnitDelay: '<S102>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_n = ctrl_TAPM_B.TSamp_n;
 
-    /* Update for Memory: '<S74>/Memory' */
+    /* Update for Memory: '<S99>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_n = ctrl_TAPM_B.sf_Supervisor_h.u;
   }
 
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Update for DiscreteTransferFcn: '<S51>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S76>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_m =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_h;
 
-    /* Update for Delay: '<S52>/Delay' */
+    /* Update for Delay: '<S77>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_n = ctrl_TAPM_B.sf_ActualForceandTorque_h.Qa;
 
-    /* Update for Delay: '<S83>/Delay' */
+    /* Update for Delay: '<S108>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_no = ctrl_TAPM_B.DiscreteTransferFcn_f;
 
-    /* Update for DiscreteTransferFcn: '<S83>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S108>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_j[1] =
       ctrl_TAPM_DW.DiscreteTransferFcn_states_j[0];
     ctrl_TAPM_DW.DiscreteTransferFcn_states_j[0] =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_e;
 
-    /* Update for UnitDelay: '<S86>/UD' */
+    /* Update for UnitDelay: '<S111>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_i = ctrl_TAPM_B.TSamp_k;
 
-    /* Update for Memory: '<S83>/Memory' */
+    /* Update for Memory: '<S108>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_d = ctrl_TAPM_B.sf_Supervisor_l.u;
   }
 
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Update for DiscreteTransferFcn: '<S52>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S77>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_k =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_hh;
 
-    /* Update for Delay: '<S53>/Delay' */
+    /* Update for Delay: '<S78>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_e = ctrl_TAPM_B.sf_ActualForceandTorque_m.Qa;
 
-    /* Update for Delay: '<S92>/Delay' */
-    ctrl_TAPM_DW.Delay_DSTATE_id = ctrl_TAPM_B.DiscreteTransferFcn_l;
+    /* Update for Delay: '<S117>/Delay' */
+    ctrl_TAPM_DW.Delay_DSTATE_i = ctrl_TAPM_B.DiscreteTransferFcn_l;
 
-    /* Update for DiscreteTransferFcn: '<S92>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S117>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_i[1] =
       ctrl_TAPM_DW.DiscreteTransferFcn_states_i[0];
     ctrl_TAPM_DW.DiscreteTransferFcn_states_i[0] =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_k;
 
-    /* Update for UnitDelay: '<S95>/UD' */
+    /* Update for UnitDelay: '<S120>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_n4 = ctrl_TAPM_B.TSamp_a;
 
-    /* Update for Memory: '<S92>/Memory' */
+    /* Update for Memory: '<S117>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_a = ctrl_TAPM_B.sf_Supervisor_n.u;
   }
 
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Update for DiscreteTransferFcn: '<S53>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S78>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_h0 =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_n;
 
-    /* Update for Delay: '<S54>/Delay' */
+    /* Update for Delay: '<S79>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_j = ctrl_TAPM_B.sf_ActualForceandTorque_o.Qa;
 
-    /* Update for Delay: '<S101>/Delay' */
+    /* Update for Delay: '<S126>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_a = ctrl_TAPM_B.DiscreteTransferFcn_o;
 
-    /* Update for DiscreteTransferFcn: '<S101>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S126>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_hb[1] =
       ctrl_TAPM_DW.DiscreteTransferFcn_states_hb[0];
     ctrl_TAPM_DW.DiscreteTransferFcn_states_hb[0] =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_c;
 
-    /* Update for UnitDelay: '<S104>/UD' */
+    /* Update for UnitDelay: '<S129>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_m = ctrl_TAPM_B.TSamp_m;
 
-    /* Update for Memory: '<S101>/Memory' */
+    /* Update for Memory: '<S126>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_b = ctrl_TAPM_B.sf_Supervisor_b.u;
   }
 
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Update for DiscreteTransferFcn: '<S54>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S79>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_dt =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_f;
 
-    /* Update for Delay: '<S55>/Delay' */
+    /* Update for Delay: '<S80>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_dv = ctrl_TAPM_B.sf_ActualForceandTorque_j.Qa;
 
-    /* Update for Delay: '<S110>/Delay' */
+    /* Update for Delay: '<S135>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_m = ctrl_TAPM_B.DiscreteTransferFcn_j;
 
-    /* Update for DiscreteTransferFcn: '<S110>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S135>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_l[1] =
       ctrl_TAPM_DW.DiscreteTransferFcn_states_l[0];
     ctrl_TAPM_DW.DiscreteTransferFcn_states_l[0] =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_h4;
 
-    /* Update for UnitDelay: '<S113>/UD' */
+    /* Update for UnitDelay: '<S138>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_l = ctrl_TAPM_B.TSamp_o;
 
-    /* Update for Memory: '<S110>/Memory' */
+    /* Update for Memory: '<S135>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_a4 = ctrl_TAPM_B.sf_Supervisor_e.u;
   }
 
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
-    /* Update for DiscreteTransferFcn: '<S55>/Discrete Transfer Fcn' */
+    /* Update for DiscreteTransferFcn: '<S80>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_o =
       ctrl_TAPM_DW.DiscreteTransferFcn_tmp_cw;
+
+    /* Update for Memory: '<S4>/Memory' */
+    memcpy(&ctrl_TAPM_DW.Memory_PreviousInput_l[0], &ctrl_TAPM_B.In1[0], 28U *
+           sizeof(real_T));
   }
 
   if (rtmIsMajorTimeStep(ctrl_TAPM_M)) {
@@ -7001,133 +9305,143 @@ void ctrl_TAPM_update(void)
 /* Derivatives for root system: '<Root>' */
 void ctrl_TAPM_derivatives(void)
 {
-  XDot_ctrl_TAPM_T *_rtXdot;
-  _rtXdot = ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs);
+  /* Derivatives for Integrator: '<S19>/Integrator1' */
+  {
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator1_CSTATE[0] =
+      ctrl_TAPM_B.Integrator3[0];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator1_CSTATE[1] =
+      ctrl_TAPM_B.Integrator3[1];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator1_CSTATE[2] =
+      ctrl_TAPM_B.Integrator3[2];
+  }
 
-  /* Derivatives for Integrator: '<S18>/Integrator' */
-  _rtXdot->Integrator_CSTATE[0] = ctrl_TAPM_B.Sum3[0];
-  _rtXdot->Integrator_CSTATE[1] = ctrl_TAPM_B.Sum3[1];
-  _rtXdot->Integrator_CSTATE[2] = ctrl_TAPM_B.Sum3[2];
+  /* Derivatives for Integrator: '<S14>/Integrator' */
+  {
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE[0] =
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[0];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE[1] =
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[1];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE[2] =
+      ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_m[2];
+  }
 
-  /* Derivatives for Integrator: '<S20>/Integrator' */
-  _rtXdot->Integrator_CSTATE_l[0] = ctrl_TAPM_B.Sum1[0];
-  _rtXdot->Integrator_CSTATE_l[1] = ctrl_TAPM_B.Sum1[1];
+  /* Derivatives for Integrator: '<S6>/Integrator1' */
+  {
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator1_CSTATE_g[0]
+      = ctrl_TAPM_B.M1[0];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator1_CSTATE_g[1]
+      = ctrl_TAPM_B.M1[1];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator1_CSTATE_g[2]
+      = ctrl_TAPM_B.M1[2];
+  }
 
-  /* Derivatives for TransferFcn: '<S20>/Transfer Fcn2' */
-  _rtXdot->TransferFcn2_CSTATE = 0.0;
-  _rtXdot->TransferFcn2_CSTATE += ctrl_TAPM_P.TransferFcn2_A *
-    ctrl_TAPM_X.TransferFcn2_CSTATE;
-  _rtXdot->TransferFcn2_CSTATE += ctrl_TAPM_B.Sum;
+  /* Derivatives for Integrator: '<S19>/Integrator3' */
+  {
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator3_CSTATE[0] =
+      ctrl_TAPM_B.Sum5[0];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator3_CSTATE[1] =
+      ctrl_TAPM_B.Sum5[1];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator3_CSTATE[2] =
+      ctrl_TAPM_B.Sum5[2];
+  }
 
-  /* Derivatives for Integrator: '<S31>/Integrator' */
-  _rtXdot->Integrator_CSTATE_g[0] = ctrl_TAPM_B.TmpSignalConversionAtMatrixMult
-    [0];
-  _rtXdot->Integrator_CSTATE_g[1] = ctrl_TAPM_B.TmpSignalConversionAtMatrixMult
-    [1];
-  _rtXdot->Integrator_CSTATE_g[2] = ctrl_TAPM_B.TmpSignalConversionAtMatrixMult
-    [2];
-
-  /* Derivatives for Integrator: '<S18>/Integrator4' */
-  _rtXdot->Integrator4_CSTATE[0] = ctrl_TAPM_B.Gain3[0];
-  _rtXdot->Integrator4_CSTATE[1] = ctrl_TAPM_B.Gain3[1];
-  _rtXdot->Integrator4_CSTATE[2] = ctrl_TAPM_B.Gain3[2];
-
-  /* Derivatives for Integrator: '<S32>/Integrator' */
-  _rtXdot->Integrator_CSTATE_k[0] = ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b
-    [0];
-  _rtXdot->Integrator_CSTATE_k[1] = ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b
-    [1];
-  _rtXdot->Integrator_CSTATE_k[2] = ctrl_TAPM_B.TmpSignalConversionAtMatrixMu_b
-    [2];
-
-  /* Derivatives for Integrator: '<S64>/Integrator' */
+  /* Derivatives for Integrator: '<S89>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_c =
       ctrl_TAPM_B.Findingrotationspeed;
   }
 
-  /* Derivatives for Integrator: '<S73>/Integrator' */
+  /* Derivatives for Integrator: '<S98>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_p =
       ctrl_TAPM_B.Findingrotationspeed_a;
   }
 
-  /* Derivatives for Integrator: '<S82>/Integrator' */
+  /* Derivatives for Integrator: '<S107>/Integrator' */
   {
-    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_km =
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_k =
       ctrl_TAPM_B.Findingrotationspeed_m;
   }
 
-  /* Derivatives for Integrator: '<S91>/Integrator' */
+  /* Derivatives for Integrator: '<S116>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_n =
       ctrl_TAPM_B.Findingrotationspeed_ms;
   }
 
-  /* Derivatives for Integrator: '<S100>/Integrator' */
+  /* Derivatives for Integrator: '<S125>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_cd =
       ctrl_TAPM_B.Findingrotationspeed_ag;
   }
 
-  /* Derivatives for Integrator: '<S109>/Integrator' */
+  /* Derivatives for Integrator: '<S134>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_h =
       ctrl_TAPM_B.Findingrotationspeed_c;
   }
 
-  /* Derivatives for Integrator: '<S18>/Integrator1' */
-  _rtXdot->Integrator1_CSTATE[0] = ctrl_TAPM_B.Sum6[0];
-  _rtXdot->Integrator1_CSTATE[1] = ctrl_TAPM_B.Sum6[1];
-  _rtXdot->Integrator1_CSTATE[2] = ctrl_TAPM_B.Sum6[2];
-
-  /* Derivatives for Integrator: '<S18>/Integrator2' */
-  _rtXdot->Integrator2_CSTATE[0] = ctrl_TAPM_B.psi_WF[0];
-  _rtXdot->Integrator2_CSTATE[1] = ctrl_TAPM_B.psi_WF[1];
-  _rtXdot->Integrator2_CSTATE[2] = ctrl_TAPM_B.psi_WF[2];
-
-  /* Derivatives for Integrator: '<S18>/Integrator3' */
-  _rtXdot->Integrator3_CSTATE[0] = ctrl_TAPM_B.Sum7[0];
-  _rtXdot->Integrator3_CSTATE[1] = ctrl_TAPM_B.Sum7[1];
-  _rtXdot->Integrator3_CSTATE[2] = ctrl_TAPM_B.Sum7[2];
-
-  /* Derivatives for Integrator: '<S19>/Integrator' */
+  /* Derivatives for Integrator: '<S6>/Integrator' */
   {
-    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_d =
-      ctrl_TAPM_P.Constant_Value_o;
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_a[0]
+      = ctrl_TAPM_B.Sum1[0];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_a[1]
+      = ctrl_TAPM_B.Sum1[1];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_a[2]
+      = ctrl_TAPM_B.Sum1[2];
   }
 
-  /* Derivatives for Integrator: '<S67>/Integrator' */
+  /* Derivatives for Integrator: '<S6>/Integrator2' */
+  {
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator2_CSTATE[0] =
+      ctrl_TAPM_B.MatrixMultiply1[0];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator2_CSTATE[1] =
+      ctrl_TAPM_B.MatrixMultiply1[1];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator2_CSTATE[2] =
+      ctrl_TAPM_B.MatrixMultiply1[2];
+  }
+
+  /* Derivatives for Integrator: '<S19>/Integrator2' */
+  {
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator2_CSTATE_c[0]
+      = ctrl_TAPM_B.MatrixMultiply[0];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator2_CSTATE_c[1]
+      = ctrl_TAPM_B.MatrixMultiply[1];
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator2_CSTATE_c[2]
+      = ctrl_TAPM_B.MatrixMultiply[2];
+  }
+
+  /* Derivatives for Integrator: '<S92>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_e =
       ctrl_TAPM_B.Ki;
   }
 
-  /* Derivatives for Integrator: '<S76>/Integrator' */
+  /* Derivatives for Integrator: '<S101>/Integrator' */
   {
-    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_gg =
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_g =
       ctrl_TAPM_B.Ki_o;
   }
 
-  /* Derivatives for Integrator: '<S85>/Integrator' */
+  /* Derivatives for Integrator: '<S110>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_i =
       ctrl_TAPM_B.Ki_n;
   }
 
-  /* Derivatives for Integrator: '<S94>/Integrator' */
+  /* Derivatives for Integrator: '<S119>/Integrator' */
   {
-    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_le =
+    ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_l =
       ctrl_TAPM_B.Ki_b;
   }
 
-  /* Derivatives for Integrator: '<S103>/Integrator' */
+  /* Derivatives for Integrator: '<S128>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_n4 =
       ctrl_TAPM_B.Ki_a;
   }
 
-  /* Derivatives for Integrator: '<S112>/Integrator' */
+  /* Derivatives for Integrator: '<S137>/Integrator' */
   {
     ((XDot_ctrl_TAPM_T *) ctrl_TAPM_M->ModelData.derivs)->Integrator_CSTATE_gj =
       ctrl_TAPM_B.Ki_p;
@@ -7140,308 +9454,928 @@ void ctrl_TAPM_initialize(void)
   {
     /* local scratch DWork variables */
     int32_T ForEach_itr;
+    int32_T i;
 
-    /* Start for Iterator SubSystem: '<S6>/Optimal angle path and  constraints on rotation speed' */
+    /* Start for Iterator SubSystem: '<S10>/Optimal angle path and  constraints on rotation speed' */
     for (ForEach_itr = 0; ForEach_itr < 6; ForEach_itr++) {
       ctrl_TAPM_B.CoreSubsys[ForEach_itr].angle = 0.0;
       ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_DSTATE = 0.0;
       ctrl_TAPM_B.CoreSubsys[ForEach_itr].Delay = 0.0;
       ctrl_TAPM_B.CoreSubsys[ForEach_itr].MaxRotationRate = 0.0;
 
-      /* InitializeConditions for DiscreteIntegrator: '<S42>/Discrete-Time Integrator' */
+      /* InitializeConditions for DiscreteIntegrator: '<S67>/Discrete-Time Integrator' */
       ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_IC_LOADI = 1U;
       ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_PrevRese = 2;
 
-      /* InitializeConditions for Delay: '<S42>/Delay' */
+      /* InitializeConditions for Delay: '<S67>/Delay' */
       ctrl_TAPM_DW.CoreSubsys[ForEach_itr].Delay_DSTATE =
         ctrl_TAPM_P.CoreSubsys.Delay_InitialCondition;
     }
 
-    /* End of Start for SubSystem: '<S6>/Optimal angle path and  constraints on rotation speed' */
+    /* End of Start for SubSystem: '<S10>/Optimal angle path and  constraints on rotation speed' */
+    /* Start for ToFile: '<S8>/To File' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "oqus_measured.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error creating .mat file oqus_measured.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,7,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file oqus_measured.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile_IWORK.Count = 0;
+      ctrl_TAPM_DW.ToFile_IWORK.Decimation = -1;
+      ctrl_TAPM_DW.ToFile_PWORK.FilePtr = fp;
+    }
+
+    /* Start for Triggered SubSystem: '<S4>/Filtering' */
+    /* Start for ToFile: '<S25>/To File' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "IMU1.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error creating .mat file IMU1.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,7,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file IMU1.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile_IWORK_e.Count = 0;
+      ctrl_TAPM_DW.ToFile_IWORK_e.Decimation = -1;
+      ctrl_TAPM_DW.ToFile_PWORK_a.FilePtr = fp;
+    }
+
+    /* Start for ToFile: '<S25>/To File1' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "IMU2.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error creating .mat file IMU2.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,7,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file IMU2.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile1_IWORK.Count = 0;
+      ctrl_TAPM_DW.ToFile1_IWORK.Decimation = -1;
+      ctrl_TAPM_DW.ToFile1_PWORK.FilePtr = fp;
+    }
+
+    /* Start for ToFile: '<S25>/To File2' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "IMU3.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error creating .mat file IMU3.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,7,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file IMU3.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile2_IWORK.Count = 0;
+      ctrl_TAPM_DW.ToFile2_IWORK.Decimation = -1;
+      ctrl_TAPM_DW.ToFile2_PWORK.FilePtr = fp;
+    }
+
+    /* Start for ToFile: '<S25>/To File3' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "IMU4.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error creating .mat file IMU4.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,7,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file IMU4.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile3_IWORK.Count = 0;
+      ctrl_TAPM_DW.ToFile3_IWORK.Decimation = -1;
+      ctrl_TAPM_DW.ToFile3_PWORK.FilePtr = fp;
+    }
+
+    /* Start for ToFile: '<S25>/To File4' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "IMU1_raw.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error creating .mat file IMU1_raw.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,8,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file IMU1_raw.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile4_IWORK.Count = 0;
+      ctrl_TAPM_DW.ToFile4_IWORK.Decimation = -1;
+      ctrl_TAPM_DW.ToFile4_PWORK.FilePtr = fp;
+    }
+
+    /* Start for ToFile: '<S25>/To File5' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "IMU2_raw.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error creating .mat file IMU2_raw.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,8,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file IMU2_raw.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile5_IWORK.Count = 0;
+      ctrl_TAPM_DW.ToFile5_IWORK.Decimation = -1;
+      ctrl_TAPM_DW.ToFile5_PWORK.FilePtr = fp;
+    }
+
+    /* Start for ToFile: '<S25>/To File6' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "IMU3_raw.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error creating .mat file IMU3_raw.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,8,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file IMU3_raw.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile6_IWORK.Count = 0;
+      ctrl_TAPM_DW.ToFile6_IWORK.Decimation = -1;
+      ctrl_TAPM_DW.ToFile6_PWORK.FilePtr = fp;
+    }
+
+    /* Start for ToFile: '<S25>/To File7' */
+    {
+      FILE *fp = (NULL);
+      char fileName[509] = "IMU4_raw.mat";
+      if ((fp = fopen(fileName, "wb")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error creating .mat file IMU4_raw.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp,8,0,"ans")) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing mat file header to file IMU4_raw.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile7_IWORK.Count = 0;
+      ctrl_TAPM_DW.ToFile7_IWORK.Decimation = -1;
+      ctrl_TAPM_DW.ToFile7_PWORK.FilePtr = fp;
+    }
+
+    /* VirtualOutportStart for Outport: '<S25>/Out1' */
+    for (i = 0; i < 28; i++) {
+      ctrl_TAPM_B.In1[i] = ctrl_TAPM_P.Out1_Y0;
+    }
+
+    /* End of VirtualOutportStart for Outport: '<S25>/Out1' */
+    /* End of Start for SubSystem: '<S4>/Filtering' */
   }
 
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_n = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_o = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_i = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_a = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_d = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_ax = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_o3 = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_db = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_l = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_h = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_f = UNINITIALIZED_ZCSIG;
-  ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_i3 = UNINITIALIZED_ZCSIG;
+  {
+    int32_T i;
+    ctrl_TAPM_PrevZCX.Integrator1_Reset_ZCE = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator1_Reset_ZCE_i = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator3_Reset_ZCE = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_g = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_n = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_o = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_i = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_a = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_d = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_nt = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator2_Reset_ZCE = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator2_Reset_ZCE_h = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_o3 = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_db = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_l = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_h = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_f = UNINITIALIZED_ZCSIG;
+    ctrl_TAPM_PrevZCX.Integrator_Reset_ZCE_i3 = UNINITIALIZED_ZCSIG;
+    for (i = 0; i < 28; i++) {
+      ctrl_TAPM_PrevZCX.Filtering_Trig_ZCE[i] = POS_ZCSIG;
+    }
+  }
 
   {
     /* local scratch DWork variables */
     int32_T ForEach_itr;
-    int32_T i;
+    uint32_T i;
+    int32_T i_0;
 
-    /* InitializeConditions for Delay: '<S19>/Delay' */
-    ctrl_TAPM_DW.Delay_DSTATE = ctrl_TAPM_P.Delay_InitialCondition;
-
-    /* InitializeConditions for Integrator: '<S18>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE[0] = ctrl_TAPM_P.Integrator_IC[0];
-    ctrl_TAPM_X.Integrator_CSTATE[1] = ctrl_TAPM_P.Integrator_IC[1];
-    ctrl_TAPM_X.Integrator_CSTATE[2] = ctrl_TAPM_P.Integrator_IC[2];
-
-    /* InitializeConditions for MATLAB Function: '<S19>/MATLAB Function' */
-    ctrl_TAPM_DW.controller = 1.0;
-    ctrl_TAPM_DW.tmp = 0.0;
-
-    /* InitializeConditions for Integrator: '<S20>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_l[0] = ctrl_TAPM_P.Integrator_IC_b[0];
-    ctrl_TAPM_X.Integrator_CSTATE_l[1] = ctrl_TAPM_P.Integrator_IC_b[1];
-
-    /* InitializeConditions for TransferFcn: '<S20>/Transfer Fcn2' */
-    ctrl_TAPM_X.TransferFcn2_CSTATE = 0.0;
-
-    /* InitializeConditions for Integrator: '<S31>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_g[0] = ctrl_TAPM_P.Integrator_IC_f;
-    ctrl_TAPM_X.Integrator_CSTATE_g[1] = ctrl_TAPM_P.Integrator_IC_f;
-    ctrl_TAPM_X.Integrator_CSTATE_g[2] = ctrl_TAPM_P.Integrator_IC_f;
-
-    /* InitializeConditions for Integrator: '<S18>/Integrator4' */
-    ctrl_TAPM_X.Integrator4_CSTATE[0] = ctrl_TAPM_P.Integrator4_IC[0];
-    ctrl_TAPM_X.Integrator4_CSTATE[1] = ctrl_TAPM_P.Integrator4_IC[1];
-    ctrl_TAPM_X.Integrator4_CSTATE[2] = ctrl_TAPM_P.Integrator4_IC[2];
-
-    /* InitializeConditions for Integrator: '<S32>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_k[0] = ctrl_TAPM_P.Integrator_IC_p;
-    ctrl_TAPM_X.Integrator_CSTATE_k[1] = ctrl_TAPM_P.Integrator_IC_p;
-    ctrl_TAPM_X.Integrator_CSTATE_k[2] = ctrl_TAPM_P.Integrator_IC_p;
-
-    /* InitializeConditions for Iterator SubSystem: '<S6>/Optimal angle path and  constraints on rotation speed' */
-    for (ForEach_itr = 0; ForEach_itr < 6; ForEach_itr++) {
-      /* InitializeConditions for DiscreteIntegrator: '<S42>/Discrete-Time Integrator' */
-      ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_IC_LOADI = 1U;
-      ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_PrevRese = 2;
-
-      /* InitializeConditions for Delay: '<S42>/Delay' */
-      ctrl_TAPM_DW.CoreSubsys[ForEach_itr].Delay_DSTATE =
-        ctrl_TAPM_P.CoreSubsys.Delay_InitialCondition;
+    /* InitializeConditions for Integrator: '<S19>/Integrator1' */
+    if (rtmIsFirstInitCond(ctrl_TAPM_M)) {
+      ctrl_TAPM_X.Integrator1_CSTATE[0] = 0.0;
+      ctrl_TAPM_X.Integrator1_CSTATE[1] = 0.0;
+      ctrl_TAPM_X.Integrator1_CSTATE[2] = 0.0;
     }
 
-    /* End of InitializeConditions for SubSystem: '<S6>/Optimal angle path and  constraints on rotation speed' */
-    /* InitializeConditions for Integrator: '<S64>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_c = ctrl_TAPM_P.Integrator_IC_fg;
+    ctrl_TAPM_DW.Integrator1_IWORK.IcNeedsLoading = 1;
 
-    /* InitializeConditions for Integrator: '<S73>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_p = ctrl_TAPM_P.Integrator_IC_fgw;
+    /* InitializeConditions for Integrator: '<S14>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE[0] = ctrl_TAPM_P.Integrator_IC;
+    ctrl_TAPM_X.Integrator_CSTATE[1] = ctrl_TAPM_P.Integrator_IC;
+    ctrl_TAPM_X.Integrator_CSTATE[2] = ctrl_TAPM_P.Integrator_IC;
 
-    /* InitializeConditions for Integrator: '<S82>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_km = ctrl_TAPM_P.Integrator_IC_pl;
+    /* InitializeConditions for Integrator: '<S6>/Integrator1' */
+    ctrl_TAPM_X.Integrator1_CSTATE_g[0] = (ctrl_TAPM_P.Integrator1_IC[0]);
+    ctrl_TAPM_X.Integrator1_CSTATE_g[1] = (ctrl_TAPM_P.Integrator1_IC[1]);
+    ctrl_TAPM_X.Integrator1_CSTATE_g[2] = (ctrl_TAPM_P.Integrator1_IC[2]);
 
-    /* InitializeConditions for Integrator: '<S91>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_n = ctrl_TAPM_P.Integrator_IC_fv;
-
-    /* InitializeConditions for Integrator: '<S100>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_cd = ctrl_TAPM_P.Integrator_IC_l;
-
-    /* InitializeConditions for Integrator: '<S109>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_h = ctrl_TAPM_P.Integrator_IC_li;
-
-    /* InitializeConditions for Integrator: '<S18>/Integrator1' */
-    ctrl_TAPM_X.Integrator1_CSTATE[0] = ctrl_TAPM_P.Integrator1_IC;
-    ctrl_TAPM_X.Integrator1_CSTATE[1] = ctrl_TAPM_P.Integrator1_IC;
-    ctrl_TAPM_X.Integrator1_CSTATE[2] = ctrl_TAPM_P.Integrator1_IC;
-
-    /* InitializeConditions for Integrator: '<S18>/Integrator2' */
-    ctrl_TAPM_X.Integrator2_CSTATE[0] = ctrl_TAPM_P.Integrator2_IC;
-    ctrl_TAPM_X.Integrator2_CSTATE[1] = ctrl_TAPM_P.Integrator2_IC;
-    ctrl_TAPM_X.Integrator2_CSTATE[2] = ctrl_TAPM_P.Integrator2_IC;
-
-    /* InitializeConditions for Integrator: '<S18>/Integrator3' */
+    /* InitializeConditions for Integrator: '<S19>/Integrator3' */
     ctrl_TAPM_X.Integrator3_CSTATE[0] = ctrl_TAPM_P.Integrator3_IC;
     ctrl_TAPM_X.Integrator3_CSTATE[1] = ctrl_TAPM_P.Integrator3_IC;
     ctrl_TAPM_X.Integrator3_CSTATE[2] = ctrl_TAPM_P.Integrator3_IC;
 
-    /* InitializeConditions for Integrator: '<S19>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_d = ctrl_TAPM_P.Integrator_IC_d;
+    /* InitializeConditions for Iterator SubSystem: '<S10>/Optimal angle path and  constraints on rotation speed' */
+    for (ForEach_itr = 0; ForEach_itr < 6; ForEach_itr++) {
+      /* InitializeConditions for DiscreteIntegrator: '<S67>/Discrete-Time Integrator' */
+      ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_IC_LOADI = 1U;
+      ctrl_TAPM_DW.CoreSubsys[ForEach_itr].DiscreteTimeIntegrator_PrevRese = 2;
 
-    /* InitializeConditions for Delay: '<S8>/Delay' */
-    for (i = 0; i < 6; i++) {
-      ctrl_TAPM_DW.Delay_DSTATE_i[i] = ctrl_TAPM_P.Delay_InitialCondition_j;
+      /* InitializeConditions for Delay: '<S67>/Delay' */
+      ctrl_TAPM_DW.CoreSubsys[ForEach_itr].Delay_DSTATE =
+        ctrl_TAPM_P.CoreSubsys.Delay_InitialCondition;
     }
 
-    /* End of InitializeConditions for Delay: '<S8>/Delay' */
+    /* End of InitializeConditions for SubSystem: '<S10>/Optimal angle path and  constraints on rotation speed' */
+    /* InitializeConditions for Integrator: '<S89>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE_c = ctrl_TAPM_P.Integrator_IC_f;
 
-    /* InitializeConditions for Delay: '<S50>/Delay' */
+    /* InitializeConditions for Integrator: '<S98>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE_p = ctrl_TAPM_P.Integrator_IC_fg;
+
+    /* InitializeConditions for Integrator: '<S107>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE_k = ctrl_TAPM_P.Integrator_IC_p;
+
+    /* InitializeConditions for Integrator: '<S116>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE_n = ctrl_TAPM_P.Integrator_IC_fv;
+
+    /* InitializeConditions for Integrator: '<S125>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE_cd = ctrl_TAPM_P.Integrator_IC_l;
+
+    /* InitializeConditions for Integrator: '<S134>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE_h = ctrl_TAPM_P.Integrator_IC_li;
+
+    /* InitializeConditions for Integrator: '<S6>/Integrator' */
+    if (rtmIsFirstInitCond(ctrl_TAPM_M)) {
+      ctrl_TAPM_X.Integrator_CSTATE_a[0] = 0.0;
+      ctrl_TAPM_X.Integrator_CSTATE_a[1] = 0.0;
+      ctrl_TAPM_X.Integrator_CSTATE_a[2] = 0.0;
+    }
+
+    ctrl_TAPM_DW.Integrator_IWORK.IcNeedsLoading = 1;
+
+    /* InitializeConditions for Integrator: '<S6>/Integrator2' */
+    ctrl_TAPM_X.Integrator2_CSTATE[0] = (ctrl_TAPM_P.Integrator2_IC[0]);
+    ctrl_TAPM_X.Integrator2_CSTATE[1] = (ctrl_TAPM_P.Integrator2_IC[1]);
+    ctrl_TAPM_X.Integrator2_CSTATE[2] = (ctrl_TAPM_P.Integrator2_IC[2]);
+
+    /* InitializeConditions for Integrator: '<S19>/Integrator2' */
+    ctrl_TAPM_X.Integrator2_CSTATE_c[0] = ctrl_TAPM_P.Integrator2_IC_p;
+    ctrl_TAPM_X.Integrator2_CSTATE_c[1] = ctrl_TAPM_P.Integrator2_IC_p;
+    ctrl_TAPM_X.Integrator2_CSTATE_c[2] = ctrl_TAPM_P.Integrator2_IC_p;
+
+    /* InitializeConditions for Delay: '<S12>/Delay' */
+    for (i_0 = 0; i_0 < 6; i_0++) {
+      ctrl_TAPM_DW.Delay_DSTATE[i_0] = ctrl_TAPM_P.Delay_InitialCondition_j;
+    }
+
+    /* End of InitializeConditions for Delay: '<S12>/Delay' */
+
+    /* InitializeConditions for Delay: '<S75>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_f = ctrl_TAPM_P.Delay_InitialCondition_i;
 
-    /* InitializeConditions for Delay: '<S65>/Delay' */
+    /* InitializeConditions for Delay: '<S90>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_fu = ctrl_TAPM_P.Delay_InitialCondition_f;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S65>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S90>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states[0] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialStat;
     ctrl_TAPM_DW.DiscreteTransferFcn_states[1] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialStat;
 
-    /* InitializeConditions for UnitDelay: '<S68>/UD' */
+    /* InitializeConditions for UnitDelay: '<S93>/UD' */
     ctrl_TAPM_DW.UD_DSTATE = ctrl_TAPM_P.DiscreteDerivative_ICPrevScaled;
 
-    /* InitializeConditions for RateLimiter: '<S65>/Acceleration Limit' */
+    /* InitializeConditions for RateLimiter: '<S90>/Acceleration Limit' */
     ctrl_TAPM_DW.PrevY = ctrl_TAPM_P.AccelerationLimit_IC;
 
-    /* InitializeConditions for Memory: '<S65>/Memory' */
+    /* InitializeConditions for Memory: '<S90>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput = ctrl_TAPM_P.Memory_X0;
 
-    /* InitializeConditions for Integrator: '<S67>/Integrator' */
+    /* InitializeConditions for Integrator: '<S92>/Integrator' */
     ctrl_TAPM_X.Integrator_CSTATE_e = ctrl_TAPM_P.Integrator_IC_a;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S50>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S75>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_d =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_h;
 
-    /* InitializeConditions for Delay: '<S51>/Delay' */
+    /* InitializeConditions for Delay: '<S76>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_b = ctrl_TAPM_P.Delay_InitialCondition_l;
 
-    /* InitializeConditions for Delay: '<S74>/Delay' */
+    /* InitializeConditions for Delay: '<S99>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_d = ctrl_TAPM_P.Delay_InitialCondition_iv;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S74>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S99>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_h[0] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialS_hu;
     ctrl_TAPM_DW.DiscreteTransferFcn_states_h[1] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialS_hu;
 
-    /* InitializeConditions for UnitDelay: '<S77>/UD' */
+    /* InitializeConditions for UnitDelay: '<S102>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_n = ctrl_TAPM_P.DiscreteDerivative_ICPrevScal_p;
 
-    /* InitializeConditions for RateLimiter: '<S74>/Acceleration Limit' */
+    /* InitializeConditions for RateLimiter: '<S99>/Acceleration Limit' */
     ctrl_TAPM_DW.PrevY_e = ctrl_TAPM_P.AccelerationLimit_IC_m;
 
-    /* InitializeConditions for Memory: '<S74>/Memory' */
+    /* InitializeConditions for Memory: '<S99>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_n = ctrl_TAPM_P.Memory_X0_e;
 
-    /* InitializeConditions for Integrator: '<S76>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_gg = ctrl_TAPM_P.Integrator_IC_fy;
+    /* InitializeConditions for Integrator: '<S101>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE_g = ctrl_TAPM_P.Integrator_IC_fy;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S51>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S76>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_m =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_f;
 
-    /* InitializeConditions for Delay: '<S52>/Delay' */
-    ctrl_TAPM_DW.Delay_DSTATE_n = ctrl_TAPM_P.Delay_InitialCondition_d;
+    /* InitializeConditions for Delay: '<S77>/Delay' */
+    ctrl_TAPM_DW.Delay_DSTATE_n = ctrl_TAPM_P.Delay_InitialCondition_dp;
 
-    /* InitializeConditions for Delay: '<S83>/Delay' */
+    /* InitializeConditions for Delay: '<S108>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_no = ctrl_TAPM_P.Delay_InitialCondition_h;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S83>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S108>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_j[0] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_a;
     ctrl_TAPM_DW.DiscreteTransferFcn_states_j[1] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_a;
 
-    /* InitializeConditions for UnitDelay: '<S86>/UD' */
+    /* InitializeConditions for UnitDelay: '<S111>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_i = ctrl_TAPM_P.DiscreteDerivative_ICPrevSca_pl;
 
-    /* InitializeConditions for RateLimiter: '<S83>/Acceleration limiter' */
+    /* InitializeConditions for RateLimiter: '<S108>/Acceleration limiter' */
     ctrl_TAPM_DW.PrevY_o = ctrl_TAPM_P.Accelerationlimiter_IC;
 
-    /* InitializeConditions for Memory: '<S83>/Memory' */
+    /* InitializeConditions for Memory: '<S108>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_d = ctrl_TAPM_P.Memory_X0_g;
 
-    /* InitializeConditions for Integrator: '<S85>/Integrator' */
+    /* InitializeConditions for Integrator: '<S110>/Integrator' */
     ctrl_TAPM_X.Integrator_CSTATE_i = ctrl_TAPM_P.Integrator_IC_j;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S52>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S77>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_k =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_c;
 
-    /* InitializeConditions for Delay: '<S53>/Delay' */
+    /* InitializeConditions for Delay: '<S78>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_e = ctrl_TAPM_P.Delay_InitialCondition_fb;
 
-    /* InitializeConditions for Delay: '<S92>/Delay' */
-    ctrl_TAPM_DW.Delay_DSTATE_id = ctrl_TAPM_P.Delay_InitialCondition_g;
+    /* InitializeConditions for Delay: '<S117>/Delay' */
+    ctrl_TAPM_DW.Delay_DSTATE_i = ctrl_TAPM_P.Delay_InitialCondition_gg;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S92>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S117>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_i[0] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialS_a1;
     ctrl_TAPM_DW.DiscreteTransferFcn_states_i[1] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialS_a1;
 
-    /* InitializeConditions for UnitDelay: '<S95>/UD' */
+    /* InitializeConditions for UnitDelay: '<S120>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_n4 = ctrl_TAPM_P.DiscreteDerivative_ICPrevScal_f;
 
-    /* InitializeConditions for RateLimiter: '<S92>/Acceleration limiter' */
+    /* InitializeConditions for RateLimiter: '<S117>/Acceleration limiter' */
     ctrl_TAPM_DW.PrevY_c = ctrl_TAPM_P.Accelerationlimiter_IC_h;
 
-    /* InitializeConditions for Memory: '<S92>/Memory' */
+    /* InitializeConditions for Memory: '<S117>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_a = ctrl_TAPM_P.Memory_X0_k;
 
-    /* InitializeConditions for Integrator: '<S94>/Integrator' */
-    ctrl_TAPM_X.Integrator_CSTATE_le = ctrl_TAPM_P.Integrator_IC_g;
+    /* InitializeConditions for Integrator: '<S119>/Integrator' */
+    ctrl_TAPM_X.Integrator_CSTATE_l = ctrl_TAPM_P.Integrator_IC_g;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S53>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S78>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_h0 =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_p;
 
-    /* InitializeConditions for Delay: '<S54>/Delay' */
+    /* InitializeConditions for Delay: '<S79>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_j = ctrl_TAPM_P.Delay_InitialCondition_fv;
 
-    /* InitializeConditions for Delay: '<S101>/Delay' */
+    /* InitializeConditions for Delay: '<S126>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_a = ctrl_TAPM_P.Delay_InitialCondition_dz;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S101>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S126>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_hb[0] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_e;
     ctrl_TAPM_DW.DiscreteTransferFcn_states_hb[1] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_e;
 
-    /* InitializeConditions for UnitDelay: '<S104>/UD' */
+    /* InitializeConditions for UnitDelay: '<S129>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_m = ctrl_TAPM_P.DiscreteDerivative_ICPrevScal_o;
 
-    /* InitializeConditions for RateLimiter: '<S101>/Acceleration limiter' */
+    /* InitializeConditions for RateLimiter: '<S126>/Acceleration limiter' */
     ctrl_TAPM_DW.PrevY_j = ctrl_TAPM_P.Accelerationlimiter_IC_i;
 
-    /* InitializeConditions for Memory: '<S101>/Memory' */
+    /* InitializeConditions for Memory: '<S126>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_b = ctrl_TAPM_P.Memory_X0_k3;
 
-    /* InitializeConditions for Integrator: '<S103>/Integrator' */
+    /* InitializeConditions for Integrator: '<S128>/Integrator' */
     ctrl_TAPM_X.Integrator_CSTATE_n4 = ctrl_TAPM_P.Integrator_IC_aj;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S54>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S79>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_dt =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialS_pj;
 
-    /* InitializeConditions for Delay: '<S55>/Delay' */
+    /* InitializeConditions for Delay: '<S80>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_dv = ctrl_TAPM_P.Delay_InitialCondition_fi;
 
-    /* InitializeConditions for Delay: '<S110>/Delay' */
+    /* InitializeConditions for Delay: '<S135>/Delay' */
     ctrl_TAPM_DW.Delay_DSTATE_m = ctrl_TAPM_P.Delay_InitialCondition_a;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S110>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S135>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_l[0] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialS_a4;
     ctrl_TAPM_DW.DiscreteTransferFcn_states_l[1] =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialS_a4;
 
-    /* InitializeConditions for UnitDelay: '<S113>/UD' */
+    /* InitializeConditions for UnitDelay: '<S138>/UD' */
     ctrl_TAPM_DW.UD_DSTATE_l = ctrl_TAPM_P.DiscreteDerivative_ICPrevScal_n;
 
-    /* InitializeConditions for RateLimiter: '<S110>/Acceleration limiter' */
+    /* InitializeConditions for RateLimiter: '<S135>/Acceleration limiter' */
     ctrl_TAPM_DW.PrevY_h = ctrl_TAPM_P.Accelerationlimiter_IC_p;
 
-    /* InitializeConditions for Memory: '<S110>/Memory' */
+    /* InitializeConditions for Memory: '<S135>/Memory' */
     ctrl_TAPM_DW.Memory_PreviousInput_a4 = ctrl_TAPM_P.Memory_X0_c;
 
-    /* InitializeConditions for Integrator: '<S112>/Integrator' */
+    /* InitializeConditions for Integrator: '<S137>/Integrator' */
     ctrl_TAPM_X.Integrator_CSTATE_gj = ctrl_TAPM_P.Integrator_IC_h;
 
-    /* InitializeConditions for DiscreteTransferFcn: '<S55>/Discrete Transfer Fcn' */
+    /* InitializeConditions for DiscreteTransferFcn: '<S80>/Discrete Transfer Fcn' */
     ctrl_TAPM_DW.DiscreteTransferFcn_states_o =
       ctrl_TAPM_P.DiscreteTransferFcn_InitialSt_b;
+
+    /* InitializeConditions for Memory: '<S4>/Memory' */
+    memcpy(&ctrl_TAPM_DW.Memory_PreviousInput_l[0], &ctrl_TAPM_P.Memory_X0_f[0],
+           28U * sizeof(real_T));
+
+    /* InitializeConditions for Triggered SubSystem: '<S4>/Filtering' */
+    /* InitializeConditions for Delay: '<S30>/Delay' */
+    memcpy(&ctrl_TAPM_DW.Delay_DSTATE_fv[0],
+           &ctrl_TAPM_P.Delay_InitialCondition[0], 144U * sizeof(real_T));
+
+    /* InitializeConditions for Delay: '<S30>/Delay1' */
+    memcpy(&ctrl_TAPM_DW.Delay1_DSTATE[0], &ctrl_TAPM_P.Delay1_InitialCondition
+           [0], 12U * sizeof(real_T));
+
+    /* InitializeConditions for S-Function (sdspmdn2): '<S31>/Median' */
+    i = 0U;
+    for (i_0 = 0; i_0 < 5; i_0++) {
+      /* InitializeConditions for Memory: '<S31>/Memory2' */
+      ctrl_TAPM_DW.Memory2_PreviousInput[i_0] = ctrl_TAPM_P.Memory2_X0[i_0];
+      ctrl_TAPM_DW.Median_Index[i_0] = i;
+      i++;
+    }
+
+    /* End of InitializeConditions for S-Function (sdspmdn2): '<S31>/Median' */
+
+    /* InitializeConditions for S-Function (sdspmdn2): '<S31>/Median1' */
+    i = 0U;
+    for (i_0 = 0; i_0 < 5; i_0++) {
+      ctrl_TAPM_DW.Median1_Index[i_0] = i;
+      i++;
+    }
+
+    /* End of InitializeConditions for S-Function (sdspmdn2): '<S31>/Median1' */
+
+    /* InitializeConditions for Memory: '<S31>/Memory3' */
+    for (i_0 = 0; i_0 < 7; i_0++) {
+      ctrl_TAPM_DW.Memory3_PreviousInput[i_0] = ctrl_TAPM_P.Memory3_X0[i_0];
+    }
+
+    /* End of InitializeConditions for Memory: '<S31>/Memory3' */
+
+    /* InitializeConditions for Delay: '<S27>/Delay' */
+    memcpy(&ctrl_TAPM_DW.Delay_DSTATE_mc[0],
+           &ctrl_TAPM_P.Delay_InitialCondition_g[0], 144U * sizeof(real_T));
+
+    /* InitializeConditions for Delay: '<S27>/Delay1' */
+    memcpy(&ctrl_TAPM_DW.Delay1_DSTATE_f[0],
+           &ctrl_TAPM_P.Delay1_InitialCondition_h[0], 12U * sizeof(real_T));
+
+    /* InitializeConditions for S-Function (sdspmdn2): '<S32>/Median' */
+    i = 0U;
+    for (i_0 = 0; i_0 < 5; i_0++) {
+      /* InitializeConditions for Memory: '<S32>/Memory2' */
+      ctrl_TAPM_DW.Memory2_PreviousInput_d[i_0] = ctrl_TAPM_P.Memory2_X0_d[i_0];
+      ctrl_TAPM_DW.Median_Index_f[i_0] = i;
+      i++;
+    }
+
+    /* End of InitializeConditions for S-Function (sdspmdn2): '<S32>/Median' */
+
+    /* InitializeConditions for S-Function (sdspmdn2): '<S32>/Median1' */
+    i = 0U;
+    for (i_0 = 0; i_0 < 5; i_0++) {
+      ctrl_TAPM_DW.Median1_Index_p[i_0] = i;
+      i++;
+    }
+
+    /* End of InitializeConditions for S-Function (sdspmdn2): '<S32>/Median1' */
+
+    /* InitializeConditions for Memory: '<S32>/Memory3' */
+    for (i_0 = 0; i_0 < 7; i_0++) {
+      ctrl_TAPM_DW.Memory3_PreviousInput_p[i_0] = ctrl_TAPM_P.Memory3_X0_o[i_0];
+    }
+
+    /* End of InitializeConditions for Memory: '<S32>/Memory3' */
+
+    /* InitializeConditions for Delay: '<S28>/Delay' */
+    memcpy(&ctrl_TAPM_DW.Delay_DSTATE_dd[0],
+           &ctrl_TAPM_P.Delay_InitialCondition_p[0], 144U * sizeof(real_T));
+
+    /* InitializeConditions for Delay: '<S28>/Delay1' */
+    memcpy(&ctrl_TAPM_DW.Delay1_DSTATE_j[0],
+           &ctrl_TAPM_P.Delay1_InitialCondition_b[0], 12U * sizeof(real_T));
+
+    /* InitializeConditions for S-Function (sdspmdn2): '<S33>/Median' */
+    i = 0U;
+    for (i_0 = 0; i_0 < 5; i_0++) {
+      /* InitializeConditions for Memory: '<S33>/Memory2' */
+      ctrl_TAPM_DW.Memory2_PreviousInput_n[i_0] = ctrl_TAPM_P.Memory2_X0_d5[i_0];
+      ctrl_TAPM_DW.Median_Index_j[i_0] = i;
+      i++;
+    }
+
+    /* End of InitializeConditions for S-Function (sdspmdn2): '<S33>/Median' */
+
+    /* InitializeConditions for S-Function (sdspmdn2): '<S33>/Median1' */
+    i = 0U;
+    for (i_0 = 0; i_0 < 5; i_0++) {
+      ctrl_TAPM_DW.Median1_Index_j[i_0] = i;
+      i++;
+    }
+
+    /* End of InitializeConditions for S-Function (sdspmdn2): '<S33>/Median1' */
+
+    /* InitializeConditions for Memory: '<S33>/Memory3' */
+    for (i_0 = 0; i_0 < 7; i_0++) {
+      ctrl_TAPM_DW.Memory3_PreviousInput_j[i_0] = ctrl_TAPM_P.Memory3_X0_d[i_0];
+    }
+
+    /* End of InitializeConditions for Memory: '<S33>/Memory3' */
+
+    /* InitializeConditions for Delay: '<S29>/Delay' */
+    memcpy(&ctrl_TAPM_DW.Delay_DSTATE_fg[0],
+           &ctrl_TAPM_P.Delay_InitialCondition_d[0], 144U * sizeof(real_T));
+
+    /* InitializeConditions for Delay: '<S29>/Delay1' */
+    memcpy(&ctrl_TAPM_DW.Delay1_DSTATE_i[0],
+           &ctrl_TAPM_P.Delay1_InitialCondition_e[0], 12U * sizeof(real_T));
+
+    /* InitializeConditions for S-Function (sdspmdn2): '<S34>/Median' */
+    i = 0U;
+    for (i_0 = 0; i_0 < 5; i_0++) {
+      /* InitializeConditions for Memory: '<S34>/Memory2' */
+      ctrl_TAPM_DW.Memory2_PreviousInput_c[i_0] = ctrl_TAPM_P.Memory2_X0_p[i_0];
+      ctrl_TAPM_DW.Median_Index_d[i_0] = i;
+      i++;
+    }
+
+    /* End of InitializeConditions for S-Function (sdspmdn2): '<S34>/Median' */
+
+    /* InitializeConditions for S-Function (sdspmdn2): '<S34>/Median1' */
+    i = 0U;
+    for (i_0 = 0; i_0 < 5; i_0++) {
+      ctrl_TAPM_DW.Median1_Index_d[i_0] = i;
+      i++;
+    }
+
+    /* End of InitializeConditions for S-Function (sdspmdn2): '<S34>/Median1' */
+
+    /* InitializeConditions for Memory: '<S34>/Memory3' */
+    for (i_0 = 0; i_0 < 7; i_0++) {
+      ctrl_TAPM_DW.Memory3_PreviousInput_k[i_0] = ctrl_TAPM_P.Memory3_X0_p[i_0];
+    }
+
+    /* End of InitializeConditions for Memory: '<S34>/Memory3' */
+    /* End of InitializeConditions for SubSystem: '<S4>/Filtering' */
+
+    /* set "at time zero" to false */
+    if (rtmIsFirstInitCond(ctrl_TAPM_M)) {
+      rtmSetFirstInitCond(ctrl_TAPM_M, 0);
+    }
   }
 }
 
 /* Model terminate function */
 void ctrl_TAPM_terminate(void)
 {
-  /* (no terminate code required) */
+  /* Terminate for ToFile: '<S8>/To File' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile_PWORK.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "oqus_measured.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error closing MAT-file oqus_measured.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error reopening MAT-file oqus_measured.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 7, ctrl_TAPM_DW.ToFile_IWORK.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file oqus_measured.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error closing MAT-file oqus_measured.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile_PWORK.FilePtr = (NULL);
+    }
+  }
+
+  /* Terminate for Triggered SubSystem: '<S4>/Filtering' */
+
+  /* Terminate for ToFile: '<S25>/To File' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile_PWORK_a.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "IMU1.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU1.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error reopening MAT-file IMU1.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 7, ctrl_TAPM_DW.ToFile_IWORK_e.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file IMU1.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU1.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile_PWORK_a.FilePtr = (NULL);
+    }
+  }
+
+  /* Terminate for ToFile: '<S25>/To File1' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile1_PWORK.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "IMU2.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU2.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error reopening MAT-file IMU2.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 7, ctrl_TAPM_DW.ToFile1_IWORK.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file IMU2.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU2.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile1_PWORK.FilePtr = (NULL);
+    }
+  }
+
+  /* Terminate for ToFile: '<S25>/To File2' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile2_PWORK.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "IMU3.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU3.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error reopening MAT-file IMU3.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 7, ctrl_TAPM_DW.ToFile2_IWORK.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file IMU3.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU3.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile2_PWORK.FilePtr = (NULL);
+    }
+  }
+
+  /* Terminate for ToFile: '<S25>/To File3' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile3_PWORK.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "IMU4.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU4.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error reopening MAT-file IMU4.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 7, ctrl_TAPM_DW.ToFile3_IWORK.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file IMU4.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU4.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile3_PWORK.FilePtr = (NULL);
+    }
+  }
+
+  /* Terminate for ToFile: '<S25>/To File4' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile4_PWORK.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "IMU1_raw.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU1_raw.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error reopening MAT-file IMU1_raw.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 8, ctrl_TAPM_DW.ToFile4_IWORK.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file IMU1_raw.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU1_raw.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile4_PWORK.FilePtr = (NULL);
+    }
+  }
+
+  /* Terminate for ToFile: '<S25>/To File5' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile5_PWORK.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "IMU2_raw.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU2_raw.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error reopening MAT-file IMU2_raw.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 8, ctrl_TAPM_DW.ToFile5_IWORK.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file IMU2_raw.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU2_raw.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile5_PWORK.FilePtr = (NULL);
+    }
+  }
+
+  /* Terminate for ToFile: '<S25>/To File6' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile6_PWORK.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "IMU3_raw.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU3_raw.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error reopening MAT-file IMU3_raw.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 8, ctrl_TAPM_DW.ToFile6_IWORK.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file IMU3_raw.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU3_raw.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile6_PWORK.FilePtr = (NULL);
+    }
+  }
+
+  /* Terminate for ToFile: '<S25>/To File7' */
+  {
+    FILE *fp = (FILE *) ctrl_TAPM_DW.ToFile7_PWORK.FilePtr;
+    if (fp != (NULL)) {
+      char fileName[509] = "IMU4_raw.mat";
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU4_raw.mat");
+        return;
+      }
+
+      if ((fp = fopen(fileName, "r+b")) == (NULL)) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error reopening MAT-file IMU4_raw.mat");
+        return;
+      }
+
+      if (rt_WriteMat4FileHeader(fp, 8, ctrl_TAPM_DW.ToFile7_IWORK.Count, "ans"))
+      {
+        rtmSetErrorStatus(ctrl_TAPM_M,
+                          "Error writing header for ans to MAT-file IMU4_raw.mat");
+      }
+
+      if (fclose(fp) == EOF) {
+        rtmSetErrorStatus(ctrl_TAPM_M, "Error closing MAT-file IMU4_raw.mat");
+        return;
+      }
+
+      ctrl_TAPM_DW.ToFile7_PWORK.FilePtr = (NULL);
+    }
+  }
+
+  /* End of Terminate for SubSystem: '<S4>/Filtering' */
 }
 
 /*========================================================================*
@@ -7573,6 +10507,7 @@ RT_MODEL_ctrl_TAPM_T *ctrl_TAPM(void)
   rtmSetTFinal(ctrl_TAPM_M, -1);
   ctrl_TAPM_M->Timing.stepSize0 = 0.01;
   ctrl_TAPM_M->Timing.stepSize1 = 0.01;
+  rtmSetFirstInitCond(ctrl_TAPM_M, 1);
 
   /* Setup for data logging */
   {
@@ -7623,15 +10558,15 @@ RT_MODEL_ctrl_TAPM_T *ctrl_TAPM(void)
                 sizeof(DW_ctrl_TAPM_T));
 
   /* Initialize Sizes */
-  ctrl_TAPM_M->Sizes.numContStates = (37);/* Number of continuous states */
+  ctrl_TAPM_M->Sizes.numContStates = (33);/* Number of continuous states */
   ctrl_TAPM_M->Sizes.numPeriodicContStates = (0);/* Number of periodic continuous states */
   ctrl_TAPM_M->Sizes.numY = (0);       /* Number of model outputs */
   ctrl_TAPM_M->Sizes.numU = (0);       /* Number of model inputs */
   ctrl_TAPM_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   ctrl_TAPM_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  ctrl_TAPM_M->Sizes.numBlocks = (549);/* Number of blocks */
-  ctrl_TAPM_M->Sizes.numBlockIO = (214);/* Number of block outputs */
-  ctrl_TAPM_M->Sizes.numBlockPrms = (969);/* Sum of parameter "widths" */
+  ctrl_TAPM_M->Sizes.numBlocks = (788);/* Number of blocks */
+  ctrl_TAPM_M->Sizes.numBlockIO = (253);/* Number of block outputs */
+  ctrl_TAPM_M->Sizes.numBlockPrms = (5274);/* Sum of parameter "widths" */
   return ctrl_TAPM_M;
 }
 
@@ -7643,9 +10578,9 @@ RT_MODEL_ctrl_TAPM_T *ctrl_TAPM(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_TAPM
- * Model version : 1.145
+ * Model version : 1.190
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Fri Jul 08 20:12:54 2016
+ * Source generated on : Thu Apr 20 19:54:33 2017
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -7735,13 +10670,13 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 23:
-    return NIRT_GetValueByDataType(ptr,subindex,3,Complex);
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 24:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 25:
-    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+    return NIRT_GetValueByDataType(ptr,subindex,3,Complex);
 
    case 26:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
@@ -7750,7 +10685,7 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 28:
-    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+    return NIRT_GetValueByDataType(ptr,subindex,8,Complex);
 
    case 29:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
@@ -7759,6 +10694,12 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 31:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 32:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 33:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 34:
@@ -7771,7 +10712,7 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 37:
-    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+    return NIRT_GetValueByDataType(ptr,subindex,6,Complex);
 
    case 38:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
@@ -7780,10 +10721,10 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 40:
-    return NIRT_GetValueByDataType(ptr,subindex,8,Complex);
+    return NIRT_GetValueByDataType(ptr,subindex,7,Complex);
 
    case 41:
-    return NIRT_GetValueByDataType(ptr,subindex,8,Complex);
+    return NIRT_GetValueByDataType(ptr,subindex,10,Complex);
 
    case 42:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
@@ -7791,28 +10732,76 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
    case 43:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
-   case 45:
-    return NIRT_GetValueByDataType(ptr,subindex,8,Complex);
+   case 44:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
-   case 46:
+   case 45:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 48:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 49:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 50:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 51:
-    return NIRT_GetValueByDataType(ptr,subindex,50,Complex);
-
-   case 59:
-    return NIRT_GetValueByDataType(ptr,subindex,58,Complex);
-
-   case 67:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
-   case 68:
+   case 52:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 53:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 54:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 55:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 56:
+    return NIRT_GetValueByDataType(ptr,subindex,8,Complex);
+
+   case 57:
+    return NIRT_GetValueByDataType(ptr,subindex,3,Complex);
+
+   case 58:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 60:
+    return NIRT_GetValueByDataType(ptr,subindex,8,Complex);
+
+   case 61:
+    return NIRT_GetValueByDataType(ptr,subindex,6,Complex);
+
+   case 62:
     return NIRT_GetValueByDataType(ptr,subindex,7,Complex);
 
+   case 63:
+    return (double)(((real_T*)ptr)[subindex]);
+
+   case 64:
+    return NIRT_GetValueByDataType(ptr,subindex,63,Complex);
+
    case 69:
+    return NIRT_GetValueByDataType(ptr,subindex,68,Complex);
+
+   case 77:
+    return NIRT_GetValueByDataType(ptr,subindex,76,Complex);
+
+   case 85:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
-   case 70:
+   case 86:
+    return NIRT_GetValueByDataType(ptr,subindex,7,Complex);
+
+   case 87:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 88:
     return NIRT_GetValueByDataType(ptr,subindex,7,Complex);
   }
 
@@ -7912,7 +10901,7 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
 
    case 23:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,3,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
    case 24:
     //Type is matrix. Call SetValueByDataType on its contained type
@@ -7920,7 +10909,7 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
 
    case 25:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,3,Complex);
 
    case 26:
     //Type is matrix. Call SetValueByDataType on its contained type
@@ -7932,7 +10921,7 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
 
    case 28:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,8,Complex);
 
    case 29:
     //Type is matrix. Call SetValueByDataType on its contained type
@@ -7943,6 +10932,14 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
    case 31:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 32:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 33:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
@@ -7960,7 +10957,7 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
 
    case 37:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,6,Complex);
 
    case 38:
     //Type is matrix. Call SetValueByDataType on its contained type
@@ -7972,11 +10969,11 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
 
    case 40:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,8,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,7,Complex);
 
    case 41:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,8,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,10,Complex);
 
    case 42:
     //Type is matrix. Call SetValueByDataType on its contained type
@@ -7986,35 +10983,99 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
+   case 44:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
    case 45:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,8,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
-   case 46:
+   case 48:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 49:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 50:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
    case 51:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,50,Complex);
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
-   case 59:
-    //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,58,Complex);
-
-   case 67:
+   case 52:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
-   case 68:
+   case 53:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 54:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 55:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 56:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,8,Complex);
+
+   case 57:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,3,Complex);
+
+   case 58:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 60:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,8,Complex);
+
+   case 61:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,6,Complex);
+
+   case 62:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,7,Complex);
 
+   case 63:
+    ((real_T *)ptr)[subindex] = (real_T)value;
+    return NI_OK;
+
+   case 64:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,63,Complex);
+
    case 69:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,68,Complex);
+
+   case 77:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,76,Complex);
+
+   case 85:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
-   case 70:
+   case 86:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,7,Complex);
+
+   case 87:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 88:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,7,Complex);
   }
@@ -8043,163 +11104,156 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
 {
   int index = 0, count = 0;
 
-  // ctrl_TAPM/Input/wave_dir
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.wave_dir, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/fzp_x
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.fzp_x, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/fzp_y
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.fzp_y, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/r_max
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.r_max, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/Core_controller
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.Core_controller, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/K_i_y
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_y, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/K_d_psi
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_psi, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/K_d_x
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_x, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/K_d_y
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_y, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/K_i_psi
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_psi, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/K_i_x
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_x, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/K_p_psi
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_p_psi, 0, data[index++], 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/Input/K_p_x
+  // ctrl_TAPM/Input1/Control Gains/K_p_x
   if (TaskSampleHit[0]) {
     NIRT_SetValueByDataType(&ctrl_TAPM_B.K_p_x, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_p_y
+  // ctrl_TAPM/Input1/Control Gains/K_p_y
   if (TaskSampleHit[0]) {
     NIRT_SetValueByDataType(&ctrl_TAPM_B.K_p_y, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_d_psi1
+  // ctrl_TAPM/Input1/Control Gains/K_p_psi
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_psi1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_p_psi, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_d_x1
+  // ctrl_TAPM/Input1/Control Gains/K_i_psi
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_x1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_psi, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_d_y1
+  // ctrl_TAPM/Input1/Control Gains/K_i_x
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_y1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_x, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_i_psi1
+  // ctrl_TAPM/Input1/Control Gains/K_i_y
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_psi1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_y, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_i_x1
+  // ctrl_TAPM/Input1/Control Gains/K_d_psi
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_x1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_psi, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_i_y1
+  // ctrl_TAPM/Input1/Control Gains/K_d_x
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_i_y1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_x, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_p_psi1
+  // ctrl_TAPM/Input1/Control Gains/K_d_y
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_p_psi1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_d_y, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_p_x1
+  // ctrl_TAPM/Pos measurements/x_m
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_p_x1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.x_m, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Input/K_p_y1
+  // ctrl_TAPM/Pos measurements/y_m
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.K_p_y1, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.y_m, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Pos measurements/psi_m
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.psi_m, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/reset
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.reset, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/Guidance gains/w_d_x
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.w_d_x, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/Guidance gains/w_d_y
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.w_d_y, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/Guidance gains/w_d_psi
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.w_d_psi, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/Guidance gains/zeta_psi
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.zeta_psi, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/Guidance gains/zeta_x
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.zeta_x, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/Guidance gains/zeta_y
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.zeta_y, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/psi_ref
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.psi_ref, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/x_ref
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.x_ref, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Input1/y_ref
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.y_ref, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
@@ -8249,7 +11303,7 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
   // ctrl_TAPM/Thrust allocation/reset
   if (TaskSampleHit[1]) {
     for (count = 0; count < 6; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_B.reset, count, data[index++], 21, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_B.reset_g, count, data[index++], 26, 0);
     }
   } else {
     index += 6;
@@ -8347,23 +11401,44 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
     index += 1;
   }
 
-  // ctrl_TAPM/Pos measurements/x_m
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.x_m, 0, data[index++], 0, 0);
+  // ctrl_TAPM/Pos measurements/X_oqus
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.X_oqus, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Pos measurements/y_m
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.y_m, 0, data[index++], 0, 0);
+  // ctrl_TAPM/Pos measurements/Y_oqus
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.Y_oqus, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // ctrl_TAPM/Pos measurements/psi_m
-  if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_TAPM_B.psi_m, 0, data[index++], 0, 0);
+  // ctrl_TAPM/Pos measurements/Z_oqus
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.Z_oqus, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Pos measurements/roll_oqus
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.roll_oqus, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Pos measurements/pitch_oqus
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.pitch_oqus, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Pos measurements/yaw_oqus
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.yaw_oqus, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
@@ -8409,19 +11484,215 @@ void SetExternalInputs(double* data, int_T* TaskSampleHit)
   } else {
     index += 1;
   }
+
+  // ctrl_TAPM/IMU/IMU_AX1
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AX1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AY1
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AY1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AZ1
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AZ1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RX1
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RX1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RY1
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RY1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RZ1
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RZ1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_V1
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_V1, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AX2
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AX2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AY2
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AY2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AZ2
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AZ2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RX2
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RX2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RY2
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RY2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RZ2
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RZ2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_V2
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_V2, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AX3
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AX3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AY3
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AY3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AZ3
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AZ3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RX3
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RX3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RY3
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RY3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RZ3
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RZ3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_V3
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_V3, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AX4
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AX4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AY4
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AY4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_AZ4
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_AZ4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RX4
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RX4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RY4
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RY4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_RZ4
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_RZ4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/IMU/IMU_V4
+  if (TaskSampleHit[1]) {
+    NIRT_SetValueByDataType(&ctrl_TAPM_B.IMU_V4, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
 }                                      /* of SetExternalInputs */
 
 int32_t NumInputPorts(void)
 {
-  return 57;
+  return 87;
 }
 
 int32_t NumOutputPorts(void)
 {
-  return 36;
+  return 40;
 }
 
-double ni_extout[36];
+double ni_extout[40];
 
 /*========================================================================*
  * Function: SetExternalOutputs
@@ -8451,7 +11722,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
   // ctrl_TAPM/pwm_2: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_B.sf_MATLABFunction2_i.Tc_out, 0, 0, 0);
+      (&ctrl_TAPM_B.sf_MATLABFunction2.Tc_out, 0, 0, 0);
   } else {
     index += 1;
   }
@@ -8459,7 +11730,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
   // ctrl_TAPM/pwm_3: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_B.sf_MATLABFunction3_p.Tc_out, 0, 0, 0);
+      (&ctrl_TAPM_B.sf_MATLABFunction3.Tc_out, 0, 0, 0);
   } else {
     index += 1;
   }
@@ -8467,7 +11738,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
   // ctrl_TAPM/pwm_4: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_B.sf_MATLABFunction4_b.Tc_out, 0, 0, 0);
+      (&ctrl_TAPM_B.sf_MATLABFunction4.Tc_out, 0, 0, 0);
   } else {
     index += 1;
   }
@@ -8475,7 +11746,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
   // ctrl_TAPM/pwm_5: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_B.sf_MATLABFunction5_h.Tc_out, 0, 0, 0);
+      (&ctrl_TAPM_B.sf_MATLABFunction5.Tc_out, 0, 0, 0);
   } else {
     index += 1;
   }
@@ -8491,7 +11762,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
   // ctrl_TAPM/pwm_6: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_B.sf_MATLABFunction6_k.Tc_out, 0, 0, 0);
+      (&ctrl_TAPM_B.sf_MATLABFunction6.Tc_out, 0, 0, 0);
   } else {
     index += 1;
   }
@@ -8530,7 +11801,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 
   // ctrl_TAPM/u_1: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 0, 21,
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 0, 26,
       0);
   } else {
     index += 1;
@@ -8538,7 +11809,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 
   // ctrl_TAPM/u_4: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 3, 21,
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 3, 26,
       0);
   } else {
     index += 1;
@@ -8546,7 +11817,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 
   // ctrl_TAPM/u_5: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 4, 21,
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 4, 26,
       0);
   } else {
     index += 1;
@@ -8554,7 +11825,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 
   // ctrl_TAPM/u_6: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 5, 21,
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 5, 26,
       0);
   } else {
     index += 1;
@@ -8562,7 +11833,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 
   // ctrl_TAPM/u_2: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 1, 21,
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 1, 26,
       0);
   } else {
     index += 1;
@@ -8570,7 +11841,7 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 
   // ctrl_TAPM/u_3: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 2, 21,
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 2, 26,
       0);
   } else {
     index += 1;
@@ -8579,6 +11850,98 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
   // ctrl_TAPM/pwm_1: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Tc_out, 0, 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /eta_hat output/x_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator, 0, 22,
+      0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /eta_hat output/y_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator, 1, 22,
+      0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /eta_hat output/psi_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Sum, 0, 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /nu_hat output/u_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator1, 0, 22,
+      0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /nu_hat output/v_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator1, 1, 22,
+      0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /nu_hat output/r_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator1, 2, 22,
+      0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /nu_dot_hat output/u_dot_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.M1, 0, 22, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /nu_dot_hat output/v_dot_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.M1, 1, 22, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /nu_dot_hat output/r_dot_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.M1, 2, 22, 0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /b_hat output/b_x_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator2, 0, 22,
+      0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /b_hat output/b_y_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator2, 1, 22,
+      0);
+  } else {
+    index += 1;
+  }
+
+  // ctrl_TAPM/Observer output /b_hat output/b_psi_hat: Virtual Signal # 0
+  if (TaskSampleHit[0]) {              // sample and hold
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator2, 2, 22,
+      0);
   } else {
     index += 1;
   }
@@ -8595,60 +11958,28 @@ void SetExternalOutputs(double* data, int_T* TaskSampleHit)
     index += 3;
   }
 
-  // ctrl_TAPM/TAPM Controller w_observer/eta_est: Virtual Signal # 0
+  // ctrl_TAPM/Control/DP Controller/eta_tilde: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.eta, 0, 22, 0);
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.eta, 1, 22, 0);
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.eta, 2, 22, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.regulationerror, 0,
+      21, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.regulationerror, 1,
+      21, 0);
+    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.regulationerror, 2,
+      21, 0);
   } else {
     index += 3;
   }
 
-  // ctrl_TAPM/TAPM Controller w_observer/nu_est: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.nu, 0, 26, 0);
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.nu, 1, 26, 0);
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.nu, 2, 26, 0);
-  } else {
-    index += 3;
-  }
-
-  // ctrl_TAPM/TAPM Controller w_observer/SP: Virtual Signal # 0
+  // ctrl_TAPM/Guidance/eta_des: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
     ni_extout[index++] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_B.TmpSignalConversionAtSPInport1, 0, 22, 0);
+      (&ctrl_TAPM_B.TmpSignalConversionAtMatrixMult, 0, 21, 0);
     ni_extout[index++] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_B.TmpSignalConversionAtSPInport1, 1, 22, 0);
+      (&ctrl_TAPM_B.TmpSignalConversionAtMatrixMult, 1, 21, 0);
     ni_extout[index++] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_B.TmpSignalConversionAtSPInport1, 2, 22, 0);
+      (&ctrl_TAPM_B.TmpSignalConversionAtMatrixMult, 2, 21, 0);
   } else {
     index += 3;
-  }
-
-  // ctrl_TAPM/TAPM Controller w_observer/tau_des: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.MultiportSwitch, 0,
-      26, 0);
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.MultiportSwitch, 1,
-      26, 0);
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.MultiportSwitch, 2,
-      26, 0);
-  } else {
-    index += 3;
-  }
-
-  // ctrl_TAPM/TAPM Controller w_observer/PID/controller: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.y, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // ctrl_TAPM/TAPM Controller w_observer/PID/timer: Virtual Signal # 0
-  if (TaskSampleHit[1]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Delay, 0, 0, 0);
-  } else {
-    index += 1;
   }
 
   // ctrl_TAPM/Thruster control /Thruster 1/Propeller Hydrodynamics/Control_test_Pa: Virtual Signal # 0
@@ -8685,26 +12016,26 @@ int32_t NI_InitExternalOutputs()
 
   // ctrl_TAPM/pwm_2: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType
-    (&ctrl_TAPM_B.sf_MATLABFunction2_i.Tc_out, 0, 0, 0);
+    (&ctrl_TAPM_B.sf_MATLABFunction2.Tc_out, 0, 0, 0);
 
   // ctrl_TAPM/pwm_3: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType
-    (&ctrl_TAPM_B.sf_MATLABFunction3_p.Tc_out, 0, 0, 0);
+    (&ctrl_TAPM_B.sf_MATLABFunction3.Tc_out, 0, 0, 0);
 
   // ctrl_TAPM/pwm_4: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType
-    (&ctrl_TAPM_B.sf_MATLABFunction4_b.Tc_out, 0, 0, 0);
+    (&ctrl_TAPM_B.sf_MATLABFunction4.Tc_out, 0, 0, 0);
 
   // ctrl_TAPM/pwm_5: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType
-    (&ctrl_TAPM_B.sf_MATLABFunction5_h.Tc_out, 0, 0, 0);
+    (&ctrl_TAPM_B.sf_MATLABFunction5.Tc_out, 0, 0, 0);
 
   // ctrl_TAPM/alpha_2: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation2, 0, 0, 0);
 
   // ctrl_TAPM/pwm_6: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType
-    (&ctrl_TAPM_B.sf_MATLABFunction6_k.Tc_out, 0, 0, 0);
+    (&ctrl_TAPM_B.sf_MATLABFunction6.Tc_out, 0, 0, 0);
 
   // ctrl_TAPM/alpha_3: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation3, 0, 0, 0);
@@ -8719,31 +12050,73 @@ int32_t NI_InitExternalOutputs()
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation6, 0, 0, 0);
 
   // ctrl_TAPM/u_1: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 0, 21,
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 0, 26,
     0);
 
   // ctrl_TAPM/u_4: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 3, 21,
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 3, 26,
     0);
 
   // ctrl_TAPM/u_5: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 4, 21,
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 4, 26,
     0);
 
   // ctrl_TAPM/u_6: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 5, 21,
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 5, 26,
     0);
 
   // ctrl_TAPM/u_2: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 1, 21,
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 1, 26,
     0);
 
   // ctrl_TAPM/u_3: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 2, 21,
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Saturation7, 2, 26,
     0);
 
   // ctrl_TAPM/pwm_1: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Tc_out, 0, 0, 0);
+
+  // ctrl_TAPM/Observer output /eta_hat output/x_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator, 0, 22, 0);
+
+  // ctrl_TAPM/Observer output /eta_hat output/y_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator, 1, 22, 0);
+
+  // ctrl_TAPM/Observer output /eta_hat output/psi_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Sum, 0, 0, 0);
+
+  // ctrl_TAPM/Observer output /nu_hat output/u_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator1, 0, 22,
+    0);
+
+  // ctrl_TAPM/Observer output /nu_hat output/v_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator1, 1, 22,
+    0);
+
+  // ctrl_TAPM/Observer output /nu_hat output/r_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator1, 2, 22,
+    0);
+
+  // ctrl_TAPM/Observer output /nu_dot_hat output/u_dot_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.M1, 0, 22, 0);
+
+  // ctrl_TAPM/Observer output /nu_dot_hat output/v_dot_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.M1, 1, 22, 0);
+
+  // ctrl_TAPM/Observer output /nu_dot_hat output/r_dot_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.M1, 2, 22, 0);
+
+  // ctrl_TAPM/Observer output /b_hat output/b_x_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator2, 0, 22,
+    0);
+
+  // ctrl_TAPM/Observer output /b_hat output/b_y_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator2, 1, 22,
+    0);
+
+  // ctrl_TAPM/Observer output /b_hat output/b_psi_hat: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Integrator2, 2, 22,
+    0);
 
   // ctrl_TAPM/tau_actual: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.commanded_tau, 0, 22,
@@ -8753,37 +12126,21 @@ int32_t NI_InitExternalOutputs()
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.commanded_tau, 2, 22,
     0);
 
-  // ctrl_TAPM/TAPM Controller w_observer/eta_est: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.eta, 0, 22, 0);
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.eta, 1, 22, 0);
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.eta, 2, 22, 0);
+  // ctrl_TAPM/Control/DP Controller/eta_tilde: Virtual Signal # 0
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.regulationerror, 0,
+    21, 0);
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.regulationerror, 1,
+    21, 0);
+  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.regulationerror, 2,
+    21, 0);
 
-  // ctrl_TAPM/TAPM Controller w_observer/nu_est: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.nu, 0, 26, 0);
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.nu, 1, 26, 0);
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.nu, 2, 26, 0);
-
-  // ctrl_TAPM/TAPM Controller w_observer/SP: Virtual Signal # 0
+  // ctrl_TAPM/Guidance/eta_des: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType
-    (&ctrl_TAPM_B.TmpSignalConversionAtSPInport1, 0, 22, 0);
+    (&ctrl_TAPM_B.TmpSignalConversionAtMatrixMult, 0, 21, 0);
   ni_extout[index++] = NIRT_GetValueByDataType
-    (&ctrl_TAPM_B.TmpSignalConversionAtSPInport1, 1, 22, 0);
+    (&ctrl_TAPM_B.TmpSignalConversionAtMatrixMult, 1, 21, 0);
   ni_extout[index++] = NIRT_GetValueByDataType
-    (&ctrl_TAPM_B.TmpSignalConversionAtSPInport1, 2, 22, 0);
-
-  // ctrl_TAPM/TAPM Controller w_observer/tau_des: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.MultiportSwitch, 0,
-    26, 0);
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.MultiportSwitch, 1,
-    26, 0);
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.MultiportSwitch, 2,
-    26, 0);
-
-  // ctrl_TAPM/TAPM Controller w_observer/PID/controller: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.y, 0, 0, 0);
-
-  // ctrl_TAPM/TAPM Controller w_observer/PID/timer: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Delay, 0, 0, 0);
+    (&ctrl_TAPM_B.TmpSignalConversionAtMatrixMult, 2, 21, 0);
 
   // ctrl_TAPM/Thruster control /Thruster 1/Propeller Hydrodynamics/Control_test_Pa: Virtual Signal # 0
   ni_extout[index++] = NIRT_GetValueByDataType(&ctrl_TAPM_B.Pa, 0, 0, 0);
@@ -8799,1182 +12156,1319 @@ int32_t NI_InitExternalOutputs()
 /* All elements by default (including scalars) have 2 dimensions [1,1] */
 static NI_Parameter NI_ParamList[] DataSection(".NIVS.paramlist") =
 {
-  { 0, "ctrl_tapm/Thrust allocation/C/Value", offsetof(P_ctrl_TAPM_T, C), 29, 24,
+  { 0, "ctrl_tapm/Thrust allocation/C/Value", offsetof(P_ctrl_TAPM_T, C), 42, 24,
     2, 0, 0 },
 
-  { 1, "ctrl_tapm/Thruster Parameters /D/Value", offsetof(P_ctrl_TAPM_T, D), 67,
+  { 1, "ctrl_tapm/Thruster Parameters /D/Value", offsetof(P_ctrl_TAPM_T, D), 85,
     1, 2, 2, 0 },
 
   { 2,
     "ctrl_tapm/Thruster control /Thruster 1/Shaft dynamics/Finding rotation speed/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 4, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 4, 0 },
 
   { 3,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Inertia compensation/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 6, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 6, 0 },
 
   { 4,
     "ctrl_tapm/Thruster control /Thruster 2/Shaft dynamics/Finding rotation speed/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 8, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 8, 0 },
 
   { 5,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Inertia compensation/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 10, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 10, 0 },
 
   { 6,
     "ctrl_tapm/Thruster control /Thruster 3/Shaft dynamics/Finding rotation speed/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 12, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 12, 0 },
 
   { 7,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Inertia compensation/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 14, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 14, 0 },
 
   { 8,
     "ctrl_tapm/Thruster control /Thruster 4/Shaft dynamics/Finding rotation speed/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 16, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 16, 0 },
 
   { 9,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Inertia compensation/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 18, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 18, 0 },
 
   { 10,
     "ctrl_tapm/Thruster control /Thruster 5/Shaft dynamics/Finding rotation speed/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 20, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 20, 0 },
 
   { 11,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Inertia compensation/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 22, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 22, 0 },
 
   { 12,
     "ctrl_tapm/Thruster control /Thruster 6/Shaft dynamics/Finding rotation speed/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 24, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 24, 0 },
 
   { 13,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Inertia compensation/Gain",
-    offsetof(P_ctrl_TAPM_T, I_s), 67, 1, 2, 26, 0 },
+    offsetof(P_ctrl_TAPM_T, I_s), 85, 1, 2, 26, 0 },
 
   { 14, "ctrl_tapm/Thruster Parameters /K_Tf1/Value", offsetof(P_ctrl_TAPM_T,
-    K_T1f), 67, 1, 2, 28, 0 },
+    K_T1f), 85, 1, 2, 28, 0 },
 
   { 15, "ctrl_tapm/Thruster Parameters /K_Tr1/Value", offsetof(P_ctrl_TAPM_T,
-    K_T1r), 67, 1, 2, 30, 0 },
+    K_T1r), 85, 1, 2, 30, 0 },
 
   { 16, "ctrl_tapm/Thruster Parameters /K_Tf2/Value", offsetof(P_ctrl_TAPM_T,
-    K_T2f), 67, 1, 2, 32, 0 },
+    K_T2f), 85, 1, 2, 32, 0 },
 
   { 17, "ctrl_tapm/Thruster Parameters /K_Tr2/Value", offsetof(P_ctrl_TAPM_T,
-    K_T2r), 67, 1, 2, 34, 0 },
+    K_T2r), 85, 1, 2, 34, 0 },
 
   { 18, "ctrl_tapm/Thruster Parameters /K_Tf3/Value", offsetof(P_ctrl_TAPM_T,
-    K_T3f), 67, 1, 2, 36, 0 },
+    K_T3f), 85, 1, 2, 36, 0 },
 
   { 19, "ctrl_tapm/Thruster Parameters /K_Tr3/Value", offsetof(P_ctrl_TAPM_T,
-    K_T3r), 67, 1, 2, 38, 0 },
+    K_T3r), 85, 1, 2, 38, 0 },
 
   { 20, "ctrl_tapm/Thruster Parameters /K_Tf4/Value", offsetof(P_ctrl_TAPM_T,
-    K_T4f), 67, 1, 2, 40, 0 },
+    K_T4f), 85, 1, 2, 40, 0 },
 
   { 21, "ctrl_tapm/Thruster Parameters /K_Tr4/Value", offsetof(P_ctrl_TAPM_T,
-    K_T4r), 67, 1, 2, 42, 0 },
+    K_T4r), 85, 1, 2, 42, 0 },
 
   { 22, "ctrl_tapm/Thruster Parameters /K_Tf5/Value", offsetof(P_ctrl_TAPM_T,
-    K_T5f), 67, 1, 2, 44, 0 },
+    K_T5f), 85, 1, 2, 44, 0 },
 
   { 23, "ctrl_tapm/Thruster Parameters /K_Tr5/Value", offsetof(P_ctrl_TAPM_T,
-    K_T5r), 67, 1, 2, 46, 0 },
+    K_T5r), 85, 1, 2, 46, 0 },
 
   { 24, "ctrl_tapm/Thruster Parameters /K_Tf6/Value", offsetof(P_ctrl_TAPM_T,
-    K_T6f), 67, 1, 2, 48, 0 },
+    K_T6f), 85, 1, 2, 48, 0 },
 
   { 25, "ctrl_tapm/Thruster Parameters /K_Tr6/Value", offsetof(P_ctrl_TAPM_T,
-    K_T6r), 67, 1, 2, 50, 0 },
+    K_T6r), 85, 1, 2, 50, 0 },
 
   { 26, "ctrl_tapm/Thruster control /Thruster 1/Shaft dynamics/K_omega/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 52, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 52, 0 },
 
   { 27, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Qff_1(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 54, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 54, 0 },
 
   { 28, "ctrl_tapm/Thruster control /Thruster 2/Shaft dynamics/K_omega/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 56, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 56, 0 },
 
   { 29, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Qff_1(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 58, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 58, 0 },
 
   { 30, "ctrl_tapm/Thruster control /Thruster 3/Shaft dynamics/K_omega/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 60, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 60, 0 },
 
   { 31, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Qff_1(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 62, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 62, 0 },
 
   { 32, "ctrl_tapm/Thruster control /Thruster 4/Shaft dynamics/K_omega/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 64, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 64, 0 },
 
   { 33, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Qff_1(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 66, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 66, 0 },
 
   { 34, "ctrl_tapm/Thruster control /Thruster 5/Shaft dynamics/K_omega/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 68, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 68, 0 },
 
   { 35, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Qff_1(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 70, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 70, 0 },
 
   { 36, "ctrl_tapm/Thruster control /Thruster 6/Shaft dynamics/K_omega/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 72, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 72, 0 },
 
   { 37, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Qff_1(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, K_omega), 67, 1, 2, 74, 0 },
+    offsetof(P_ctrl_TAPM_T, K_omega), 85, 1, 2, 74, 0 },
 
   { 38, "ctrl_tapm/Thruster Parameters /K_Qr1/Value", offsetof(P_ctrl_TAPM_T,
-    K_q1f), 67, 1, 2, 76, 0 },
+    K_q1f), 85, 1, 2, 76, 0 },
 
   { 39, "ctrl_tapm/Thruster Parameters /K_Qr7/Value", offsetof(P_ctrl_TAPM_T,
-    K_q1r), 67, 1, 2, 78, 0 },
+    K_q1r), 85, 1, 2, 78, 0 },
 
   { 40, "ctrl_tapm/Thruster Parameters /K_Qr2/Value", offsetof(P_ctrl_TAPM_T,
-    K_q2f), 67, 1, 2, 80, 0 },
+    K_q2f), 85, 1, 2, 80, 0 },
 
   { 41, "ctrl_tapm/Thruster Parameters /K_Qr8/Value", offsetof(P_ctrl_TAPM_T,
-    K_q2r), 67, 1, 2, 82, 0 },
+    K_q2r), 85, 1, 2, 82, 0 },
 
   { 42, "ctrl_tapm/Thruster Parameters /K_Qr3/Value", offsetof(P_ctrl_TAPM_T,
-    K_q3f), 67, 1, 2, 84, 0 },
+    K_q3f), 85, 1, 2, 84, 0 },
 
   { 43, "ctrl_tapm/Thruster Parameters /K_Qr9/Value", offsetof(P_ctrl_TAPM_T,
-    K_q3r), 67, 1, 2, 86, 0 },
+    K_q3r), 85, 1, 2, 86, 0 },
 
   { 44, "ctrl_tapm/Thruster Parameters /K_Qr4/Value", offsetof(P_ctrl_TAPM_T,
-    K_q4f), 67, 1, 2, 88, 0 },
+    K_q4f), 85, 1, 2, 88, 0 },
 
   { 45, "ctrl_tapm/Thruster Parameters /K_Qr10/Value", offsetof(P_ctrl_TAPM_T,
-    K_q4r), 67, 1, 2, 90, 0 },
+    K_q4r), 85, 1, 2, 90, 0 },
 
   { 46, "ctrl_tapm/Thruster Parameters /K_Qr5/Value", offsetof(P_ctrl_TAPM_T,
-    K_q5f), 67, 1, 2, 92, 0 },
+    K_q5f), 85, 1, 2, 92, 0 },
 
   { 47, "ctrl_tapm/Thruster Parameters /K_Qr11/Value", offsetof(P_ctrl_TAPM_T,
-    K_q5r), 67, 1, 2, 94, 0 },
+    K_q5r), 85, 1, 2, 94, 0 },
 
   { 48, "ctrl_tapm/Thruster Parameters /K_Qr6/Value", offsetof(P_ctrl_TAPM_T,
-    K_q6f), 67, 1, 2, 96, 0 },
+    K_q6f), 85, 1, 2, 96, 0 },
 
   { 49, "ctrl_tapm/Thruster Parameters /K_Qr12/Value", offsetof(P_ctrl_TAPM_T,
-    K_q6r), 67, 1, 2, 98, 0 },
+    K_q6r), 85, 1, 2, 98, 0 },
 
   { 50,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Ki/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 100, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 100, 0 },
 
   { 51,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Kp/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 102, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 102, 0 },
 
   { 52,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Ki/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 104, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 104, 0 },
 
   { 53,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Kp/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 106, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 106, 0 },
 
   { 54,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Ki/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 108, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 108, 0 },
 
   { 55,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Kp/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 110, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 110, 0 },
 
   { 56,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Ki/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 112, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 112, 0 },
 
   { 57,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Kp/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 114, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 114, 0 },
 
   { 58,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Ki/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 116, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 116, 0 },
 
   { 59,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Kp/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 118, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 118, 0 },
 
   { 60,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Ki/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 120, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 120, 0 },
 
   { 61,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Kp/Gain",
-    offsetof(P_ctrl_TAPM_T, Kp), 67, 1, 2, 122, 0 },
+    offsetof(P_ctrl_TAPM_T, Kp), 85, 1, 2, 122, 0 },
 
   { 62,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Max Rotation Rate/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Max_rotation), 67, 1, 2, 124, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_rotation), 85, 1, 2, 124, 0 },
 
   { 63,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Max Rotation Rate/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Max_rotation), 67, 1, 2, 126, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_rotation), 85, 1, 2, 126, 0 },
 
   { 64,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 1/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Max_thrust), 67, 1, 2, 128, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_thrust), 85, 1, 2, 128, 0 },
 
   { 65,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 10/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Max_thrust), 67, 1, 2, 130, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_thrust), 85, 1, 2, 130, 0 },
 
   { 66,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 12/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Max_thrust), 67, 1, 2, 132, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_thrust), 85, 1, 2, 132, 0 },
 
   { 67,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 3/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Max_thrust), 67, 1, 2, 134, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_thrust), 85, 1, 2, 134, 0 },
 
   { 68,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 5/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Max_thrust), 67, 1, 2, 136, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_thrust), 85, 1, 2, 136, 0 },
 
   { 69,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 7/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Max_thrust), 67, 1, 2, 138, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_thrust), 85, 1, 2, 138, 0 },
 
   { 70,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 7/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Max_thrust), 67, 1, 2, 140, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_thrust), 85, 1, 2, 140, 0 },
 
   { 71,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 8/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Max_thrust), 67, 1, 2, 142, 0 },
+    offsetof(P_ctrl_TAPM_T, Max_thrust), 85, 1, 2, 142, 0 },
 
   { 72,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 11/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Min_thrust), 67, 1, 2, 144, 0 },
+    offsetof(P_ctrl_TAPM_T, Min_thrust), 85, 1, 2, 144, 0 },
 
   { 73,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 13/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Min_thrust), 67, 1, 2, 146, 0 },
+    offsetof(P_ctrl_TAPM_T, Min_thrust), 85, 1, 2, 146, 0 },
 
   { 74,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 2/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Min_thrust), 67, 1, 2, 148, 0 },
+    offsetof(P_ctrl_TAPM_T, Min_thrust), 85, 1, 2, 148, 0 },
 
   { 75,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 4/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Min_thrust), 67, 1, 2, 150, 0 },
+    offsetof(P_ctrl_TAPM_T, Min_thrust), 85, 1, 2, 150, 0 },
 
   { 76,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 6/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Min_thrust), 67, 1, 2, 152, 0 },
+    offsetof(P_ctrl_TAPM_T, Min_thrust), 85, 1, 2, 152, 0 },
 
   { 77,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 9/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Min_thrust), 67, 1, 2, 154, 0 },
+    offsetof(P_ctrl_TAPM_T, Min_thrust), 85, 1, 2, 154, 0 },
 
   { 78, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Qf_0/Gain",
-    offsetof(P_ctrl_TAPM_T, Q_f0), 67, 1, 2, 156, 0 },
+    offsetof(P_ctrl_TAPM_T, Q_f0), 85, 1, 2, 156, 0 },
 
   { 79, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Qf_0/Gain",
-    offsetof(P_ctrl_TAPM_T, Q_f0), 67, 1, 2, 158, 0 },
+    offsetof(P_ctrl_TAPM_T, Q_f0), 85, 1, 2, 158, 0 },
 
   { 80, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Qf_0/Gain",
-    offsetof(P_ctrl_TAPM_T, Q_f0), 67, 1, 2, 160, 0 },
+    offsetof(P_ctrl_TAPM_T, Q_f0), 85, 1, 2, 160, 0 },
 
   { 81, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Qf_0/Gain",
-    offsetof(P_ctrl_TAPM_T, Q_f0), 67, 1, 2, 162, 0 },
+    offsetof(P_ctrl_TAPM_T, Q_f0), 85, 1, 2, 162, 0 },
 
   { 82, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Qf_0/Gain",
-    offsetof(P_ctrl_TAPM_T, Q_f0), 67, 1, 2, 164, 0 },
+    offsetof(P_ctrl_TAPM_T, Q_f0), 85, 1, 2, 164, 0 },
 
   { 83, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Qf_0/Gain",
-    offsetof(P_ctrl_TAPM_T, Q_f0), 67, 1, 2, 166, 0 },
+    offsetof(P_ctrl_TAPM_T, Q_f0), 85, 1, 2, 166, 0 },
 
   { 84, "ctrl_tapm/Thruster Parameters /Rho/Value", offsetof(P_ctrl_TAPM_T, Rho),
-    67, 1, 2, 168, 0 },
+    85, 1, 2, 168, 0 },
 
   { 85, "ctrl_tapm/Thrust allocation/Constant to avoid singularities/Value",
-    offsetof(P_ctrl_TAPM_T, eps), 67, 1, 2, 170, 0 },
+    offsetof(P_ctrl_TAPM_T, eps), 85, 1, 2, 170, 0 },
 
   { 86, "ctrl_tapm/Thruster Parameters /Constant/Value", offsetof(P_ctrl_TAPM_T,
-    eps_c), 67, 1, 2, 172, 0 },
+    eps_c), 85, 1, 2, 172, 0 },
 
   { 87, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, epsilon), 67, 1, 2, 174, 0 },
+    offsetof(P_ctrl_TAPM_T, epsilon), 85, 1, 2, 174, 0 },
 
   { 88, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, epsilon), 67, 1, 2, 176, 0 },
+    offsetof(P_ctrl_TAPM_T, epsilon), 85, 1, 2, 176, 0 },
 
   { 89, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, epsilon), 67, 1, 2, 178, 0 },
+    offsetof(P_ctrl_TAPM_T, epsilon), 85, 1, 2, 178, 0 },
 
   { 90, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, epsilon), 67, 1, 2, 180, 0 },
+    offsetof(P_ctrl_TAPM_T, epsilon), 85, 1, 2, 180, 0 },
 
   { 91, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, epsilon), 67, 1, 2, 182, 0 },
+    offsetof(P_ctrl_TAPM_T, epsilon), 85, 1, 2, 182, 0 },
 
   { 92, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, epsilon), 67, 1, 2, 184, 0 },
+    offsetof(P_ctrl_TAPM_T, epsilon), 85, 1, 2, 184, 0 },
 
   { 93, "ctrl_tapm/Thruster Parameters /Constant1/Value", offsetof(P_ctrl_TAPM_T,
-    k_cc), 67, 1, 2, 186, 0 },
+    k_cc), 85, 1, 2, 186, 0 },
 
   { 94, "ctrl_tapm/Thruster Parameters /Constant5/Value", offsetof(P_ctrl_TAPM_T,
-    n_c), 67, 1, 2, 188, 0 },
+    n_c), 85, 1, 2, 188, 0 },
 
   { 95, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, n_max), 67, 1, 2, 190, 0 },
+    offsetof(P_ctrl_TAPM_T, n_max), 85, 1, 2, 190, 0 },
 
   { 96, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, n_max), 67, 1, 2, 192, 0 },
+    offsetof(P_ctrl_TAPM_T, n_max), 85, 1, 2, 192, 0 },
 
   { 97, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, n_max), 67, 1, 2, 194, 0 },
+    offsetof(P_ctrl_TAPM_T, n_max), 85, 1, 2, 194, 0 },
 
   { 98, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, n_max), 67, 1, 2, 196, 0 },
+    offsetof(P_ctrl_TAPM_T, n_max), 85, 1, 2, 196, 0 },
 
   { 99, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, n_max), 67, 1, 2, 198, 0 },
+    offsetof(P_ctrl_TAPM_T, n_max), 85, 1, 2, 198, 0 },
 
   { 100,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Qff_0(nr)/Gain",
-    offsetof(P_ctrl_TAPM_T, n_max), 67, 1, 2, 200, 0 },
+    offsetof(P_ctrl_TAPM_T, n_max), 85, 1, 2, 200, 0 },
 
   { 101, "ctrl_tapm/Thruster Parameters /Constant2/Value", offsetof
-    (P_ctrl_TAPM_T, p_cc), 67, 1, 2, 202, 0 },
+    (P_ctrl_TAPM_T, p_cc), 85, 1, 2, 202, 0 },
 
   { 102,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/negative thrust 1/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr1_backward), 37, 6, 2, 204, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr1_backward), 50, 6, 2, 204, 0 },
 
   { 103,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/positive thrust 1/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr1_forward), 37, 6, 2, 206, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr1_forward), 50, 6, 2, 206, 0 },
 
   { 104,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/negative thrust 2/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr2_backward), 37, 6, 2, 208, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr2_backward), 50, 6, 2, 208, 0 },
 
   { 105,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/positive thrust 2/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr2_forward), 37, 6, 2, 210, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr2_forward), 50, 6, 2, 210, 0 },
 
   { 106,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/negative thrust 3/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr3_backward), 37, 6, 2, 212, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr3_backward), 50, 6, 2, 212, 0 },
 
   { 107,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/positive thrust 3/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr3_forward), 37, 6, 2, 214, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr3_forward), 50, 6, 2, 214, 0 },
 
   { 108,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/negative thrust 4/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr4_backward), 37, 6, 2, 216, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr4_backward), 50, 6, 2, 216, 0 },
 
   { 109,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/positive thrust 4/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr4_forward), 37, 6, 2, 218, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr4_forward), 50, 6, 2, 218, 0 },
 
   { 110,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/negative thrust 5/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr5_backward), 37, 6, 2, 220, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr5_backward), 50, 6, 2, 220, 0 },
 
   { 111,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/positive thrust 5/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr5_forward), 37, 6, 2, 222, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr5_forward), 50, 6, 2, 222, 0 },
 
   { 112,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/negative thrust 6/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr6_backward), 37, 6, 2, 224, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr6_backward), 50, 6, 2, 224, 0 },
 
   { 113,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/positive thrust 6/Coefs",
-    offsetof(P_ctrl_TAPM_T, pwm_thr6_forward), 37, 6, 2, 226, 0 },
+    offsetof(P_ctrl_TAPM_T, pwm_thr6_forward), 50, 6, 2, 226, 0 },
 
   { 114, "ctrl_tapm/Thruster Parameters /Constant3/Value", offsetof
-    (P_ctrl_TAPM_T, r_cc), 67, 1, 2, 228, 0 },
+    (P_ctrl_TAPM_T, r_cc), 85, 1, 2, 228, 0 },
 
   { 115,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Gain6/Gain",
-    offsetof(P_ctrl_TAPM_T, Nonlinearpassiveobserver_D), 24, 9, 2, 230, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Discrete Derivative/UD/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScaled), 85, 1, 2, 230, 0 },
 
   { 116,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Discrete Derivative/UD/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScaled), 67, 1, 2, 232, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Discrete Derivative/UD/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScal_p), 85, 1, 2, 232, 0 },
 
   { 117,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Discrete Derivative/UD/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScal_p), 67, 1, 2, 234, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Discrete Derivative/UD/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevSca_pl), 85, 1, 2, 234, 0 },
 
   { 118,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Discrete Derivative/UD/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevSca_pl), 67, 1, 2, 236, 0 },
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Discrete Derivative/UD/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScal_f), 85, 1, 2, 236, 0 },
 
   { 119,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Discrete Derivative/UD/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScal_f), 67, 1, 2, 238, 0 },
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Discrete Derivative/UD/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScal_o), 85, 1, 2, 238, 0 },
 
   { 120,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Discrete Derivative/UD/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScal_o), 67, 1, 2, 240, 0 },
-
-  { 121,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Discrete Derivative/UD/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScal_n), 67, 1, 2, 242, 0 },
+    offsetof(P_ctrl_TAPM_T, DiscreteDerivative_ICPrevScal_n), 85, 1, 2, 240, 0 },
 
-  { 122,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /K3/Gain",
-    offsetof(P_ctrl_TAPM_T, Nonlinearpassiveobserver_K3), 24, 9, 2, 244, 0 },
+  { 121, "ctrl_tapm/IMU/Filtering/Out1/InitialOutput", offsetof(P_ctrl_TAPM_T,
+    Out1_Y0), 0, 1, 2, 242, 0 },
 
-  { 123,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /K4/Gain",
-    offsetof(P_ctrl_TAPM_T, Nonlinearpassiveobserver_K4), 24, 9, 2, 246, 0 },
+  { 122, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition), 30, 144, 2, 244, 0 },
 
-  { 124,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /K2/Gain",
-    offsetof(P_ctrl_TAPM_T, Nonlinearpassiveobserver_w_c), 24, 9, 2, 248, 0 },
+  { 123, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value), 32, 72, 2, 246, 0 },
 
-  { 125, "ctrl_tapm/TAPM Controller w_observer/PID/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition), 67, 1, 2, 250, 0 },
+  { 124, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value), 33, 36, 2, 248, 0 },
 
-  { 126,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC), 26, 3, 2, 252, 0 },
+  { 125, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Delay1/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay1_InitialCondition), 51, 12, 2, 250, 0 },
 
-  { 127,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/[-inf inf] to [-pi pi]1/Saturation/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat), 67, 1, 2, 254, 0 },
+  { 126, "ctrl_tapm/IMU/Filtering/KalmanFilter3/H/Gain", offsetof(P_ctrl_TAPM_T,
+    H_Gain), 32, 72, 2, 252, 0 },
 
-  { 128,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/[-inf inf] to [-pi pi]1/Saturation/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat), 67, 1, 2, 256, 0 },
+  { 127, "ctrl_tapm/IMU/Filtering/Outliner cleaner/Memory2/X0", offsetof
+    (P_ctrl_TAPM_T, Memory2_X0), 52, 5, 2, 254, 0 },
 
-  { 129,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/[-inf inf] to [-pi pi]1/Gain/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain_Gain), 67, 1, 2, 258, 0 },
+  { 128, "ctrl_tapm/IMU/Filtering/Outliner cleaner/Gain/Gain", offsetof
+    (P_ctrl_TAPM_T, Gain_Gain), 85, 1, 2, 256, 0 },
 
-  { 130,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/[-inf inf] to [-pi pi]1/Constant/Value",
-    offsetof(P_ctrl_TAPM_T, Constant_Value), 67, 1, 2, 260, 0 },
+  { 129, "ctrl_tapm/IMU/Filtering/Outliner cleaner/Memory3/X0", offsetof
+    (P_ctrl_TAPM_T, Memory3_X0), 53, 7, 2, 258, 0 },
 
-  { 131,
-    "ctrl_tapm/TAPM Controller w_observer/SP Generator/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_b), 38, 2, 2, 262, 0 },
+  { 130, "ctrl_tapm/IMU/Filtering/KalmanFilter/Delay/InitialCondition", offsetof
+    (P_ctrl_TAPM_T, Delay_InitialCondition_g), 30, 144, 2, 260, 0 },
 
-  { 132, "ctrl_tapm/TAPM Controller w_observer/SP Generator/Transfer Fcn2/A",
-    offsetof(P_ctrl_TAPM_T, TransferFcn2_A), 67, 1, 2, 264, 0 },
+  { 131, "ctrl_tapm/IMU/Filtering/KalmanFilter/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_p), 32, 72, 2, 262, 0 },
 
-  { 133, "ctrl_tapm/TAPM Controller w_observer/SP Generator/Transfer Fcn2/C",
-    offsetof(P_ctrl_TAPM_T, TransferFcn2_C), 67, 1, 2, 266, 0 },
+  { 132, "ctrl_tapm/IMU/Filtering/KalmanFilter/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_e), 33, 36, 2, 264, 0 },
 
-  { 134,
-    "ctrl_tapm/TAPM Controller w_observer/[-inf inf] to [-pi pi]1/Saturation/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat_g), 67, 1, 2, 268, 0 },
+  { 133, "ctrl_tapm/IMU/Filtering/KalmanFilter/Delay1/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay1_InitialCondition_h), 51, 12, 2, 266, 0 },
 
-  { 135,
-    "ctrl_tapm/TAPM Controller w_observer/[-inf inf] to [-pi pi]1/Saturation/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat_h), 67, 1, 2, 270, 0 },
+  { 134, "ctrl_tapm/IMU/Filtering/KalmanFilter/H/Gain", offsetof(P_ctrl_TAPM_T,
+    H_Gain_i), 32, 72, 2, 268, 0 },
 
-  { 136,
-    "ctrl_tapm/TAPM Controller w_observer/[-inf inf] to [-pi pi]1/Gain/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain_Gain_p), 67, 1, 2, 272, 0 },
+  { 135, "ctrl_tapm/IMU/Filtering/Outliner cleaner1/Memory2/X0", offsetof
+    (P_ctrl_TAPM_T, Memory2_X0_d), 52, 5, 2, 270, 0 },
 
-  { 137,
-    "ctrl_tapm/TAPM Controller w_observer/[-inf inf] to [-pi pi]1/Constant/Value",
-    offsetof(P_ctrl_TAPM_T, Constant_Value_k), 67, 1, 2, 274, 0 },
+  { 136, "ctrl_tapm/IMU/Filtering/Outliner cleaner1/Gain/Gain", offsetof
+    (P_ctrl_TAPM_T, Gain_Gain_c), 85, 1, 2, 272, 0 },
 
-  { 138,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/[-inf inf] to [-pi pi]/Saturation/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat_l), 67, 1, 2, 276, 0 },
+  { 137, "ctrl_tapm/IMU/Filtering/Outliner cleaner1/Memory3/X0", offsetof
+    (P_ctrl_TAPM_T, Memory3_X0_o), 53, 7, 2, 274, 0 },
 
-  { 139,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/[-inf inf] to [-pi pi]/Saturation/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat_l), 67, 1, 2, 278, 0 },
+  { 138, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_p), 30, 144, 2, 276, 0 },
 
-  { 140,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/[-inf inf] to [-pi pi]/Gain/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain_Gain_l), 67, 1, 2, 280, 0 },
+  { 139, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_f), 32, 72, 2, 278, 0 },
 
-  { 141,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/[-inf inf] to [-pi pi]/Constant/Value",
-    offsetof(P_ctrl_TAPM_T, Constant_Value_e), 67, 1, 2, 282, 0 },
+  { 140, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_f), 33, 36, 2, 280, 0 },
 
-  { 142,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_f), 67, 1, 2, 284, 0 },
+  { 141, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Delay1/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay1_InitialCondition_b), 51, 12, 2, 282, 0 },
 
-  { 143,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator4/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator4_IC), 26, 3, 2, 286, 0 },
+  { 142, "ctrl_tapm/IMU/Filtering/KalmanFilter1/H/Gain", offsetof(P_ctrl_TAPM_T,
+    H_Gain_b), 32, 72, 2, 284, 0 },
 
-  { 144,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/[-inf inf] to [-pi pi]1/Saturation/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat_h), 67, 1, 2, 288, 0 },
+  { 143, "ctrl_tapm/IMU/Filtering/Outliner cleaner2/Memory2/X0", offsetof
+    (P_ctrl_TAPM_T, Memory2_X0_d5), 52, 5, 2, 286, 0 },
 
-  { 145,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/[-inf inf] to [-pi pi]1/Saturation/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat_d), 67, 1, 2, 290, 0 },
+  { 144, "ctrl_tapm/IMU/Filtering/Outliner cleaner2/Gain/Gain", offsetof
+    (P_ctrl_TAPM_T, Gain_Gain_j), 85, 1, 2, 288, 0 },
 
-  { 146,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/[-inf inf] to [-pi pi]1/Gain/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain_Gain_n), 67, 1, 2, 292, 0 },
+  { 145, "ctrl_tapm/IMU/Filtering/Outliner cleaner2/Memory3/X0", offsetof
+    (P_ctrl_TAPM_T, Memory3_X0_d), 53, 7, 2, 290, 0 },
 
-  { 147,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/[-inf inf] to [-pi pi]1/Constant/Value",
-    offsetof(P_ctrl_TAPM_T, Constant_Value_d), 67, 1, 2, 294, 0 },
+  { 146, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_d), 30, 144, 2, 292, 0 },
 
-  { 148,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/[-inf inf] to [-pi pi]/Saturation/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat_a), 67, 1, 2, 296, 0 },
+  { 147, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_k), 32, 72, 2, 294, 0 },
 
-  { 149,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/[-inf inf] to [-pi pi]/Saturation/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat_lh), 67, 1, 2, 298, 0 },
+  { 148, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_g), 33, 36, 2, 296, 0 },
 
-  { 150,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/[-inf inf] to [-pi pi]/Gain/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain_Gain_j), 67, 1, 2, 300, 0 },
+  { 149, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Delay1/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay1_InitialCondition_e), 51, 12, 2, 298, 0 },
 
-  { 151,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/[-inf inf] to [-pi pi]/Constant/Value",
-    offsetof(P_ctrl_TAPM_T, Constant_Value_c), 67, 1, 2, 302, 0 },
+  { 150, "ctrl_tapm/IMU/Filtering/KalmanFilter2/H/Gain", offsetof(P_ctrl_TAPM_T,
+    H_Gain_p), 32, 72, 2, 300, 0 },
 
-  { 152,
-    "ctrl_tapm/TAPM Controller w_observer/PID/DP controller1/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_p), 67, 1, 2, 304, 0 },
+  { 151, "ctrl_tapm/IMU/Filtering/Outliner cleaner3/Memory2/X0", offsetof
+    (P_ctrl_TAPM_T, Memory2_X0_p), 52, 5, 2, 302, 0 },
 
-  { 153, "ctrl_tapm/Thrust allocation/Radians to Degrees/Gain/Gain", offsetof
-    (P_ctrl_TAPM_T, Gain_Gain_o), 67, 1, 2, 306, 0 },
+  { 152, "ctrl_tapm/IMU/Filtering/Outliner cleaner3/Gain/Gain", offsetof
+    (P_ctrl_TAPM_T, Gain_Gain_k), 85, 1, 2, 304, 0 },
 
-  { 154, "ctrl_tapm/Thrust allocation/X-position Thruster/Value", offsetof
-    (P_ctrl_TAPM_T, XpositionThruster_Value), 37, 6, 2, 308, 0 },
+  { 153, "ctrl_tapm/IMU/Filtering/Outliner cleaner3/Memory3/X0", offsetof
+    (P_ctrl_TAPM_T, Memory3_X0_p), 53, 7, 2, 306, 0 },
 
-  { 155, "ctrl_tapm/Thrust allocation/Y-position Thruster/Value", offsetof
-    (P_ctrl_TAPM_T, YpositionThruster_Value), 37, 6, 2, 310, 0 },
+  { 154, "ctrl_tapm/IMU/Filtering/KalmanFilter/A/Gain", offsetof(P_ctrl_TAPM_T,
+    A_Gain), 30, 144, 2, 308, 0 },
 
-  { 156, "ctrl_tapm/Thrust allocation/constant angle/Value", offsetof
-    (P_ctrl_TAPM_T, constantangle_Value), 37, 6, 2, 312, 0 },
+  { 155, "ctrl_tapm/IMU/Filtering/KalmanFilter/Constant6/Value", offsetof
+    (P_ctrl_TAPM_T, Constant6_Value), 30, 144, 2, 310, 0 },
 
-  { 157, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/Threshold",
-    offsetof(P_ctrl_TAPM_T, ChoosingFixedAzimuthangle_Thres), 67, 1, 2, 314, 0 },
+  { 156, "ctrl_tapm/IMU/Filtering/KalmanFilter/Identity/Value", offsetof
+    (P_ctrl_TAPM_T, Identity_Value), 30, 144, 2, 312, 0 },
 
-  { 158, "ctrl_tapm/Thruster control /Subsystem1/Saturation 1/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation1_UpperSat), 67, 1, 2, 316, 0 },
+  { 157, "ctrl_tapm/IMU/Filtering/KalmanFilter/Constant3/Value", offsetof
+    (P_ctrl_TAPM_T, Constant3_Value), 32, 72, 2, 314, 0 },
 
-  { 159, "ctrl_tapm/Thruster control /Subsystem1/Saturation 1/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation1_LowerSat), 67, 1, 2, 318, 0 },
+  { 158, "ctrl_tapm/IMU/Filtering/KalmanFilter/Constant4/Value", offsetof
+    (P_ctrl_TAPM_T, Constant4_Value), 33, 36, 2, 316, 0 },
 
-  { 160,
-    "ctrl_tapm/Thruster control /Thruster 1/Shaft dynamics/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_fg), 67, 1, 2, 320, 0 },
+  { 159, "ctrl_tapm/IMU/Filtering/KalmanFilter/Constant5/Value", offsetof
+    (P_ctrl_TAPM_T, Constant5_Value), 30, 144, 2, 318, 0 },
 
-  { 161, "ctrl_tapm/Thruster control /Thruster 1/Losses (placeholder)/Value",
-    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value), 67, 1, 2, 322, 0 },
+  { 160, "ctrl_tapm/IMU/Filtering/KalmanFilter1/A/Gain", offsetof(P_ctrl_TAPM_T,
+    A_Gain_n), 30, 144, 2, 320, 0 },
 
-  { 162,
-    "ctrl_tapm/Thruster control /Thruster 2/Shaft dynamics/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_fgw), 67, 1, 2, 324, 0 },
+  { 161, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Constant6/Value", offsetof
+    (P_ctrl_TAPM_T, Constant6_Value_c), 30, 144, 2, 322, 0 },
 
-  { 163, "ctrl_tapm/Thruster control /Thruster 2/Losses (placeholder)/Value",
-    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_k), 67, 1, 2, 326, 0 },
+  { 162, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Identity/Value", offsetof
+    (P_ctrl_TAPM_T, Identity_Value_h), 30, 144, 2, 324, 0 },
 
-  { 164,
-    "ctrl_tapm/Thruster control /Thruster 3/Shaft dynamics/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_pl), 67, 1, 2, 328, 0 },
+  { 163, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Constant3/Value", offsetof
+    (P_ctrl_TAPM_T, Constant3_Value_j), 32, 72, 2, 326, 0 },
 
-  { 165, "ctrl_tapm/Thruster control /Thruster 3/Losses (placeholder)/Value",
-    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_n), 67, 1, 2, 330, 0 },
+  { 164, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Constant4/Value", offsetof
+    (P_ctrl_TAPM_T, Constant4_Value_k), 33, 36, 2, 328, 0 },
 
-  { 166,
-    "ctrl_tapm/Thruster control /Thruster 4/Shaft dynamics/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_fv), 67, 1, 2, 332, 0 },
+  { 165, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Constant5/Value", offsetof
+    (P_ctrl_TAPM_T, Constant5_Value_n), 30, 144, 2, 330, 0 },
 
-  { 167, "ctrl_tapm/Thruster control /Thruster 4/Losses (placeholder)/Value",
-    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_d), 67, 1, 2, 334, 0 },
+  { 166, "ctrl_tapm/IMU/Filtering/KalmanFilter2/A/Gain", offsetof(P_ctrl_TAPM_T,
+    A_Gain_k), 30, 144, 2, 332, 0 },
 
-  { 168,
-    "ctrl_tapm/Thruster control /Thruster 5/Shaft dynamics/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_l), 67, 1, 2, 336, 0 },
+  { 167, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Constant6/Value", offsetof
+    (P_ctrl_TAPM_T, Constant6_Value_a), 30, 144, 2, 334, 0 },
 
-  { 169, "ctrl_tapm/Thruster control /Thruster 5/Losses (placeholder)/Value",
-    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_f), 67, 1, 2, 338, 0 },
+  { 168, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Identity/Value", offsetof
+    (P_ctrl_TAPM_T, Identity_Value_f), 30, 144, 2, 336, 0 },
 
-  { 170,
-    "ctrl_tapm/Thruster control /Thruster 6/Shaft dynamics/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_li), 67, 1, 2, 340, 0 },
+  { 169, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Constant3/Value", offsetof
+    (P_ctrl_TAPM_T, Constant3_Value_o), 32, 72, 2, 338, 0 },
 
-  { 171, "ctrl_tapm/Thruster control /Thruster 6/Losses (placeholder)/Value",
-    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_h), 67, 1, 2, 342, 0 },
+  { 170, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Constant4/Value", offsetof
+    (P_ctrl_TAPM_T, Constant4_Value_i), 33, 36, 2, 340, 0 },
 
-  { 172,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain_Gain_d), 67, 1, 2, 344, 0 },
+  { 171, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Constant5/Value", offsetof
+    (P_ctrl_TAPM_T, Constant5_Value_m), 30, 144, 2, 342, 0 },
 
-  { 173,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain1/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain1_Gain), 67, 1, 2, 346, 0 },
+  { 172, "ctrl_tapm/IMU/Filtering/KalmanFilter3/A/Gain", offsetof(P_ctrl_TAPM_T,
+    A_Gain_j), 30, 144, 2, 344, 0 },
 
-  { 174,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain2/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain2_Gain), 67, 1, 2, 348, 0 },
+  { 173, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Constant6/Value", offsetof
+    (P_ctrl_TAPM_T, Constant6_Value_j), 30, 144, 2, 346, 0 },
 
-  { 175,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain3/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain3_Gain), 67, 1, 2, 350, 0 },
+  { 174, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Identity/Value", offsetof
+    (P_ctrl_TAPM_T, Identity_Value_h4), 30, 144, 2, 348, 0 },
 
-  { 176,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain4/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain4_Gain), 67, 1, 2, 352, 0 },
+  { 175, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Constant3/Value", offsetof
+    (P_ctrl_TAPM_T, Constant3_Value_b), 32, 72, 2, 350, 0 },
 
-  { 177,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain5/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain5_Gain), 67, 1, 2, 354, 0 },
+  { 176, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Constant4/Value", offsetof
+    (P_ctrl_TAPM_T, Constant4_Value_iu), 33, 36, 2, 352, 0 },
+
+  { 177, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Constant5/Value", offsetof
+    (P_ctrl_TAPM_T, Constant5_Value_nj), 30, 144, 2, 354, 0 },
 
   { 178,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 8/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation8_LowerSat), 67, 1, 2, 356, 0 },
+    "ctrl_tapm/Control/DP Controller/[-inf inf] to [-pi pi]1/Saturation/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat), 85, 1, 2, 356, 0 },
 
   { 179,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 9/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation9_UpperSat), 67, 1, 2, 358, 0 },
+    "ctrl_tapm/Control/DP Controller/[-inf inf] to [-pi pi]1/Saturation/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat), 85, 1, 2, 358, 0 },
 
-  { 180,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 10/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation10_LowerSat), 67, 1, 2, 360, 0 },
+  { 180, "ctrl_tapm/Control/DP Controller/[-inf inf] to [-pi pi]1/Gain/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain_Gain_p), 85, 1, 2, 360, 0 },
 
   { 181,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 11/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation11_UpperSat), 67, 1, 2, 362, 0 },
+    "ctrl_tapm/Control/DP Controller/[-inf inf] to [-pi pi]1/Constant/Value",
+    offsetof(P_ctrl_TAPM_T, Constant_Value_i), 85, 1, 2, 362, 0 },
 
-  { 182,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 3/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation3_LowerSat), 67, 1, 2, 364, 0 },
+  { 182, "ctrl_tapm/Input1/Observer Gains/Constant6/Value", offsetof
+    (P_ctrl_TAPM_T, Constant6_Value_m), 85, 1, 2, 364, 0 },
 
-  { 183,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 4/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation4_UpperSat), 67, 1, 2, 366, 0 },
+  { 183, "ctrl_tapm/Input1/Observer Gains/Constant7/Value", offsetof
+    (P_ctrl_TAPM_T, Constant7_Value), 85, 1, 2, 366, 0 },
 
-  { 184,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 5/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation5_LowerSat), 67, 1, 2, 368, 0 },
+  { 184, "ctrl_tapm/Input1/Observer Gains/Constant8/Value", offsetof
+    (P_ctrl_TAPM_T, Constant8_Value), 85, 1, 2, 368, 0 },
 
   { 185,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 6/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation6_UpperSat), 67, 1, 2, 370, 0 },
+    "ctrl_tapm/Guidance/Reference model/[-inf inf] to [-pi pi]1/Saturation/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat_p), 85, 1, 2, 370, 0 },
 
-  { 186, "ctrl_tapm/Thruster control /Subsystem1/Saturation 2/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation2_UpperSat), 67, 1, 2, 372, 0 },
+  { 186,
+    "ctrl_tapm/Guidance/Reference model/[-inf inf] to [-pi pi]1/Saturation/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat_a), 85, 1, 2, 372, 0 },
 
-  { 187, "ctrl_tapm/Thruster control /Subsystem1/Saturation 2/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation2_LowerSat), 67, 1, 2, 374, 0 },
+  { 187, "ctrl_tapm/Guidance/Reference model/[-inf inf] to [-pi pi]1/Gain/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain_Gain_a), 85, 1, 2, 374, 0 },
 
   { 188,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 12/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation12_LowerSat), 67, 1, 2, 376, 0 },
+    "ctrl_tapm/Guidance/Reference model/[-inf inf] to [-pi pi]1/Constant/Value",
+    offsetof(P_ctrl_TAPM_T, Constant_Value_j), 85, 1, 2, 376, 0 },
 
   { 189,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 13/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation13_UpperSat), 67, 1, 2, 378, 0 },
+    "ctrl_tapm/Control/DP Controller/[-inf inf] to [-pi pi]/Saturation/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat_d), 85, 1, 2, 378, 0 },
 
-  { 190, "ctrl_tapm/Thruster control /Subsystem1/Saturation 3/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation3_UpperSat), 67, 1, 2, 380, 0 },
+  { 190,
+    "ctrl_tapm/Control/DP Controller/[-inf inf] to [-pi pi]/Saturation/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat_c), 85, 1, 2, 380, 0 },
 
-  { 191, "ctrl_tapm/Thruster control /Subsystem1/Saturation 3/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation3_LowerSat_f), 67, 1, 2, 382, 0 },
+  { 191, "ctrl_tapm/Control/DP Controller/[-inf inf] to [-pi pi]/Gain/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain_Gain_ag), 85, 1, 2, 382, 0 },
 
-  { 192, "ctrl_tapm/Thruster control /Subsystem1/Saturation 4/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation4_UpperSat_p), 67, 1, 2, 384, 0 },
+  { 192, "ctrl_tapm/Control/DP Controller/[-inf inf] to [-pi pi]/Constant/Value",
+    offsetof(P_ctrl_TAPM_T, Constant_Value_l), 85, 1, 2, 384, 0 },
 
-  { 193, "ctrl_tapm/Thruster control /Subsystem1/Saturation 4/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation4_LowerSat), 67, 1, 2, 386, 0 },
+  { 193, "ctrl_tapm/Control/DP Controller/Integrator/InitialCondition", offsetof
+    (P_ctrl_TAPM_T, Integrator_IC), 85, 1, 2, 386, 0 },
 
-  { 194, "ctrl_tapm/Thruster control /Subsystem1/Saturation 5/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation5_UpperSat), 67, 1, 2, 388, 0 },
+  { 194, "ctrl_tapm/Nonlinear Passisve Observer/Integrator1/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator1_IC), 21, 3, 2, 388, 0 },
 
-  { 195, "ctrl_tapm/Thruster control /Subsystem1/Saturation 5/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation5_LowerSat_h), 67, 1, 2, 390, 0 },
+  { 195, "ctrl_tapm/Guidance/Reference model/Integrator3/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator3_IC), 85, 1, 2, 390, 0 },
 
-  { 196, "ctrl_tapm/Thruster control /Subsystem1/Saturation 6/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation6_UpperSat_g), 67, 1, 2, 392, 0 },
+  { 196, "ctrl_tapm/Thrust allocation/Radians to Degrees/Gain/Gain", offsetof
+    (P_ctrl_TAPM_T, Gain_Gain_o), 85, 1, 2, 392, 0 },
 
-  { 197, "ctrl_tapm/Thruster control /Subsystem1/Saturation 6/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation6_LowerSat), 67, 1, 2, 394, 0 },
+  { 197, "ctrl_tapm/Thrust allocation/X-position Thruster/Value", offsetof
+    (P_ctrl_TAPM_T, XpositionThruster_Value), 50, 6, 2, 394, 0 },
 
-  { 198,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 1/LowerLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation1_LowerSat_h), 67, 1, 2, 396, 0 },
+  { 198, "ctrl_tapm/Thrust allocation/Y-position Thruster/Value", offsetof
+    (P_ctrl_TAPM_T, YpositionThruster_Value), 50, 6, 2, 396, 0 },
 
-  { 199,
-    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 2/UpperLimit",
-    offsetof(P_ctrl_TAPM_T, Saturation2_UpperSat_p), 67, 1, 2, 398, 0 },
+  { 199, "ctrl_tapm/Thrust allocation/constant angle/Value", offsetof
+    (P_ctrl_TAPM_T, constantangle_Value), 50, 6, 2, 398, 0 },
 
-  { 200, "ctrl_tapm/Radians to Degrees/Gain/Gain", offsetof(P_ctrl_TAPM_T,
-    Gain_Gain_f), 67, 1, 2, 400, 0 },
+  { 200, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/Threshold",
+    offsetof(P_ctrl_TAPM_T, ChoosingFixedAzimuthangle_Thres), 85, 1, 2, 400, 0 },
 
-  { 201, "ctrl_tapm/X-position Thruster/Value", offsetof(P_ctrl_TAPM_T,
-    XpositionThruster_Value_e), 37, 6, 2, 402, 0 },
+  { 201, "ctrl_tapm/Thruster control /Subsystem1/Saturation 1/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation1_UpperSat), 85, 1, 2, 402, 0 },
 
-  { 202, "ctrl_tapm/Y-position Thruster/Value", offsetof(P_ctrl_TAPM_T,
-    YpositionThruster_Value_o), 37, 6, 2, 404, 0 },
+  { 202, "ctrl_tapm/Thruster control /Subsystem1/Saturation 1/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation1_LowerSat), 85, 1, 2, 404, 0 },
 
   { 203,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator1/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator1_IC), 67, 1, 2, 406, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Shaft dynamics/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_f), 85, 1, 2, 406, 0 },
 
-  { 204,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Gain1/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain1_Gain_i), 24, 9, 2, 408, 0 },
+  { 204, "ctrl_tapm/Thruster control /Thruster 1/Losses (placeholder)/Value",
+    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value), 85, 1, 2, 408, 0 },
 
   { 205,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator2/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator2_IC), 67, 1, 2, 410, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Shaft dynamics/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_fg), 85, 1, 2, 410, 0 },
 
-  { 206,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Gain2/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain2_Gain_a), 24, 9, 2, 412, 0 },
+  { 206, "ctrl_tapm/Thruster control /Thruster 2/Losses (placeholder)/Value",
+    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_k), 85, 1, 2, 412, 0 },
 
   { 207,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator3/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator3_IC), 67, 1, 2, 414, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Shaft dynamics/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_p), 85, 1, 2, 414, 0 },
 
-  { 208,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Gain3/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain3_Gain_b), 24, 9, 2, 416, 0 },
+  { 208, "ctrl_tapm/Thruster control /Thruster 3/Losses (placeholder)/Value",
+    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_n), 85, 1, 2, 416, 0 },
 
   { 209,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /K11/Gain",
-    offsetof(P_ctrl_TAPM_T, K11_Gain), 24, 9, 2, 418, 0 },
+    "ctrl_tapm/Thruster control /Thruster 4/Shaft dynamics/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_fv), 85, 1, 2, 418, 0 },
 
-  { 210,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /K12/Gain",
-    offsetof(P_ctrl_TAPM_T, K12_Gain), 24, 9, 2, 420, 0 },
+  { 210, "ctrl_tapm/Thruster control /Thruster 4/Losses (placeholder)/Value",
+    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_d), 85, 1, 2, 420, 0 },
 
   { 211,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /inv(T_b)/Gain",
-    offsetof(P_ctrl_TAPM_T, invT_b_Gain), 24, 9, 2, 422, 0 },
+    "ctrl_tapm/Thruster control /Thruster 5/Shaft dynamics/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_l), 85, 1, 2, 422, 0 },
 
-  { 212, "ctrl_tapm/TAPM Controller w_observer/PID/Constant/Value", offsetof
-    (P_ctrl_TAPM_T, Constant_Value_o), 67, 1, 2, 424, 0 },
+  { 212, "ctrl_tapm/Thruster control /Thruster 5/Losses (placeholder)/Value",
+    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_f), 85, 1, 2, 424, 0 },
 
-  { 213, "ctrl_tapm/TAPM Controller w_observer/PID/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_d), 67, 1, 2, 426, 0 },
+  { 213,
+    "ctrl_tapm/Thruster control /Thruster 6/Shaft dynamics/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_li), 85, 1, 2, 426, 0 },
 
-  { 214, "ctrl_tapm/TAPM Controller w_observer/SP Generator/Constant1/Value",
-    offsetof(P_ctrl_TAPM_T, Constant1_Value), 67, 1, 2, 428, 0 },
+  { 214, "ctrl_tapm/Thruster control /Thruster 6/Losses (placeholder)/Value",
+    offsetof(P_ctrl_TAPM_T, Lossesplaceholder_Value_h), 85, 1, 2, 428, 0 },
 
-  { 215, "ctrl_tapm/TAPM Controller w_observer/SP Generator/Gain/Gain", offsetof
-    (P_ctrl_TAPM_T, Gain_Gain_dl), 39, 4, 2, 430, 0 },
+  { 215,
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain_Gain_d), 85, 1, 2, 430, 0 },
 
-  { 216, "ctrl_tapm/TAPM Controller w_observer/SP Generator/Gain1/Gain",
-    offsetof(P_ctrl_TAPM_T, Gain1_Gain_ib), 39, 4, 2, 432, 0 },
+  { 216,
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain1/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain1_Gain), 85, 1, 2, 432, 0 },
 
-  { 217, "ctrl_tapm/Input/deg2rad/Gain", offsetof(P_ctrl_TAPM_T, deg2rad_Gain),
-    67, 1, 2, 434, 0 },
+  { 217,
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain2/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain2_Gain), 85, 1, 2, 434, 0 },
 
-  { 218, "ctrl_tapm/Thruster control /Delay/InitialCondition", offsetof
-    (P_ctrl_TAPM_T, Delay_InitialCondition_j), 67, 1, 2, 436, 0 },
+  { 218,
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain3/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain3_Gain), 85, 1, 2, 436, 0 },
 
-  { 219, "ctrl_tapm/Thruster control /Thruster 1/Constant/Value", offsetof
-    (P_ctrl_TAPM_T, Constant_Value_cs), 38, 2, 2, 438, 0 },
+  { 219,
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain4/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain4_Gain), 85, 1, 2, 438, 0 },
 
-  { 220, "ctrl_tapm/Thruster control /Thruster 1/Constant1/Value", offsetof
-    (P_ctrl_TAPM_T, Constant1_Value_k), 38, 2, 2, 440, 0 },
+  { 220,
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Gain5/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain5_Gain), 85, 1, 2, 440, 0 },
 
-  { 221, "ctrl_tapm/Thruster control /Thruster 1/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_i), 67, 1, 2, 442, 0 },
+  { 221,
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 8/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation8_LowerSat), 85, 1, 2, 442, 0 },
 
   { 222,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_f), 67, 1, 2, 444, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 9/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation9_UpperSat), 85, 1, 2, 444, 0 },
 
   { 223,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Constant1/Value",
-    offsetof(P_ctrl_TAPM_T, Constant1_Value_o), 31, 3, 2, 446, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 10/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation10_LowerSat), 85, 1, 2, 446, 0 },
 
   { 224,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Constant2/Value",
-    offsetof(P_ctrl_TAPM_T, Constant2_Value), 31, 3, 2, 448, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 11/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation11_UpperSat), 85, 1, 2, 448, 0 },
 
   { 225,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialStat), 67, 1, 2, 450, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 3/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation3_LowerSat), 85, 1, 2, 450, 0 },
 
   { 226,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Discrete Derivative/TSamp/WtEt",
-    offsetof(P_ctrl_TAPM_T, TSamp_WtEt), 0, 1, 2, 452, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 4/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation4_UpperSat), 85, 1, 2, 452, 0 },
 
   { 227,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Acceleration Limit/RisingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, AccelerationLimit_RisingLim), 0, 1, 2, 454, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 5/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation5_LowerSat), 85, 1, 2, 454, 0 },
 
   { 228,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Acceleration Limit/FallingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, AccelerationLimit_FallingLim), 0, 1, 2, 456, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 6/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation6_UpperSat), 85, 1, 2, 456, 0 },
 
-  { 229,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Acceleration Limit/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, AccelerationLimit_IC), 67, 1, 2, 458, 0 },
+  { 229, "ctrl_tapm/Thruster control /Subsystem1/Saturation 2/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation2_UpperSat), 85, 1, 2, 458, 0 },
 
-  { 230, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Memory/X0",
-    offsetof(P_ctrl_TAPM_T, Memory_X0), 67, 1, 2, 460, 0 },
+  { 230, "ctrl_tapm/Thruster control /Subsystem1/Saturation 2/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation2_LowerSat), 85, 1, 2, 460, 0 },
 
   { 231,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_a), 67, 1, 2, 462, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 12/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation12_LowerSat), 85, 1, 2, 462, 0 },
 
-  { 232, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/NaN/Value",
-    offsetof(P_ctrl_TAPM_T, NaN_Value), 67, 1, 2, 464, 0 },
+  { 232,
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 13/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation13_UpperSat), 85, 1, 2, 464, 0 },
 
-  { 233,
-    "ctrl_tapm/Thruster control /Thruster 1/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_h), 67, 1, 2, 466, 0 },
+  { 233, "ctrl_tapm/Thruster control /Subsystem1/Saturation 3/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation3_UpperSat), 85, 1, 2, 466, 0 },
 
-  { 234, "ctrl_tapm/Thruster control /Thruster 2/Constant/Value", offsetof
-    (P_ctrl_TAPM_T, Constant_Value_h), 38, 2, 2, 468, 0 },
+  { 234, "ctrl_tapm/Thruster control /Subsystem1/Saturation 3/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation3_LowerSat_f), 85, 1, 2, 468, 0 },
 
-  { 235, "ctrl_tapm/Thruster control /Thruster 2/Constant1/Value", offsetof
-    (P_ctrl_TAPM_T, Constant1_Value_j), 38, 2, 2, 470, 0 },
+  { 235, "ctrl_tapm/Thruster control /Subsystem1/Saturation 4/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation4_UpperSat_p), 85, 1, 2, 470, 0 },
 
-  { 236, "ctrl_tapm/Thruster control /Thruster 2/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_l), 67, 1, 2, 472, 0 },
+  { 236, "ctrl_tapm/Thruster control /Subsystem1/Saturation 4/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation4_LowerSat), 85, 1, 2, 472, 0 },
 
-  { 237,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_iv), 67, 1, 2, 474, 0 },
+  { 237, "ctrl_tapm/Thruster control /Subsystem1/Saturation 5/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation5_UpperSat), 85, 1, 2, 474, 0 },
 
-  { 238,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Constant1/Value",
-    offsetof(P_ctrl_TAPM_T, Constant1_Value_b), 31, 3, 2, 476, 0 },
+  { 238, "ctrl_tapm/Thruster control /Subsystem1/Saturation 5/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation5_LowerSat_h), 85, 1, 2, 476, 0 },
 
-  { 239,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Constant2/Value",
-    offsetof(P_ctrl_TAPM_T, Constant2_Value_i), 31, 3, 2, 478, 0 },
+  { 239, "ctrl_tapm/Thruster control /Subsystem1/Saturation 6/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation6_UpperSat_g), 85, 1, 2, 478, 0 },
 
-  { 240,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialS_hu), 67, 1, 2, 480, 0 },
+  { 240, "ctrl_tapm/Thruster control /Subsystem1/Saturation 6/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation6_LowerSat), 85, 1, 2, 480, 0 },
 
   { 241,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Discrete Derivative/TSamp/WtEt",
-    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_k), 0, 1, 2, 482, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 1/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation1_LowerSat_h), 85, 1, 2, 482, 0 },
 
   { 242,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Acceleration Limit/RisingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, AccelerationLimit_RisingLim_n), 0, 1, 2, 484, 0 },
+    "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 2/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation2_UpperSat_p), 85, 1, 2, 484, 0 },
 
   { 243,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Acceleration Limit/FallingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, AccelerationLimit_FallingLim_n), 0, 1, 2, 486, 0 },
+    "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Saturation/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat_i), 85, 1, 2, 486, 0 },
 
   { 244,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Acceleration Limit/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, AccelerationLimit_IC_m), 67, 1, 2, 488, 0 },
+    "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Saturation/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat_o), 85, 1, 2, 488, 0 },
 
-  { 245, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Memory/X0",
-    offsetof(P_ctrl_TAPM_T, Memory_X0_e), 67, 1, 2, 490, 0 },
+  { 245,
+    "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Gain/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain_Gain_pg), 85, 1, 2, 490, 0 },
 
   { 246,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_fy), 67, 1, 2, 492, 0 },
+    "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Constant/Value",
+    offsetof(P_ctrl_TAPM_T, Constant_Value_kq), 85, 1, 2, 492, 0 },
 
-  { 247, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/NaN/Value",
-    offsetof(P_ctrl_TAPM_T, NaN_Value_l), 67, 1, 2, 494, 0 },
+  { 247,
+    "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]1/Saturation/UpperLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_UpperSat_e), 85, 1, 2, 494, 0 },
 
   { 248,
-    "ctrl_tapm/Thruster control /Thruster 2/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_f), 67, 1, 2, 496, 0 },
+    "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]1/Saturation/LowerLimit",
+    offsetof(P_ctrl_TAPM_T, Saturation_LowerSat_g), 85, 1, 2, 496, 0 },
 
-  { 249, "ctrl_tapm/Thruster control /Thruster 3/Constant/Value", offsetof
-    (P_ctrl_TAPM_T, Constant_Value_n), 38, 2, 2, 498, 0 },
+  { 249,
+    "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]1/Gain/Gain",
+    offsetof(P_ctrl_TAPM_T, Gain_Gain_f), 85, 1, 2, 498, 0 },
 
-  { 250, "ctrl_tapm/Thruster control /Thruster 3/Constant1/Value", offsetof
-    (P_ctrl_TAPM_T, Constant1_Value_a), 38, 2, 2, 500, 0 },
+  { 250,
+    "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]1/Constant/Value",
+    offsetof(P_ctrl_TAPM_T, Constant_Value_p0), 85, 1, 2, 500, 0 },
 
-  { 251, "ctrl_tapm/Thruster control /Thruster 3/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_d), 67, 1, 2, 502, 0 },
+  { 251, "ctrl_tapm/Nonlinear Passisve Observer/Integrator2/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator2_IC), 21, 3, 2, 502, 0 },
 
-  { 252,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_h), 67, 1, 2, 504, 0 },
+  { 252, "ctrl_tapm/Nonlinear Passisve Observer/M^-1/Gain", offsetof
+    (P_ctrl_TAPM_T, M1_Gain), 23, 9, 2, 504, 0 },
 
-  { 253,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Constant1/Value",
-    offsetof(P_ctrl_TAPM_T, Constant1_Value_g), 31, 3, 2, 506, 0 },
+  { 253, "ctrl_tapm/Radians to Degrees/Gain/Gain", offsetof(P_ctrl_TAPM_T,
+    Gain_Gain_f0), 85, 1, 2, 506, 0 },
 
-  { 254,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Constant2/Value",
-    offsetof(P_ctrl_TAPM_T, Constant2_Value_h), 31, 3, 2, 508, 0 },
+  { 254, "ctrl_tapm/X-position Thruster/Value", offsetof(P_ctrl_TAPM_T,
+    XpositionThruster_Value_e), 50, 6, 2, 508, 0 },
 
-  { 255,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_a), 67, 1, 2, 510, 0 },
+  { 255, "ctrl_tapm/Y-position Thruster/Value", offsetof(P_ctrl_TAPM_T,
+    YpositionThruster_Value_o), 50, 6, 2, 510, 0 },
 
-  { 256,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Discrete Derivative/TSamp/WtEt",
-    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_m), 0, 1, 2, 512, 0 },
+  { 256, "ctrl_tapm/Guidance/Reference model/Integrator2/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator2_IC_p), 85, 1, 2, 512, 0 },
 
-  { 257,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Acceleration limiter/RisingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_RisingLim), 0, 1, 2, 514, 0 },
+  { 257, "ctrl_tapm/Input1/Observer Gains/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_c), 85, 1, 2, 514, 0 },
 
-  { 258,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Acceleration limiter/FallingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_FallingLim), 0, 1, 2, 516, 0 },
+  { 258, "ctrl_tapm/Input1/Observer Gains/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_p), 85, 1, 2, 516, 0 },
 
-  { 259,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Acceleration limiter/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_IC), 67, 1, 2, 518, 0 },
+  { 259, "ctrl_tapm/Input1/Observer Gains/Constant2/Value", offsetof
+    (P_ctrl_TAPM_T, Constant2_Value), 85, 1, 2, 518, 0 },
 
-  { 260, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Memory/X0",
-    offsetof(P_ctrl_TAPM_T, Memory_X0_g), 67, 1, 2, 520, 0 },
+  { 260, "ctrl_tapm/Input1/Observer Gains/Constant3/Value", offsetof
+    (P_ctrl_TAPM_T, Constant3_Value_f), 85, 1, 2, 520, 0 },
 
-  { 261,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_j), 67, 1, 2, 522, 0 },
+  { 261, "ctrl_tapm/Input1/Observer Gains/Constant4/Value", offsetof
+    (P_ctrl_TAPM_T, Constant4_Value_a), 85, 1, 2, 522, 0 },
 
-  { 262, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/NaN/Value",
-    offsetof(P_ctrl_TAPM_T, NaN_Value_g), 67, 1, 2, 524, 0 },
+  { 262, "ctrl_tapm/Input1/Observer Gains/Constant5/Value", offsetof
+    (P_ctrl_TAPM_T, Constant5_Value_j), 85, 1, 2, 524, 0 },
 
-  { 263,
-    "ctrl_tapm/Thruster control /Thruster 3/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_c), 67, 1, 2, 526, 0 },
+  { 263, "ctrl_tapm/Thruster control /Delay/InitialCondition", offsetof
+    (P_ctrl_TAPM_T, Delay_InitialCondition_j), 85, 1, 2, 526, 0 },
 
-  { 264, "ctrl_tapm/Thruster control /Thruster 4/Constant/Value", offsetof
-    (P_ctrl_TAPM_T, Constant_Value_j), 38, 2, 2, 528, 0 },
+  { 264, "ctrl_tapm/Thruster control /Thruster 1/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_cs), 54, 2, 2, 528, 0 },
 
-  { 265, "ctrl_tapm/Thruster control /Thruster 4/Constant1/Value", offsetof
-    (P_ctrl_TAPM_T, Constant1_Value_oi), 38, 2, 2, 530, 0 },
+  { 265, "ctrl_tapm/Thruster control /Thruster 1/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_k), 54, 2, 2, 530, 0 },
 
-  { 266, "ctrl_tapm/Thruster control /Thruster 4/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_fb), 67, 1, 2, 532, 0 },
+  { 266, "ctrl_tapm/Thruster control /Thruster 1/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_i), 85, 1, 2, 532, 0 },
 
   { 267,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_g), 67, 1, 2, 534, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_f), 85, 1, 2, 534, 0 },
 
   { 268,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Constant1/Value",
-    offsetof(P_ctrl_TAPM_T, Constant1_Value_m), 31, 3, 2, 536, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Constant1/Value",
+    offsetof(P_ctrl_TAPM_T, Constant1_Value_o), 45, 3, 2, 536, 0 },
 
   { 269,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Constant2/Value",
-    offsetof(P_ctrl_TAPM_T, Constant2_Value_l), 31, 3, 2, 538, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Constant2/Value",
+    offsetof(P_ctrl_TAPM_T, Constant2_Value_b), 45, 3, 2, 538, 0 },
 
   { 270,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialS_a1), 67, 1, 2, 540, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialStat), 85, 1, 2, 540, 0 },
 
   { 271,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Discrete Derivative/TSamp/WtEt",
-    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_h), 0, 1, 2, 542, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Discrete Derivative/TSamp/WtEt",
+    offsetof(P_ctrl_TAPM_T, TSamp_WtEt), 0, 1, 2, 542, 0 },
 
   { 272,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Acceleration limiter/RisingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_RisingLim_e), 0, 1, 2, 544, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Acceleration Limit/RisingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, AccelerationLimit_RisingLim), 0, 1, 2, 544, 0 },
 
   { 273,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Acceleration limiter/FallingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_FallingLi_b), 0, 1, 2, 546, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Acceleration Limit/FallingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, AccelerationLimit_FallingLim), 0, 1, 2, 546, 0 },
 
   { 274,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Acceleration limiter/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_IC_h), 67, 1, 2, 548, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Acceleration Limit/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, AccelerationLimit_IC), 85, 1, 2, 548, 0 },
 
-  { 275, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Memory/X0",
-    offsetof(P_ctrl_TAPM_T, Memory_X0_k), 67, 1, 2, 550, 0 },
+  { 275, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Memory/X0",
+    offsetof(P_ctrl_TAPM_T, Memory_X0), 85, 1, 2, 550, 0 },
 
   { 276,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_g), 67, 1, 2, 552, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_a), 85, 1, 2, 552, 0 },
 
-  { 277, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/NaN/Value",
-    offsetof(P_ctrl_TAPM_T, NaN_Value_p), 67, 1, 2, 554, 0 },
+  { 277, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/NaN/Value",
+    offsetof(P_ctrl_TAPM_T, NaN_Value), 85, 1, 2, 554, 0 },
 
   { 278,
-    "ctrl_tapm/Thruster control /Thruster 4/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_p), 67, 1, 2, 556, 0 },
+    "ctrl_tapm/Thruster control /Thruster 1/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_h), 85, 1, 2, 556, 0 },
 
-  { 279, "ctrl_tapm/Thruster control /Thruster 5/Constant/Value", offsetof
-    (P_ctrl_TAPM_T, Constant_Value_i), 38, 2, 2, 558, 0 },
+  { 279, "ctrl_tapm/Thruster control /Thruster 2/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_h), 54, 2, 2, 558, 0 },
 
-  { 280, "ctrl_tapm/Thruster control /Thruster 5/Constant1/Value", offsetof
-    (P_ctrl_TAPM_T, Constant1_Value_h), 38, 2, 2, 560, 0 },
+  { 280, "ctrl_tapm/Thruster control /Thruster 2/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_j), 54, 2, 2, 560, 0 },
 
-  { 281, "ctrl_tapm/Thruster control /Thruster 5/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_fv), 67, 1, 2, 562, 0 },
+  { 281, "ctrl_tapm/Thruster control /Thruster 2/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_l), 85, 1, 2, 562, 0 },
 
   { 282,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_dz), 67, 1, 2, 564, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_iv), 85, 1, 2, 564, 0 },
 
   { 283,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Constant1/Value",
-    offsetof(P_ctrl_TAPM_T, Constant1_Value_mk), 31, 3, 2, 566, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Constant1/Value",
+    offsetof(P_ctrl_TAPM_T, Constant1_Value_b), 45, 3, 2, 566, 0 },
 
   { 284,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Constant2/Value",
-    offsetof(P_ctrl_TAPM_T, Constant2_Value_p), 31, 3, 2, 568, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Constant2/Value",
+    offsetof(P_ctrl_TAPM_T, Constant2_Value_i), 45, 3, 2, 568, 0 },
 
   { 285,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_e), 67, 1, 2, 570, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialS_hu), 85, 1, 2, 570, 0 },
 
   { 286,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Discrete Derivative/TSamp/WtEt",
-    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_o), 0, 1, 2, 572, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Discrete Derivative/TSamp/WtEt",
+    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_k), 0, 1, 2, 572, 0 },
 
   { 287,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Acceleration limiter/RisingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_RisingLim_b), 0, 1, 2, 574, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Acceleration Limit/RisingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, AccelerationLimit_RisingLim_n), 0, 1, 2, 574, 0 },
 
   { 288,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Acceleration limiter/FallingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_FallingLi_d), 0, 1, 2, 576, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Acceleration Limit/FallingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, AccelerationLimit_FallingLim_n), 0, 1, 2, 576, 0 },
 
   { 289,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Acceleration limiter/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_IC_i), 67, 1, 2, 578, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Acceleration Limit/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, AccelerationLimit_IC_m), 85, 1, 2, 578, 0 },
 
-  { 290, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Memory/X0",
-    offsetof(P_ctrl_TAPM_T, Memory_X0_k3), 67, 1, 2, 580, 0 },
+  { 290, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Memory/X0",
+    offsetof(P_ctrl_TAPM_T, Memory_X0_e), 85, 1, 2, 580, 0 },
 
   { 291,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_aj), 67, 1, 2, 582, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_fy), 85, 1, 2, 582, 0 },
 
-  { 292, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/NaN/Value",
-    offsetof(P_ctrl_TAPM_T, NaN_Value_lq), 67, 1, 2, 584, 0 },
+  { 292, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/NaN/Value",
+    offsetof(P_ctrl_TAPM_T, NaN_Value_l), 85, 1, 2, 584, 0 },
 
   { 293,
-    "ctrl_tapm/Thruster control /Thruster 5/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialS_pj), 67, 1, 2, 586, 0 },
+    "ctrl_tapm/Thruster control /Thruster 2/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_f), 85, 1, 2, 586, 0 },
 
-  { 294, "ctrl_tapm/Thruster control /Thruster 6/Constant/Value", offsetof
-    (P_ctrl_TAPM_T, Constant_Value_ht), 38, 2, 2, 588, 0 },
+  { 294, "ctrl_tapm/Thruster control /Thruster 3/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_n), 54, 2, 2, 588, 0 },
 
-  { 295, "ctrl_tapm/Thruster control /Thruster 6/Constant1/Value", offsetof
-    (P_ctrl_TAPM_T, Constant1_Value_gs), 38, 2, 2, 590, 0 },
+  { 295, "ctrl_tapm/Thruster control /Thruster 3/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_a), 54, 2, 2, 590, 0 },
 
-  { 296, "ctrl_tapm/Thruster control /Thruster 6/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_fi), 67, 1, 2, 592, 0 },
+  { 296, "ctrl_tapm/Thruster control /Thruster 3/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_dp), 85, 1, 2, 592, 0 },
 
   { 297,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_a), 67, 1, 2, 594, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_h), 85, 1, 2, 594, 0 },
 
   { 298,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Constant1/Value",
-    offsetof(P_ctrl_TAPM_T, Constant1_Value_oa), 31, 3, 2, 596, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Constant1/Value",
+    offsetof(P_ctrl_TAPM_T, Constant1_Value_gf), 45, 3, 2, 596, 0 },
 
   { 299,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Constant2/Value",
-    offsetof(P_ctrl_TAPM_T, Constant2_Value_p3), 31, 3, 2, 598, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Constant2/Value",
+    offsetof(P_ctrl_TAPM_T, Constant2_Value_h), 45, 3, 2, 598, 0 },
 
   { 300,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialS_a4), 67, 1, 2, 600, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_a), 85, 1, 2, 600, 0 },
 
   { 301,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Discrete Derivative/TSamp/WtEt",
-    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_kk), 0, 1, 2, 602, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Discrete Derivative/TSamp/WtEt",
+    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_m), 0, 1, 2, 602, 0 },
 
   { 302,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Acceleration limiter/RisingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_RisingLi_bi), 0, 1, 2, 604, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Acceleration limiter/RisingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_RisingLim), 0, 1, 2, 604, 0 },
 
   { 303,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Acceleration limiter/FallingSlewLimit",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_FallingLi_p), 0, 1, 2, 606, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Acceleration limiter/FallingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_FallingLim), 0, 1, 2, 606, 0 },
 
   { 304,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Acceleration limiter/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_IC_p), 67, 1, 2, 608, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Acceleration limiter/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_IC), 85, 1, 2, 608, 0 },
 
-  { 305, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Memory/X0",
-    offsetof(P_ctrl_TAPM_T, Memory_X0_c), 67, 1, 2, 610, 0 },
+  { 305, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Memory/X0",
+    offsetof(P_ctrl_TAPM_T, Memory_X0_g), 85, 1, 2, 610, 0 },
 
   { 306,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Integrator/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, Integrator_IC_h), 67, 1, 2, 612, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_j), 85, 1, 2, 612, 0 },
 
-  { 307, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/NaN/Value",
-    offsetof(P_ctrl_TAPM_T, NaN_Value_j), 67, 1, 2, 614, 0 },
+  { 307, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/NaN/Value",
+    offsetof(P_ctrl_TAPM_T, NaN_Value_g), 85, 1, 2, 614, 0 },
 
   { 308,
-    "ctrl_tapm/Thruster control /Thruster 6/Discrete Transfer Fcn/Numerator",
-    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_b), 67, 1, 2, 616, 0 },
+    "ctrl_tapm/Thruster control /Thruster 3/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_c), 85, 1, 2, 616, 0 },
 
-  { 309, "ctrl_tapm/TAPM Controller w_observer/PID/Delay/DelayLength", offsetof
-    (P_ctrl_TAPM_T, Delay_DelayLength), 68, 1, 2, 618, 0 },
+  { 309, "ctrl_tapm/Thruster control /Thruster 4/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_j4), 54, 2, 2, 618, 0 },
 
-  { 310, "ctrl_tapm/Thruster control /Delay/DelayLength", offsetof(P_ctrl_TAPM_T,
-    Delay_DelayLength_m), 68, 1, 2, 620, 0 },
+  { 310, "ctrl_tapm/Thruster control /Thruster 4/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_oi), 54, 2, 2, 620, 0 },
 
-  { 311, "ctrl_tapm/Thruster control /Thruster 1/Delay/DelayLength", offsetof
-    (P_ctrl_TAPM_T, Delay_DelayLength_d), 68, 1, 2, 622, 0 },
+  { 311, "ctrl_tapm/Thruster control /Thruster 4/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_fb), 85, 1, 2, 622, 0 },
 
   { 312,
-    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Delay/DelayLength",
-    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_f), 68, 1, 2, 624, 0 },
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_gg), 85, 1, 2, 624, 0 },
 
-  { 313, "ctrl_tapm/Thruster control /Thruster 2/Delay/DelayLength", offsetof
-    (P_ctrl_TAPM_T, Delay_DelayLength_m5), 68, 1, 2, 626, 0 },
+  { 313,
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Constant1/Value",
+    offsetof(P_ctrl_TAPM_T, Constant1_Value_m), 45, 3, 2, 626, 0 },
 
   { 314,
-    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Delay/DelayLength",
-    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_p), 68, 1, 2, 628, 0 },
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Constant2/Value",
+    offsetof(P_ctrl_TAPM_T, Constant2_Value_l), 45, 3, 2, 628, 0 },
 
-  { 315, "ctrl_tapm/Thruster control /Thruster 3/Delay/DelayLength", offsetof
-    (P_ctrl_TAPM_T, Delay_DelayLength_h), 68, 1, 2, 630, 0 },
+  { 315,
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialS_a1), 85, 1, 2, 630, 0 },
 
   { 316,
-    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Delay/DelayLength",
-    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_b), 68, 1, 2, 632, 0 },
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Discrete Derivative/TSamp/WtEt",
+    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_h), 0, 1, 2, 632, 0 },
 
-  { 317, "ctrl_tapm/Thruster control /Thruster 4/Delay/DelayLength", offsetof
-    (P_ctrl_TAPM_T, Delay_DelayLength_n), 68, 1, 2, 634, 0 },
+  { 317,
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Acceleration limiter/RisingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_RisingLim_e), 0, 1, 2, 634, 0 },
 
   { 318,
-    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Delay/DelayLength",
-    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_mj), 68, 1, 2, 636, 0 },
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Acceleration limiter/FallingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_FallingLi_b), 0, 1, 2, 636, 0 },
 
-  { 319, "ctrl_tapm/Thruster control /Thruster 5/Delay/DelayLength", offsetof
-    (P_ctrl_TAPM_T, Delay_DelayLength_a), 68, 1, 2, 638, 0 },
+  { 319,
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Acceleration limiter/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_IC_h), 85, 1, 2, 638, 0 },
 
-  { 320,
-    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Delay/DelayLength",
-    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_k), 68, 1, 2, 640, 0 },
+  { 320, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Memory/X0",
+    offsetof(P_ctrl_TAPM_T, Memory_X0_k), 85, 1, 2, 640, 0 },
 
-  { 321, "ctrl_tapm/Thruster control /Thruster 6/Delay/DelayLength", offsetof
-    (P_ctrl_TAPM_T, Delay_DelayLength_l), 68, 1, 2, 642, 0 },
+  { 321,
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_g), 85, 1, 2, 642, 0 },
 
-  { 322,
-    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Delay/DelayLength",
-    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_c), 68, 1, 2, 644, 0 },
+  { 322, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/NaN/Value",
+    offsetof(P_ctrl_TAPM_T, NaN_Value_p), 85, 1, 2, 644, 0 },
 
   { 323,
+    "ctrl_tapm/Thruster control /Thruster 4/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_p), 85, 1, 2, 646, 0 },
+
+  { 324, "ctrl_tapm/Thruster control /Thruster 5/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_ib), 54, 2, 2, 648, 0 },
+
+  { 325, "ctrl_tapm/Thruster control /Thruster 5/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_h), 54, 2, 2, 650, 0 },
+
+  { 326, "ctrl_tapm/Thruster control /Thruster 5/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_fv), 85, 1, 2, 652, 0 },
+
+  { 327,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_dz), 85, 1, 2, 654, 0 },
+
+  { 328,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Constant1/Value",
+    offsetof(P_ctrl_TAPM_T, Constant1_Value_mk), 45, 3, 2, 656, 0 },
+
+  { 329,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Constant2/Value",
+    offsetof(P_ctrl_TAPM_T, Constant2_Value_p), 45, 3, 2, 658, 0 },
+
+  { 330,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_e), 85, 1, 2, 660, 0 },
+
+  { 331,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Discrete Derivative/TSamp/WtEt",
+    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_o), 0, 1, 2, 662, 0 },
+
+  { 332,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Acceleration limiter/RisingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_RisingLim_b), 0, 1, 2, 664, 0 },
+
+  { 333,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Acceleration limiter/FallingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_FallingLi_d), 0, 1, 2, 666, 0 },
+
+  { 334,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Acceleration limiter/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_IC_i), 85, 1, 2, 668, 0 },
+
+  { 335, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Memory/X0",
+    offsetof(P_ctrl_TAPM_T, Memory_X0_k3), 85, 1, 2, 670, 0 },
+
+  { 336,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_aj), 85, 1, 2, 672, 0 },
+
+  { 337, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/NaN/Value",
+    offsetof(P_ctrl_TAPM_T, NaN_Value_lq), 85, 1, 2, 674, 0 },
+
+  { 338,
+    "ctrl_tapm/Thruster control /Thruster 5/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialS_pj), 85, 1, 2, 676, 0 },
+
+  { 339, "ctrl_tapm/Thruster control /Thruster 6/Constant/Value", offsetof
+    (P_ctrl_TAPM_T, Constant_Value_ht), 54, 2, 2, 678, 0 },
+
+  { 340, "ctrl_tapm/Thruster control /Thruster 6/Constant1/Value", offsetof
+    (P_ctrl_TAPM_T, Constant1_Value_gs), 54, 2, 2, 680, 0 },
+
+  { 341, "ctrl_tapm/Thruster control /Thruster 6/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_fi), 85, 1, 2, 682, 0 },
+
+  { 342,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Delay/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Delay_InitialCondition_a), 85, 1, 2, 684, 0 },
+
+  { 343,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Constant1/Value",
+    offsetof(P_ctrl_TAPM_T, Constant1_Value_oa), 45, 3, 2, 686, 0 },
+
+  { 344,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Constant2/Value",
+    offsetof(P_ctrl_TAPM_T, Constant2_Value_p3), 45, 3, 2, 688, 0 },
+
+  { 345,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialS_a4), 85, 1, 2, 690, 0 },
+
+  { 346,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Discrete Derivative/TSamp/WtEt",
+    offsetof(P_ctrl_TAPM_T, TSamp_WtEt_kk), 0, 1, 2, 692, 0 },
+
+  { 347,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Acceleration limiter/RisingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_RisingLi_bi), 0, 1, 2, 694, 0 },
+
+  { 348,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Acceleration limiter/FallingSlewLimit",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_FallingLi_p), 0, 1, 2, 696, 0 },
+
+  { 349,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Acceleration limiter/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Accelerationlimiter_IC_p), 85, 1, 2, 698, 0 },
+
+  { 350, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Memory/X0",
+    offsetof(P_ctrl_TAPM_T, Memory_X0_c), 85, 1, 2, 700, 0 },
+
+  { 351,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Integrator/InitialCondition",
+    offsetof(P_ctrl_TAPM_T, Integrator_IC_h), 85, 1, 2, 702, 0 },
+
+  { 352, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/NaN/Value",
+    offsetof(P_ctrl_TAPM_T, NaN_Value_j), 85, 1, 2, 704, 0 },
+
+  { 353,
+    "ctrl_tapm/Thruster control /Thruster 6/Discrete Transfer Fcn/Numerator",
+    offsetof(P_ctrl_TAPM_T, DiscreteTransferFcn_InitialSt_b), 85, 1, 2, 706, 0 },
+
+  { 354, "ctrl_tapm/IMU/Memory/X0", offsetof(P_ctrl_TAPM_T, Memory_X0_f), 55, 28,
+    2, 708, 0 },
+
+  { 355, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength), 86, 1, 2, 710, 0 },
+
+  { 356, "ctrl_tapm/IMU/Filtering/KalmanFilter3/Delay1/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay1_DelayLength), 86, 1, 2, 712, 0 },
+
+  { 357, "ctrl_tapm/IMU/Filtering/KalmanFilter/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_h), 86, 1, 2, 714, 0 },
+
+  { 358, "ctrl_tapm/IMU/Filtering/KalmanFilter/Delay1/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay1_DelayLength_h), 86, 1, 2, 716, 0 },
+
+  { 359, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_n), 86, 1, 2, 718, 0 },
+
+  { 360, "ctrl_tapm/IMU/Filtering/KalmanFilter1/Delay1/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay1_DelayLength_i), 86, 1, 2, 720, 0 },
+
+  { 361, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_i), 86, 1, 2, 722, 0 },
+
+  { 362, "ctrl_tapm/IMU/Filtering/KalmanFilter2/Delay1/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay1_DelayLength_m), 86, 1, 2, 724, 0 },
+
+  { 363, "ctrl_tapm/Thruster control /Delay/DelayLength", offsetof(P_ctrl_TAPM_T,
+    Delay_DelayLength_m), 86, 1, 2, 726, 0 },
+
+  { 364, "ctrl_tapm/Thruster control /Thruster 1/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_d), 86, 1, 2, 728, 0 },
+
+  { 365,
+    "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Delay/DelayLength",
+    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_f), 86, 1, 2, 730, 0 },
+
+  { 366, "ctrl_tapm/Thruster control /Thruster 2/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_m5), 86, 1, 2, 732, 0 },
+
+  { 367,
+    "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Delay/DelayLength",
+    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_p), 86, 1, 2, 734, 0 },
+
+  { 368, "ctrl_tapm/Thruster control /Thruster 3/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_hc), 86, 1, 2, 736, 0 },
+
+  { 369,
+    "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Delay/DelayLength",
+    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_b), 86, 1, 2, 738, 0 },
+
+  { 370, "ctrl_tapm/Thruster control /Thruster 4/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_nv), 86, 1, 2, 740, 0 },
+
+  { 371,
+    "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Delay/DelayLength",
+    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_mj), 86, 1, 2, 742, 0 },
+
+  { 372, "ctrl_tapm/Thruster control /Thruster 5/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_a), 86, 1, 2, 744, 0 },
+
+  { 373,
+    "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Delay/DelayLength",
+    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_k), 86, 1, 2, 746, 0 },
+
+  { 374, "ctrl_tapm/Thruster control /Thruster 6/Delay/DelayLength", offsetof
+    (P_ctrl_TAPM_T, Delay_DelayLength_l), 86, 1, 2, 748, 0 },
+
+  { 375,
+    "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Delay/DelayLength",
+    offsetof(P_ctrl_TAPM_T, Delay_DelayLength_c), 86, 1, 2, 750, 0 },
+
+  { 376,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Discrete-Time Integrator/gainval",
     offsetof(P_ctrl_TAPM_T, CoreSubsys.DiscreteTimeIntegrator_gainval), 0, 1, 2,
-    646, 0 },
+    752, 0 },
 
-  { 324,
+  { 377,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Degrees to Radians/Gain1/Gain",
-    offsetof(P_ctrl_TAPM_T, CoreSubsys.Gain1_Gain), 67, 1, 2, 648, 0 },
+    offsetof(P_ctrl_TAPM_T, CoreSubsys.Gain1_Gain), 85, 1, 2, 754, 0 },
 
-  { 325,
+  { 378,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Delay/InitialCondition",
-    offsetof(P_ctrl_TAPM_T, CoreSubsys.Delay_InitialCondition), 67, 1, 2, 650, 0
+    offsetof(P_ctrl_TAPM_T, CoreSubsys.Delay_InitialCondition), 85, 1, 2, 756, 0
   },
 
-  { 326,
+  { 379,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Delay/DelayLength",
-    offsetof(P_ctrl_TAPM_T, CoreSubsys.Delay_DelayLength), 68, 1, 2, 652, 0 },
+    offsetof(P_ctrl_TAPM_T, CoreSubsys.Delay_DelayLength), 86, 1, 2, 758, 0 },
 };
 
-static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 327;
+static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 380;
 static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 {
   6, 4,                                /* Parameter at index 0 */
@@ -10092,69 +13586,69 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 6,                                /* Parameter at index 112 */
   1, 6,                                /* Parameter at index 113 */
   1, 1,                                /* Parameter at index 114 */
-  3, 3,                                /* Parameter at index 115 */
+  1, 1,                                /* Parameter at index 115 */
   1, 1,                                /* Parameter at index 116 */
   1, 1,                                /* Parameter at index 117 */
   1, 1,                                /* Parameter at index 118 */
   1, 1,                                /* Parameter at index 119 */
   1, 1,                                /* Parameter at index 120 */
   1, 1,                                /* Parameter at index 121 */
-  3, 3,                                /* Parameter at index 122 */
-  3, 3,                                /* Parameter at index 123 */
-  3, 3,                                /* Parameter at index 124 */
-  1, 1,                                /* Parameter at index 125 */
-  3, 1,                                /* Parameter at index 126 */
-  1, 1,                                /* Parameter at index 127 */
+  12, 12,                              /* Parameter at index 122 */
+  6, 12,                               /* Parameter at index 123 */
+  6, 6,                                /* Parameter at index 124 */
+  1, 12,                               /* Parameter at index 125 */
+  6, 12,                               /* Parameter at index 126 */
+  1, 5,                                /* Parameter at index 127 */
   1, 1,                                /* Parameter at index 128 */
-  1, 1,                                /* Parameter at index 129 */
-  1, 1,                                /* Parameter at index 130 */
-  1, 2,                                /* Parameter at index 131 */
-  1, 1,                                /* Parameter at index 132 */
-  1, 1,                                /* Parameter at index 133 */
-  1, 1,                                /* Parameter at index 134 */
-  1, 1,                                /* Parameter at index 135 */
+  1, 7,                                /* Parameter at index 129 */
+  12, 12,                              /* Parameter at index 130 */
+  6, 12,                               /* Parameter at index 131 */
+  6, 6,                                /* Parameter at index 132 */
+  1, 12,                               /* Parameter at index 133 */
+  6, 12,                               /* Parameter at index 134 */
+  1, 5,                                /* Parameter at index 135 */
   1, 1,                                /* Parameter at index 136 */
-  1, 1,                                /* Parameter at index 137 */
-  1, 1,                                /* Parameter at index 138 */
-  1, 1,                                /* Parameter at index 139 */
-  1, 1,                                /* Parameter at index 140 */
-  1, 1,                                /* Parameter at index 141 */
-  1, 1,                                /* Parameter at index 142 */
-  3, 1,                                /* Parameter at index 143 */
+  1, 7,                                /* Parameter at index 137 */
+  12, 12,                              /* Parameter at index 138 */
+  6, 12,                               /* Parameter at index 139 */
+  6, 6,                                /* Parameter at index 140 */
+  1, 12,                               /* Parameter at index 141 */
+  6, 12,                               /* Parameter at index 142 */
+  1, 5,                                /* Parameter at index 143 */
   1, 1,                                /* Parameter at index 144 */
-  1, 1,                                /* Parameter at index 145 */
-  1, 1,                                /* Parameter at index 146 */
-  1, 1,                                /* Parameter at index 147 */
-  1, 1,                                /* Parameter at index 148 */
-  1, 1,                                /* Parameter at index 149 */
-  1, 1,                                /* Parameter at index 150 */
-  1, 1,                                /* Parameter at index 151 */
+  1, 7,                                /* Parameter at index 145 */
+  12, 12,                              /* Parameter at index 146 */
+  6, 12,                               /* Parameter at index 147 */
+  6, 6,                                /* Parameter at index 148 */
+  1, 12,                               /* Parameter at index 149 */
+  6, 12,                               /* Parameter at index 150 */
+  1, 5,                                /* Parameter at index 151 */
   1, 1,                                /* Parameter at index 152 */
-  1, 1,                                /* Parameter at index 153 */
-  1, 6,                                /* Parameter at index 154 */
-  1, 6,                                /* Parameter at index 155 */
-  1, 6,                                /* Parameter at index 156 */
-  1, 1,                                /* Parameter at index 157 */
-  1, 1,                                /* Parameter at index 158 */
-  1, 1,                                /* Parameter at index 159 */
-  1, 1,                                /* Parameter at index 160 */
-  1, 1,                                /* Parameter at index 161 */
-  1, 1,                                /* Parameter at index 162 */
-  1, 1,                                /* Parameter at index 163 */
-  1, 1,                                /* Parameter at index 164 */
-  1, 1,                                /* Parameter at index 165 */
-  1, 1,                                /* Parameter at index 166 */
-  1, 1,                                /* Parameter at index 167 */
-  1, 1,                                /* Parameter at index 168 */
-  1, 1,                                /* Parameter at index 169 */
-  1, 1,                                /* Parameter at index 170 */
-  1, 1,                                /* Parameter at index 171 */
-  1, 1,                                /* Parameter at index 172 */
-  1, 1,                                /* Parameter at index 173 */
-  1, 1,                                /* Parameter at index 174 */
-  1, 1,                                /* Parameter at index 175 */
-  1, 1,                                /* Parameter at index 176 */
-  1, 1,                                /* Parameter at index 177 */
+  1, 7,                                /* Parameter at index 153 */
+  12, 12,                              /* Parameter at index 154 */
+  12, 12,                              /* Parameter at index 155 */
+  12, 12,                              /* Parameter at index 156 */
+  6, 12,                               /* Parameter at index 157 */
+  6, 6,                                /* Parameter at index 158 */
+  12, 12,                              /* Parameter at index 159 */
+  12, 12,                              /* Parameter at index 160 */
+  12, 12,                              /* Parameter at index 161 */
+  12, 12,                              /* Parameter at index 162 */
+  6, 12,                               /* Parameter at index 163 */
+  6, 6,                                /* Parameter at index 164 */
+  12, 12,                              /* Parameter at index 165 */
+  12, 12,                              /* Parameter at index 166 */
+  12, 12,                              /* Parameter at index 167 */
+  12, 12,                              /* Parameter at index 168 */
+  6, 12,                               /* Parameter at index 169 */
+  6, 6,                                /* Parameter at index 170 */
+  12, 12,                              /* Parameter at index 171 */
+  12, 12,                              /* Parameter at index 172 */
+  12, 12,                              /* Parameter at index 173 */
+  12, 12,                              /* Parameter at index 174 */
+  6, 12,                               /* Parameter at index 175 */
+  6, 6,                                /* Parameter at index 176 */
+  12, 12,                              /* Parameter at index 177 */
   1, 1,                                /* Parameter at index 178 */
   1, 1,                                /* Parameter at index 179 */
   1, 1,                                /* Parameter at index 180 */
@@ -10171,37 +13665,37 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 191 */
   1, 1,                                /* Parameter at index 192 */
   1, 1,                                /* Parameter at index 193 */
-  1, 1,                                /* Parameter at index 194 */
+  3, 1,                                /* Parameter at index 194 */
   1, 1,                                /* Parameter at index 195 */
   1, 1,                                /* Parameter at index 196 */
-  1, 1,                                /* Parameter at index 197 */
-  1, 1,                                /* Parameter at index 198 */
-  1, 1,                                /* Parameter at index 199 */
+  1, 6,                                /* Parameter at index 197 */
+  1, 6,                                /* Parameter at index 198 */
+  1, 6,                                /* Parameter at index 199 */
   1, 1,                                /* Parameter at index 200 */
-  1, 6,                                /* Parameter at index 201 */
-  1, 6,                                /* Parameter at index 202 */
+  1, 1,                                /* Parameter at index 201 */
+  1, 1,                                /* Parameter at index 202 */
   1, 1,                                /* Parameter at index 203 */
-  3, 3,                                /* Parameter at index 204 */
+  1, 1,                                /* Parameter at index 204 */
   1, 1,                                /* Parameter at index 205 */
-  3, 3,                                /* Parameter at index 206 */
+  1, 1,                                /* Parameter at index 206 */
   1, 1,                                /* Parameter at index 207 */
-  3, 3,                                /* Parameter at index 208 */
-  3, 3,                                /* Parameter at index 209 */
-  3, 3,                                /* Parameter at index 210 */
-  3, 3,                                /* Parameter at index 211 */
+  1, 1,                                /* Parameter at index 208 */
+  1, 1,                                /* Parameter at index 209 */
+  1, 1,                                /* Parameter at index 210 */
+  1, 1,                                /* Parameter at index 211 */
   1, 1,                                /* Parameter at index 212 */
   1, 1,                                /* Parameter at index 213 */
   1, 1,                                /* Parameter at index 214 */
-  2, 2,                                /* Parameter at index 215 */
-  2, 2,                                /* Parameter at index 216 */
+  1, 1,                                /* Parameter at index 215 */
+  1, 1,                                /* Parameter at index 216 */
   1, 1,                                /* Parameter at index 217 */
   1, 1,                                /* Parameter at index 218 */
-  1, 2,                                /* Parameter at index 219 */
-  1, 2,                                /* Parameter at index 220 */
+  1, 1,                                /* Parameter at index 219 */
+  1, 1,                                /* Parameter at index 220 */
   1, 1,                                /* Parameter at index 221 */
   1, 1,                                /* Parameter at index 222 */
-  1, 3,                                /* Parameter at index 223 */
-  1, 3,                                /* Parameter at index 224 */
+  1, 1,                                /* Parameter at index 223 */
+  1, 1,                                /* Parameter at index 224 */
   1, 1,                                /* Parameter at index 225 */
   1, 1,                                /* Parameter at index 226 */
   1, 1,                                /* Parameter at index 227 */
@@ -10211,12 +13705,12 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 231 */
   1, 1,                                /* Parameter at index 232 */
   1, 1,                                /* Parameter at index 233 */
-  1, 2,                                /* Parameter at index 234 */
-  1, 2,                                /* Parameter at index 235 */
+  1, 1,                                /* Parameter at index 234 */
+  1, 1,                                /* Parameter at index 235 */
   1, 1,                                /* Parameter at index 236 */
   1, 1,                                /* Parameter at index 237 */
-  1, 3,                                /* Parameter at index 238 */
-  1, 3,                                /* Parameter at index 239 */
+  1, 1,                                /* Parameter at index 238 */
+  1, 1,                                /* Parameter at index 239 */
   1, 1,                                /* Parameter at index 240 */
   1, 1,                                /* Parameter at index 241 */
   1, 1,                                /* Parameter at index 242 */
@@ -10226,13 +13720,13 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 246 */
   1, 1,                                /* Parameter at index 247 */
   1, 1,                                /* Parameter at index 248 */
-  1, 2,                                /* Parameter at index 249 */
-  1, 2,                                /* Parameter at index 250 */
-  1, 1,                                /* Parameter at index 251 */
-  1, 1,                                /* Parameter at index 252 */
-  1, 3,                                /* Parameter at index 253 */
-  1, 3,                                /* Parameter at index 254 */
-  1, 1,                                /* Parameter at index 255 */
+  1, 1,                                /* Parameter at index 249 */
+  1, 1,                                /* Parameter at index 250 */
+  3, 1,                                /* Parameter at index 251 */
+  3, 3,                                /* Parameter at index 252 */
+  1, 1,                                /* Parameter at index 253 */
+  1, 6,                                /* Parameter at index 254 */
+  1, 6,                                /* Parameter at index 255 */
   1, 1,                                /* Parameter at index 256 */
   1, 1,                                /* Parameter at index 257 */
   1, 1,                                /* Parameter at index 258 */
@@ -10286,12 +13780,12 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 306 */
   1, 1,                                /* Parameter at index 307 */
   1, 1,                                /* Parameter at index 308 */
-  1, 1,                                /* Parameter at index 309 */
-  1, 1,                                /* Parameter at index 310 */
+  1, 2,                                /* Parameter at index 309 */
+  1, 2,                                /* Parameter at index 310 */
   1, 1,                                /* Parameter at index 311 */
   1, 1,                                /* Parameter at index 312 */
-  1, 1,                                /* Parameter at index 313 */
-  1, 1,                                /* Parameter at index 314 */
+  1, 3,                                /* Parameter at index 313 */
+  1, 3,                                /* Parameter at index 314 */
   1, 1,                                /* Parameter at index 315 */
   1, 1,                                /* Parameter at index 316 */
   1, 1,                                /* Parameter at index 317 */
@@ -10301,1419 +13795,1814 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 321 */
   1, 1,                                /* Parameter at index 322 */
   1, 1,                                /* Parameter at index 323 */
-  1, 1,                                /* Parameter at index 324 */
-  1, 1,                                /* Parameter at index 325 */
+  1, 2,                                /* Parameter at index 324 */
+  1, 2,                                /* Parameter at index 325 */
   1, 1,                                /* Parameter at index 326 */
+  1, 1,                                /* Parameter at index 327 */
+  1, 3,                                /* Parameter at index 328 */
+  1, 3,                                /* Parameter at index 329 */
+  1, 1,                                /* Parameter at index 330 */
+  1, 1,                                /* Parameter at index 331 */
+  1, 1,                                /* Parameter at index 332 */
+  1, 1,                                /* Parameter at index 333 */
+  1, 1,                                /* Parameter at index 334 */
+  1, 1,                                /* Parameter at index 335 */
+  1, 1,                                /* Parameter at index 336 */
+  1, 1,                                /* Parameter at index 337 */
+  1, 1,                                /* Parameter at index 338 */
+  1, 2,                                /* Parameter at index 339 */
+  1, 2,                                /* Parameter at index 340 */
+  1, 1,                                /* Parameter at index 341 */
+  1, 1,                                /* Parameter at index 342 */
+  1, 3,                                /* Parameter at index 343 */
+  1, 3,                                /* Parameter at index 344 */
+  1, 1,                                /* Parameter at index 345 */
+  1, 1,                                /* Parameter at index 346 */
+  1, 1,                                /* Parameter at index 347 */
+  1, 1,                                /* Parameter at index 348 */
+  1, 1,                                /* Parameter at index 349 */
+  1, 1,                                /* Parameter at index 350 */
+  1, 1,                                /* Parameter at index 351 */
+  1, 1,                                /* Parameter at index 352 */
+  1, 1,                                /* Parameter at index 353 */
+  1, 28,                               /* Parameter at index 354 */
+  1, 1,                                /* Parameter at index 355 */
+  1, 1,                                /* Parameter at index 356 */
+  1, 1,                                /* Parameter at index 357 */
+  1, 1,                                /* Parameter at index 358 */
+  1, 1,                                /* Parameter at index 359 */
+  1, 1,                                /* Parameter at index 360 */
+  1, 1,                                /* Parameter at index 361 */
+  1, 1,                                /* Parameter at index 362 */
+  1, 1,                                /* Parameter at index 363 */
+  1, 1,                                /* Parameter at index 364 */
+  1, 1,                                /* Parameter at index 365 */
+  1, 1,                                /* Parameter at index 366 */
+  1, 1,                                /* Parameter at index 367 */
+  1, 1,                                /* Parameter at index 368 */
+  1, 1,                                /* Parameter at index 369 */
+  1, 1,                                /* Parameter at index 370 */
+  1, 1,                                /* Parameter at index 371 */
+  1, 1,                                /* Parameter at index 372 */
+  1, 1,                                /* Parameter at index 373 */
+  1, 1,                                /* Parameter at index 374 */
+  1, 1,                                /* Parameter at index 375 */
+  1, 1,                                /* Parameter at index 376 */
+  1, 1,                                /* Parameter at index 377 */
+  1, 1,                                /* Parameter at index 378 */
+  1, 1,                                /* Parameter at index 379 */
 };
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
 {
-  { 0, "ctrl_tapm/TAPM Controller w_observer/PID/Delay", 0, "", offsetof
-    (B_ctrl_TAPM_T, Delay) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 0, "ctrl_tapm/Input1/Control Gains/K_p_x", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_p_x) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 1, "ctrl_tapm/Input/wave_dir", 0, "", offsetof(B_ctrl_TAPM_T, wave_dir) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 1, "ctrl_tapm/Input1/Control Gains/K_p_y", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_p_y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 2, "ctrl_tapm/Input/fzp_x", 0, "", offsetof(B_ctrl_TAPM_T, fzp_x) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 2, "ctrl_tapm/Input1/Control Gains/K_p_psi", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_p_psi) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 3, "ctrl_tapm/Input/fzp_y", 0, "", offsetof(B_ctrl_TAPM_T, fzp_y) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 3, "ctrl_tapm/Input1/Control Gains/K_i_psi", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_i_psi) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 4, "ctrl_tapm/Input/r_max", 0, "", offsetof(B_ctrl_TAPM_T, r_max) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 4, "ctrl_tapm/Input1/Control Gains/K_i_x", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_i_x) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 5, "ctrl_tapm/Input/Core_controller", 0, "", offsetof(B_ctrl_TAPM_T,
-    Core_controller) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 5, "ctrl_tapm/Input1/Control Gains/K_i_y", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_i_y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 6, "ctrl_tapm/Input/K_i_y", 0, "", offsetof(B_ctrl_TAPM_T, K_i_y) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 6, "ctrl_tapm/Input1/Control Gains/K_d_psi", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_d_psi) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 7, "ctrl_tapm/Input/K_d_psi", 0, "", offsetof(B_ctrl_TAPM_T, K_d_psi) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 7, "ctrl_tapm/Input1/Control Gains/K_d_x", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_d_x) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 8, "ctrl_tapm/Input/K_d_x", 0, "", offsetof(B_ctrl_TAPM_T, K_d_x) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 8, "ctrl_tapm/Input1/Control Gains/K_d_y", 0, "", offsetof(B_ctrl_TAPM_T,
+    K_d_y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 9, "ctrl_tapm/Input/K_d_y", 0, "", offsetof(B_ctrl_TAPM_T, K_d_y) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 10, "ctrl_tapm/Input/K_i_psi", 0, "", offsetof(B_ctrl_TAPM_T, K_i_psi) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 11, "ctrl_tapm/Input/K_i_x", 0, "", offsetof(B_ctrl_TAPM_T, K_i_x) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 12, "ctrl_tapm/Input/K_p_psi", 0, "", offsetof(B_ctrl_TAPM_T, K_p_psi) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 13, "ctrl_tapm/Input/K_p_x", 0, "", offsetof(B_ctrl_TAPM_T, K_p_x) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 14, "ctrl_tapm/Input/K_p_y", 0, "", offsetof(B_ctrl_TAPM_T, K_p_y) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 15, "ctrl_tapm/Input/K_d_psi1", 0, "", offsetof(B_ctrl_TAPM_T, K_d_psi1) +
+  { 9, "ctrl_tapm/Pos measurements/x_m", 0, "", offsetof(B_ctrl_TAPM_T, x_m) +
     (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 16, "ctrl_tapm/Input/K_d_x1", 0, "", offsetof(B_ctrl_TAPM_T, K_d_x1) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 17, "ctrl_tapm/Input/K_d_y1", 0, "", offsetof(B_ctrl_TAPM_T, K_d_y1) + (0*
-    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 18, "ctrl_tapm/Input/K_i_psi1", 0, "", offsetof(B_ctrl_TAPM_T, K_i_psi1) +
+  { 10, "ctrl_tapm/Pos measurements/y_m", 0, "", offsetof(B_ctrl_TAPM_T, y_m) +
     (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 19, "ctrl_tapm/Input/K_i_x1", 0, "", offsetof(B_ctrl_TAPM_T, K_i_x1) + (0*
+  { 11, "ctrl_tapm/Pos measurements/psi_m", 0, "", offsetof(B_ctrl_TAPM_T, psi_m)
+    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 12, "ctrl_tapm/Input1/reset", 0, "", offsetof(B_ctrl_TAPM_T, reset) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 20, "ctrl_tapm/Input/K_i_y1", 0, "", offsetof(B_ctrl_TAPM_T, K_i_y1) + (0*
+  { 13, "ctrl_tapm/Input1/Guidance gains/w_d_x", 0, "", offsetof(B_ctrl_TAPM_T,
+    w_d_x) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 14, "ctrl_tapm/Input1/Guidance gains/w_d_y", 0, "", offsetof(B_ctrl_TAPM_T,
+    w_d_y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 15, "ctrl_tapm/Input1/Guidance gains/w_d_psi", 0, "", offsetof(B_ctrl_TAPM_T,
+    w_d_psi) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 16, "ctrl_tapm/Input1/Guidance gains/zeta_psi", 0, "", offsetof
+    (B_ctrl_TAPM_T, zeta_psi) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 17, "ctrl_tapm/Input1/Guidance gains/zeta_x", 0, "", offsetof(B_ctrl_TAPM_T,
+    zeta_x) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 18, "ctrl_tapm/Input1/Guidance gains/zeta_y", 0, "", offsetof(B_ctrl_TAPM_T,
+    zeta_y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 19, "ctrl_tapm/Input1/psi_ref", 0, "", offsetof(B_ctrl_TAPM_T, psi_ref) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 21, "ctrl_tapm/Input/K_p_psi1", 0, "", offsetof(B_ctrl_TAPM_T, K_p_psi1) +
-    (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 22, "ctrl_tapm/Input/K_p_x1", 0, "", offsetof(B_ctrl_TAPM_T, K_p_x1) + (0*
+  { 20, "ctrl_tapm/Input1/x_ref", 0, "", offsetof(B_ctrl_TAPM_T, x_ref) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 23, "ctrl_tapm/Input/K_p_y1", 0, "", offsetof(B_ctrl_TAPM_T, K_p_y1) + (0*
+  { 21, "ctrl_tapm/Input1/y_ref", 0, "", offsetof(B_ctrl_TAPM_T, y_ref) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 24,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator",
-    0, "eta(1, 1)", offsetof(B_ctrl_TAPM_T, eta) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 22, 1, 2, 0, 0 },
+  { 22, "ctrl_tapm/Control/DP Controller/Sum2", 0, "regulation error(1, 1)",
+    offsetof(B_ctrl_TAPM_T, regulationerror) + (0*sizeof(real_T)), BLOCKIO_SIG,
+    21, 1, 2, 0, 0 },
 
-  { 25,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator",
-    0, "eta(1, 2)", offsetof(B_ctrl_TAPM_T, eta) + (1*sizeof(real_T)),
-    BLOCKIO_SIG, 22, 1, 2, 0, 0 },
+  { 23, "ctrl_tapm/Control/DP Controller/Sum2", 0, "regulation error(2, 1)",
+    offsetof(B_ctrl_TAPM_T, regulationerror) + (1*sizeof(real_T)), BLOCKIO_SIG,
+    21, 1, 2, 0, 0 },
 
-  { 26,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator",
-    0, "eta(1, 3)", offsetof(B_ctrl_TAPM_T, eta) + (2*sizeof(real_T)),
-    BLOCKIO_SIG, 22, 1, 2, 0, 0 },
+  { 24, "ctrl_tapm/Control/DP Controller/Sum2", 0, "regulation error(3, 1)",
+    offsetof(B_ctrl_TAPM_T, regulationerror) + (2*sizeof(real_T)), BLOCKIO_SIG,
+    21, 1, 2, 0, 0 },
 
-  { 27,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator4",
-    0, "nu(1, 1)", offsetof(B_ctrl_TAPM_T, nu) + (0*sizeof(real_T)), BLOCKIO_SIG,
-    26, 1, 2, 0, 0 },
+  { 25, "ctrl_tapm/Nonlinear Passisve Observer/Integrator1/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator1) + (0*sizeof(real_T)), BLOCKIO_SIG, 22,
+    1, 2, 0, 0 },
 
-  { 28,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator4",
-    0, "nu(2, 1)", offsetof(B_ctrl_TAPM_T, nu) + (1*sizeof(real_T)), BLOCKIO_SIG,
-    26, 1, 2, 0, 0 },
+  { 26, "ctrl_tapm/Nonlinear Passisve Observer/Integrator1/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator1) + (1*sizeof(real_T)), BLOCKIO_SIG, 22,
+    1, 2, 0, 0 },
 
-  { 29,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Integrator4",
-    0, "nu(3, 1)", offsetof(B_ctrl_TAPM_T, nu) + (2*sizeof(real_T)), BLOCKIO_SIG,
-    26, 1, 2, 0, 0 },
+  { 27, "ctrl_tapm/Nonlinear Passisve Observer/Integrator1/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator1) + (2*sizeof(real_T)), BLOCKIO_SIG, 22,
+    1, 2, 0, 0 },
 
-  { 30, "ctrl_tapm/TAPM Controller w_observer/PID/Multiport Switch/(1, 1)", 0,
-    "", offsetof(B_ctrl_TAPM_T, MultiportSwitch) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+  { 28, "ctrl_tapm/Guidance/Reference model/Integrator3/(1, 1)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Integrator3) + (0*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0,
+    0 },
 
-  { 31, "ctrl_tapm/TAPM Controller w_observer/PID/Multiport Switch/(2, 1)", 0,
-    "", offsetof(B_ctrl_TAPM_T, MultiportSwitch) + (1*sizeof(real_T)),
-    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+  { 29, "ctrl_tapm/Guidance/Reference model/Integrator3/(2, 1)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Integrator3) + (1*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0,
+    0 },
 
-  { 32, "ctrl_tapm/TAPM Controller w_observer/PID/Multiport Switch/(3, 1)", 0,
-    "", offsetof(B_ctrl_TAPM_T, MultiportSwitch) + (2*sizeof(real_T)),
-    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+  { 30, "ctrl_tapm/Guidance/Reference model/Integrator3/(3, 1)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Integrator3) + (2*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0,
+    0 },
 
-  { 33, "ctrl_tapm/Thruster measurment/thr_angle_1", 0, "", offsetof
+  { 31, "ctrl_tapm/Thruster measurment/thr_angle_1", 0, "", offsetof
     (B_ctrl_TAPM_T, thr_angle_1) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 34, "ctrl_tapm/Thruster measurment/thr_angle_2", 0, "", offsetof
+  { 32, "ctrl_tapm/Thruster measurment/thr_angle_2", 0, "", offsetof
     (B_ctrl_TAPM_T, thr_angle_2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 35, "ctrl_tapm/Thruster measurment/thr_angle_3", 0, "", offsetof
+  { 33, "ctrl_tapm/Thruster measurment/thr_angle_3", 0, "", offsetof
     (B_ctrl_TAPM_T, thr_angle_3) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 36, "ctrl_tapm/Thruster measurment/thr_angle_4", 0, "", offsetof
+  { 34, "ctrl_tapm/Thruster measurment/thr_angle_4", 0, "", offsetof
     (B_ctrl_TAPM_T, thr_angle_4) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 37, "ctrl_tapm/Thruster measurment/thr_angle_5", 0, "", offsetof
+  { 35, "ctrl_tapm/Thruster measurment/thr_angle_5", 0, "", offsetof
     (B_ctrl_TAPM_T, thr_angle_5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 38, "ctrl_tapm/Thruster measurment/thr_angle_6", 0, "", offsetof
+  { 36, "ctrl_tapm/Thruster measurment/thr_angle_6", 0, "", offsetof
     (B_ctrl_TAPM_T, thr_angle_6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 39, "ctrl_tapm/Thrust allocation/reset/(1, 1)", 0, "", offsetof
-    (B_ctrl_TAPM_T, reset) + (0*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 37, "ctrl_tapm/Thrust allocation/reset/(1, 1)", 0, "", offsetof
+    (B_ctrl_TAPM_T, reset_g) + (0*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 40, "ctrl_tapm/Thrust allocation/reset/(1, 2)", 0, "", offsetof
-    (B_ctrl_TAPM_T, reset) + (1*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 38, "ctrl_tapm/Thrust allocation/reset/(1, 2)", 0, "", offsetof
+    (B_ctrl_TAPM_T, reset_g) + (1*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 41, "ctrl_tapm/Thrust allocation/reset/(1, 3)", 0, "", offsetof
-    (B_ctrl_TAPM_T, reset) + (2*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 39, "ctrl_tapm/Thrust allocation/reset/(1, 3)", 0, "", offsetof
+    (B_ctrl_TAPM_T, reset_g) + (2*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 42, "ctrl_tapm/Thrust allocation/reset/(1, 4)", 0, "", offsetof
-    (B_ctrl_TAPM_T, reset) + (3*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 40, "ctrl_tapm/Thrust allocation/reset/(1, 4)", 0, "", offsetof
+    (B_ctrl_TAPM_T, reset_g) + (3*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 43, "ctrl_tapm/Thrust allocation/reset/(1, 5)", 0, "", offsetof
-    (B_ctrl_TAPM_T, reset) + (4*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 41, "ctrl_tapm/Thrust allocation/reset/(1, 5)", 0, "", offsetof
+    (B_ctrl_TAPM_T, reset_g) + (4*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 44, "ctrl_tapm/Thrust allocation/reset/(1, 6)", 0, "", offsetof
-    (B_ctrl_TAPM_T, reset) + (5*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 42, "ctrl_tapm/Thrust allocation/reset/(1, 6)", 0, "", offsetof
+    (B_ctrl_TAPM_T, reset_g) + (5*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 45, "ctrl_tapm/Thrust allocation/Angle_controller", 0, "", offsetof
+  { 43, "ctrl_tapm/Thrust allocation/Angle_controller", 0, "", offsetof
     (B_ctrl_TAPM_T, Angle_controller) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 46, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 1)", 0,
+  { 44, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 1)", 0,
     "", offsetof(B_ctrl_TAPM_T, ChoosingFixedAzimuthangle) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 47, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 2)", 0,
+  { 45, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 2)", 0,
     "", offsetof(B_ctrl_TAPM_T, ChoosingFixedAzimuthangle) + (1*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 48, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 3)", 0,
+  { 46, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 3)", 0,
     "", offsetof(B_ctrl_TAPM_T, ChoosingFixedAzimuthangle) + (2*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 49, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 4)", 0,
+  { 47, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 4)", 0,
     "", offsetof(B_ctrl_TAPM_T, ChoosingFixedAzimuthangle) + (3*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 50, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 5)", 0,
+  { 48, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 5)", 0,
     "", offsetof(B_ctrl_TAPM_T, ChoosingFixedAzimuthangle) + (4*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 51, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 6)", 0,
+  { 49, "ctrl_tapm/Thrust allocation/Choosing Fixed // Azimuth angle/(1, 6)", 0,
     "", offsetof(B_ctrl_TAPM_T, ChoosingFixedAzimuthangle) + (5*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 52, "ctrl_tapm/Thruster control /Subsystem1/Saturation 1", 0, "", offsetof
+  { 50, "ctrl_tapm/Thruster control /Subsystem1/Saturation 1", 0, "", offsetof
     (B_ctrl_TAPM_T, Saturation1) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 53, "ctrl_tapm/Thruster control /Thruster 1/Shaft dynamics/reset", 0, "",
+  { 51, "ctrl_tapm/Thruster control /Thruster 1/Shaft dynamics/reset", 0, "",
     offsetof(B_ctrl_TAPM_T, reset_o) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 54, "ctrl_tapm/Thruster control /Thruster 2/Shaft dynamics/reset", 0, "",
+  { 52, "ctrl_tapm/Thruster control /Thruster 2/Shaft dynamics/reset", 0, "",
     offsetof(B_ctrl_TAPM_T, reset_c) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 55, "ctrl_tapm/Thruster control /Thruster 3/Shaft dynamics/reset", 0, "",
+  { 53, "ctrl_tapm/Thruster control /Thruster 3/Shaft dynamics/reset", 0, "",
     offsetof(B_ctrl_TAPM_T, reset_j) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 56, "ctrl_tapm/Thruster control /Thruster 4/Shaft dynamics/reset", 0, "",
+  { 54, "ctrl_tapm/Thruster control /Thruster 4/Shaft dynamics/reset", 0, "",
     offsetof(B_ctrl_TAPM_T, reset_p) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 57, "ctrl_tapm/Thruster control /Thruster 5/Shaft dynamics/reset", 0, "",
+  { 55, "ctrl_tapm/Thruster control /Thruster 5/Shaft dynamics/reset", 0, "",
     offsetof(B_ctrl_TAPM_T, reset_k) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 58, "ctrl_tapm/Thruster control /Thruster 6/Shaft dynamics/reset", 0, "",
+  { 56, "ctrl_tapm/Thruster control /Thruster 6/Shaft dynamics/reset", 0, "",
     offsetof(B_ctrl_TAPM_T, reset_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 59, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm1",
+  { 57, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm1",
     0, "", offsetof(B_ctrl_TAPM_T, rpm1) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 60, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm2",
+  { 58, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm2",
     0, "", offsetof(B_ctrl_TAPM_T, rpm2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 61, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm3",
+  { 59, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm3",
     0, "", offsetof(B_ctrl_TAPM_T, rpm3) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 62, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm4",
+  { 60, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm4",
     0, "", offsetof(B_ctrl_TAPM_T, rpm4) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 63, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm5",
+  { 61, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm5",
     0, "", offsetof(B_ctrl_TAPM_T, rpm5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 64, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm6",
+  { 62, "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/rpm6",
     0, "", offsetof(B_ctrl_TAPM_T, rpm6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 65, "ctrl_tapm/Thruster control /Subsystem1/Saturation 2", 0, "", offsetof
+  { 63, "ctrl_tapm/Thruster control /Subsystem1/Saturation 2", 0, "", offsetof
     (B_ctrl_TAPM_T, Saturation2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 66, "ctrl_tapm/Thruster control /Subsystem1/Saturation 3", 0, "", offsetof
+  { 64, "ctrl_tapm/Thruster control /Subsystem1/Saturation 3", 0, "", offsetof
     (B_ctrl_TAPM_T, Saturation3) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 67, "ctrl_tapm/Thruster control /Subsystem1/Saturation 4", 0, "", offsetof
+  { 65, "ctrl_tapm/Thruster control /Subsystem1/Saturation 4", 0, "", offsetof
     (B_ctrl_TAPM_T, Saturation4) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 68, "ctrl_tapm/Thruster control /Subsystem1/Saturation 5", 0, "", offsetof
+  { 66, "ctrl_tapm/Thruster control /Subsystem1/Saturation 5", 0, "", offsetof
     (B_ctrl_TAPM_T, Saturation5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 69, "ctrl_tapm/Thruster control /Subsystem1/Saturation 6", 0, "", offsetof
+  { 67, "ctrl_tapm/Thruster control /Subsystem1/Saturation 6", 0, "", offsetof
     (B_ctrl_TAPM_T, Saturation6) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 70,
+  { 68,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 7/(1, 1)",
     0, "", offsetof(B_ctrl_TAPM_T, Saturation7) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 71,
+  { 69,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 7/(1, 2)",
     0, "", offsetof(B_ctrl_TAPM_T, Saturation7) + (1*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 72,
+  { 70,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 7/(1, 3)",
     0, "", offsetof(B_ctrl_TAPM_T, Saturation7) + (2*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 73,
+  { 71,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 7/(1, 4)",
     0, "", offsetof(B_ctrl_TAPM_T, Saturation7) + (3*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 74,
+  { 72,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 7/(1, 5)",
     0, "", offsetof(B_ctrl_TAPM_T, Saturation7) + (4*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 75,
+  { 73,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/Saturation 7/(1, 6)",
     0, "", offsetof(B_ctrl_TAPM_T, Saturation7) + (5*sizeof(real_T)),
-    BLOCKIO_SIG, 21, 1, 2, 0, 0 },
-
-  { 76, "ctrl_tapm/Radians to Degrees/Gain/(1, 1)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Gain) + (0*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
-
-  { 77, "ctrl_tapm/Radians to Degrees/Gain/(1, 2)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Gain) + (1*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
-
-  { 78, "ctrl_tapm/Radians to Degrees/Gain/(1, 3)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Gain) + (2*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
-
-  { 79, "ctrl_tapm/Radians to Degrees/Gain/(1, 4)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Gain) + (3*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
-
-  { 80, "ctrl_tapm/Radians to Degrees/Gain/(1, 5)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Gain) + (4*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
-
-  { 81, "ctrl_tapm/Radians to Degrees/Gain/(1, 6)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Gain) + (5*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
-
-  { 82, "ctrl_tapm/Pos measurements/x_m", 0, "", offsetof(B_ctrl_TAPM_T, x_m) +
-    (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 83, "ctrl_tapm/Pos measurements/y_m", 0, "", offsetof(B_ctrl_TAPM_T, y_m) +
-    (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 84, "ctrl_tapm/Pos measurements/psi_m", 0, "", offsetof(B_ctrl_TAPM_T, psi_m)
-    + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
-
-  { 85,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Gain3/(1, 1)",
-    0, "", offsetof(B_ctrl_TAPM_T, Gain3) + (0*sizeof(real_T)), BLOCKIO_SIG, 26,
-    1, 2, 0, 0 },
-
-  { 86,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Gain3/(2, 1)",
-    0, "", offsetof(B_ctrl_TAPM_T, Gain3) + (1*sizeof(real_T)), BLOCKIO_SIG, 26,
-    1, 2, 0, 0 },
-
-  { 87,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Gain3/(3, 1)",
-    0, "", offsetof(B_ctrl_TAPM_T, Gain3) + (2*sizeof(real_T)), BLOCKIO_SIG, 26,
-    1, 2, 0, 0 },
-
-  { 88,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum3/(1, 1)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum3) + (0*sizeof(real_T)), BLOCKIO_SIG, 22,
-    1, 2, 0, 0 },
-
-  { 89,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum3/(1, 2)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum3) + (1*sizeof(real_T)), BLOCKIO_SIG, 22,
-    1, 2, 0, 0 },
-
-  { 90,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum3/(1, 3)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum3) + (2*sizeof(real_T)), BLOCKIO_SIG, 22,
-    1, 2, 0, 0 },
-
-  { 91, "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum5",
-    0, "psi_WF(1, 1)", offsetof(B_ctrl_TAPM_T, psi_WF) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 92, "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum5",
-    0, "psi_WF(2, 1)", offsetof(B_ctrl_TAPM_T, psi_WF) + (1*sizeof(real_T)),
-    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+  { 74, "ctrl_tapm/Nonlinear Passisve Observer/Integrator/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator) + (0*sizeof(real_T)), BLOCKIO_SIG, 22, 1,
+    2, 0, 0 },
 
-  { 93, "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum5",
-    0, "psi_WF(3, 1)", offsetof(B_ctrl_TAPM_T, psi_WF) + (2*sizeof(real_T)),
-    BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+  { 75, "ctrl_tapm/Nonlinear Passisve Observer/Integrator/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator) + (1*sizeof(real_T)), BLOCKIO_SIG, 22, 1,
+    2, 0, 0 },
 
-  { 94,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum6/(1, 1)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum6) + (0*sizeof(real_T)), BLOCKIO_SIG, 26,
+  { 76, "ctrl_tapm/Nonlinear Passisve Observer/Integrator/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator) + (2*sizeof(real_T)), BLOCKIO_SIG, 22, 1,
+    2, 0, 0 },
+
+  { 77, "ctrl_tapm/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Sum", 0,
+    "", offsetof(B_ctrl_TAPM_T, Sum) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
+    0, 0 },
+
+  { 78, "ctrl_tapm/Nonlinear Passisve Observer/Integrator2/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator2) + (0*sizeof(real_T)), BLOCKIO_SIG, 22,
     1, 2, 0, 0 },
 
-  { 95,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum6/(2, 1)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum6) + (1*sizeof(real_T)), BLOCKIO_SIG, 26,
+  { 79, "ctrl_tapm/Nonlinear Passisve Observer/Integrator2/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator2) + (1*sizeof(real_T)), BLOCKIO_SIG, 22,
     1, 2, 0, 0 },
 
-  { 96,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum6/(3, 1)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum6) + (2*sizeof(real_T)), BLOCKIO_SIG, 26,
+  { 80, "ctrl_tapm/Nonlinear Passisve Observer/Integrator2/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Integrator2) + (2*sizeof(real_T)), BLOCKIO_SIG, 22,
     1, 2, 0, 0 },
 
-  { 97,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum7/(1, 1)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum7) + (0*sizeof(real_T)), BLOCKIO_SIG, 22,
-    1, 2, 0, 0 },
+  { 81, "ctrl_tapm/Nonlinear Passisve Observer/M^-1/(1, 1)", 0, "", offsetof
+    (B_ctrl_TAPM_T, M1) + (0*sizeof(real_T)), BLOCKIO_SIG, 22, 1, 2, 0, 0 },
 
-  { 98,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum7/(1, 2)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum7) + (1*sizeof(real_T)), BLOCKIO_SIG, 22,
-    1, 2, 0, 0 },
+  { 82, "ctrl_tapm/Nonlinear Passisve Observer/M^-1/(1, 2)", 0, "", offsetof
+    (B_ctrl_TAPM_T, M1) + (1*sizeof(real_T)), BLOCKIO_SIG, 22, 1, 2, 0, 0 },
 
-  { 99,
-    "ctrl_tapm/TAPM Controller w_observer/Non-linear passive observer /Sum7/(1, 3)",
-    0, "", offsetof(B_ctrl_TAPM_T, Sum7) + (2*sizeof(real_T)), BLOCKIO_SIG, 22,
-    1, 2, 0, 0 },
+  { 83, "ctrl_tapm/Nonlinear Passisve Observer/M^-1/(1, 3)", 0, "", offsetof
+    (B_ctrl_TAPM_T, M1) + (2*sizeof(real_T)), BLOCKIO_SIG, 22, 1, 2, 0, 0 },
 
-  { 100, "ctrl_tapm/TAPM Controller w_observer/PID/Integrator", 0, "", offsetof
-    (B_ctrl_TAPM_T, Integrator) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0
-  },
+  { 84, "ctrl_tapm/Radians to Degrees/Gain/(1, 1)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Gain) + (0*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 101, "ctrl_tapm/TAPM Controller w_observer/SP Generator/Sum", 0, "",
-    offsetof(B_ctrl_TAPM_T, Sum) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
-    0 },
+  { 85, "ctrl_tapm/Radians to Degrees/Gain/(1, 2)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Gain) + (1*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 102, "ctrl_tapm/TAPM Controller w_observer/SP Generator/Sum1/(1, 1)", 0, "",
-    offsetof(B_ctrl_TAPM_T, Sum1) + (0*sizeof(real_T)), BLOCKIO_SIG, 25, 1, 2, 0,
-    0 },
+  { 86, "ctrl_tapm/Radians to Degrees/Gain/(1, 3)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Gain) + (2*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 103, "ctrl_tapm/TAPM Controller w_observer/SP Generator/Sum1/(1, 2)", 0, "",
-    offsetof(B_ctrl_TAPM_T, Sum1) + (1*sizeof(real_T)), BLOCKIO_SIG, 25, 1, 2, 0,
-    0 },
+  { 87, "ctrl_tapm/Radians to Degrees/Gain/(1, 4)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Gain) + (3*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 104, "ctrl_tapm/Thruster control /Delay/(1, 1)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Delay_n) + (0*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 88, "ctrl_tapm/Radians to Degrees/Gain/(1, 5)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Gain) + (4*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 105, "ctrl_tapm/Thruster control /Delay/(1, 2)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Delay_n) + (1*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 89, "ctrl_tapm/Radians to Degrees/Gain/(1, 6)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Gain) + (5*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
 
-  { 106, "ctrl_tapm/Thruster control /Delay/(1, 3)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Delay_n) + (2*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 90, "ctrl_tapm/Guidance/Reference model/Matrix Multiply/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, MatrixMultiply) + (0*sizeof(real_T)), BLOCKIO_SIG,
+    22, 1, 2, 0, 0 },
 
-  { 107, "ctrl_tapm/Thruster control /Delay/(1, 4)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Delay_n) + (3*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 91, "ctrl_tapm/Guidance/Reference model/Matrix Multiply/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, MatrixMultiply) + (1*sizeof(real_T)), BLOCKIO_SIG,
+    22, 1, 2, 0, 0 },
 
-  { 108, "ctrl_tapm/Thruster control /Delay/(1, 5)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Delay_n) + (4*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 92, "ctrl_tapm/Guidance/Reference model/Matrix Multiply/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, MatrixMultiply) + (2*sizeof(real_T)), BLOCKIO_SIG,
+    22, 1, 2, 0, 0 },
 
-  { 109, "ctrl_tapm/Thruster control /Delay/(1, 6)", 0, "", offsetof
-    (B_ctrl_TAPM_T, Delay_n) + (5*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+  { 93, "ctrl_tapm/Guidance/Reference model/Sum5", 0, "(1, 1)", offsetof
+    (B_ctrl_TAPM_T, Sum5) + (0*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
 
-  { 110, "ctrl_tapm/Thruster control /Thruster 1/Delay", 0, "", offsetof
+  { 94, "ctrl_tapm/Guidance/Reference model/Sum5", 0, "(2, 1)", offsetof
+    (B_ctrl_TAPM_T, Sum5) + (1*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+
+  { 95, "ctrl_tapm/Guidance/Reference model/Sum5", 0, "(3, 1)", offsetof
+    (B_ctrl_TAPM_T, Sum5) + (2*sizeof(real_T)), BLOCKIO_SIG, 21, 1, 2, 0, 0 },
+
+  { 96, "ctrl_tapm/Nonlinear Passisve Observer/Matrix Multiply1/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, MatrixMultiply1) + (0*sizeof(real_T)), BLOCKIO_SIG,
+    22, 1, 2, 0, 0 },
+
+  { 97, "ctrl_tapm/Nonlinear Passisve Observer/Matrix Multiply1/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, MatrixMultiply1) + (1*sizeof(real_T)), BLOCKIO_SIG,
+    22, 1, 2, 0, 0 },
+
+  { 98, "ctrl_tapm/Nonlinear Passisve Observer/Matrix Multiply1/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, MatrixMultiply1) + (2*sizeof(real_T)), BLOCKIO_SIG,
+    22, 1, 2, 0, 0 },
+
+  { 99, "ctrl_tapm/Nonlinear Passisve Observer/Sum1/(1, 1)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Sum1) + (0*sizeof(real_T)), BLOCKIO_SIG, 22, 1, 2, 0, 0 },
+
+  { 100, "ctrl_tapm/Nonlinear Passisve Observer/Sum1/(1, 2)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Sum1) + (1*sizeof(real_T)), BLOCKIO_SIG, 22, 1, 2, 0, 0 },
+
+  { 101, "ctrl_tapm/Nonlinear Passisve Observer/Sum1/(1, 3)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Sum1) + (2*sizeof(real_T)), BLOCKIO_SIG, 22, 1, 2, 0, 0 },
+
+  { 102, "ctrl_tapm/Pos measurements/X_oqus", 0, "", offsetof(B_ctrl_TAPM_T,
+    X_oqus) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 103, "ctrl_tapm/Pos measurements/Y_oqus", 0, "", offsetof(B_ctrl_TAPM_T,
+    Y_oqus) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 104, "ctrl_tapm/Pos measurements/Z_oqus", 0, "", offsetof(B_ctrl_TAPM_T,
+    Z_oqus) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 105, "ctrl_tapm/Pos measurements/roll_oqus", 0, "", offsetof(B_ctrl_TAPM_T,
+    roll_oqus) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 106, "ctrl_tapm/Pos measurements/pitch_oqus", 0, "", offsetof(B_ctrl_TAPM_T,
+    pitch_oqus) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 107, "ctrl_tapm/Pos measurements/yaw_oqus", 0, "", offsetof(B_ctrl_TAPM_T,
+    yaw_oqus) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 108, "ctrl_tapm/Thruster control /Delay/(1, 1)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Delay) + (0*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+
+  { 109, "ctrl_tapm/Thruster control /Delay/(1, 2)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Delay) + (1*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+
+  { 110, "ctrl_tapm/Thruster control /Delay/(1, 3)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Delay) + (2*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+
+  { 111, "ctrl_tapm/Thruster control /Delay/(1, 4)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Delay) + (3*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+
+  { 112, "ctrl_tapm/Thruster control /Delay/(1, 5)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Delay) + (4*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+
+  { 113, "ctrl_tapm/Thruster control /Delay/(1, 6)", 0, "", offsetof
+    (B_ctrl_TAPM_T, Delay) + (5*sizeof(real_T)), BLOCKIO_SIG, 26, 1, 2, 0, 0 },
+
+  { 114, "ctrl_tapm/Thruster control /Thruster 1/Delay", 0, "", offsetof
     (B_ctrl_TAPM_T, Delay_e) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 111, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Delay", 0, "",
+  { 115, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Delay", 0, "",
     offsetof(B_ctrl_TAPM_T, Delay_a) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 112,
+  { 116,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Discrete Transfer Fcn",
     0, "", offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 113,
+  { 117,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Discrete Derivative/TSamp",
     0, "", offsetof(B_ctrl_TAPM_T, TSamp) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 114,
+  { 118,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Inertia compensation",
     0, "", offsetof(B_ctrl_TAPM_T, Inertiacompensation) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 115, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Sum1", 0, "",
+  { 119, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Sum1", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum1_n) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 116, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Memory", 0, "",
+  { 120, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Memory", 0, "",
     offsetof(B_ctrl_TAPM_T, Memory) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 117,
+  { 121,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Kp",
     0, "", offsetof(B_ctrl_TAPM_T, Kp) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 118,
+  { 122,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/reset",
     0, "", offsetof(B_ctrl_TAPM_T, reset_kk) + (0*sizeof(real_T)), BLOCKIO_SIG,
     0, 1, 2, 0, 0 },
 
-  { 119, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Sum", 0, "",
+  { 123, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Sum", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum_k) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 120, "ctrl_tapm/Thruster control /Thruster 1/Discrete Transfer Fcn", 0, "",
+  { 124, "ctrl_tapm/Thruster control /Thruster 1/Discrete Transfer Fcn", 0, "",
     offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_d) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 121,
+  { 125,
     "ctrl_tapm/Thruster control /Thruster 1/Shaft dynamics/Finding rotation speed",
     0, "", offsetof(B_ctrl_TAPM_T, Findingrotationspeed) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 122,
+  { 126,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Ki",
     0, "", offsetof(B_ctrl_TAPM_T, Ki) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 123, "ctrl_tapm/Thruster control /Thruster 2/Delay", 0, "", offsetof
+  { 127, "ctrl_tapm/Thruster control /Thruster 2/Delay", 0, "", offsetof
     (B_ctrl_TAPM_T, Delay_b) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 124, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Delay", 0, "",
+  { 128, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Delay", 0, "",
     offsetof(B_ctrl_TAPM_T, Delay_bs) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 125,
+  { 129,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Discrete Transfer Fcn",
     0, "", offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_e) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 126,
+  { 130,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Discrete Derivative/TSamp",
     0, "", offsetof(B_ctrl_TAPM_T, TSamp_n) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 127,
+  { 131,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Inertia compensation",
     0, "", offsetof(B_ctrl_TAPM_T, Inertiacompensation_e) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 128, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Sum1", 0, "",
+  { 132, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Sum1", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum1_nn) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 129, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Memory", 0, "",
+  { 133, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Memory", 0, "",
     offsetof(B_ctrl_TAPM_T, Memory_c) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 130,
+  { 134,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Kp",
     0, "", offsetof(B_ctrl_TAPM_T, Kp_p) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 131,
+  { 135,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/reset",
     0, "", offsetof(B_ctrl_TAPM_T, reset_e) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 132, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Sum", 0, "",
+  { 136, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Sum", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum_h) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 133, "ctrl_tapm/Thruster control /Thruster 2/Discrete Transfer Fcn", 0, "",
+  { 137, "ctrl_tapm/Thruster control /Thruster 2/Discrete Transfer Fcn", 0, "",
     offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_k) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 134,
+  { 138,
     "ctrl_tapm/Thruster control /Thruster 2/Shaft dynamics/Finding rotation speed",
     0, "", offsetof(B_ctrl_TAPM_T, Findingrotationspeed_a) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 135,
+  { 139,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Ki",
     0, "", offsetof(B_ctrl_TAPM_T, Ki_o) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 136, "ctrl_tapm/Thruster control /Thruster 3/Delay", 0, "", offsetof
+  { 140, "ctrl_tapm/Thruster control /Thruster 3/Delay", 0, "", offsetof
     (B_ctrl_TAPM_T, Delay_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 137, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Delay", 0, "",
+  { 141, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Delay", 0, "",
     offsetof(B_ctrl_TAPM_T, Delay_by) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 138,
+  { 142,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Discrete Transfer Fcn",
     0, "", offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_f) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 139,
+  { 143,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Discrete Derivative/TSamp",
     0, "", offsetof(B_ctrl_TAPM_T, TSamp_k) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 140,
+  { 144,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Inertia compensation",
     0, "", offsetof(B_ctrl_TAPM_T, Inertiacompensation_c) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 141, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Sum1", 0, "",
+  { 145, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Sum1", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum1_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 142, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Memory", 0, "",
+  { 146, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Memory", 0, "",
     offsetof(B_ctrl_TAPM_T, Memory_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 143,
+  { 147,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Kp",
     0, "", offsetof(B_ctrl_TAPM_T, Kp_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 144,
+  { 148,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/reset",
     0, "", offsetof(B_ctrl_TAPM_T, reset_j2) + (0*sizeof(real_T)), BLOCKIO_SIG,
     0, 1, 2, 0, 0 },
 
-  { 145, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Sum", 0, "",
+  { 149, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Sum", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum_hf) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 146, "ctrl_tapm/Thruster control /Thruster 3/Discrete Transfer Fcn", 0, "",
+  { 150, "ctrl_tapm/Thruster control /Thruster 3/Discrete Transfer Fcn", 0, "",
     offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_n) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 147,
+  { 151,
     "ctrl_tapm/Thruster control /Thruster 3/Shaft dynamics/Finding rotation speed",
     0, "", offsetof(B_ctrl_TAPM_T, Findingrotationspeed_m) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 148,
+  { 152,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Ki",
     0, "", offsetof(B_ctrl_TAPM_T, Ki_n) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 149, "ctrl_tapm/Thruster control /Thruster 4/Delay", 0, "", offsetof
+  { 153, "ctrl_tapm/Thruster control /Thruster 4/Delay", 0, "", offsetof
     (B_ctrl_TAPM_T, Delay_g) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 150, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Delay", 0, "",
+  { 154, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Delay", 0, "",
     offsetof(B_ctrl_TAPM_T, Delay_l) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 151,
+  { 155,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Discrete Transfer Fcn",
     0, "", offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_l) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 152,
+  { 156,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Discrete Derivative/TSamp",
     0, "", offsetof(B_ctrl_TAPM_T, TSamp_a) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 153,
+  { 157,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Inertia compensation",
     0, "", offsetof(B_ctrl_TAPM_T, Inertiacompensation_k) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 154, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Sum1", 0, "",
+  { 158, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Sum1", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum1_b) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 155, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Memory", 0, "",
+  { 159, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Memory", 0, "",
     offsetof(B_ctrl_TAPM_T, Memory_j) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 156,
+  { 160,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Kp",
     0, "", offsetof(B_ctrl_TAPM_T, Kp_c) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 157,
+  { 161,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/reset",
     0, "", offsetof(B_ctrl_TAPM_T, reset_n) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 158, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Sum", 0, "",
+  { 162, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Sum", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum_k2) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 159, "ctrl_tapm/Thruster control /Thruster 4/Discrete Transfer Fcn", 0, "",
+  { 163, "ctrl_tapm/Thruster control /Thruster 4/Discrete Transfer Fcn", 0, "",
     offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_b) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 160,
+  { 164,
     "ctrl_tapm/Thruster control /Thruster 4/Shaft dynamics/Finding rotation speed",
     0, "", offsetof(B_ctrl_TAPM_T, Findingrotationspeed_ms) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 161,
+  { 165,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Ki",
     0, "", offsetof(B_ctrl_TAPM_T, Ki_b) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 162, "ctrl_tapm/Thruster control /Thruster 5/Delay", 0, "", offsetof
+  { 166, "ctrl_tapm/Thruster control /Thruster 5/Delay", 0, "", offsetof
     (B_ctrl_TAPM_T, Delay_a5) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 163, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Delay", 0, "",
+  { 167, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Delay", 0, "",
     offsetof(B_ctrl_TAPM_T, Delay_id) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 164,
+  { 168,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Discrete Transfer Fcn",
     0, "", offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_o) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 165,
+  { 169,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Discrete Derivative/TSamp",
     0, "", offsetof(B_ctrl_TAPM_T, TSamp_m) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 166,
+  { 170,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Inertia compensation",
     0, "", offsetof(B_ctrl_TAPM_T, Inertiacompensation_f) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 167, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Sum1", 0, "",
+  { 171, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Sum1", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum1_o) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 168, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Memory", 0, "",
+  { 172, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Memory", 0, "",
     offsetof(B_ctrl_TAPM_T, Memory_d) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 169,
+  { 173,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Kp",
     0, "", offsetof(B_ctrl_TAPM_T, Kp_j) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 170,
+  { 174,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/reset",
     0, "", offsetof(B_ctrl_TAPM_T, reset_f) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 171, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Sum", 0, "",
+  { 175, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Sum", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 172, "ctrl_tapm/Thruster control /Thruster 5/Discrete Transfer Fcn", 0, "",
+  { 176, "ctrl_tapm/Thruster control /Thruster 5/Discrete Transfer Fcn", 0, "",
     offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_lz) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 173,
+  { 177,
     "ctrl_tapm/Thruster control /Thruster 5/Shaft dynamics/Finding rotation speed",
     0, "", offsetof(B_ctrl_TAPM_T, Findingrotationspeed_ag) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 174,
+  { 178,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Ki",
     0, "", offsetof(B_ctrl_TAPM_T, Ki_a) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 175, "ctrl_tapm/Thruster control /Thruster 6/Delay", 0, "", offsetof
+  { 179, "ctrl_tapm/Thruster control /Thruster 6/Delay", 0, "", offsetof
     (B_ctrl_TAPM_T, Delay_h) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 176, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Delay", 0, "",
+  { 180, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Delay", 0, "",
     offsetof(B_ctrl_TAPM_T, Delay_il) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 177,
+  { 181,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Discrete Transfer Fcn",
     0, "", offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_j) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 178,
+  { 182,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Discrete Derivative/TSamp",
     0, "", offsetof(B_ctrl_TAPM_T, TSamp_o) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 179,
+  { 183,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Inertia compensation",
     0, "", offsetof(B_ctrl_TAPM_T, Inertiacompensation_e3) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 180, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Sum1", 0, "",
+  { 184, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Sum1", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum1_io) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 181, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Memory", 0, "",
+  { 185, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Memory", 0, "",
     offsetof(B_ctrl_TAPM_T, Memory_o) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 182,
+  { 186,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Kp",
     0, "", offsetof(B_ctrl_TAPM_T, Kp_l) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 183,
+  { 187,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/reset",
     0, "", offsetof(B_ctrl_TAPM_T, reset_om) + (0*sizeof(real_T)), BLOCKIO_SIG,
     0, 1, 2, 0, 0 },
 
-  { 184, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Sum", 0, "",
+  { 188, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Sum", 0, "",
     offsetof(B_ctrl_TAPM_T, Sum_f) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0,
     0 },
 
-  { 185, "ctrl_tapm/Thruster control /Thruster 6/Discrete Transfer Fcn", 0, "",
+  { 189, "ctrl_tapm/Thruster control /Thruster 6/Discrete Transfer Fcn", 0, "",
     offsetof(B_ctrl_TAPM_T, DiscreteTransferFcn_ea) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 186,
+  { 190,
     "ctrl_tapm/Thruster control /Thruster 6/Shaft dynamics/Finding rotation speed",
     0, "", offsetof(B_ctrl_TAPM_T, Findingrotationspeed_c) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 187,
+  { 191,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Ki",
     0, "", offsetof(B_ctrl_TAPM_T, Ki_p) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 188,
+  { 192, "ctrl_tapm/IMU/IMU_AX1", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AX1) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 193, "ctrl_tapm/IMU/IMU_AY1", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AY1) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 194, "ctrl_tapm/IMU/IMU_AZ1", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AZ1) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 195, "ctrl_tapm/IMU/IMU_RX1", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RX1) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 196, "ctrl_tapm/IMU/IMU_RY1", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RY1) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 197, "ctrl_tapm/IMU/IMU_RZ1", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RZ1) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 198, "ctrl_tapm/IMU/IMU_V1", 0, "", offsetof(B_ctrl_TAPM_T, IMU_V1) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 199, "ctrl_tapm/IMU/IMU_AX2", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AX2) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 200, "ctrl_tapm/IMU/IMU_AY2", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AY2) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 201, "ctrl_tapm/IMU/IMU_AZ2", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AZ2) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 202, "ctrl_tapm/IMU/IMU_RX2", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RX2) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 203, "ctrl_tapm/IMU/IMU_RY2", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RY2) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 204, "ctrl_tapm/IMU/IMU_RZ2", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RZ2) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 205, "ctrl_tapm/IMU/IMU_V2", 0, "", offsetof(B_ctrl_TAPM_T, IMU_V2) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 206, "ctrl_tapm/IMU/IMU_AX3", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AX3) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 207, "ctrl_tapm/IMU/IMU_AY3", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AY3) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 208, "ctrl_tapm/IMU/IMU_AZ3", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AZ3) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 209, "ctrl_tapm/IMU/IMU_RX3", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RX3) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 210, "ctrl_tapm/IMU/IMU_RY3", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RY3) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 211, "ctrl_tapm/IMU/IMU_RZ3", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RZ3) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 212, "ctrl_tapm/IMU/IMU_V3", 0, "", offsetof(B_ctrl_TAPM_T, IMU_V3) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 213, "ctrl_tapm/IMU/IMU_AX4", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AX4) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 214, "ctrl_tapm/IMU/IMU_AY4", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AY4) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 215, "ctrl_tapm/IMU/IMU_AZ4", 0, "", offsetof(B_ctrl_TAPM_T, IMU_AZ4) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 216, "ctrl_tapm/IMU/IMU_RX4", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RX4) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 217, "ctrl_tapm/IMU/IMU_RY4", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RY4) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 218, "ctrl_tapm/IMU/IMU_RZ4", 0, "", offsetof(B_ctrl_TAPM_T, IMU_RZ4) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 219, "ctrl_tapm/IMU/IMU_V4", 0, "", offsetof(B_ctrl_TAPM_T, IMU_V4) + (0*
+    sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+
+  { 220,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/MATLAB Function", 0,
     "", offsetof(B_ctrl_TAPM_T, n_d) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
     0, 0 },
 
-  { 189,
+  { 221,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/MATLAB Function", 0,
-    "", offsetof(B_ctrl_TAPM_T, n_d_j) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
+    "", offsetof(B_ctrl_TAPM_T, n_d_p) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 190,
+  { 222,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/MATLAB Function", 0,
-    "", offsetof(B_ctrl_TAPM_T, n_d_b) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
+    "", offsetof(B_ctrl_TAPM_T, n_d_h) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 191,
+  { 223,
     "ctrl_tapm/Thruster control /Thruster 1/Propeller Hydrodynamics/Actual Force and Torque",
     1, "", offsetof(B_ctrl_TAPM_T, Qa) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 192,
+  { 224,
     "ctrl_tapm/Thruster control /Thruster 1/Propeller Hydrodynamics/Actual Force and Torque",
     2, "", offsetof(B_ctrl_TAPM_T, Pa) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1,
     2, 0, 0 },
 
-  { 193,
+  { 225,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function1",
     0, "", offsetof(B_ctrl_TAPM_T, Tc_out) + (0*sizeof(real_T)), BLOCKIO_SIG, 0,
     1, 2, 0, 0 },
 
-  { 194,
+  { 226,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 1)", offsetof(B_ctrl_TAPM_T, output) + (0*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 195,
+  { 227,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 2)", offsetof(B_ctrl_TAPM_T, output) + (1*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 196,
+  { 228,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 3)", offsetof(B_ctrl_TAPM_T, output) + (2*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 197,
+  { 229,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 4)", offsetof(B_ctrl_TAPM_T, output) + (3*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 198,
+  { 230,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 5)", offsetof(B_ctrl_TAPM_T, output) + (4*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 199,
+  { 231,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 6)", offsetof(B_ctrl_TAPM_T, output) + (5*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 200,
+  { 232,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 7)", offsetof(B_ctrl_TAPM_T, output) + (6*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 201,
+  { 233,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 8)", offsetof(B_ctrl_TAPM_T, output) + (7*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 202,
+  { 234,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 9)", offsetof(B_ctrl_TAPM_T, output) + (8*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 203,
+  { 235,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 10)", offsetof(B_ctrl_TAPM_T, output) + (9*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 204,
+  { 236,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 11)", offsetof(B_ctrl_TAPM_T, output) + (10*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 205,
+  { 237,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function",
     0, "(1, 12)", offsetof(B_ctrl_TAPM_T, output) + (11*sizeof(real_T)),
-    BLOCKIO_SIG, 28, 1, 2, 0, 0 },
+    BLOCKIO_SIG, 29, 1, 2, 0, 0 },
 
-  { 206, "ctrl_tapm/TAPM Controller w_observer/PID/MATLAB Function", 0, "",
-    offsetof(B_ctrl_TAPM_T, reset_n0) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2,
+  { 238, "ctrl_tapm/IMU/Filtering/In1/(1, 1)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (0*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 239, "ctrl_tapm/IMU/Filtering/In1/(1, 2)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (1*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 240, "ctrl_tapm/IMU/Filtering/In1/(1, 3)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (2*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 241, "ctrl_tapm/IMU/Filtering/In1/(1, 4)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (3*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 242, "ctrl_tapm/IMU/Filtering/In1/(1, 5)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (4*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 243, "ctrl_tapm/IMU/Filtering/In1/(1, 6)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (5*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 244, "ctrl_tapm/IMU/Filtering/In1/(1, 7)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (6*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 245, "ctrl_tapm/IMU/Filtering/In1/(1, 8)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (7*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 246, "ctrl_tapm/IMU/Filtering/In1/(1, 9)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (8*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 247, "ctrl_tapm/IMU/Filtering/In1/(1, 10)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (9*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 248, "ctrl_tapm/IMU/Filtering/In1/(1, 11)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (10*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 249, "ctrl_tapm/IMU/Filtering/In1/(1, 12)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (11*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 250, "ctrl_tapm/IMU/Filtering/In1/(1, 13)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (12*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 251, "ctrl_tapm/IMU/Filtering/In1/(1, 14)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (13*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 252, "ctrl_tapm/IMU/Filtering/In1/(1, 15)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (14*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 253, "ctrl_tapm/IMU/Filtering/In1/(1, 16)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (15*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 254, "ctrl_tapm/IMU/Filtering/In1/(1, 17)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (16*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 255, "ctrl_tapm/IMU/Filtering/In1/(1, 18)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (17*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 256, "ctrl_tapm/IMU/Filtering/In1/(1, 19)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (18*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 257, "ctrl_tapm/IMU/Filtering/In1/(1, 20)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (19*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 258, "ctrl_tapm/IMU/Filtering/In1/(1, 21)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (20*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 259, "ctrl_tapm/IMU/Filtering/In1/(1, 22)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (21*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 260, "ctrl_tapm/IMU/Filtering/In1/(1, 23)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (22*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 261, "ctrl_tapm/IMU/Filtering/In1/(1, 24)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (23*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 262, "ctrl_tapm/IMU/Filtering/In1/(1, 25)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (24*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 263, "ctrl_tapm/IMU/Filtering/In1/(1, 26)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (25*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 264, "ctrl_tapm/IMU/Filtering/In1/(1, 27)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (26*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 265, "ctrl_tapm/IMU/Filtering/In1/(1, 28)", 0, "", offsetof(B_ctrl_TAPM_T,
+    In1) + (27*sizeof(real_T)), BLOCKIO_SIG, 27, 1, 2, 0, 0 },
+
+  { 266, "ctrl_tapm/IMU/Filtering/Outliner cleaner/Merge1/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1) + (0*sizeof(real_T)), BLOCKIO_SIG, 39, 1, 2,
     0, 0 },
 
-  { 207, "ctrl_tapm/TAPM Controller w_observer/PID/MATLAB Function", 1, "",
-    offsetof(B_ctrl_TAPM_T, y) + (0*sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0
-  },
+  { 267, "ctrl_tapm/IMU/Filtering/Outliner cleaner/Merge1/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1) + (1*sizeof(real_T)), BLOCKIO_SIG, 39, 1, 2,
+    0, 0 },
 
-  { 208, "ctrl_tapm/Finding commanded forces in: [Surge,Sway,Yaw]", 0, "(1, 1)",
+  { 268, "ctrl_tapm/IMU/Filtering/Outliner cleaner/Merge1/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1) + (2*sizeof(real_T)), BLOCKIO_SIG, 39, 1, 2,
+    0, 0 },
+
+  { 269, "ctrl_tapm/IMU/Filtering/Outliner cleaner/Merge1/(1, 4)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1) + (3*sizeof(real_T)), BLOCKIO_SIG, 39, 1, 2,
+    0, 0 },
+
+  { 270, "ctrl_tapm/IMU/Filtering/Outliner cleaner/Merge1/(1, 5)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1) + (4*sizeof(real_T)), BLOCKIO_SIG, 39, 1, 2,
+    0, 0 },
+
+  { 271, "ctrl_tapm/IMU/Filtering/Outliner cleaner1/Merge1/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_e) + (0*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 272, "ctrl_tapm/IMU/Filtering/Outliner cleaner1/Merge1/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_e) + (1*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 273, "ctrl_tapm/IMU/Filtering/Outliner cleaner1/Merge1/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_e) + (2*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 274, "ctrl_tapm/IMU/Filtering/Outliner cleaner1/Merge1/(1, 4)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_e) + (3*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 275, "ctrl_tapm/IMU/Filtering/Outliner cleaner1/Merge1/(1, 5)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_e) + (4*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 276, "ctrl_tapm/IMU/Filtering/Outliner cleaner2/Merge1/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_k) + (0*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 277, "ctrl_tapm/IMU/Filtering/Outliner cleaner2/Merge1/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_k) + (1*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 278, "ctrl_tapm/IMU/Filtering/Outliner cleaner2/Merge1/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_k) + (2*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 279, "ctrl_tapm/IMU/Filtering/Outliner cleaner2/Merge1/(1, 4)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_k) + (3*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 280, "ctrl_tapm/IMU/Filtering/Outliner cleaner2/Merge1/(1, 5)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_k) + (4*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 281, "ctrl_tapm/IMU/Filtering/Outliner cleaner3/Merge1/(1, 1)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_h) + (0*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 282, "ctrl_tapm/IMU/Filtering/Outliner cleaner3/Merge1/(1, 2)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_h) + (1*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 283, "ctrl_tapm/IMU/Filtering/Outliner cleaner3/Merge1/(1, 3)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_h) + (2*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 284, "ctrl_tapm/IMU/Filtering/Outliner cleaner3/Merge1/(1, 4)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_h) + (3*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 285, "ctrl_tapm/IMU/Filtering/Outliner cleaner3/Merge1/(1, 5)", 0, "",
+    offsetof(B_ctrl_TAPM_T, Merge1_h) + (4*sizeof(real_T)), BLOCKIO_SIG, 39, 1,
+    2, 0, 0 },
+
+  { 286, "ctrl_tapm/Finding commanded forces in: [Surge,Sway,Yaw]", 0, "(1, 1)",
     offsetof(B_ctrl_TAPM_T, commanded_tau) + (0*sizeof(real_T)), BLOCKIO_SIG, 22,
     1, 2, 0, 0 },
 
-  { 209, "ctrl_tapm/Finding commanded forces in: [Surge,Sway,Yaw]", 0, "(1, 2)",
+  { 287, "ctrl_tapm/Finding commanded forces in: [Surge,Sway,Yaw]", 0, "(1, 2)",
     offsetof(B_ctrl_TAPM_T, commanded_tau) + (1*sizeof(real_T)), BLOCKIO_SIG, 22,
     1, 2, 0, 0 },
 
-  { 210, "ctrl_tapm/Finding commanded forces in: [Surge,Sway,Yaw]", 0, "(1, 3)",
+  { 288, "ctrl_tapm/Finding commanded forces in: [Surge,Sway,Yaw]", 0, "(1, 3)",
     offsetof(B_ctrl_TAPM_T, commanded_tau) + (2*sizeof(real_T)), BLOCKIO_SIG, 22,
     1, 2, 0, 0 },
 
-  { 211, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Supervisor", 0,
+  { 289, "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Supervisor", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_Supervisor_e.u) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 212,
+  { 290,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     0, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePower_nf.Qcq) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 213,
+  { 291,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     1, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePower_nf.Qcp) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 214,
+  { 292,
     "ctrl_tapm/Thruster control /Thruster 6/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     2, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePower_nf.Qcc) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 215,
+  { 293,
     "ctrl_tapm/Thruster control /Thruster 6/Propeller Hydrodynamics/Actual Force and Torque",
     0, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_j.Ta) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 216,
+  { 294,
     "ctrl_tapm/Thruster control /Thruster 6/Propeller Hydrodynamics/Actual Force and Torque",
     1, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_j.Qa) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 217, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Supervisor", 0,
+  { 295, "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Supervisor", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_Supervisor_b.u) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 218,
+  { 296,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/MATLAB Function", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction_j.n_d) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 219,
+  { 297,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/MATLAB Function", 1,
     "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction_j.T_r) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 220,
+  { 298,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     0, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_h.Qcq) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 221,
+  { 299,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     1, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_h.Qcp) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 222,
+  { 300,
     "ctrl_tapm/Thruster control /Thruster 5/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     2, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_h.Qcc) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 223,
+  { 301,
     "ctrl_tapm/Thruster control /Thruster 5/Propeller Hydrodynamics/Actual Force and Torque",
     0, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_o.Ta) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 224,
+  { 302,
     "ctrl_tapm/Thruster control /Thruster 5/Propeller Hydrodynamics/Actual Force and Torque",
     1, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_o.Qa) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 225, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Supervisor", 0,
+  { 303, "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Supervisor", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_Supervisor_n.u) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 226,
+  { 304,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/MATLAB Function", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction_go.n_d) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 227,
+  { 305,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/MATLAB Function", 1,
     "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction_go.T_r) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 228,
+  { 306,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     0, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePower_n3.Qcq) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 229,
+  { 307,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     1, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePower_n3.Qcp) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 230,
+  { 308,
     "ctrl_tapm/Thruster control /Thruster 4/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     2, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePower_n3.Qcc) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 231,
+  { 309,
     "ctrl_tapm/Thruster control /Thruster 4/Propeller Hydrodynamics/Actual Force and Torque",
     0, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_m.Ta) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 232,
+  { 310,
     "ctrl_tapm/Thruster control /Thruster 4/Propeller Hydrodynamics/Actual Force and Torque",
     1, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_m.Qa) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 233, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Supervisor", 0,
+  { 311, "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Supervisor", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_Supervisor_l.u) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 234,
+  { 312,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     0, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_n.Qcq) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 235,
+  { 313,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     1, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_n.Qcp) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 236,
+  { 314,
     "ctrl_tapm/Thruster control /Thruster 3/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     2, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_n.Qcc) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 237,
+  { 315,
     "ctrl_tapm/Thruster control /Thruster 3/Propeller Hydrodynamics/Actual Force and Torque",
     0, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_h.Ta) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 238,
+  { 316,
     "ctrl_tapm/Thruster control /Thruster 3/Propeller Hydrodynamics/Actual Force and Torque",
     1, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_h.Qa) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 239, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Supervisor", 0,
+  { 317, "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Supervisor", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_Supervisor_h.u) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 240,
+  { 318,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/MATLAB Function", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction_i.n_d) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 241,
+  { 319,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/MATLAB Function", 1,
     "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction_i.T_r) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 242,
+  { 320,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     0, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_o.Qcq) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 243,
+  { 321,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     1, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_o.Qcp) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 244,
+  { 322,
     "ctrl_tapm/Thruster control /Thruster 2/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     2, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowera_o.Qcc) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 245,
+  { 323,
     "ctrl_tapm/Thruster control /Thruster 2/Propeller Hydrodynamics/Actual Force and Torque",
     0, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_f.Ta) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 246,
+  { 324,
     "ctrl_tapm/Thruster control /Thruster 2/Propeller Hydrodynamics/Actual Force and Torque",
     1, "", offsetof(B_ctrl_TAPM_T, sf_ActualForceandTorque_f.Qa) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 247, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Supervisor", 0,
+  { 325, "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Supervisor", 0,
     "", offsetof(B_ctrl_TAPM_T, sf_Supervisor.u) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 248,
+  { 326,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     0, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowerand.Qcq) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 249,
+  { 327,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     1, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowerand.Qcp) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 250,
+  { 328,
     "ctrl_tapm/Thruster control /Thruster 1/Thruster control/Core controller/Core controller: Torque,Power and Combined Torque//Power",
     2, "", offsetof(B_ctrl_TAPM_T, sf_CorecontrollerTorquePowerand.Qcc) + (0*
     sizeof(real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 251,
+  { 329,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function6",
-    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction6_k.Tc_out) + (0*sizeof
-    (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction6.Tc_out) + (0*sizeof(real_T)),
+    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 252,
+  { 330,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function5",
-    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction5_h.Tc_out) + (0*sizeof
-    (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction5.Tc_out) + (0*sizeof(real_T)),
+    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 253,
+  { 331,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function4",
-    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction4_b.Tc_out) + (0*sizeof
-    (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction4.Tc_out) + (0*sizeof(real_T)),
+    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 254,
+  { 332,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function3",
-    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction3_p.Tc_out) + (0*sizeof
-    (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction3.Tc_out) + (0*sizeof(real_T)),
+    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 255,
+  { 333,
     "ctrl_tapm/Thruster control /Thrust and Shaft speed mapped to PWM/MATLAB Function2",
-    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction2_i.Tc_out) + (0*sizeof
-    (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+    0, "", offsetof(B_ctrl_TAPM_T, sf_MATLABFunction2.Tc_out) + (0*sizeof(real_T)),
+    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 256,
+  { 334,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Discrete-Time Integrator",
     0, "angle", offsetof(B_ctrl_TAPM_T, CoreSubsys[5].angle) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 257,
+  { 335,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Delay",
     0, "", offsetof(B_ctrl_TAPM_T, CoreSubsys[5].Delay) + (0*sizeof(real_T)),
     BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 258,
+  { 336,
     "ctrl_tapm/Thrust allocation/Optimal angle path and  constraints on rotation speed/Max Rotation Rate",
     0, "", offsetof(B_ctrl_TAPM_T, CoreSubsys[5].MaxRotationRate) + (0*sizeof
     (real_T)), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 259, "ctrl_tapm/Input/MATLAB Function6", 0, "(1, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (0*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 337, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(1, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (0*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 260, "ctrl_tapm/Input/MATLAB Function6", 0, "(2, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (1*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 338, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(2, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (1*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 261, "ctrl_tapm/Input/MATLAB Function6", 0, "(3, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (2*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 339, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(3, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (2*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 262, "ctrl_tapm/Input/MATLAB Function6", 0, "(1, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (3*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 340, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(1, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (3*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 263, "ctrl_tapm/Input/MATLAB Function6", 0, "(2, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (4*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 341, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(2, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (4*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 264, "ctrl_tapm/Input/MATLAB Function6", 0, "(3, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (5*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 342, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(3, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (5*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 265, "ctrl_tapm/Input/MATLAB Function6", 0, "(1, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (6*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 343, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(1, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (6*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 266, "ctrl_tapm/Input/MATLAB Function6", 0, "(2, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (7*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 344, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(2, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (7*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 267, "ctrl_tapm/Input/MATLAB Function6", 0, "(3, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction6.K_d) + (8*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 345, "ctrl_tapm/Input1/Observer Gains/Kp", 0, "(3, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp_m.K_p) + (8*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 268, "ctrl_tapm/Input/MATLAB Function5", 0, "(1, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 346, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(1, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 269, "ctrl_tapm/Input/MATLAB Function5", 0, "(2, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (1*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 347, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(2, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (1*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 270, "ctrl_tapm/Input/MATLAB Function5", 0, "(3, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (2*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 348, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(3, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (2*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 271, "ctrl_tapm/Input/MATLAB Function5", 0, "(1, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (3*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 349, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(1, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (3*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 272, "ctrl_tapm/Input/MATLAB Function5", 0, "(2, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (4*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 350, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(2, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (4*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 273, "ctrl_tapm/Input/MATLAB Function5", 0, "(3, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (5*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 351, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(3, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (5*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 274, "ctrl_tapm/Input/MATLAB Function5", 0, "(1, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (6*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 352, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(1, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (6*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 275, "ctrl_tapm/Input/MATLAB Function5", 0, "(2, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (7*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 353, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(2, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (7*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 276, "ctrl_tapm/Input/MATLAB Function5", 0, "(3, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction5.K_i) + (8*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 354, "ctrl_tapm/Input1/Observer Gains/Ki", 0, "(3, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki_k.K_i) + (8*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 277, "ctrl_tapm/Input/MATLAB Function4", 0, "(1, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (0*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 355, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(1, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (0*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 278, "ctrl_tapm/Input/MATLAB Function4", 0, "(2, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (1*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 356, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(2, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (1*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 279, "ctrl_tapm/Input/MATLAB Function4", 0, "(3, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (2*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 357, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(3, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (2*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 280, "ctrl_tapm/Input/MATLAB Function4", 0, "(1, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (3*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 358, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(1, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (3*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 281, "ctrl_tapm/Input/MATLAB Function4", 0, "(2, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (4*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 359, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(2, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (4*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 282, "ctrl_tapm/Input/MATLAB Function4", 0, "(3, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (5*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 360, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(3, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (5*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 283, "ctrl_tapm/Input/MATLAB Function4", 0, "(1, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (6*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 361, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(1, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (6*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 284, "ctrl_tapm/Input/MATLAB Function4", 0, "(2, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (7*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 362, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(2, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (7*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 285, "ctrl_tapm/Input/MATLAB Function4", 0, "(3, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction4.K_p) + (8*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 363, "ctrl_tapm/Input1/Observer Gains/Kd", 0, "(3, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd_p.K_d) + (8*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0,
+    0 },
 
-  { 286, "ctrl_tapm/Input/MATLAB Function2", 0, "(1, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (0*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 364, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(1, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (0*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 287, "ctrl_tapm/Input/MATLAB Function2", 0, "(2, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (1*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 365, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(2, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (1*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 288, "ctrl_tapm/Input/MATLAB Function2", 0, "(3, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (2*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 366, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(3, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (2*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 289, "ctrl_tapm/Input/MATLAB Function2", 0, "(1, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (3*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 367, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(1, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (3*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 290, "ctrl_tapm/Input/MATLAB Function2", 0, "(2, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (4*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 368, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(2, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (4*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 291, "ctrl_tapm/Input/MATLAB Function2", 0, "(3, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (5*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 369, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(3, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (5*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 292, "ctrl_tapm/Input/MATLAB Function2", 0, "(1, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (6*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 370, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(1, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (6*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 293, "ctrl_tapm/Input/MATLAB Function2", 0, "(2, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (7*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 371, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(2, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (7*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 294, "ctrl_tapm/Input/MATLAB Function2", 0, "(3, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction2.K_d) + (8*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 372, "ctrl_tapm/Input1/Control Gains/Kp", 0, "(3, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kp.K_p) + (8*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 295, "ctrl_tapm/Input/MATLAB Function1", 0, "(1, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 373, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(1, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (0*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 296, "ctrl_tapm/Input/MATLAB Function1", 0, "(2, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (1*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 374, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(2, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (1*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 297, "ctrl_tapm/Input/MATLAB Function1", 0, "(3, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (2*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 375, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(3, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (2*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 298, "ctrl_tapm/Input/MATLAB Function1", 0, "(1, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (3*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 376, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(1, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (3*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 299, "ctrl_tapm/Input/MATLAB Function1", 0, "(2, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (4*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 377, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(2, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (4*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 300, "ctrl_tapm/Input/MATLAB Function1", 0, "(3, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (5*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 378, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(3, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (5*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 301, "ctrl_tapm/Input/MATLAB Function1", 0, "(1, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (6*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 379, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(1, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (6*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 302, "ctrl_tapm/Input/MATLAB Function1", 0, "(2, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (7*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 380, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(2, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (7*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 303, "ctrl_tapm/Input/MATLAB Function1", 0, "(3, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction1.K_i) + (8*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 381, "ctrl_tapm/Input1/Control Gains/Ki", 0, "(3, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Ki.K_i) + (8*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 304, "ctrl_tapm/Input/MATLAB Function", 0, "(1, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (0*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 382, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(1, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (0*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 305, "ctrl_tapm/Input/MATLAB Function", 0, "(2, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (1*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 383, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(2, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (1*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 306, "ctrl_tapm/Input/MATLAB Function", 0, "(3, 1)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (2*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 384, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(3, 1)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (2*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 307, "ctrl_tapm/Input/MATLAB Function", 0, "(1, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (3*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 385, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(1, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (3*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 308, "ctrl_tapm/Input/MATLAB Function", 0, "(2, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (4*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 386, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(2, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (4*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 309, "ctrl_tapm/Input/MATLAB Function", 0, "(3, 2)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (5*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 387, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(3, 2)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (5*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 310, "ctrl_tapm/Input/MATLAB Function", 0, "(1, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (6*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 388, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(1, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (6*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 311, "ctrl_tapm/Input/MATLAB Function", 0, "(2, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (7*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 389, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(2, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (7*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
-  { 312, "ctrl_tapm/Input/MATLAB Function", 0, "(3, 3)", offsetof(B_ctrl_TAPM_T,
-    sf_MATLABFunction_f.K_p) + (8*sizeof(real_T)), BLOCKIO_SIG, 24, 1, 2, 0, 0 },
+  { 390, "ctrl_tapm/Input1/Control Gains/Kd", 0, "(3, 3)", offsetof
+    (B_ctrl_TAPM_T, sf_Kd.K_d) + (8*sizeof(real_T)), BLOCKIO_SIG, 23, 1, 2, 0, 0
+  },
 
   { -1, "", -1, "", 0, 0, 0 }
 };
 
-static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 313;
+static int32_t NI_SigListSize DataSection(".NIVS.siglistsize") = 391;
 static int32_t NI_VirtualBlockSources[1];
 static int32_t NI_SigDimList[] DataSection(".NIVS.sigdimlist") =
 { 1, 1
 };
 
-static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 78;
+static int32_t NI_ExtListSize DataSection(".NIVS.extlistsize") = 116;
 static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 {
-  { 1, "Input/wave_dir", 0, EXT_IN, 1, 1, 1 },
+  { 1, "Input1/Control Gains/K_p_x", 0, EXT_IN, 1, 1, 1 },
 
-  { 2, "Input/fzp_x", 0, EXT_IN, 1, 1, 1 },
+  { 2, "Input1/Control Gains/K_p_y", 0, EXT_IN, 1, 1, 1 },
 
-  { 3, "Input/fzp_y", 0, EXT_IN, 1, 1, 1 },
+  { 3, "Input1/Control Gains/K_p_psi", 0, EXT_IN, 1, 1, 1 },
 
-  { 4, "Input/r_max", 0, EXT_IN, 1, 1, 1 },
+  { 4, "Input1/Control Gains/K_i_psi", 0, EXT_IN, 1, 1, 1 },
 
-  { 5, "Input/Core_controller", 0, EXT_IN, 1, 1, 1 },
+  { 5, "Input1/Control Gains/K_i_x", 0, EXT_IN, 1, 1, 1 },
 
-  { 6, "Input/K_i_y", 0, EXT_IN, 1, 1, 1 },
+  { 6, "Input1/Control Gains/K_i_y", 0, EXT_IN, 1, 1, 1 },
 
-  { 7, "Input/K_d_psi", 0, EXT_IN, 1, 1, 1 },
+  { 7, "Input1/Control Gains/K_d_psi", 0, EXT_IN, 1, 1, 1 },
 
-  { 8, "Input/K_d_x", 0, EXT_IN, 1, 1, 1 },
+  { 8, "Input1/Control Gains/K_d_x", 0, EXT_IN, 1, 1, 1 },
 
-  { 9, "Input/K_d_y", 0, EXT_IN, 1, 1, 1 },
+  { 9, "Input1/Control Gains/K_d_y", 0, EXT_IN, 1, 1, 1 },
 
-  { 10, "Input/K_i_psi", 0, EXT_IN, 1, 1, 1 },
+  { 10, "Pos measurements/x_m", 0, EXT_IN, 1, 1, 1 },
 
-  { 11, "Input/K_i_x", 0, EXT_IN, 1, 1, 1 },
+  { 11, "Pos measurements/y_m", 0, EXT_IN, 1, 1, 1 },
 
-  { 12, "Input/K_p_psi", 0, EXT_IN, 1, 1, 1 },
+  { 12, "Pos measurements/psi_m", 0, EXT_IN, 1, 1, 1 },
 
-  { 13, "Input/K_p_x", 0, EXT_IN, 1, 1, 1 },
+  { 13, "Input1/reset", 0, EXT_IN, 1, 1, 1 },
 
-  { 14, "Input/K_p_y", 0, EXT_IN, 1, 1, 1 },
+  { 14, "Input1/Guidance gains/w_d_x", 0, EXT_IN, 1, 1, 1 },
 
-  { 15, "Input/K_d_psi1", 0, EXT_IN, 1, 1, 1 },
+  { 15, "Input1/Guidance gains/w_d_y", 0, EXT_IN, 1, 1, 1 },
 
-  { 16, "Input/K_d_x1", 0, EXT_IN, 1, 1, 1 },
+  { 16, "Input1/Guidance gains/w_d_psi", 0, EXT_IN, 1, 1, 1 },
 
-  { 17, "Input/K_d_y1", 0, EXT_IN, 1, 1, 1 },
+  { 17, "Input1/Guidance gains/zeta_psi", 0, EXT_IN, 1, 1, 1 },
 
-  { 18, "Input/K_i_psi1", 0, EXT_IN, 1, 1, 1 },
+  { 18, "Input1/Guidance gains/zeta_x", 0, EXT_IN, 1, 1, 1 },
 
-  { 19, "Input/K_i_x1", 0, EXT_IN, 1, 1, 1 },
+  { 19, "Input1/Guidance gains/zeta_y", 0, EXT_IN, 1, 1, 1 },
 
-  { 20, "Input/K_i_y1", 0, EXT_IN, 1, 1, 1 },
+  { 20, "Input1/psi_ref", 0, EXT_IN, 1, 1, 1 },
 
-  { 21, "Input/K_p_psi1", 0, EXT_IN, 1, 1, 1 },
+  { 21, "Input1/x_ref", 0, EXT_IN, 1, 1, 1 },
 
-  { 22, "Input/K_p_x1", 0, EXT_IN, 1, 1, 1 },
+  { 22, "Input1/y_ref", 0, EXT_IN, 1, 1, 1 },
 
-  { 23, "Input/K_p_y1", 0, EXT_IN, 1, 1, 1 },
+  { 23, "Thruster measurment/thr_angle_1", 0, EXT_IN, 1, 1, 1 },
 
-  { 24, "Thruster measurment/thr_angle_1", 0, EXT_IN, 1, 1, 1 },
+  { 24, "Thruster measurment/thr_angle_2", 0, EXT_IN, 1, 1, 1 },
 
-  { 25, "Thruster measurment/thr_angle_2", 0, EXT_IN, 1, 1, 1 },
+  { 25, "Thruster measurment/thr_angle_3", 0, EXT_IN, 1, 1, 1 },
 
-  { 26, "Thruster measurment/thr_angle_3", 0, EXT_IN, 1, 1, 1 },
+  { 26, "Thruster measurment/thr_angle_4", 0, EXT_IN, 1, 1, 1 },
 
-  { 27, "Thruster measurment/thr_angle_4", 0, EXT_IN, 1, 1, 1 },
+  { 27, "Thruster measurment/thr_angle_5", 0, EXT_IN, 1, 1, 1 },
 
-  { 28, "Thruster measurment/thr_angle_5", 0, EXT_IN, 1, 1, 1 },
+  { 28, "Thruster measurment/thr_angle_6", 0, EXT_IN, 1, 1, 1 },
 
-  { 29, "Thruster measurment/thr_angle_6", 0, EXT_IN, 1, 1, 1 },
+  { 29, "Thrust allocation/reset", 1, EXT_IN, 6, 6, 1 },
 
-  { 30, "Thrust allocation/reset", 1, EXT_IN, 6, 6, 1 },
+  { 30, "Thrust allocation/Angle_controller", 0, EXT_IN, 1, 1, 1 },
 
-  { 31, "Thrust allocation/Angle_controller", 0, EXT_IN, 1, 1, 1 },
-
-  { 32, "Thruster control /Thruster 1/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
+  { 31, "Thruster control /Thruster 1/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
   },
 
-  { 33, "Thruster control /Thruster 2/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
+  { 32, "Thruster control /Thruster 2/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
   },
 
-  { 34, "Thruster control /Thruster 3/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
+  { 33, "Thruster control /Thruster 3/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
   },
 
-  { 35, "Thruster control /Thruster 4/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
+  { 34, "Thruster control /Thruster 4/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
   },
 
-  { 36, "Thruster control /Thruster 5/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
+  { 35, "Thruster control /Thruster 5/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
   },
 
-  { 37, "Thruster control /Thruster 6/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
+  { 36, "Thruster control /Thruster 6/Shaft dynamics/reset", 0, EXT_IN, 1, 1, 1
   },
 
-  { 38, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm1 ", 0,
+  { 37, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm1 ", 0,
     EXT_IN, 1, 1, 1 },
 
-  { 39, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm2", 0, EXT_IN,
+  { 38, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm2", 0, EXT_IN,
     1, 1, 1 },
 
-  { 40, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm3", 0, EXT_IN,
+  { 39, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm3", 0, EXT_IN,
     1, 1, 1 },
 
-  { 41, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm4", 0, EXT_IN,
+  { 40, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm4", 0, EXT_IN,
     1, 1, 1 },
 
-  { 42, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm5", 0, EXT_IN,
+  { 41, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm5", 0, EXT_IN,
     1, 1, 1 },
 
-  { 43, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm6", 0, EXT_IN,
+  { 42, "Thruster control /Thrust and Shaft speed mapped to PWM/rpm6", 0, EXT_IN,
     1, 1, 1 },
 
-  { 44, "Pos measurements/x_m", 0, EXT_IN, 1, 1, 1 },
+  { 43, "Pos measurements/X_oqus", 1, EXT_IN, 1, 1, 1 },
 
-  { 45, "Pos measurements/y_m", 0, EXT_IN, 1, 1, 1 },
+  { 44, "Pos measurements/Y_oqus", 1, EXT_IN, 1, 1, 1 },
 
-  { 46, "Pos measurements/psi_m", 0, EXT_IN, 1, 1, 1 },
+  { 45, "Pos measurements/Z_oqus", 1, EXT_IN, 1, 1, 1 },
 
-  { 47, "Thruster control /Thruster 1/Thruster control/Core controller/reset", 0,
+  { 46, "Pos measurements/roll_oqus", 1, EXT_IN, 1, 1, 1 },
+
+  { 47, "Pos measurements/pitch_oqus", 1, EXT_IN, 1, 1, 1 },
+
+  { 48, "Pos measurements/yaw_oqus", 1, EXT_IN, 1, 1, 1 },
+
+  { 49, "Thruster control /Thruster 1/Thruster control/Core controller/reset", 0,
     EXT_IN, 1, 1, 1 },
 
-  { 48, "Thruster control /Thruster 2/Thruster control/Core controller/reset", 0,
+  { 50, "Thruster control /Thruster 2/Thruster control/Core controller/reset", 0,
     EXT_IN, 1, 1, 1 },
 
-  { 49, "Thruster control /Thruster 3/Thruster control/Core controller/reset", 0,
+  { 51, "Thruster control /Thruster 3/Thruster control/Core controller/reset", 0,
     EXT_IN, 1, 1, 1 },
 
-  { 50, "Thruster control /Thruster 4/Thruster control/Core controller/reset", 0,
+  { 52, "Thruster control /Thruster 4/Thruster control/Core controller/reset", 0,
     EXT_IN, 1, 1, 1 },
 
-  { 51, "Thruster control /Thruster 5/Thruster control/Core controller/reset", 0,
+  { 53, "Thruster control /Thruster 5/Thruster control/Core controller/reset", 0,
     EXT_IN, 1, 1, 1 },
 
-  { 52, "Thruster control /Thruster 6/Thruster control/Core controller/reset", 0,
+  { 54, "Thruster control /Thruster 6/Thruster control/Core controller/reset", 0,
     EXT_IN, 1, 1, 1 },
+
+  { 55, "IMU/IMU_AX1", 1, EXT_IN, 1, 1, 1 },
+
+  { 56, "IMU/IMU_AY1", 1, EXT_IN, 1, 1, 1 },
+
+  { 57, "IMU/IMU_AZ1", 1, EXT_IN, 1, 1, 1 },
+
+  { 58, "IMU/IMU_RX1", 1, EXT_IN, 1, 1, 1 },
+
+  { 59, "IMU/IMU_RY1", 1, EXT_IN, 1, 1, 1 },
+
+  { 60, "IMU/IMU_RZ1", 1, EXT_IN, 1, 1, 1 },
+
+  { 61, "IMU/IMU_V1", 1, EXT_IN, 1, 1, 1 },
+
+  { 62, "IMU/IMU_AX2", 1, EXT_IN, 1, 1, 1 },
+
+  { 63, "IMU/IMU_AY2", 1, EXT_IN, 1, 1, 1 },
+
+  { 64, "IMU/IMU_AZ2", 1, EXT_IN, 1, 1, 1 },
+
+  { 65, "IMU/IMU_RX2", 1, EXT_IN, 1, 1, 1 },
+
+  { 66, "IMU/IMU_RY2", 1, EXT_IN, 1, 1, 1 },
+
+  { 67, "IMU/IMU_RZ2", 1, EXT_IN, 1, 1, 1 },
+
+  { 68, "IMU/IMU_V2", 1, EXT_IN, 1, 1, 1 },
+
+  { 69, "IMU/IMU_AX3", 1, EXT_IN, 1, 1, 1 },
+
+  { 70, "IMU/IMU_AY3", 1, EXT_IN, 1, 1, 1 },
+
+  { 71, "IMU/IMU_AZ3", 1, EXT_IN, 1, 1, 1 },
+
+  { 72, "IMU/IMU_RX3", 1, EXT_IN, 1, 1, 1 },
+
+  { 73, "IMU/IMU_RY3", 1, EXT_IN, 1, 1, 1 },
+
+  { 74, "IMU/IMU_RZ3", 1, EXT_IN, 1, 1, 1 },
+
+  { 75, "IMU/IMU_V3", 1, EXT_IN, 1, 1, 1 },
+
+  { 76, "IMU/IMU_AX4", 1, EXT_IN, 1, 1, 1 },
+
+  { 77, "IMU/IMU_AY4", 1, EXT_IN, 1, 1, 1 },
+
+  { 78, "IMU/IMU_AZ4", 1, EXT_IN, 1, 1, 1 },
+
+  { 79, "IMU/IMU_RX4", 1, EXT_IN, 1, 1, 1 },
+
+  { 80, "IMU/IMU_RY4", 1, EXT_IN, 1, 1, 1 },
+
+  { 81, "IMU/IMU_RZ4", 1, EXT_IN, 1, 1, 1 },
+
+  { 82, "IMU/IMU_V4", 1, EXT_IN, 1, 1, 1 },
 
   { 1, "alpha_1", 1, EXT_OUT, 1, 1, 1 },
 
@@ -11751,21 +15640,37 @@ static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 
   { 18, "pwm_1", 0, EXT_OUT, 1, 1, 1 },
 
-  { 19, "tau_actual", 0, EXT_OUT, 3, 3, 1 },
+  { 19, "Observer output /eta_hat output/x_hat", 0, EXT_OUT, 1, 1, 1 },
 
-  { 20, "TAPM Controller w_observer/eta_est", 0, EXT_OUT, 3, 3, 1 },
+  { 20, "Observer output /eta_hat output/y_hat", 0, EXT_OUT, 1, 1, 1 },
 
-  { 21, "TAPM Controller w_observer/nu_est", 0, EXT_OUT, 3, 3, 1 },
+  { 21, "Observer output /eta_hat output/psi_hat", 0, EXT_OUT, 1, 1, 1 },
 
-  { 22, "TAPM Controller w_observer/SP", 0, EXT_OUT, 3, 3, 1 },
+  { 22, "Observer output /nu_hat output/u_hat", 0, EXT_OUT, 1, 1, 1 },
 
-  { 23, "TAPM Controller w_observer/tau_des", 0, EXT_OUT, 3, 3, 1 },
+  { 23, "Observer output /nu_hat output/v_hat", 0, EXT_OUT, 1, 1, 1 },
 
-  { 24, "TAPM Controller w_observer/PID/controller", 0, EXT_OUT, 1, 1, 1 },
+  { 24, "Observer output /nu_hat output/r_hat", 0, EXT_OUT, 1, 1, 1 },
 
-  { 25, "TAPM Controller w_observer/PID/timer", 1, EXT_OUT, 1, 1, 1 },
+  { 25, "Observer output /nu_dot_hat output/u_dot_hat", 0, EXT_OUT, 1, 1, 1 },
 
-  { 26, "Thruster control /Thruster 1/Propeller Hydrodynamics/Control_test_Pa",
+  { 26, "Observer output /nu_dot_hat output/v_dot_hat", 0, EXT_OUT, 1, 1, 1 },
+
+  { 27, "Observer output /nu_dot_hat output/r_dot_hat", 0, EXT_OUT, 1, 1, 1 },
+
+  { 28, "Observer output /b_hat output/b_x_hat", 0, EXT_OUT, 1, 1, 1 },
+
+  { 29, "Observer output /b_hat output/b_y_hat", 0, EXT_OUT, 1, 1, 1 },
+
+  { 30, "Observer output /b_hat output/b_psi_hat", 0, EXT_OUT, 1, 1, 1 },
+
+  { 31, "tau_actual", 0, EXT_OUT, 3, 3, 1 },
+
+  { 32, "Control/DP Controller/eta_tilde", 0, EXT_OUT, 3, 3, 1 },
+
+  { 33, "Guidance/eta_des", 0, EXT_OUT, 3, 3, 1 },
+
+  { 34, "Thruster control /Thruster 1/Propeller Hydrodynamics/Control_test_Pa",
     0, EXT_OUT, 1, 1, 1 },
 
   { -1, "", 0, 0, 0, 0, 0 }
@@ -11784,8 +15689,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "ctrl_TAPM";
-static const char* NI_CompiledModelVersion = "1.145";
-static const char* NI_CompiledModelDateTime = "Fri Jul 08 20:12:54 2016";
+static const char* NI_CompiledModelVersion = "1.190";
+static const char* NI_CompiledModelDateTime = "Thu Apr 20 19:54:33 2017";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -12591,8 +16496,8 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
   if ((numContStates != NULL) && (numDiscStates != NULL) && (numClockTicks !=
        NULL)) {
     if (*numContStates < 0 || *numDiscStates < 0 || *numClockTicks < 0) {
-      *numContStates = 37;
-      *numDiscStates = 966.0;
+      *numContStates = 33;
+      *numDiscStates = 2290.0;
       *numClockTicks = NUMST - TID01EQ;
       return NI_OK;
     }
@@ -12600,6 +16505,15 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
   if ((contStates != NULL) && (contStatesNames != NULL)) {
     idx = 0;
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE),
+      0, 0, 0);
+    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE),
+      1, 0, 0);
+    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE),
+      2, 0, 0);
+    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE");
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE");
@@ -12609,51 +16523,33 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE),
       2, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_l),
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE_g),
       0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_l");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_l),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE_g");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE_g),
       1, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_l");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.TransferFcn2_CSTATE),
-      0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "TransferFcn2_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_g),
-      0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_g");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_g),
-      1, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_g");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_g),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE_g");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE_g),
       2, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_g");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator4_CSTATE),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE_g");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE),
       0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator4_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator4_CSTATE),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator3_CSTATE");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE),
       1, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator4_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator4_CSTATE),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator3_CSTATE");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE),
       2, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator4_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_k),
-      0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_k");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_k),
-      1, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_k");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_k),
-      2, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_k");
+    strcpy(contStatesNames + (idx++ * 100), "Integrator3_CSTATE");
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_c),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_c");
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_p),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_p");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_km),
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_k),
       0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_km");
+    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_k");
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_n),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_n");
@@ -12663,15 +16559,15 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_h),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_h");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE),
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_a),
       0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_a");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_a),
       1, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_a");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_a),
       2, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator1_CSTATE");
+    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_a");
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator2_CSTATE");
@@ -12681,30 +16577,27 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE),
       2, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator2_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE),
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE_c),
       0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator3_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator2_CSTATE_c");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE_c),
       1, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator3_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE),
+    strcpy(contStatesNames + (idx++ * 100), "Integrator2_CSTATE_c");
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE_c),
       2, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator3_CSTATE");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_d),
-      0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_d");
+    strcpy(contStatesNames + (idx++ * 100), "Integrator2_CSTATE_c");
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_e),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_e");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_gg),
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_g),
       0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_gg");
+    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_g");
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_i),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_i");
-    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_le),
+    contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_l),
       0, 0, 0);
-    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_le");
+    strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_l");
     contStates[idx] = NIRT_GetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_n4),
       0, 0, 0);
     strcpy(contStatesNames + (idx++ * 100), "Integrator_CSTATE_n4");
@@ -12715,13 +16608,10 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
 
   if ((discStates != NULL) && (discStatesNames != NULL)) {
     idx = 0;
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE");
     for (count = 0; count < 6; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_i,
-        count, 21, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_i");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE,
+        count, 26, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE");
     }
 
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_f, 0, 0,
@@ -12731,11 +16621,11 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_fu");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states, 0, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states, 0, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states, 1, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states, 1, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE, 0, 0, 0);
@@ -12751,11 +16641,11 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_d");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_h, 0, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_h, 0, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_h");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_h, 1, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_h, 1, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_h");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_n, 0, 0, 0);
@@ -12771,11 +16661,11 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_no");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_j, 0, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_j, 0, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_j");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_j, 1, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_j, 1, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_j");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_i, 0, 0, 0);
@@ -12787,15 +16677,15 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_e, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_e");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_id, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_id");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_i, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_i");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_i, 0, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_i, 0, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_i");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_i, 1, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_i, 1, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_i");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_n4, 0, 0,
@@ -12812,11 +16702,11 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_a");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_hb, 0, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_hb, 0, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_hb");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_hb, 1, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_hb, 1, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_hb");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_m, 0, 0, 0);
@@ -12832,11 +16722,11 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_m");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_l, 0, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_l, 0, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_l");
     discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_l, 1, 25, 0);
+      (&ctrl_TAPM_DW.DiscreteTransferFcn_states_l, 1, 44, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_l");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_l, 0, 0, 0);
@@ -12845,22 +16735,69 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       (&ctrl_TAPM_DW.DiscreteTransferFcn_states_o, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_states_o");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.wave_dir_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.wave_dir_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.fzp_x_DWORK1, 0, 0,
+    for (count = 0; count < 144; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_fv,
+        count, 31, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_fv");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay1_DSTATE,
+        count, 29, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay1_DSTATE");
+    }
+
+    for (count = 0; count < 144; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_mc,
+        count, 31, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_mc");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay1_DSTATE_f,
+        count, 29, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay1_DSTATE_f");
+    }
+
+    for (count = 0; count < 144; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_dd,
+        count, 31, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_dd");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay1_DSTATE_j,
+        count, 29, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay1_DSTATE_j");
+    }
+
+    for (count = 0; count < 144; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_fg,
+        count, 31, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay_DSTATE_fg");
+    }
+
+    for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Delay1_DSTATE_i,
+        count, 29, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Delay1_DSTATE_i");
+    }
+
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_x_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.fzp_x_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.fzp_y_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_x_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_y_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.fzp_y_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.r_max_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_y_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_psi_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.r_max_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_TAPM_DW.Core_controller_DWORK1, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_TAPM_DW.Core_controller_DWORK1");
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_psi_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_psi_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_psi_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_x_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_x_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_y_DWORK1, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_y_DWORK1");
@@ -12873,48 +16810,43 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_y_DWORK1, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_y_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_psi_DWORK1, 0, 0,
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.x_m_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.x_m_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.y_m_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.y_m_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.psi_m_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_psi_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_x_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.psi_m_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_x_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_psi_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.w_d_x_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_psi_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_x_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.w_d_x_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.w_d_y_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_x_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_y_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.w_d_y_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.w_d_psi_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_y_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_psi1_DWORK1, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.w_d_psi_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.zeta_psi_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_psi1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_x1_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.zeta_psi_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.zeta_x_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_x1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_y1_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.zeta_x_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.zeta_y_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_y1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_psi1_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_psi1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_x1_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.zeta_y_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.psi_ref_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_x1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_y1_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.psi_ref_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.x_ref_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_y1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_psi1_DWORK1, 0,
-      0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_psi1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_x1_DWORK1, 0, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.x_ref_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.y_ref_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_x1_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_y1_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_y1_DWORK1");
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.y_ref_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.thr_angle_1_DWORK1,
       0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.thr_angle_1_DWORK1");
@@ -12934,9 +16866,9 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.thr_angle_6_DWORK1");
     for (count = 0; count < 6; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1,
-        count, 21, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK1");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1_l,
+        count, 26, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK1_l");
     }
 
     discStates[idx] = NIRT_GetValueByDataType
@@ -13021,6 +16953,42 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pwm_1_DWORK1, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pwm_1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.x_hat_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.x_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.y_hat_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.y_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.psi_hat_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.psi_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_hat_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.v_hat_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.v_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.r_hat_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.r_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_dot_hat_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_dot_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.v_dot_hat_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.v_dot_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.r_dot_hat_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.r_dot_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.b_x_hat_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.b_x_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.b_y_hat_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.b_y_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.b_psi_hat_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.b_psi_hat_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.tau_actual_DWORK1, 0,
       22, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.tau_actual_DWORK1");
@@ -13030,52 +16998,42 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.tau_actual_DWORK1, 2,
       22, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.tau_actual_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.x_m_DWORK1, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.x_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.y_m_DWORK1, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.y_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.psi_m_DWORK1, 0, 0,
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_tilde_DWORK1, 0,
+      22, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_tilde_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_tilde_DWORK1, 1,
+      22, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_tilde_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_tilde_DWORK1, 2,
+      22, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_tilde_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_des_DWORK1, 0,
+      22, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_des_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_des_DWORK1, 1,
+      22, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_des_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_des_DWORK1, 2,
+      22, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_des_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.X_oqus_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.psi_m_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_est_DWORK1, 0,
-      22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_est_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_est_DWORK1, 1,
-      22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_est_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_est_DWORK1, 2,
-      22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_est_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.nu_est_DWORK1, 0, 22,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.X_oqus_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Y_oqus_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.nu_est_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.nu_est_DWORK1, 1, 22,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Y_oqus_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Z_oqus_DWORK1, 0, 0,
       0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.nu_est_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.nu_est_DWORK1, 2, 22,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.nu_est_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.SP_DWORK1, 0, 22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.SP_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.SP_DWORK1, 1, 22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.SP_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.SP_DWORK1, 2, 22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.SP_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.tau_des_DWORK1, 0,
-      22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.tau_des_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.tau_des_DWORK1, 1,
-      22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.tau_des_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.tau_des_DWORK1, 2,
-      22, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.tau_des_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.controller_DWORK1, 0,
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Z_oqus_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.roll_oqus_DWORK1, 0,
       0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.controller_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.timer_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.timer_DWORK1");
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.roll_oqus_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pitch_oqus_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pitch_oqus_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.yaw_oqus_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.yaw_oqus_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
       (&ctrl_TAPM_DW.DiscreteTransferFcn_tmp, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
@@ -13106,9 +17064,9 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       (&ctrl_TAPM_DW.Memory_PreviousInput_n, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.Memory_PreviousInput_n");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1_l, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK1_l");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1_ln, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK1_ln");
     discStates[idx] = NIRT_GetValueByDataType
       (&ctrl_TAPM_DW.DiscreteTransferFcn_tmp_h, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
@@ -13181,479 +17139,1023 @@ DLL_EXPORT int32_t NIRT_GetSimState(int32_t* numContStates, char
       (&ctrl_TAPM_DW.DiscreteTransferFcn_tmp_cw, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_TAPM_DW.DiscreteTransferFcn_tmp_cw");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.controller, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.controller");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.tmp, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.tmp");
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.wave_dir_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.wave_dir_DWORK2");
-    }
-
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.fzp_x_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.fzp_x_DWORK2");
-    }
-
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.fzp_y_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.fzp_y_DWORK2");
-    }
-
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.r_max_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.r_max_DWORK2");
-    }
-
-    for (count = 0; count < 10; count++) {
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AX1_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AX1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AY1_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AY1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AZ1_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AZ1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RX1_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RX1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RY1_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RY1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RZ1_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RZ1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_V1_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_V1_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AX2_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AX2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AY2_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AY2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AZ2_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AZ2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RX2_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RX2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RY2_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RY2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RZ2_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RZ2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_V2_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_V2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AX3_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AX3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AY3_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AY3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AZ3_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AZ3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RX3_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RX3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RY3_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RY3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RZ3_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RZ3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_V3_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_V3_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AX4_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AX4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AY4_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AY4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AZ4_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AZ4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RX4_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RX4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RY4_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RY4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RZ4_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RZ4_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_V4_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_V4_DWORK1");
+    for (count = 0; count < 28; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&ctrl_TAPM_DW.Core_controller_DWORK2, count, 23, 0);
+        (&ctrl_TAPM_DW.Memory_PreviousInput_l, count, 27, 0);
       strcpy(discStatesNames + (idx++ * 100),
-             "&ctrl_TAPM_DW.Core_controller_DWORK2");
+             "&ctrl_TAPM_DW.Memory_PreviousInput_l");
     }
 
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_y_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_y_DWORK2");
+    for (count = 0; count < 36; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.MatrixMultiply_DWORK4, count, 36, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.MatrixMultiply_DWORK4");
     }
 
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_psi_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_psi_DWORK2");
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.Memory2_PreviousInput, count, 39, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.Memory2_PreviousInput");
     }
 
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_x_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_x_DWORK2");
+    for (count = 0; count < 7; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.Memory3_PreviousInput, count, 38, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.Memory3_PreviousInput");
     }
 
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_y_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_y_DWORK2");
+    for (count = 0; count < 36; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.MatrixMultiply_DWORK4_a, count, 36, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.MatrixMultiply_DWORK4_a");
     }
 
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_psi_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_psi_DWORK2");
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.Memory2_PreviousInput_d, count, 39, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.Memory2_PreviousInput_d");
     }
 
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_x_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_x_DWORK2");
+    for (count = 0; count < 7; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.Memory3_PreviousInput_p, count, 38, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.Memory3_PreviousInput_p");
     }
 
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_psi_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_psi_DWORK2");
+    for (count = 0; count < 36; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.MatrixMultiply_DWORK4_f, count, 36, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.MatrixMultiply_DWORK4_f");
     }
 
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.Memory2_PreviousInput_n, count, 39, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.Memory2_PreviousInput_n");
+    }
+
+    for (count = 0; count < 7; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.Memory3_PreviousInput_j, count, 38, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.Memory3_PreviousInput_j");
+    }
+
+    for (count = 0; count < 36; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.MatrixMultiply_DWORK4_e, count, 36, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.MatrixMultiply_DWORK4_e");
+    }
+
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.Memory2_PreviousInput_c, count, 39, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.Memory2_PreviousInput_c");
+    }
+
+    for (count = 0; count < 7; count++) {
+      discStates[idx] = NIRT_GetValueByDataType
+        (&ctrl_TAPM_DW.Memory3_PreviousInput_k, count, 38, 0);
+      strcpy(discStatesNames + (idx++ * 100),
+             "&ctrl_TAPM_DW.Memory3_PreviousInput_k");
+    }
+
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile_PWORK, 0, 11,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile_PWORK");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile_PWORK_a, 0,
+      11, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile_PWORK_a");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile1_PWORK, 0, 11,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile1_PWORK");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile2_PWORK, 0, 11,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile2_PWORK");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile3_PWORK, 0, 11,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile3_PWORK");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile4_PWORK, 0, 11,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile4_PWORK");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile5_PWORK, 0, 11,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile5_PWORK");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile6_PWORK, 0, 11,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile6_PWORK");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile7_PWORK, 0, 11,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile7_PWORK");
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Median_Index,
+        count, 40, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Median_Index");
+    }
+
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Median1_Index,
+        count, 40, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Median1_Index");
+    }
+
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Median_Index_f,
+        count, 40, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Median_Index_f");
+    }
+
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Median1_Index_p,
+        count, 40, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Median1_Index_p");
+    }
+
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Median_Index_j,
+        count, 40, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Median_Index_j");
+    }
+
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Median1_Index_j,
+        count, 40, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Median1_Index_j");
+    }
+
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Median_Index_d,
+        count, 40, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Median_Index_d");
+    }
+
+    for (count = 0; count < 5; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Median1_Index_d,
+        count, 40, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Median1_Index_d");
+    }
+
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.Integrator1_IWORK.IcNeedsLoading, 0, 10, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.Integrator1_IWORK.IcNeedsLoading");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.Integrator_IWORK.IcNeedsLoading, 0, 10, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.Integrator_IWORK.IcNeedsLoading");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile_IWORK.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile_IWORK.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile_IWORK.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile_IWORK.Decimation");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile_IWORK_e.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile_IWORK_e.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile_IWORK_e.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile_IWORK_e.Decimation");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile1_IWORK.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile1_IWORK.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile1_IWORK.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile1_IWORK.Decimation");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile2_IWORK.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile2_IWORK.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile2_IWORK.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile2_IWORK.Decimation");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile3_IWORK.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile3_IWORK.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile3_IWORK.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile3_IWORK.Decimation");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile4_IWORK.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile4_IWORK.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile4_IWORK.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile4_IWORK.Decimation");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile5_IWORK.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile5_IWORK.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile5_IWORK.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile5_IWORK.Decimation");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile6_IWORK.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile6_IWORK.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile6_IWORK.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile6_IWORK.Decimation");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.ToFile7_IWORK.Count,
+      0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.ToFile7_IWORK.Count");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_TAPM_DW.ToFile7_IWORK.Decimation, 0, 41, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_TAPM_DW.ToFile7_IWORK.Decimation");
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_x_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_x_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_y_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_y_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_psi1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_psi1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_psi_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_psi_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_x1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_x1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_psi_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_psi_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_y1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_y1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_x_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_x_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_psi1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_psi1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_y_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_y_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_x1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_x1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_psi_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_psi_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_i_y1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_i_y1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_x_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_x_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_psi1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_psi1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_d_y_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_d_y_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_x1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_x1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.x_m_DWORK2, count,
+        25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.x_m_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.K_p_y1_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.K_p_y1_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.y_m_DWORK2, count,
+        25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.y_m_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.psi_m_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.psi_m_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.w_d_x_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.w_d_x_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.w_d_y_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.w_d_y_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.w_d_psi_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.w_d_psi_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.zeta_psi_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.zeta_psi_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.zeta_x_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.zeta_x_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.zeta_y_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.zeta_y_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.psi_ref_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.psi_ref_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.x_ref_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.x_ref_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.y_ref_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.y_ref_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.thr_angle_1_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.thr_angle_1_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.thr_angle_2_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.thr_angle_2_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.thr_angle_3_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.thr_angle_3_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.thr_angle_4_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.thr_angle_4_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.thr_angle_5_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.thr_angle_5_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.thr_angle_6_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.thr_angle_6_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_m,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_m");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&ctrl_TAPM_DW.Angle_controller_DWORK2, count, 23, 0);
+        (&ctrl_TAPM_DW.Angle_controller_DWORK2, count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100),
              "&ctrl_TAPM_DW.Angle_controller_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.alpha_1_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.alpha_1_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_j,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_j");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_o,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_o");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_i,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_i");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_k,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_k");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_a,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_a");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_m,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_m");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_mm,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_mm");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.rpm1_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.rpm1_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.rpm2_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.rpm2_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.rpm3_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.rpm3_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.rpm4_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.rpm4_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.rpm5_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.rpm5_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.rpm6_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.rpm6_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pwm_2_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pwm_2_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pwm_3_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pwm_3_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pwm_4_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pwm_4_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pwm_5_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pwm_5_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.alpha_2_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.alpha_2_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pwm_6_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pwm_6_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.alpha_3_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.alpha_3_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.alpha_4_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.alpha_4_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.alpha_5_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.alpha_5_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.alpha_6_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.alpha_6_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_1_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_1_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_4_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_4_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_5_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_5_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_6_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_6_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_2_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_2_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_3_DWORK2, count,
-        23, 0);
+        25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_3_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pwm_1_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pwm_1_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.x_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.x_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.y_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.y_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.psi_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.psi_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.v_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.v_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.r_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.r_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.u_dot_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.u_dot_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.v_dot_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.v_dot_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.r_dot_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.r_dot_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.b_x_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.b_x_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.b_y_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.b_y_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.b_psi_hat_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.b_psi_hat_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.tau_actual_DWORK2,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.tau_actual_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.x_m_DWORK2, count,
-        23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.x_m_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_tilde_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_tilde_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.y_m_DWORK2, count,
-        23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.y_m_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_des_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_des_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.psi_m_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.psi_m_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.X_oqus_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.X_oqus_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.eta_est_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.eta_est_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Y_oqus_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Y_oqus_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.nu_est_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.nu_est_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.Z_oqus_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.Z_oqus_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.SP_DWORK2, count,
-        23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.SP_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.roll_oqus_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.roll_oqus_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.tau_des_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.tau_des_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.pitch_oqus_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.pitch_oqus_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.controller_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.controller_DWORK2");
-    }
-
-    for (count = 0; count < 10; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.timer_DWORK2,
-        count, 23, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.timer_DWORK2");
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.yaw_oqus_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.yaw_oqus_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_n,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_n");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType
-        (&ctrl_TAPM_DW.Control_test_Pa_DWORK2, count, 23, 0);
+        (&ctrl_TAPM_DW.Control_test_Pa_DWORK2, count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100),
              "&ctrl_TAPM_DW.Control_test_Pa_DWORK2");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_e,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_e");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_l,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_l");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_mb,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_mb");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_nu,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_nu");
     }
 
     for (count = 0; count < 10; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_f,
-        count, 23, 0);
+        count, 25, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.reset_DWORK2_f");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AX1_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AX1_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AY1_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AY1_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AZ1_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AZ1_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RX1_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RX1_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RY1_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RY1_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RZ1_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RZ1_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_V1_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_V1_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AX2_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AX2_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AY2_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AY2_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AZ2_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AZ2_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RX2_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RX2_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RY2_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RY2_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RZ2_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RZ2_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_V2_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_V2_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AX3_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AX3_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AY3_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AY3_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AZ3_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AZ3_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RX3_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RX3_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RY3_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RY3_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RZ3_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RZ3_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_V3_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_V3_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AX4_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AX4_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AY4_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AY4_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_AZ4_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_AZ4_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RX4_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RX4_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RY4_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RY4_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_RZ4_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_RZ4_DWORK2");
+    }
+
+    for (count = 0; count < 10; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_TAPM_DW.IMU_V4_DWORK2,
+        count, 25, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_TAPM_DW.IMU_V4_DWORK2");
     }
 
     for (ForEach_itr1 = 0; ForEach_itr1 < 6; ForEach_itr1++) {
@@ -13712,41 +18214,35 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
   int32_t ForEach_itr1;
   if (contStates != NULL) {
     idx = 0;
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE), 0, contStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE), 1, contStates[idx
+      ++], 0, 0);
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE), 2, contStates[idx
+      ++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE), 0, contStates[idx
       ++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE), 1, contStates[idx
       ++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE), 2, contStates[idx
       ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_l), 0,
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE_g), 0,
       contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_l), 1,
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE_g), 1,
       contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.TransferFcn2_CSTATE), 0,
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE_g), 2,
       contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_g), 0,
-      contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_g), 1,
-      contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_g), 2,
-      contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator4_CSTATE), 0, contStates[idx
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE), 0, contStates[idx
       ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator4_CSTATE), 1, contStates[idx
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE), 1, contStates[idx
       ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator4_CSTATE), 2, contStates[idx
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE), 2, contStates[idx
       ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_k), 0,
-      contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_k), 1,
-      contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_k), 2,
-      contStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_c), 0,
       contStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_p), 0,
       contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_km), 0,
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_k), 0,
       contStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_n), 0,
       contStates[idx++], 0, 0);
@@ -13754,33 +18250,31 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
       contStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_h), 0,
       contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE), 0, contStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE), 1, contStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator1_CSTATE), 2, contStates[idx
-      ++], 0, 0);
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_a), 0,
+      contStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_a), 1,
+      contStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_a), 2,
+      contStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE), 0, contStates[idx
       ++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE), 1, contStates[idx
       ++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE), 2, contStates[idx
       ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE), 0, contStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE), 1, contStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator3_CSTATE), 2, contStates[idx
-      ++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_d), 0,
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE_c), 0,
+      contStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE_c), 1,
+      contStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator2_CSTATE_c), 2,
       contStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_e), 0,
       contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_gg), 0,
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_g), 0,
       contStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_i), 0,
       contStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_le), 0,
+    NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_l), 0,
       contStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&(ctrl_TAPM_X.Integrator_CSTATE_n4), 0,
       contStates[idx++], 0, 0);
@@ -13790,11 +18284,9 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
 
   if (discStates != NULL) {
     idx = 0;
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE, 0, discStates[idx++], 0,
-      0);
     for (count = 0; count < 6; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_i, count,
-        discStates[idx++], 21, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE, count, discStates[idx
+        ++], 26, 0);
     }
 
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_f, 0, discStates[idx++],
@@ -13802,9 +18294,9 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_fu, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states, 0,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states, 1,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE, 0, discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_d, 0,
       discStates[idx++], 0, 0);
@@ -13813,9 +18305,9 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_d, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_h, 0,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_h, 1,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_n, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_m, 0,
@@ -13825,21 +18317,21 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_no, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_j, 0,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_j, 1,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_i, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_k, 0,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_e, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_id, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_i, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_i, 0,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_i, 1,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_n4, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_h0, 0,
@@ -13849,9 +18341,9 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_a, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_hb, 0,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_hb, 1,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_m, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_dt, 0,
@@ -13861,23 +18353,63 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_m, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_l, 0,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_l, 1,
-      discStates[idx++], 25, 0);
+      discStates[idx++], 44, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.UD_DSTATE_l, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_states_o, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.wave_dir_DWORK1, 0, discStates[idx++],
+    for (count = 0; count < 144; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_fv, count,
+        discStates[idx++], 31, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay1_DSTATE, count, discStates[idx
+        ++], 29, 0);
+    }
+
+    for (count = 0; count < 144; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_mc, count,
+        discStates[idx++], 31, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay1_DSTATE_f, count,
+        discStates[idx++], 29, 0);
+    }
+
+    for (count = 0; count < 144; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_dd, count,
+        discStates[idx++], 31, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay1_DSTATE_j, count,
+        discStates[idx++], 29, 0);
+    }
+
+    for (count = 0; count < 144; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay_DSTATE_fg, count,
+        discStates[idx++], 31, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Delay1_DSTATE_i, count,
+        discStates[idx++], 29, 0);
+    }
+
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_x_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_y_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_psi_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.fzp_x_DWORK1, 0, discStates[idx++], 0,
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_psi_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_x_DWORK1, 0, discStates[idx++], 0,
       0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.fzp_y_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.r_max_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.Core_controller_DWORK1, 0,
-      discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_y_DWORK1, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_psi_DWORK1, 0, discStates[idx++],
@@ -13886,33 +18418,29 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
       0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_y_DWORK1, 0, discStates[idx++], 0,
       0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_psi_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.x_m_DWORK1, 0, discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.y_m_DWORK1, 0, discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.psi_m_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.w_d_x_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.w_d_y_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.w_d_psi_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_x_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_psi_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.zeta_psi_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_x_DWORK1, 0, discStates[idx++], 0,
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.zeta_x_DWORK1, 0, discStates[idx++], 0,
       0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_y_DWORK1, 0, discStates[idx++], 0,
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.zeta_y_DWORK1, 0, discStates[idx++], 0,
       0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_psi1_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.psi_ref_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_x1_DWORK1, 0, discStates[idx++], 0,
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.x_ref_DWORK1, 0, discStates[idx++], 0,
       0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_y1_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_psi1_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_x1_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_y1_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_psi1_DWORK1, 0, discStates[idx++],
-      0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_x1_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_y1_DWORK1, 0, discStates[idx++], 0,
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.y_ref_DWORK1, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_1_DWORK1, 0, discStates[idx
       ++], 0, 0);
@@ -13927,8 +18455,8 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_6_DWORK1, 0, discStates[idx
       ++], 0, 0);
     for (count = 0; count < 6; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1, count, discStates[idx
-        ++], 21, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1_l, count,
+        discStates[idx++], 26, 0);
     }
 
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Angle_controller_DWORK1, 0,
@@ -13987,41 +18515,60 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_3_DWORK1, 0, discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_1_DWORK1, 0, discStates[idx++], 0,
       0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.x_hat_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.y_hat_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.psi_hat_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_hat_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.v_hat_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.r_hat_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_dot_hat_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.v_dot_hat_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.r_dot_hat_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.b_x_hat_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.b_y_hat_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.b_psi_hat_DWORK1, 0, discStates[idx++],
+      0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_actual_DWORK1, 0, discStates[idx++],
       22, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_actual_DWORK1, 1, discStates[idx++],
       22, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_actual_DWORK1, 2, discStates[idx++],
       22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.x_m_DWORK1, 0, discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.y_m_DWORK1, 0, discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.psi_m_DWORK1, 0, discStates[idx++], 0,
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_tilde_DWORK1, 0, discStates[idx++],
+      22, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_tilde_DWORK1, 1, discStates[idx++],
+      22, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_tilde_DWORK1, 2, discStates[idx++],
+      22, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_des_DWORK1, 0, discStates[idx++],
+      22, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_des_DWORK1, 1, discStates[idx++],
+      22, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_des_DWORK1, 2, discStates[idx++],
+      22, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.X_oqus_DWORK1, 0, discStates[idx++], 0,
       0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_est_DWORK1, 0, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_est_DWORK1, 1, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_est_DWORK1, 2, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.nu_est_DWORK1, 0, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.nu_est_DWORK1, 1, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.nu_est_DWORK1, 2, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.SP_DWORK1, 0, discStates[idx++], 22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.SP_DWORK1, 1, discStates[idx++], 22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.SP_DWORK1, 2, discStates[idx++], 22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_des_DWORK1, 0, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_des_DWORK1, 1, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_des_DWORK1, 2, discStates[idx++],
-      22, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.controller_DWORK1, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.Y_oqus_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.Z_oqus_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.roll_oqus_DWORK1, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.timer_DWORK1, 0, discStates[idx++], 0,
-      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.pitch_oqus_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.yaw_oqus_DWORK1, 0, discStates[idx++],
+      0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_tmp, 0,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.PrevY, 0, discStates[idx++], 0, 0);
@@ -14038,7 +18585,7 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.PrevY_e, 0, discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory_PreviousInput_n, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1_l, 0, discStates[idx++],
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK1_ln, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_tmp_h, 0,
       discStates[idx++], 0, 0);
@@ -14078,396 +18625,803 @@ DLL_EXPORT int32_t NIRT_SetSimState(double* contStates, double* discStates,
       0, 0);
     NIRT_SetValueByDataType(&ctrl_TAPM_DW.DiscreteTransferFcn_tmp_cw, 0,
       discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.controller, 0, discStates[idx++], 0, 0);
-    NIRT_SetValueByDataType(&ctrl_TAPM_DW.tmp, 0, discStates[idx++], 0, 0);
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.wave_dir_DWORK2, count,
-        discStates[idx++], 23, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AX1_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AY1_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AZ1_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RX1_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RY1_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RZ1_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_V1_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AX2_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AY2_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AZ2_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RX2_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RY2_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RZ2_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_V2_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AX3_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AY3_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AZ3_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RX3_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RY3_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RZ3_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_V3_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AX4_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AY4_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AZ4_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RX4_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RY4_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RZ4_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_V4_DWORK1, 0, discStates[idx++], 0,
+      0);
+    for (count = 0; count < 28; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory_PreviousInput_l, count,
+        discStates[idx++], 27, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.fzp_x_DWORK2, count, discStates[idx
-        ++], 23, 0);
+    for (count = 0; count < 36; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.MatrixMultiply_DWORK4, count,
+        discStates[idx++], 36, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.fzp_y_DWORK2, count, discStates[idx
-        ++], 23, 0);
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory2_PreviousInput, count,
+        discStates[idx++], 39, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.r_max_DWORK2, count, discStates[idx
-        ++], 23, 0);
+    for (count = 0; count < 7; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory3_PreviousInput, count,
+        discStates[idx++], 38, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Core_controller_DWORK2, count,
-        discStates[idx++], 23, 0);
+    for (count = 0; count < 36; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.MatrixMultiply_DWORK4_a, count,
+        discStates[idx++], 36, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_y_DWORK2, count, discStates[idx
-        ++], 23, 0);
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory2_PreviousInput_d, count,
+        discStates[idx++], 39, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_psi_DWORK2, count,
-        discStates[idx++], 23, 0);
+    for (count = 0; count < 7; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory3_PreviousInput_p, count,
+        discStates[idx++], 38, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_x_DWORK2, count, discStates[idx
-        ++], 23, 0);
+    for (count = 0; count < 36; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.MatrixMultiply_DWORK4_f, count,
+        discStates[idx++], 36, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_y_DWORK2, count, discStates[idx
-        ++], 23, 0);
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory2_PreviousInput_n, count,
+        discStates[idx++], 39, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_psi_DWORK2, count,
-        discStates[idx++], 23, 0);
+    for (count = 0; count < 7; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory3_PreviousInput_j, count,
+        discStates[idx++], 38, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_x_DWORK2, count, discStates[idx
-        ++], 23, 0);
+    for (count = 0; count < 36; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.MatrixMultiply_DWORK4_e, count,
+        discStates[idx++], 36, 0);
     }
 
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_psi_DWORK2, count,
-        discStates[idx++], 23, 0);
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory2_PreviousInput_c, count,
+        discStates[idx++], 39, 0);
     }
 
+    for (count = 0; count < 7; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Memory3_PreviousInput_k, count,
+        discStates[idx++], 38, 0);
+    }
+
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile_PWORK, 0, discStates[idx++], 11,
+      0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile_PWORK_a, 0, discStates[idx++],
+      11, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile1_PWORK, 0, discStates[idx++],
+      11, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile2_PWORK, 0, discStates[idx++],
+      11, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile3_PWORK, 0, discStates[idx++],
+      11, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile4_PWORK, 0, discStates[idx++],
+      11, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile5_PWORK, 0, discStates[idx++],
+      11, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile6_PWORK, 0, discStates[idx++],
+      11, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile7_PWORK, 0, discStates[idx++],
+      11, 0);
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Median_Index, count, discStates[idx
+        ++], 40, 0);
+    }
+
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Median1_Index, count, discStates[idx
+        ++], 40, 0);
+    }
+
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Median_Index_f, count,
+        discStates[idx++], 40, 0);
+    }
+
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Median1_Index_p, count,
+        discStates[idx++], 40, 0);
+    }
+
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Median_Index_j, count,
+        discStates[idx++], 40, 0);
+    }
+
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Median1_Index_j, count,
+        discStates[idx++], 40, 0);
+    }
+
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Median_Index_d, count,
+        discStates[idx++], 40, 0);
+    }
+
+    for (count = 0; count < 5; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Median1_Index_d, count,
+        discStates[idx++], 40, 0);
+    }
+
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.Integrator1_IWORK.IcNeedsLoading, 0,
+      discStates[idx++], 10, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.Integrator_IWORK.IcNeedsLoading, 0,
+      discStates[idx++], 10, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile_IWORK.Count, 0, discStates[idx
+      ++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile_IWORK.Decimation, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile_IWORK_e.Count, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile_IWORK_e.Decimation, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile1_IWORK.Count, 0, discStates[idx
+      ++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile1_IWORK.Decimation, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile2_IWORK.Count, 0, discStates[idx
+      ++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile2_IWORK.Decimation, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile3_IWORK.Count, 0, discStates[idx
+      ++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile3_IWORK.Decimation, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile4_IWORK.Count, 0, discStates[idx
+      ++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile4_IWORK.Decimation, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile5_IWORK.Count, 0, discStates[idx
+      ++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile5_IWORK.Decimation, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile6_IWORK.Count, 0, discStates[idx
+      ++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile6_IWORK.Decimation, 0,
+      discStates[idx++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile7_IWORK.Count, 0, discStates[idx
+      ++], 41, 0);
+    NIRT_SetValueByDataType(&ctrl_TAPM_DW.ToFile7_IWORK.Decimation, 0,
+      discStates[idx++], 41, 0);
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_x_DWORK2, count, discStates[idx
-        ++], 23, 0);
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_y_DWORK2, count, discStates[idx
-        ++], 23, 0);
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_psi1_DWORK2, count,
-        discStates[idx++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_psi_DWORK2, count,
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_x1_DWORK2, count, discStates[idx
-        ++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_psi_DWORK2, count,
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_y1_DWORK2, count, discStates[idx
-        ++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_x_DWORK2, count, discStates[idx
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_psi1_DWORK2, count,
-        discStates[idx++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_y_DWORK2, count, discStates[idx
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_x1_DWORK2, count, discStates[idx
-        ++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_psi_DWORK2, count,
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_i_y1_DWORK2, count, discStates[idx
-        ++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_x_DWORK2, count, discStates[idx
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_psi1_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_x1_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_p_y1_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_1_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_2_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_3_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_4_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_5_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_6_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Angle_controller_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_1_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_j, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_o, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_i, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_k, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_a, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_m, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm1_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm2_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm3_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm4_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm5_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm6_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_2_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_3_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_4_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_5_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_2_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_6_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_3_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_4_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_5_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_6_DWORK2, count,
-        discStates[idx++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_1_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_4_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_5_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_6_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_2_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_3_DWORK2, count, discStates[idx++],
-        23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_1_DWORK2, count, discStates[idx
-        ++], 23, 0);
-    }
-
-    for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_actual_DWORK2, count,
-        discStates[idx++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.K_d_y_DWORK2, count, discStates[idx
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.x_m_DWORK2, count, discStates[idx++],
-        23, 0);
+        25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.y_m_DWORK2, count, discStates[idx++],
-        23, 0);
+        25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.psi_m_DWORK2, count, discStates[idx
-        ++], 23, 0);
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_est_DWORK2, count,
-        discStates[idx++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2, count, discStates[idx
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.nu_est_DWORK2, count, discStates[idx
-        ++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.w_d_x_DWORK2, count, discStates[idx
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.SP_DWORK2, count, discStates[idx++],
-        23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.w_d_y_DWORK2, count, discStates[idx
+        ++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_des_DWORK2, count,
-        discStates[idx++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.w_d_psi_DWORK2, count,
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.controller_DWORK2, count,
-        discStates[idx++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.zeta_psi_DWORK2, count,
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
-      NIRT_SetValueByDataType(&ctrl_TAPM_DW.timer_DWORK2, count, discStates[idx
-        ++], 23, 0);
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.zeta_x_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.zeta_y_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.psi_ref_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.x_ref_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.y_ref_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_1_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_2_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_3_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_4_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_5_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.thr_angle_6_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_m, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Angle_controller_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_1_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_j, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_o, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_i, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_k, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_a, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_mm, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm1_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm2_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm3_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm4_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm5_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.rpm6_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_2_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_3_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_4_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_5_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_2_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_6_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_3_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_4_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_5_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.alpha_6_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_1_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_4_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_5_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_6_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_2_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_3_DWORK2, count, discStates[idx++],
+        25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pwm_1_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.x_hat_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.y_hat_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.psi_hat_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_hat_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.v_hat_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.r_hat_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.u_dot_hat_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.v_dot_hat_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.r_dot_hat_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.b_x_hat_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.b_y_hat_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.b_psi_hat_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.tau_actual_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_tilde_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.eta_des_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.X_oqus_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Y_oqus_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.Z_oqus_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.roll_oqus_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.pitch_oqus_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.yaw_oqus_DWORK2, count,
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_n, count,
-        discStates[idx++], 23, 0);
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.Control_test_Pa_DWORK2, count,
-        discStates[idx++], 23, 0);
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_e, count,
-        discStates[idx++], 23, 0);
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_l, count,
-        discStates[idx++], 23, 0);
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_mb, count,
-        discStates[idx++], 23, 0);
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_nu, count,
-        discStates[idx++], 23, 0);
+        discStates[idx++], 25, 0);
     }
 
     for (count = 0; count < 10; count++) {
       NIRT_SetValueByDataType(&ctrl_TAPM_DW.reset_DWORK2_f, count,
-        discStates[idx++], 23, 0);
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AX1_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AY1_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AZ1_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RX1_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RY1_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RZ1_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_V1_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AX2_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AY2_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AZ2_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RX2_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RY2_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RZ2_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_V2_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AX3_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AY3_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AZ3_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RX3_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RY3_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RZ3_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_V3_DWORK2, count, discStates[idx
+        ++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AX4_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AY4_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_AZ4_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RX4_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RY4_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_RZ4_DWORK2, count,
+        discStates[idx++], 25, 0);
+    }
+
+    for (count = 0; count < 10; count++) {
+      NIRT_SetValueByDataType(&ctrl_TAPM_DW.IMU_V4_DWORK2, count, discStates[idx
+        ++], 25, 0);
     }
 
     for (ForEach_itr1 = 0; ForEach_itr1 < 6; ForEach_itr1++) {

@@ -12,9 +12,9 @@
 
 /* NI VeriStand Model Framework API version */
 #define NIMF_VER_MAJOR                 2015
-#define NIMF_VER_MINOR                 0
-#define NIMF_VER_FIX                   1
-#define NIMF_VER_BUILD                 0
+#define NIMF_VER_MINOR                 1
+#define NIMF_VER_FIX                   0
+#define NIMF_VER_BUILD                 76
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
