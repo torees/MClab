@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomDevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Custom Device.xsd">
+	<XSDVersion Major="2010" Minor="0" Fix="0" Build="0" />
+	<AddMenu>
+		<eng>National Instruments::Lambda Genesys DC Power Supply</eng>
+		<loc>National Instruments::Lambda Genesys DC Power Supply</loc>
+	</AddMenu>
+	<Dependency>
+		<Type>To Common Doc Dir</Type>
+		<Path>Custom Devices\National Instruments\Lambda Genesys\Lambda Genesys Configuration.llb\Hide This.vi</Path>
+		<Behavior>Dynamic</Behavior>
+	</Dependency>
+	<Version>2.0.0.0</Version>
+	<Type>Asynchronous</Type>
+	<MaxOccurrence>8675</MaxOccurrence>
+	<MainPageGUID>65329e11-d3ca-4c50-b104-d2c2fb73d0d6</MainPageGUID>
+	<InitializationVI>
+		<Type>Action</Type>
+		<Execution>default</Execution>
+		<Item2Launch>
+			<Type>To Common Doc Dir</Type>
+			<Path>Custom Devices\National Instruments\Lambda Genesys\Lambda Genesys Configuration.llb\Lambda Genesys Initialization VI.vi</Path>
+		</Item2Launch>
+	</InitializationVI>
+	<CustomDeviceVI>
+		<Source>
+			<Type>To Common Doc Dir</Type>
+			<Path>Custom Devices\National Instruments\Lambda Genesys\Lambda Genesys Engine.llb\Lambda Genesys Engine.vi</Path>
+		</Source>
+		<RealTimeSystemDestination>C:\ni-rt\VeriStand\Custom Devices\Lambda Genesys\Lambda Genesys Engine.llb\Lambda Genesys Engine.vi</RealTimeSystemDestination>
+	</CustomDeviceVI>
+	<Dependencies />
+	<Pages>
+		<Page>
+			<Name>
+				<eng>Lambda Genesys DC Power Supply</eng>
+				<loc>Lambda Genesys DC Power Supply</loc>
+			</Name>
+			<GUID>65329e11-d3ca-4c50-b104-d2c2fb73d0d6</GUID>
+			<Glyph>
+				<Type>To Common Doc Dir</Type>
+				<Path>Custom Devices\National Instruments\Lambda Genesys\Glyph\Lambda.png</Path>
+			</Glyph>
+			<Item2Launch>
+				<Type>To Common Doc Dir</Type>
+				<Path>Custom Devices\National Instruments\Lambda Genesys\Lambda Genesys Configuration.llb\Lambda Genesys Main Page.vi</Path>
+			</Item2Launch>
+			<RunTimeMenu />
+			<Help>
+				<Item2Launch>
+					<Type>To Base</Type>
+					<Path>Veristand.chm\Custom_Devices_SE.html</Path>
+				</Item2Launch>
+				<FileType>chm</FileType>
+			</Help>
+		</Page>
+	</Pages>
+	<CustomXML>
+		<dummy />
+	</CustomXML>
+</CustomDevice>
