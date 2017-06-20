@@ -12,9 +12,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.105
+ * Model version              : 1.107
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon May 09 19:25:47 2016
+ * C source code generated on : Tue Jun 20 09:04:18 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,22 +27,22 @@
 
 /* Block parameters (auto storage) */
 P_u2pwm_alpha_T u2pwm_alpha_P = {
-  -165.0,                              /* Variable: zero_alpha_1
+  -149.0,                              /* Variable: zero_alpha_1
                                         * Referenced by: '<Root>/alpha_Offset'
                                         */
-  -154.0,                              /* Variable: zero_alpha_2
+  50.0,                                /* Variable: zero_alpha_2
                                         * Referenced by: '<Root>/alpha_Offset1'
                                         */
-  -137.0,                              /* Variable: zero_alpha_3
+  5.0,                                 /* Variable: zero_alpha_3
                                         * Referenced by: '<Root>/alpha_Offset2'
                                         */
-  -8.0,                                /* Variable: zero_alpha_4
+  -17.0,                               /* Variable: zero_alpha_4
                                         * Referenced by: '<Root>/alpha_Offset3'
                                         */
-  165.0,                               /* Variable: zero_alpha_5
+  127.0,                               /* Variable: zero_alpha_5
                                         * Referenced by: '<Root>/alpha_Offset4'
                                         */
-  -12.0,                               /* Variable: zero_alpha_6
+  -36.0,                               /* Variable: zero_alpha_6
                                         * Referenced by: '<Root>/alpha_Offset5'
                                         */
   7.5,                                 /* Variable: zero_pwm
@@ -295,12 +295,6 @@ P_u2pwm_alpha_T u2pwm_alpha_P = {
                                         * Referenced by: '<Root>/Saturation11'
                                         */
   1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation'
-                                        */
-  1.0,                                 /* Expression: 1
                                         * Referenced by: '<Root>/Gain'
                                         */
   1.0,                                 /* Expression: 1
@@ -308,12 +302,6 @@ P_u2pwm_alpha_T u2pwm_alpha_P = {
                                         */
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<Root>/Saturation10'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation1'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation1'
                                         */
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<Root>/Gain1'
@@ -325,12 +313,6 @@ P_u2pwm_alpha_T u2pwm_alpha_P = {
                                         * Referenced by: '<Root>/Saturation9'
                                         */
   1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation2'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation2'
-                                        */
-  1.0,                                 /* Expression: 1
                                         * Referenced by: '<Root>/Gain2'
                                         */
   1.0,                                 /* Expression: 1
@@ -338,12 +320,6 @@ P_u2pwm_alpha_T u2pwm_alpha_P = {
                                         */
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<Root>/Saturation8'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation3'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation3'
                                         */
   1.0,                                 /* Expression: 1
                                         * Referenced by: '<Root>/Gain3'
@@ -354,12 +330,6 @@ P_u2pwm_alpha_T u2pwm_alpha_P = {
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<Root>/Saturation7'
                                         */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation4'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation4'
-                                        */
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<Root>/Gain4'
                                         */
@@ -368,12 +338,6 @@ P_u2pwm_alpha_T u2pwm_alpha_P = {
                                         */
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<Root>/Saturation5'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation6'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation6'
                                         */
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<Root>/Gain5'
@@ -852,9 +816,9 @@ P_u2pwm_alpha_T u2pwm_alpha_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : u2pwm_alpha
- * Model version : 1.105
+ * Model version : 1.107
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Mon May 09 19:25:46 2016
+ * Source generated on : Tue Jun 20 09:04:18 2017
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 
@@ -867,30 +831,6 @@ typedef struct {
 NI_ParamSizeWidth P_u2pwm_alpha_T_sizes[] DataSection(".NIVS.defaultparamsizes")
   = {
   { sizeof(P_u2pwm_alpha_T), 1 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
-
-  { sizeof(real_T), 1, 0 },
 
   { sizeof(real_T), 1, 0 },
 

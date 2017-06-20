@@ -7,9 +7,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.105
+ * Model version              : 1.107
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon May 09 19:25:47 2016
+ * C source code generated on : Tue Jun 20 09:04:18 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1203,12 +1203,6 @@ struct P_u2pwm_alpha_T_ {
   real_T Saturation11_LowerSat;        /* Expression: -1
                                         * Referenced by: '<Root>/Saturation11'
                                         */
-  real_T Saturation_UpperSat;          /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation'
-                                        */
-  real_T Saturation_LowerSat;          /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation'
-                                        */
   real_T Gain_Gain;                    /* Expression: 1
                                         * Referenced by: '<Root>/Gain'
                                         */
@@ -1217,12 +1211,6 @@ struct P_u2pwm_alpha_T_ {
                                         */
   real_T Saturation10_LowerSat;        /* Expression: -1
                                         * Referenced by: '<Root>/Saturation10'
-                                        */
-  real_T Saturation1_UpperSat;         /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation1'
-                                        */
-  real_T Saturation1_LowerSat;         /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation1'
                                         */
   real_T Gain1_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain1'
@@ -1233,12 +1221,6 @@ struct P_u2pwm_alpha_T_ {
   real_T Saturation9_LowerSat;         /* Expression: -1
                                         * Referenced by: '<Root>/Saturation9'
                                         */
-  real_T Saturation2_UpperSat;         /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation2'
-                                        */
-  real_T Saturation2_LowerSat;         /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation2'
-                                        */
   real_T Gain2_Gain;                   /* Expression: 1
                                         * Referenced by: '<Root>/Gain2'
                                         */
@@ -1247,12 +1229,6 @@ struct P_u2pwm_alpha_T_ {
                                         */
   real_T Saturation8_LowerSat;         /* Expression: -1
                                         * Referenced by: '<Root>/Saturation8'
-                                        */
-  real_T Saturation3_UpperSat;         /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation3'
-                                        */
-  real_T Saturation3_LowerSat;         /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation3'
                                         */
   real_T Gain3_Gain;                   /* Expression: 1
                                         * Referenced by: '<Root>/Gain3'
@@ -1263,12 +1239,6 @@ struct P_u2pwm_alpha_T_ {
   real_T Saturation7_LowerSat;         /* Expression: -1
                                         * Referenced by: '<Root>/Saturation7'
                                         */
-  real_T Saturation4_UpperSat;         /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation4'
-                                        */
-  real_T Saturation4_LowerSat;         /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation4'
-                                        */
   real_T Gain4_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain4'
                                         */
@@ -1277,12 +1247,6 @@ struct P_u2pwm_alpha_T_ {
                                         */
   real_T Saturation5_LowerSat;         /* Expression: -1
                                         * Referenced by: '<Root>/Saturation5'
-                                        */
-  real_T Saturation6_UpperSat;         /* Expression: 1
-                                        * Referenced by: '<Root>/Saturation6'
-                                        */
-  real_T Saturation6_LowerSat;         /* Expression: -1
-                                        * Referenced by: '<Root>/Saturation6'
                                         */
   real_T Gain5_Gain;                   /* Expression: -1
                                         * Referenced by: '<Root>/Gain5'
@@ -1922,9 +1886,9 @@ extern RT_MODEL_u2pwm_alpha_T *const u2pwm_alpha_M;
  * NI VeriStand Model Framework code generation
  *
  * Model : u2pwm_alpha
- * Model version : 1.105
+ * Model version : 1.107
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Mon May 09 19:25:46 2016
+ * Source generated on : Tue Jun 20 09:04:18 2017
  *========================================================================*/
 #ifdef NI_ROOTMODEL_u2pwm_alpha
 

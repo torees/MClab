@@ -7,9 +7,9 @@
  *
  * Code generation for model "u2pwm_alpha".
  *
- * Model version              : 1.105
+ * Model version              : 1.107
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon May 09 19:25:47 2016
+ * C source code generated on : Tue Jun 20 09:04:18 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -77,21 +77,10 @@ static void u2pwm_alpha_output(void)
     rtb_Sum12 = u2pwm_alpha_B.u_1;
   }
 
-  /* End of Saturate: '<Root>/Saturation11' */
-
-  /* Saturate: '<Root>/Saturation' */
-  if (rtb_Sum12 > u2pwm_alpha_P.Saturation_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation_UpperSat;
-  } else {
-    if (rtb_Sum12 < u2pwm_alpha_P.Saturation_LowerSat) {
-      rtb_Sum12 = u2pwm_alpha_P.Saturation_LowerSat;
-    }
-  }
-
   /* MATLAB Function: '<Root>/MATLAB Function1' incorporates:
    *  Constant: '<Root>/PWM_Offset'
    *  Gain: '<Root>/Gain'
-   *  Saturate: '<Root>/Saturation'
+   *  Saturate: '<Root>/Saturation11'
    *  Sum: '<Root>/Sum2'
    */
   u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain_Gain *
@@ -106,21 +95,10 @@ static void u2pwm_alpha_output(void)
     rtb_Sum12 = u2pwm_alpha_B.u_2;
   }
 
-  /* End of Saturate: '<Root>/Saturation10' */
-
-  /* Saturate: '<Root>/Saturation1' */
-  if (rtb_Sum12 > u2pwm_alpha_P.Saturation1_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation1_UpperSat;
-  } else {
-    if (rtb_Sum12 < u2pwm_alpha_P.Saturation1_LowerSat) {
-      rtb_Sum12 = u2pwm_alpha_P.Saturation1_LowerSat;
-    }
-  }
-
   /* MATLAB Function: '<Root>/MATLAB Function6' incorporates:
    *  Constant: '<Root>/PWM_Offset1'
    *  Gain: '<Root>/Gain1'
-   *  Saturate: '<Root>/Saturation1'
+   *  Saturate: '<Root>/Saturation10'
    *  Sum: '<Root>/Sum3'
    */
   u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain1_Gain *
@@ -135,21 +113,10 @@ static void u2pwm_alpha_output(void)
     rtb_Sum12 = u2pwm_alpha_B.u_3;
   }
 
-  /* End of Saturate: '<Root>/Saturation9' */
-
-  /* Saturate: '<Root>/Saturation2' */
-  if (rtb_Sum12 > u2pwm_alpha_P.Saturation2_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation2_UpperSat;
-  } else {
-    if (rtb_Sum12 < u2pwm_alpha_P.Saturation2_LowerSat) {
-      rtb_Sum12 = u2pwm_alpha_P.Saturation2_LowerSat;
-    }
-  }
-
   /* MATLAB Function: '<Root>/MATLAB Function5' incorporates:
    *  Constant: '<Root>/PWM_Offset2'
    *  Gain: '<Root>/Gain2'
-   *  Saturate: '<Root>/Saturation2'
+   *  Saturate: '<Root>/Saturation9'
    *  Sum: '<Root>/Sum1'
    */
   u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain2_Gain *
@@ -164,21 +131,10 @@ static void u2pwm_alpha_output(void)
     rtb_Sum12 = u2pwm_alpha_B.u_4;
   }
 
-  /* End of Saturate: '<Root>/Saturation8' */
-
-  /* Saturate: '<Root>/Saturation3' */
-  if (rtb_Sum12 > u2pwm_alpha_P.Saturation3_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation3_UpperSat;
-  } else {
-    if (rtb_Sum12 < u2pwm_alpha_P.Saturation3_LowerSat) {
-      rtb_Sum12 = u2pwm_alpha_P.Saturation3_LowerSat;
-    }
-  }
-
   /* MATLAB Function: '<Root>/MATLAB Function12' incorporates:
    *  Constant: '<Root>/PWM_Offset3'
    *  Gain: '<Root>/Gain3'
-   *  Saturate: '<Root>/Saturation3'
+   *  Saturate: '<Root>/Saturation8'
    *  Sum: '<Root>/Sum4'
    */
   u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain3_Gain *
@@ -193,21 +149,10 @@ static void u2pwm_alpha_output(void)
     rtb_Sum12 = u2pwm_alpha_B.u_5;
   }
 
-  /* End of Saturate: '<Root>/Saturation7' */
-
-  /* Saturate: '<Root>/Saturation4' */
-  if (rtb_Sum12 > u2pwm_alpha_P.Saturation4_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation4_UpperSat;
-  } else {
-    if (rtb_Sum12 < u2pwm_alpha_P.Saturation4_LowerSat) {
-      rtb_Sum12 = u2pwm_alpha_P.Saturation4_LowerSat;
-    }
-  }
-
   /* MATLAB Function: '<Root>/MATLAB Function2' incorporates:
    *  Constant: '<Root>/PWM_Offset4'
    *  Gain: '<Root>/Gain4'
-   *  Saturate: '<Root>/Saturation4'
+   *  Saturate: '<Root>/Saturation7'
    *  Sum: '<Root>/Sum5'
    */
   u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain4_Gain *
@@ -222,21 +167,10 @@ static void u2pwm_alpha_output(void)
     rtb_Sum12 = u2pwm_alpha_B.u_6;
   }
 
-  /* End of Saturate: '<Root>/Saturation5' */
-
-  /* Saturate: '<Root>/Saturation6' */
-  if (rtb_Sum12 > u2pwm_alpha_P.Saturation6_UpperSat) {
-    rtb_Sum12 = u2pwm_alpha_P.Saturation6_UpperSat;
-  } else {
-    if (rtb_Sum12 < u2pwm_alpha_P.Saturation6_LowerSat) {
-      rtb_Sum12 = u2pwm_alpha_P.Saturation6_LowerSat;
-    }
-  }
-
   /* MATLAB Function: '<Root>/MATLAB Function3' incorporates:
    *  Constant: '<Root>/PWM_Offset5'
    *  Gain: '<Root>/Gain5'
-   *  Saturate: '<Root>/Saturation6'
+   *  Saturate: '<Root>/Saturation5'
    *  Sum: '<Root>/Sum6'
    */
   u2pwm_alpha_MATLABFunction1(u2pwm_alpha_P.zero_pwm + u2pwm_alpha_P.Gain5_Gain *
@@ -502,9 +436,9 @@ RT_MODEL_u2pwm_alpha_T *u2pwm_alpha(void)
   u2pwm_alpha_M->Sizes.numU = (0);     /* Number of model inputs */
   u2pwm_alpha_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   u2pwm_alpha_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  u2pwm_alpha_M->Sizes.numBlocks = (93);/* Number of blocks */
+  u2pwm_alpha_M->Sizes.numBlocks = (87);/* Number of blocks */
   u2pwm_alpha_M->Sizes.numBlockIO = (35);/* Number of block outputs */
-  u2pwm_alpha_M->Sizes.numBlockPrms = (271);/* Sum of parameter "widths" */
+  u2pwm_alpha_M->Sizes.numBlockPrms = (259);/* Sum of parameter "widths" */
   return u2pwm_alpha_M;
 }
 
@@ -516,9 +450,9 @@ RT_MODEL_u2pwm_alpha_T *u2pwm_alpha(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : u2pwm_alpha
- * Model version : 1.105
+ * Model version : 1.107
  * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Mon May 09 19:25:46 2016
+ * Source generated on : Tue Jun 20 09:04:18 2017
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -1154,92 +1088,56 @@ static NI_Parameter NI_ParamList[] DataSection(".NIVS.paramlist") =
   { 13, "u2pwm_alpha/Saturation11/LowerLimit", offsetof(P_u2pwm_alpha_T,
     Saturation11_LowerSat), 25, 1, 2, 26, 0 },
 
-  { 14, "u2pwm_alpha/Saturation/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation_UpperSat), 25, 1, 2, 28, 0 },
+  { 14, "u2pwm_alpha/Gain/Gain", offsetof(P_u2pwm_alpha_T, Gain_Gain), 25, 1, 2,
+    28, 0 },
 
-  { 15, "u2pwm_alpha/Saturation/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation_LowerSat), 25, 1, 2, 30, 0 },
+  { 15, "u2pwm_alpha/Saturation10/UpperLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation10_UpperSat), 25, 1, 2, 30, 0 },
 
-  { 16, "u2pwm_alpha/Gain/Gain", offsetof(P_u2pwm_alpha_T, Gain_Gain), 25, 1, 2,
-    32, 0 },
+  { 16, "u2pwm_alpha/Saturation10/LowerLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation10_LowerSat), 25, 1, 2, 32, 0 },
 
-  { 17, "u2pwm_alpha/Saturation10/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation10_UpperSat), 25, 1, 2, 34, 0 },
+  { 17, "u2pwm_alpha/Gain1/Gain", offsetof(P_u2pwm_alpha_T, Gain1_Gain), 25, 1,
+    2, 34, 0 },
 
-  { 18, "u2pwm_alpha/Saturation10/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation10_LowerSat), 25, 1, 2, 36, 0 },
+  { 18, "u2pwm_alpha/Saturation9/UpperLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation9_UpperSat), 25, 1, 2, 36, 0 },
 
-  { 19, "u2pwm_alpha/Saturation1/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation1_UpperSat), 25, 1, 2, 38, 0 },
+  { 19, "u2pwm_alpha/Saturation9/LowerLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation9_LowerSat), 25, 1, 2, 38, 0 },
 
-  { 20, "u2pwm_alpha/Saturation1/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation1_LowerSat), 25, 1, 2, 40, 0 },
+  { 20, "u2pwm_alpha/Gain2/Gain", offsetof(P_u2pwm_alpha_T, Gain2_Gain), 25, 1,
+    2, 40, 0 },
 
-  { 21, "u2pwm_alpha/Gain1/Gain", offsetof(P_u2pwm_alpha_T, Gain1_Gain), 25, 1,
-    2, 42, 0 },
+  { 21, "u2pwm_alpha/Saturation8/UpperLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation8_UpperSat), 25, 1, 2, 42, 0 },
 
-  { 22, "u2pwm_alpha/Saturation9/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation9_UpperSat), 25, 1, 2, 44, 0 },
+  { 22, "u2pwm_alpha/Saturation8/LowerLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation8_LowerSat), 25, 1, 2, 44, 0 },
 
-  { 23, "u2pwm_alpha/Saturation9/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation9_LowerSat), 25, 1, 2, 46, 0 },
+  { 23, "u2pwm_alpha/Gain3/Gain", offsetof(P_u2pwm_alpha_T, Gain3_Gain), 25, 1,
+    2, 46, 0 },
 
-  { 24, "u2pwm_alpha/Saturation2/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation2_UpperSat), 25, 1, 2, 48, 0 },
+  { 24, "u2pwm_alpha/Saturation7/UpperLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation7_UpperSat), 25, 1, 2, 48, 0 },
 
-  { 25, "u2pwm_alpha/Saturation2/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation2_LowerSat), 25, 1, 2, 50, 0 },
+  { 25, "u2pwm_alpha/Saturation7/LowerLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation7_LowerSat), 25, 1, 2, 50, 0 },
 
-  { 26, "u2pwm_alpha/Gain2/Gain", offsetof(P_u2pwm_alpha_T, Gain2_Gain), 25, 1,
+  { 26, "u2pwm_alpha/Gain4/Gain", offsetof(P_u2pwm_alpha_T, Gain4_Gain), 25, 1,
     2, 52, 0 },
 
-  { 27, "u2pwm_alpha/Saturation8/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation8_UpperSat), 25, 1, 2, 54, 0 },
+  { 27, "u2pwm_alpha/Saturation5/UpperLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation5_UpperSat), 25, 1, 2, 54, 0 },
 
-  { 28, "u2pwm_alpha/Saturation8/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation8_LowerSat), 25, 1, 2, 56, 0 },
+  { 28, "u2pwm_alpha/Saturation5/LowerLimit", offsetof(P_u2pwm_alpha_T,
+    Saturation5_LowerSat), 25, 1, 2, 56, 0 },
 
-  { 29, "u2pwm_alpha/Saturation3/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation3_UpperSat), 25, 1, 2, 58, 0 },
-
-  { 30, "u2pwm_alpha/Saturation3/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation3_LowerSat), 25, 1, 2, 60, 0 },
-
-  { 31, "u2pwm_alpha/Gain3/Gain", offsetof(P_u2pwm_alpha_T, Gain3_Gain), 25, 1,
-    2, 62, 0 },
-
-  { 32, "u2pwm_alpha/Saturation7/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation7_UpperSat), 25, 1, 2, 64, 0 },
-
-  { 33, "u2pwm_alpha/Saturation7/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation7_LowerSat), 25, 1, 2, 66, 0 },
-
-  { 34, "u2pwm_alpha/Saturation4/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation4_UpperSat), 25, 1, 2, 68, 0 },
-
-  { 35, "u2pwm_alpha/Saturation4/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation4_LowerSat), 25, 1, 2, 70, 0 },
-
-  { 36, "u2pwm_alpha/Gain4/Gain", offsetof(P_u2pwm_alpha_T, Gain4_Gain), 25, 1,
-    2, 72, 0 },
-
-  { 37, "u2pwm_alpha/Saturation5/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation5_UpperSat), 25, 1, 2, 74, 0 },
-
-  { 38, "u2pwm_alpha/Saturation5/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation5_LowerSat), 25, 1, 2, 76, 0 },
-
-  { 39, "u2pwm_alpha/Saturation6/UpperLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation6_UpperSat), 25, 1, 2, 78, 0 },
-
-  { 40, "u2pwm_alpha/Saturation6/LowerLimit", offsetof(P_u2pwm_alpha_T,
-    Saturation6_LowerSat), 25, 1, 2, 80, 0 },
-
-  { 41, "u2pwm_alpha/Gain5/Gain", offsetof(P_u2pwm_alpha_T, Gain5_Gain), 25, 1,
-    2, 82, 0 },
+  { 29, "u2pwm_alpha/Gain5/Gain", offsetof(P_u2pwm_alpha_T, Gain5_Gain), 25, 1,
+    2, 58, 0 },
 };
 
-static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 42;
+static int32_t NI_ParamListSize DataSection(".NIVS.paramlistsize") = 30;
 static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 {
   1, 1,                                /* Parameter at index 0 */
@@ -1272,18 +1170,6 @@ static int32_t NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 27 */
   1, 1,                                /* Parameter at index 28 */
   1, 1,                                /* Parameter at index 29 */
-  1, 1,                                /* Parameter at index 30 */
-  1, 1,                                /* Parameter at index 31 */
-  1, 1,                                /* Parameter at index 32 */
-  1, 1,                                /* Parameter at index 33 */
-  1, 1,                                /* Parameter at index 34 */
-  1, 1,                                /* Parameter at index 35 */
-  1, 1,                                /* Parameter at index 36 */
-  1, 1,                                /* Parameter at index 37 */
-  1, 1,                                /* Parameter at index 38 */
-  1, 1,                                /* Parameter at index 39 */
-  1, 1,                                /* Parameter at index 40 */
-  1, 1,                                /* Parameter at index 41 */
 };
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
@@ -1529,8 +1415,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "u2pwm_alpha";
-static const char* NI_CompiledModelVersion = "1.105";
-static const char* NI_CompiledModelDateTime = "Mon May 09 19:25:46 2016";
+static const char* NI_CompiledModelVersion = "1.107";
+static const char* NI_CompiledModelDateTime = "Tue Jun 20 09:04:18 2017";
 static const char* NI_builder DataSection(".NIVS.builder") =
   "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
