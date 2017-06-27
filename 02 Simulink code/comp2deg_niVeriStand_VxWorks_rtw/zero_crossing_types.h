@@ -7,9 +7,9 @@
  *
  * Code generation for model "comp2deg".
  *
- * Model version              : 1.8
+ * Model version              : 1.10
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon May 09 19:25:59 2016
+ * C source code generated on : Tue Jun 27 14:04:19 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

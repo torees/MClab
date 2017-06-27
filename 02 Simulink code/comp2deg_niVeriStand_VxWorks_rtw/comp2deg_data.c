@@ -1,6 +1,6 @@
 #include "ni_modelframework.h"
 #if defined VXWORKS || defined kNIOSLinux
-# define comp2deg_P                    comp2deg_P DataSection(".NIVS.defaultparams")
+#define comp2deg_P                     comp2deg_P DataSection(".NIVS.defaultparams")
 #endif
 
 /*
@@ -12,9 +12,9 @@
  *
  * Code generation for model "comp2deg".
  *
- * Model version              : 1.8
+ * Model version              : 1.10
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon May 09 19:25:59 2016
+ * C source code generated on : Tue Jun 27 14:04:19 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,22 +27,22 @@
 
 /* Block parameters (auto storage) */
 P_comp2deg_T comp2deg_P = {
-  -165.0,                              /* Variable: zero_alpha_1
+  -149.0,                              /* Variable: zero_alpha_1
                                         * Referenced by: '<Root>/Constant'
                                         */
-  -154.0,                              /* Variable: zero_alpha_2
+  50.0,                                /* Variable: zero_alpha_2
                                         * Referenced by: '<Root>/Constant1'
                                         */
-  -137.0,                              /* Variable: zero_alpha_3
+  5.0,                                 /* Variable: zero_alpha_3
                                         * Referenced by: '<Root>/Constant2'
                                         */
-  -8.0,                                /* Variable: zero_alpha_4
+  -17.0,                               /* Variable: zero_alpha_4
                                         * Referenced by: '<Root>/Constant3'
                                         */
-  165.0,                               /* Variable: zero_alpha_5
+  127.0,                               /* Variable: zero_alpha_5
                                         * Referenced by: '<Root>/Constant4'
                                         */
-  -12.0,                               /* Variable: zero_alpha_6
+  -36.0,                               /* Variable: zero_alpha_6
                                         * Referenced by: '<Root>/Constant5'
                                         */
   -1.0,                                /* Expression: width
@@ -393,9 +393,9 @@ P_comp2deg_T comp2deg_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : comp2deg
- * Model version : 1.8
- * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Mon May 09 19:25:59 2016
+ * Model version : 1.10
+ * VeriStand Model Framework version : 2016.0.0.72 (2016)
+ * Source generated on : Tue Jun 27 14:04:19 2017
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 

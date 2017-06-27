@@ -2,9 +2,9 @@
  * NI VeriStand Model Framework code generation
  *
  * Model : comp2deg
- * Model version : 1.8
- * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Mon May 09 19:25:59 2016
+ * Model version : 1.10
+ * VeriStand Model Framework version : 2016.0.0.72 (2016)
+ * Source generated on : Tue Jun 27 14:04:19 2017
  *========================================================================*/
 
 /*

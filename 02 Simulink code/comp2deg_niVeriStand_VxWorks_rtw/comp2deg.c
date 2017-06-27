@@ -7,9 +7,9 @@
  *
  * Code generation for model "comp2deg".
  *
- * Model version              : 1.8
+ * Model version              : 1.10
  * Simulink Coder version : 8.8 (R2015a) 09-Feb-2015
- * C source code generated on : Mon May 09 19:25:59 2016
+ * C source code generated on : Tue Jun 27 14:04:19 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -285,9 +285,9 @@ RT_MODEL_comp2deg_T *comp2deg(void)
  * NI VeriStand Model Framework code generation
  *
  * Model : comp2deg
- * Model version : 1.8
- * VeriStand Model Framework version : 2015.0.1.0 (2015 f1)
- * Source generated on : Mon May 09 19:25:59 2016
+ * Model version : 1.10
+ * VeriStand Model Framework version : 2016.0.0.72 (2016)
+ * Source generated on : Tue Jun 27 14:04:19 2017
  *========================================================================*/
 
 /* This file contains automatically generated code for functions
@@ -370,6 +370,15 @@ double NIRT_GetValueByDataType(void* ptr, int32_t subindex, int32_t type,
    case 18:
     return NIRT_GetValueByDataType(ptr,subindex,3,Complex);
 
+   case 19:
+    return (( double *)ptr)[subindex];
+
+   case 20:
+    return (( double *)ptr)[subindex];
+
+   case 21:
+    return (( double *)ptr)[subindex];
+
    case 22:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
@@ -441,35 +450,35 @@ int32_t NIRT_SetValueByDataType(void* ptr, int32_t subindex, double value,
 
    case 10:
     //Type is renamed. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,6,Complex);
+    return NIRT_SetValueByDataType(ptr, subindex, value, 6, Complex);
 
    case 13:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,7,Complex);
+    return NIRT_SetValueByDataType(ptr, subindex, value, 7, Complex);
 
    case 15:
     //Type is enum. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,6,Complex);
+    return NIRT_SetValueByDataType(ptr, subindex, value, 6, Complex);
 
    case 16:
     //Type is enum. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,6,Complex);
+    return NIRT_SetValueByDataType(ptr, subindex, value, 6, Complex);
 
    case 17:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+    return NIRT_SetValueByDataType(ptr, subindex, value, 0, Complex);
 
    case 18:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,3,Complex);
+    return NIRT_SetValueByDataType(ptr, subindex, value, 3, Complex);
 
    case 22:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+    return NIRT_SetValueByDataType(ptr, subindex, value, 0, Complex);
 
    case 23:
     //Type is matrix. Call SetValueByDataType on its contained type
-    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+    return NIRT_SetValueByDataType(ptr, subindex, value, 0, Complex);
   }
 
   //No matching datatype conversion
@@ -546,172 +555,17 @@ int32_t NumInputPorts(void)
   return 6;
 }
 
-int32_t NumOutputPorts(void)
-{
-  return 12;
-}
-
-double ni_extout[12];
-
-/*========================================================================*
- * Function: SetExternalOutputs
- *
- * Abstract:
- *		Set data to model ports on the specified task
- *
- * Input Parameters
- *      data : data to set
- *      TaskSampleHit : task id
- *
- * Returns:
- *     Return value: 0 if no error
- *========================================================================*/
 void SetExternalOutputs(double* data, int_T* TaskSampleHit)
 {
-  int index = 0, count = 0;
-
-  // comp2deg/alpha_deg_1: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_deg_2: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum1, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_deg_3: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum2, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_deg_4: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum3, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_deg_5: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum4, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_deg_6: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum5, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_rad_1: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_rad_2: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain1, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_rad_3: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain2, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_rad_4: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain3, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_rad_5: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain4, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  // comp2deg/alpha_rad_6: Virtual Signal # 0
-  if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain5, 0, 0, 0);
-  } else {
-    index += 1;
-  }
-
-  if (data != NULL) {
-    memcpy(&data[0], &ni_extout[0], sizeof(ni_extout));
-  }
-
-  UNUSED_PARAMETER(count);
 }
 
-/*========================================================================*
- * Function: NI_InitExternalOutputs
- *
- * Abstract:
- *		Initialize model ports
- *
- * Output Parameters
- *
- * Returns:
- *     Return value: 0 if no error
- *========================================================================*/
+int32_t NumOutputPorts(void)
+{
+  return NI_OK;
+}
+
 int32_t NI_InitExternalOutputs()
 {
-  int index = 0, count = 0;
-
-  // comp2deg/alpha_deg_1: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum, 0, 0, 0);
-
-  // comp2deg/alpha_deg_2: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum1, 0, 0, 0);
-
-  // comp2deg/alpha_deg_3: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum2, 0, 0, 0);
-
-  // comp2deg/alpha_deg_4: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum3, 0, 0, 0);
-
-  // comp2deg/alpha_deg_5: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum4, 0, 0, 0);
-
-  // comp2deg/alpha_deg_6: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Sum5, 0, 0, 0);
-
-  // comp2deg/alpha_rad_1: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain, 0, 0, 0);
-
-  // comp2deg/alpha_rad_2: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain1, 0, 0, 0);
-
-  // comp2deg/alpha_rad_3: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain2, 0, 0, 0);
-
-  // comp2deg/alpha_rad_4: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain3, 0, 0, 0);
-
-  // comp2deg/alpha_rad_5: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain4, 0, 0, 0);
-
-  // comp2deg/alpha_rad_6: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&comp2deg_B.Gain5, 0, 0, 0);
-  UNUSED_PARAMETER(count);
   return NI_OK;
 }
 
@@ -897,12 +751,12 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int32_t NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static const char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "comp2deg";
-static const char* NI_CompiledModelVersion = "1.8";
-static const char* NI_CompiledModelDateTime = "Mon May 09 19:25:59 2016";
+static const char* NI_CompiledModelVersion = "1.10";
+static const char* NI_CompiledModelDateTime = "Tue Jun 27 14:04:19 2017";
 static const char* NI_builder DataSection(".NIVS.builder") =
-  "NI Model Framework 2015.0.1.0 (2015 f1) for Simulink Coder 8.8 (R2015a)";
+  "NI Model Framework 2016.0.0.72 (2016) for Simulink Coder 8.8 (R2015a)";
 static const char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
-  "2015.0.1.0";
+  "2016.0.0.72";
 
 /*========================================================================*
  * Function: NIRT_GetBuildInfo
@@ -1308,26 +1162,32 @@ DLL_EXPORT int32_t NIRT_GetExtIOSpec(int32_t index, int32_t *idx, char* name,
  * Function: NI_ProbeOneSignal
  *
  * Abstract:
- *		Helper function to probe one	signal. baseaddr must NOT be VIRTUAL_SIG
+ *		Helper function to probe one signal. baseaddr must NOT be VIRTUAL_SIG
  *
  * Output Parameters
  *
  * Returns:
- *     Return value: 0 if no error
+ *     Return value: Returns the last index value probed in a vector signal
  *========================================================================*/
 static int32_t NI_ProbeOneSignal(int32_t idx, double *value, int32_t len,
   int32_t *count, int32_t vOffset, int32_t vLength)
 {
-  char *ptr = (char*)((NI_SigList[idx].baseaddr == BLOCKIO_SIG) ?
-                      S->ModelData.blockIO : S->ModelData.inputs) + (uintptr_t)
-    NI_SigList[idx].addr;
-  int32_t subindex = (vLength == -1) ? 0 : vOffset;
-  int32_t sublength = (vLength == -1) ? NI_SigList[idx].width : (vLength +
-    vOffset);
-  while ((subindex < sublength) && (*count < len))
-    value[(*count)++] = NIRT_GetValueByDataType(ptr, subindex++, NI_SigList[idx]
-      .datatype, NI_SigList[idx].IsComplex);
-  return *count;
+  if (NI_SigList[idx].baseaddr == VIRTUAL_SIG) {
+    SetSITErrorMessage("NI_ProbeOneSignal: Received request to probe a virtual signal, but was expecting a ground source. Ignoring virtual signal probe. Report this behavior to National Instruments.",
+                       0);
+    return 0;
+  } else {
+    char *ptr = (char*)((NI_SigList[idx].baseaddr == BLOCKIO_SIG) ?
+                        S->ModelData.blockIO : S->ModelData.inputs) + (uintptr_t)
+      NI_SigList[idx].addr;
+    int32_t subindex = (vLength == -1) ? 0 : vOffset;
+    int32_t sublength = (vLength == -1) ? NI_SigList[idx].width : (vLength +
+      vOffset);
+    while ((subindex < sublength) && (*count < len))
+      value[(*count)++] = NIRT_GetValueByDataType(ptr, subindex++,
+        NI_SigList[idx].datatype, NI_SigList[idx].IsComplex);
+    return *count;
+  }
 }
 
 /*========================================================================*
@@ -1441,7 +1301,7 @@ DLL_EXPORT int32_t NIRT_SetParameter(int32_t index, int32_t subindex, double
 
   /* Check bounds */
   if (index >= NI_ParamListSize) {
-    SetSITErrorMessage("Parameter index is out of bounds.",1);
+    SetSITErrorMessage("Parameter index is out of bounds.", 1);
     return NI_SetParamTxStatus= NI_ERROR;
   }
 
@@ -1495,9 +1355,9 @@ DLL_EXPORT int32_t NIRT_SetParameter(int32_t index, int32_t subindex, double
   }
 
   // verify that subindex is within bounds.
-  if (subindex>=NI_ParamList[index].width) {
+  if (subindex >= NI_ParamList[index].width) {
     SetSITErrorMessage("Parameter subindex is out of bounds.",1);
-    return NI_SetParamTxStatus= NI_ERROR;
+    return NI_SetParamTxStatus = NI_ERROR;
   }
 
   if (ReadSideDirtyFlag == 1) {
@@ -1511,8 +1371,8 @@ DLL_EXPORT int32_t NIRT_SetParameter(int32_t index, int32_t subindex, double
   WriteSideDirtyFlag = 1;
 
   /* Convert the incoming double datatype to the parameter's internal datatype and update value */
-  return NIRT_SetValueByDataType(ptr,subindex,value,NI_ParamList[index].datatype,
-    NI_ParamList[index].IsComplex);
+  return NIRT_SetValueByDataType(ptr, subindex, value, NI_ParamList[index].
+    datatype, NI_ParamList[index].IsComplex);
 }
 
 /*========================================================================*
@@ -1538,14 +1398,14 @@ DLL_EXPORT int32_t NIRT_SetVectorParameter( uint32_t index, const double
 
   /* verify that index is within bounds*/
   if (index >= (uint32_t)NI_ParamListSize) {
-    SetSITErrorMessage("Parameter index is out of bounds.",1);
-    return NI_SetParamTxStatus= NI_ERROR;
+    SetSITErrorMessage("Parameter index is out of bounds.", 1);
+    return NI_SetParamTxStatus = NI_ERROR;
   }
 
   // verify that subindex is within bounds.
   if (paramlength != (uint32_t)NI_ParamList[index].width) {
-    SetSITErrorMessage("Parameter length is incorrect.",1);
-    return NI_SetParamTxStatus= NI_ERROR;
+    SetSITErrorMessage("Parameter length is incorrect.", 1);
+    return NI_SetParamTxStatus = NI_ERROR;
   }
 
   /* If we have pending modified parameters, then copy to write-side */
@@ -1587,14 +1447,14 @@ DLL_EXPORT int32_t NIRT_SetScalarParameterInline( uint32_t index, uint32_t
 {
   char* ptr = NULL;
   if (index >= (uint32_t)NI_ParamListSize) {
-    SetSITErrorMessage("Parameter index is out of bounds.",1);
-    return NI_SetParamTxStatus= NI_ERROR;
+    SetSITErrorMessage("Parameter index is out of bounds.", 1);
+    return NI_SetParamTxStatus = NI_ERROR;
   }
 
   // verify that subindex is within bounds.
   if (subindex >= (uint32_t)NI_ParamList[index].width) {
-    SetSITErrorMessage("Parameter subindex is out of bounds.",1);
-    return NI_SetParamTxStatus= NI_ERROR;
+    SetSITErrorMessage("Parameter subindex is out of bounds.", 1);
+    return NI_SetParamTxStatus = NI_ERROR;
   }
 
   /* Get the parameter's address into the Parameter struct
@@ -1603,8 +1463,8 @@ DLL_EXPORT int32_t NIRT_SetScalarParameterInline( uint32_t index, uint32_t
   ReadSideDirtyFlag = 1;
 
   /* Convert the incoming double datatype to the parameter's internal datatype and update value */
-  return NIRT_SetValueByDataType(ptr,subindex,paramvalue,NI_ParamList[index].
-    datatype,NI_ParamList[index].IsComplex);
+  return NIRT_SetValueByDataType(ptr, subindex, paramvalue, NI_ParamList[index].
+    datatype, NI_ParamList[index].IsComplex);
 }
 
 /*========================================================================*
@@ -1639,7 +1499,7 @@ DLL_EXPORT int32_t NIRT_GetParameter(int32_t index, int32_t subindex, double
   ptr = (char *)(&rtParameter[READSIDE]) + NI_ParamList[index].addr;
 
   /* Convert the parameter's internal datatype to double and return its value */
-  *value = NIRT_GetValueByDataType(ptr,subindex,NI_ParamList[index].datatype,
+  *value = NIRT_GetValueByDataType(ptr, subindex, NI_ParamList[index].datatype,
     NI_ParamList[index].IsComplex);
   return NI_OK;
 }
