@@ -1,3 +1,0 @@
-Correct path for cRIO-9114 ADS Custom Personality FPGA.fpgaconfig and cRIO-9114 ADS Custom Personality FPGA.lvbitx:
-
-C:\Users\Public\Documents\National Instruments\NI VeriStand 2015\FPGA\
