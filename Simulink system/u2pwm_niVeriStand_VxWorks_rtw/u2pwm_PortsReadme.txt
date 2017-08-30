@@ -39,44 +39,38 @@
 <inport> Id = "38"  Name = "ctrl_sixaxis2thruster/alpha_4" Width = "1" DataType = "real_T" </inport>
 <inport> Id = "39"  Name = "ctrl_sixaxis2thruster/alpha_5" Width = "1" DataType = "real_T" </inport>
 <inport> Id = "40"  Name = "ctrl_sixaxis2thruster/alpha_6" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "41"  Name = "alpha2pwm/manual alpha/man_alpha_5" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "42"  Name = "alpha2pwm/manual alpha/man_alpha_4" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "43"  Name = "alpha2pwm/manual alpha/man_alpha_1" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "44"  Name = "alpha2pwm/manual alpha/man_alpha_2" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "45"  Name = "alpha2pwm/manual alpha/man_alpha_3" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "46"  Name = "alpha2pwm/manual alpha/man_alpha_6" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "47"  Name = "mech elec enable" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "48"  Name = "wrapping/no wrapping" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "49"  Name = "wrapping/alpha_deg_1" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "50"  Name = "wrapping/alpha_deg_2" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "51"  Name = "wrapping/alpha_deg_3" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "52"  Name = "wrapping/alpha_deg_4" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "53"  Name = "wrapping/alpha_deg_5" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "54"  Name = "wrapping/alpha_deg_6" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "55"  Name = "alpha2pwm/manual override alpha" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "56"  Name = "u2pwm/manual pwm/pwm_u_5" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "57"  Name = "u2pwm/manual pwm/pwm_u_4" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "58"  Name = "u2pwm/manual pwm/pwm_u_1" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "59"  Name = "u2pwm/manual pwm/pwm_u_6" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "60"  Name = "u2pwm/manual pwm/pwm_u_2" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "61"  Name = "u2pwm/manual pwm/pwm_u_3" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "62"  Name = "u2pwm/manual override pwm" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "41"  Name = "mech elec enable" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "42"  Name = "angle centering/manual alpha/man_alpha_5" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "43"  Name = "angle centering/manual alpha/man_alpha_4" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "44"  Name = "angle centering/manual alpha/man_alpha_1" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "45"  Name = "angle centering/manual alpha/man_alpha_2" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "46"  Name = "angle centering/manual alpha/man_alpha_3" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "47"  Name = "angle centering/manual alpha/man_alpha_6" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "48"  Name = "angle centering/manual override alpha" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "49"  Name = "pwm centering/manual pwm/pwm_u_5" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "50"  Name = "pwm centering/manual pwm/pwm_u_4" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "51"  Name = "pwm centering/manual pwm/pwm_u_1" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "52"  Name = "pwm centering/manual pwm/pwm_u_6" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "53"  Name = "pwm centering/manual pwm/pwm_u_2" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "54"  Name = "pwm centering/manual pwm/pwm_u_3" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "55"  Name = "pwm centering/manual override pwm" Width = "1" DataType = "real_T" </inport>
 <outport> Id = "1"  Name = "control input u exceeds bounds" Width = "1" DataType = "boolean_T" </outport>
-<outport> Id = "2"  Name = "indicator/STOP" Width = "1" DataType = "boolean_T" </outport>
-<outport> Id = "3"  Name = "indicator/ctrl_DP" Width = "1" DataType = "boolean_T" </outport>
-<outport> Id = "4"  Name = "indicator/ctrl_sixaxis2thruster" Width = "1" DataType = "boolean_T" </outport>
-<outport> Id = "5"  Name = "indicator/ctrl_custom" Width = "1" DataType = "boolean_T" </outport>
-<outport> Id = "6"  Name = "alpha2pwm/Need unwrapping thrusters" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "7"  Name = "pwm_output alpha/alpha_2" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "8"  Name = "pwm_output alpha/alpha_3" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "9"  Name = "pwm_output alpha/alpha_1" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "10"  Name = "pwm_output alpha/alpha_6" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "11"  Name = "pwm_output alpha/alpha_4" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "12"  Name = "pwm_output alpha/alpha_5" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "13"  Name = "pwm_output u/pwm_u_2" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "14"  Name = "pwm_output u/pwm_u_3" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "15"  Name = "pwm_output u/pwm_u_1" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "16"  Name = "pwm_output u/pwm_u_6" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "17"  Name = "pwm_output u/pwm_u_4" Width = "1" DataType = "real_T" </outport>
-<outport> Id = "18"  Name = "pwm_output u/pwm_u_5" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "2"  Name = "angle centering/Need unwrapping thrusters" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "3"  Name = "alpha_output/alpha_2" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "4"  Name = "alpha_output/alpha_3" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "5"  Name = "alpha_output/alpha_1" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "6"  Name = "alpha_output/alpha_6" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "7"  Name = "alpha_output/alpha_4" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "8"  Name = "alpha_output/alpha_5" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "9"  Name = "indicator/STOP" Width = "1" DataType = "boolean_T" </outport>
+<outport> Id = "10"  Name = "indicator/ctrl_DP" Width = "1" DataType = "boolean_T" </outport>
+<outport> Id = "11"  Name = "indicator/ctrl_sixaxis2thruster" Width = "1" DataType = "boolean_T" </outport>
+<outport> Id = "12"  Name = "indicator/ctrl_custom" Width = "1" DataType = "boolean_T" </outport>
+<outport> Id = "13"  Name = "out_centered" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "14"  Name = "pwm_output u/pwm_u_2" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "15"  Name = "pwm_output u/pwm_u_3" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "16"  Name = "pwm_output u/pwm_u_1" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "17"  Name = "pwm_output u/pwm_u_6" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "18"  Name = "pwm_output u/pwm_u_4" Width = "1" DataType = "real_T" </outport>
+<outport> Id = "19"  Name = "pwm_output u/pwm_u_5" Width = "1" DataType = "real_T" </outport>
 </portlist>

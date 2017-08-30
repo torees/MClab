@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_custom".
  *
- * Model version              : 1.76
+ * Model version              : 1.82
  * Simulink Coder version : 8.11 (R2016b) 25-Aug-2016
- * C source code generated on : Wed Jul 12 18:22:42 2017
+ * C source code generated on : Wed Aug 23 15:30:47 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,4 +24,12 @@
 #include "builtin_typeid_types.h"
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
+
+extern real_T rt_roundd_snf(real_T u);
+extern real_T rt_remd_snf(real_T u0, real_T u1);
+extern real_T rt_atan2d_snf(real_T u0, real_T u1);
+
+/* private model entry point functions */
+extern void ctrl_custom_derivatives(void);
+
 #endif                                 /* RTW_HEADER_ctrl_custom_private_h_ */

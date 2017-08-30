@@ -12,9 +12,9 @@
  *
  * Code generation for model "ctrl_sixaxis2thruster".
  *
- * Model version              : 1.62
+ * Model version              : 1.72
  * Simulink Coder version : 8.11 (R2016b) 25-Aug-2016
- * C source code generated on : Sun Jul 09 19:09:44 2017
+ * C source code generated on : Mon Aug 21 16:42:38 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -27,14 +27,25 @@
 
 /* Block parameters (auto storage) */
 P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
+  0.2,                                 /* Variable: u_threshold
+                                        * Referenced by:
+                                        *   '<S1>/Joystick angle threshold'
+                                        *   '<S2>/Joystick angle threshold'
+                                        */
   0.0,                                 /* Mask Parameter: DetectIncrease_vinit
-                                        * Referenced by: '<S4>/Delay Input1'
+                                        * Referenced by: '<S10>/Delay Input1'
                                         */
   0.0,                                 /* Mask Parameter: DetectIncrease1_vinit
-                                        * Referenced by: '<S5>/Delay Input1'
+                                        * Referenced by: '<S11>/Delay Input1'
                                         */
   0.0,                                 /* Mask Parameter: DetectIncrease2_vinit
-                                        * Referenced by: '<S6>/Delay Input1'
+                                        * Referenced by: '<S12>/Delay Input1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S3>/Memory4'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S2>/Memory5'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/PosXLeft'
@@ -75,8 +86,11 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<S2>/Gain'
                                         */
-  3.1415926535897931,                  /* Expression: pi
-                                        * Referenced by: '<S2>/Constant'
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S2>/Saturation'
+                                        */
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S2>/Saturation'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/alpha_1'
@@ -150,6 +164,30 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
   1.0,                                 /* Expression: btype
                                         * Referenced by: '<Root>/ArrowDown'
                                         */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S4>/Memory4'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S1>/Memory5'
+                                        */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/PosXRight'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/PosXRight'
+                                        */
+  6.0,                                 /* Expression: portnum
+                                        * Referenced by: '<Root>/PosXRight'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/PosXRight'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/PosXRight'
+                                        */
+  1.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/PosXRight'
+                                        */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/PosYRight'
                                         */
@@ -171,26 +209,11 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
   -1.0,                                /* Expression: -1
                                         * Referenced by: '<S1>/Gain'
                                         */
-  -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/PosXRight'
+  1.0,                                 /* Expression: 1
+                                        * Referenced by: '<S1>/Saturation'
                                         */
-  1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/PosXRight'
-                                        */
-  6.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/PosXRight'
-                                        */
-  -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/PosXRight'
-                                        */
-  1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/PosXRight'
-                                        */
-  1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/PosXRight'
-                                        */
-  3.1415926535897931,                  /* Expression: pi
-                                        * Referenced by: '<S1>/Constant'
+  -1.0,                                /* Expression: -1
+                                        * Referenced by: '<S1>/Saturation'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/alpha_5'
@@ -283,7 +306,7 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
                                         * Referenced by: '<Root>/Start'
                                         */
   0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S3>/Memory'
+                                        * Referenced by: '<S5>/Memory'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/u_limit_out'
@@ -302,12 +325,6 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
                                         */
   0.0,                                 /* Expression: btype
                                         * Referenced by: '<Root>/u_limit_out'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<S2>/Saturation'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S2>/Saturation'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/u_1'
@@ -362,12 +379,6 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
                                         */
   0.0,                                 /* Expression: btype
                                         * Referenced by: '<Root>/u_3'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<S1>/Saturation'
-                                        */
-  -1.0,                                /* Expression: -1
-                                        * Referenced by: '<S1>/Saturation'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<Root>/u_4'
@@ -429,9 +440,9 @@ P_ctrl_sixaxis2thruster_T ctrl_sixaxis2thruster_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_sixaxis2thruster
- * Model version : 1.62
+ * Model version : 1.72
  * VeriStand Model Framework version : 2017.0.0.143 (2017)
- * Source generated on : Sun Jul 09 19:09:44 2017
+ * Source generated on : Mon Aug 21 16:42:37 2017
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 
@@ -444,6 +455,12 @@ typedef struct {
 NI_ParamSizeWidth P_ctrl_sixaxis2thruster_T_sizes[] DataSection(
   ".NIVS.defaultparamsizes") = {
   { sizeof(P_ctrl_sixaxis2thruster_T), 1 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
 
   { sizeof(real_T), 1, 0 },
 

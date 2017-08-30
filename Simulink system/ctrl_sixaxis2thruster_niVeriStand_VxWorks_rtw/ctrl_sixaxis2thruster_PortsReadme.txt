@@ -2,8 +2,8 @@
 <inport> Id = "1"  Name = "PosXLeft" Width = "1" DataType = "real_T" </inport>
 <inport> Id = "2"  Name = "PosYLeft" Width = "1" DataType = "real_T" </inport>
 <inport> Id = "3"  Name = "ArrowDown" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "4"  Name = "PosYRight" Width = "1" DataType = "real_T" </inport>
-<inport> Id = "5"  Name = "PosXRight" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "4"  Name = "PosXRight" Width = "1" DataType = "real_T" </inport>
+<inport> Id = "5"  Name = "PosYRight" Width = "1" DataType = "real_T" </inport>
 <inport> Id = "6"  Name = "ArrowUp" Width = "1" DataType = "real_T" </inport>
 <inport> Id = "7"  Name = "Start" Width = "1" DataType = "real_T" </inport>
 <outport> Id = "1"  Name = "alpha_1" Width = "1" DataType = "real_T" </outport>

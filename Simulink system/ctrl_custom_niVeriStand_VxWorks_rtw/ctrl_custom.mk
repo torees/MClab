@@ -85,13 +85,13 @@ ALT_MATLAB_ROOT 		= C:/PROGRA~1/MATLAB/R2016b
 MATLAB_BIN      		= C:/Program Files/MATLAB/R2016b/bin
 ALT_MATLAB_BIN  		= C:/PROGRA~1/MATLAB/R2016b/bin
 MASTER_ANCHOR_DIR    	= 
-START_DIR          		= C:/Users/MCLab/Desktop/CSAD/SIMULI~1
+START_DIR          		= C:/Users/MCLab/DOCUME~1/GitHub/CS_DRI~2/SIMULI~1
 S_FUNCTIONS     		= 
 S_FUNCTIONS_LIB 		= 
 SOLVER          		= 
-NUMST           		= 1
-TID01EQ         		= 0
-NCSTATES        		= 0
+NUMST           		= 2
+TID01EQ         		= 1
+NCSTATES        		= 6
 BUILDARGS       		=  NIDEBUG=0 NIOPT="Default" OPTS="" ISPROTECTINGMODEL=NOTPROTECTING
 MULTITASKING    		= 0
 EXT_MODE        		= 0

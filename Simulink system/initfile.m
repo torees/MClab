@@ -1,8 +1,23 @@
+
 %% Init file for master thesis
+clear all, close all, clc
+
+%% ctrl_sixaxis
+
+% Threshold to avoid joystick angle noise at small inclinations
+u_threshold = 0.2;
+
+
+
 %% Controls for the system
 % Thruster_lock = 1;      % if 0 --> Thrusters locked to predescribed angles, if 1 --> Azimuth thrusters
 % Thruster_control = 4;   % Chooses Controller: 1 = Speed , 2 = Torque , 3 = Power , 4 = Power & torque
+
+
+
 %% Parameters
+
+
 
 % Thrust coefficients
 K_T1f = 0.3763;
@@ -201,3 +216,46 @@ load('signal mapping\force_to_pwm_thr6_backward')
 pwm_thr6_backward = coeffvalues(ForceToPWM);
 
 n_max = 152;
+
+%% pwm initialization
+
+% Thruster - motor
+min_pwm     = 5;
+max_pwm     = 10;
+u2pwm_gain  = (max_pwm-min_pwm)/2;
+zero_pwm    = min_pwm + u2pwm_gain;
+
+% Thruster - servo
+zero_alpha_1  = -149; 
+zero_alpha_2  = -40; 
+zero_alpha_3  = 5; 
+zero_alpha_4  = -17;
+zero_alpha_5  = 127;
+zero_alpha_6  = -36;
+
+
+%% ctrl_custom
+
+Lx1 =  1.0678;   Ly1 =  0.0;
+Lx2 =  0.9344;   Ly2 =  0.11;
+Lx3 =  0.9344;   Ly3 = -0.11;
+Lx4 = -1.1644;   Ly4 =  0.0;
+Lx5 = -0.9911;   Ly5 = -0.1644;
+Lx6 = -0.9911;   Ly6 =  0.1644;
+
+% Thrust coefficients
+K_T = [0.3763; 0.3901; 0.3776; 0.5641; 0.4799; 0.5588];
+% Torque coefficients
+K_q = [0.0113; 0.0117; 0.0113; 0.0169; 0.0144; 0.0168];
+
+% Sec. 12.3.1
+% tau = T_e * K_e * u_e
+T_e = [eye(2)   eye(2)   eye(2)   eye(2)   eye(2)   eye(2)
+       -Ly1 Lx1 -Ly2 Lx2 -Ly3 Lx3 -Ly4 Lx4 -Ly5 Lx5 -Ly6 Lx6] 
+K_e = diag([K_T(1) K_T(1) K_T(2) K_T(2) K_T(3) K_T(3) K_T(4) K_T(4) K_T(5) K_T(5) K_T(6) K_T(6)])
+
+T      = T_e*K_e;
+T_pinv = T'*inv(T*T');
+
+
+

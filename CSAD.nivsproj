@@ -178,33 +178,6 @@
 			<Description />
 			<Properties />
 			<Errors />
-			<Section Name="CSAD.nivssdf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\MCLab\Desktop\CSAD\CSAD.nivssdf</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="CSAD.nivsscreen" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\MCLab\Desktop\CSAD\CSAD.nivsscreen</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="CSAD.nivscf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\MCLab\Desktop\CSAD\CSAD.nivscf</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
 			<Section Name="cRIO-9114 ADS Custom Personality FPGA IMU.lvbitx" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
@@ -232,47 +205,74 @@
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="comp2deg.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+			<Section Name="CSAD.nivssdf (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\MCLab\Desktop\CSAD\Simulink system\comp2deg_niVeriStand_VxWorks_rtw\comp2deg.out</String>
+						<String>C:\Users\MCLab\Documents\GitHub\CS_Drillship_cRIO\CSAD.nivssdf</String>
 					</Property>
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="ctrl_sixaxis2thruster.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+			<Section Name="CSAD.nivsscreen (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\MCLab\Desktop\CSAD\Simulink system\ctrl_sixaxis2thruster_niVeriStand_VxWorks_rtw\ctrl_sixaxis2thruster.out</String>
+						<String>C:\Users\MCLab\Documents\GitHub\CS_Drillship_cRIO\CSAD.nivsscreen</String>
 					</Property>
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="u2pwm.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+			<Section Name="CSAD.nivscf (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\MCLab\Desktop\CSAD\Simulink system\u2pwm_niVeriStand_VxWorks_rtw\u2pwm.out</String>
+						<String>C:\Users\MCLab\Documents\GitHub\CS_Drillship_cRIO\CSAD.nivscf</String>
 					</Property>
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="ctrl_DP.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+			<Section Name="comp2deg.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\MCLab\Desktop\CSAD\Simulink system\ctrl_DP_niVeriStand_VxWorks_rtw\ctrl_DP.out</String>
+						<String>C:\Users\MCLab\Documents\GitHub\CS_Drillship_cRIO\Simulink system\comp2deg_niVeriStand_VxWorks_rtw\comp2deg.out</String>
 					</Property>
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="ctrl_custom.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+			<Section Name="ctrl_sixaxis2thruster.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\MCLab\Desktop\CSAD\Simulink system\ctrl_custom_niVeriStand_VxWorks_rtw\ctrl_custom.out</String>
+						<String>C:\Users\MCLab\Documents\GitHub\CS_Drillship_cRIO\Simulink system\ctrl_sixaxis2thruster_niVeriStand_VxWorks_rtw\ctrl_sixaxis2thruster.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="u2pwm.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\MCLab\Documents\GitHub\CS_Drillship_cRIO\Simulink system\u2pwm_niVeriStand_VxWorks_rtw\u2pwm.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ctrl_DP.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\MCLab\Documents\GitHub\CS_Drillship_cRIO\Simulink system\ctrl_DP_niVeriStand_VxWorks_rtw\ctrl_DP.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ctrl_custom.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\MCLab\Documents\GitHub\CS_Drillship_cRIO\Simulink system\ctrl_custom_niVeriStand_VxWorks_rtw\ctrl_custom.out</String>
 					</Property>
 				</Properties>
 				<Errors />

@@ -7,9 +7,9 @@
  *
  * Code generation for model "u2pwm".
  *
- * Model version              : 1.9
+ * Model version              : 1.18
  * Simulink Coder version : 8.11 (R2016b) 25-Aug-2016
- * C source code generated on : Wed Jul 12 17:04:41 2017
+ * C source code generated on : Mon Aug 21 16:04:15 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -26,12 +26,10 @@
 #include "zero_crossing_types.h"
 #include "u2pwm.h"
 
+extern void u2pwm_MATLABFunction2(real_T rtu_Tc_in1, real_T rtu_signal, real_T
+  rtu_Tc_in2, B_MATLABFunction2_u2pwm_T *localB);
 extern void u2pwm_MATLABFunction13(real_T rtu_u, B_MATLABFunction13_u2pwm_T
   *localB);
-extern void u2pwm_MATLABFunction(real_T rtu_u_pre, real_T rtu_u,
-  B_MATLABFunction_u2pwm_T *localB);
-extern void u2pwm_MATLABFunction11(real_T rtu_angle_d, real_T rtu_angle,
-  B_MATLABFunction11_u2pwm_T *localB);
 
 /* private model entry point functions */
 extern void u2pwm_derivatives(void);
