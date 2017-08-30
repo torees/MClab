@@ -217,7 +217,15 @@ pwm_thr6_backward = coeffvalues(ForceToPWM);
 
 n_max = 152;
 
-%% pwm initialization
+%% u2pwm
+
+% Thruster steering rate
+% According to Preben Frederich, Constrained Optimal Thrust Allocation for
+% C/S Inocean Cat I Drillship, 2016 master thesis, Sec 2.1
+% Fullscale 2 rpm
+alpha_max_rate = 0.012;                            % deg/s
+ctrl_frequency = 100;                           % Hz
+alpha_max_step = alpha_max_rate/ctrl_frequency; % deg/step
 
 % Thruster - motor
 min_pwm     = 5;
@@ -226,7 +234,7 @@ u2pwm_gain  = (max_pwm-min_pwm)/2;
 zero_pwm    = min_pwm + u2pwm_gain;
 
 % Thruster - servo
-zero_alpha_1  = -149; 
+zero_alpha_1  = -90; 
 zero_alpha_2  = -40; 
 zero_alpha_3  = 5; 
 zero_alpha_4  = -17;
