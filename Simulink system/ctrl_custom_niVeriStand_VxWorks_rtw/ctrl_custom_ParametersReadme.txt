@@ -1,7 +1,7 @@
 <parameterlist>
 <parameter> Id = "0" Inline = "0" Name = "ctrl_custom/Thrust allocation: Pseudo-inverse of extended thrust configuration matrix/Gain/Gain" Width = "36" DataType = "real_T" </parameter>
 <parameter> Id = "1" Inline = "0" Name = "ctrl_custom/Projection [-pi,pi] to [-inf,inf] + shortest rotation/Memory4/X0" Width = "6" DataType = "real_T" </parameter>
-<parameter> Id = "2" Inline = "0" Name = "ctrl_custom/def2rad/Gain" Width = "1" DataType = "real_T" </parameter>
+<parameter> Id = "2" Inline = "0" Name = "ctrl_custom/deg2rad/Gain" Width = "1" DataType = "real_T" </parameter>
 <parameter> Id = "3" Inline = "0" Name = "ctrl_custom/eta_QTM/mm2m/Gain" Width = "1" DataType = "real_T" </parameter>
 <parameter> Id = "4" Inline = "0" Name = "ctrl_custom/eta_QTM/Gain1/Gain" Width = "1" DataType = "real_T" </parameter>
 <parameter> Id = "5" Inline = "0" Name = "ctrl_custom/eta_QTM/deg2rad/Gain" Width = "1" DataType = "real_T" </parameter>

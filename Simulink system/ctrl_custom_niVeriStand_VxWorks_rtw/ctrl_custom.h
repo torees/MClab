@@ -7,9 +7,9 @@
  *
  * Code generation for model "ctrl_custom".
  *
- * Model version              : 1.82
+ * Model version              : 1.83
  * Simulink Coder version : 8.11 (R2016b) 25-Aug-2016
- * C source code generated on : Wed Aug 23 15:30:47 2017
+ * C source code generated on : Fri Sep 01 13:39:08 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,12 +20,14 @@
 
 #ifndef RTW_HEADER_ctrl_custom_h_
 #define RTW_HEADER_ctrl_custom_h_
+#include <stddef.h>
 #include <float.h>
 #include <math.h>
 #include <string.h>
-#include <stddef.h>
 #ifndef ctrl_custom_COMMON_INCLUDES_
 # define ctrl_custom_COMMON_INCLUDES_
+#include <stdio.h>
+#include <string.h>
 #include "rtwtypes.h"
 #include "zero_crossing_types.h"
 #include "simstruc.h"
@@ -826,23 +828,33 @@ typedef struct {
   real_T Memory4[6];                   /* '<S6>/Memory4' */
   real_T k_x;                          /* '<S1>/k_x' */
   real_T psi_refdeg;                   /* '<Root>/psi_ref [deg]' */
+  real_T deg2rad;                      /* '<Root>/deg2rad' */
   real_T x_m;                          /* '<S9>/x_m' */
+  real_T mm2m;                         /* '<S9>/mm2m' */
   real_T y_m;                          /* '<S9>/y_m' */
+  real_T Gain1;                        /* '<S9>/Gain1' */
   real_T u80180deg;                    /* '<S9>/psi_m' */
+  real_T Sum;                          /* '<S9>/Sum' */
   real_T k_y;                          /* '<S1>/k_y' */
   real_T k_psi;                        /* '<S1>/k_psi' */
   real_T sigma_psi;                    /* '<S1>/sigma_psi' */
   real_T mu_x;                         /* '<S1>/mu_x' */
   real_T sigma_x;                      /* '<S1>/sigma_x' */
+  real_T x_hat;                        /* '<S1>/Integrator3' */
+  real_T epsilon_x;                    /* '<S1>/Sum5' */
   real_T x_hatdot;                     /* '<S1>/Product7' */
   real_T X;                            /* '<S1>/Product8' */
   real_T mu_y;                         /* '<S1>/mu_y' */
   real_T kappa_y;                      /* '<S1>/kappa_y' */
   real_T sigma_y;                      /* '<S1>/sigma_y' */
+  real_T y_hat;                        /* '<S1>/Integrator1' */
+  real_T epsilon_y;                    /* '<S1>/Sum3' */
   real_T y_hatdot;                     /* '<S1>/Product4' */
   real_T Y;                            /* '<S1>/Product5' */
   real_T mu_psi;                       /* '<S1>/mu_psi' */
   real_T kappa_psi;                    /* '<S1>/kappa_psi' */
+  real_T psi_hat;                      /* '<S1>/Integrator2' */
+  real_T epsilon_psi;                  /* '<S1>/Sum1' */
   real_T psi_hatdot;                   /* '<S1>/Product1' */
   real_T N;                            /* '<S1>/Product2' */
   real_T sigma_psi_c;                  /* '<S7>/sigma_psi' */
@@ -851,7 +863,7 @@ typedef struct {
   real_T mu_psi_a;                     /* '<S7>/mu_psi' */
   real_T nu_psi;                       /* '<S7>/nu_psi' */
   real_T alpha_psi;                    /* '<S7>/alpha_psi' */
-  real_T Sum;                          /* '<S7>/Sum' */
+  real_T Sum_n;                        /* '<S7>/Sum' */
   real_T Sum1;                         /* '<S7>/Sum1' */
   real_T Sum5;                         /* '<S7>/Sum5' */
   real_T Acc_x;                        /* '<S3>/Acc_x' */
@@ -861,6 +873,7 @@ typedef struct {
   real_T Gyro_y;                       /* '<S3>/Gyro_y' */
   real_T Gyro_z;                       /* '<S3>/Gyro_z' */
   real_T u[6];                         /* '<S8>/MATLAB Function11' */
+  real_T alpha[6];                     /* '<S8>/MATLAB Function11' */
   real_T alpha_infinf[6];              /* '<S6>/MATLAB Function11' */
   real_T eta_tilde[3];                 /* '<S1>/Error in body frame' */
 } B_ctrl_custom_T;
@@ -917,6 +930,87 @@ typedef struct {
   real_T Gyro_x_DWORK1;                /* '<S3>/Gyro_x' */
   real_T Gyro_y_DWORK1;                /* '<S3>/Gyro_y' */
   real_T Gyro_z_DWORK1;                /* '<S3>/Gyro_z' */
+  struct {
+    void *FilePtr;
+  } ToFile_PWORK;                      /* '<Root>/To File' */
+
+  struct {
+    void *FilePtr;
+  } ToFile1_PWORK;                     /* '<Root>/To File1' */
+
+  struct {
+    void *FilePtr;
+  } ToFile2_PWORK;                     /* '<Root>/To File2' */
+
+  struct {
+    void *FilePtr;
+  } ToFile3_PWORK;                     /* '<Root>/To File3' */
+
+  struct {
+    void *FilePtr;
+  } ToFile4_PWORK;                     /* '<Root>/To File4' */
+
+  struct {
+    void *FilePtr;
+  } ToFile5_PWORK;                     /* '<Root>/To File5' */
+
+  struct {
+    void *FilePtr;
+  } ToFile_PWORK_d;                    /* '<S1>/To File' */
+
+  struct {
+    void *FilePtr;
+  } ToFile1_PWORK_n;                   /* '<S1>/To File1' */
+
+  struct {
+    void *FilePtr;
+  } ToFile2_PWORK_e;                   /* '<S1>/To File2' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile_IWORK;                      /* '<Root>/To File' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile1_IWORK;                     /* '<Root>/To File1' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile2_IWORK;                     /* '<Root>/To File2' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile3_IWORK;                     /* '<Root>/To File3' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile4_IWORK;                     /* '<Root>/To File4' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile5_IWORK;                     /* '<Root>/To File5' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile_IWORK_p;                    /* '<S1>/To File' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile1_IWORK_m;                   /* '<S1>/To File1' */
+
+  struct {
+    int_T Count;
+    int_T Decimation;
+  } ToFile2_IWORK_d;                   /* '<S1>/To File2' */
+
   uint8_T Inputtomodel_DWORK2[12];     /* '<Root>/Input to model' */
   uint8_T OutputtoWorkspace_DWORK2[12];/* '<Root>/Output to Workspace' */
   uint8_T x_ref_DWORK2[12];            /* '<Root>/x_ref' */
@@ -1139,8 +1233,8 @@ struct P_ctrl_custom_T_ {
   real_T psi_refdeg_P6;                /* Expression: btype
                                         * Referenced by: '<Root>/psi_ref [deg]'
                                         */
-  real_T def2rad_Gain;                 /* Expression: pi/180
-                                        * Referenced by: '<Root>/def2rad'
+  real_T deg2rad_Gain;                 /* Expression: pi/180
+                                        * Referenced by: '<Root>/deg2rad'
                                         */
   real_T x_m_P1;                       /* Expression: width
                                         * Referenced by: '<S9>/x_m'
@@ -1202,7 +1296,7 @@ struct P_ctrl_custom_T_ {
   real_T psi_m_P6;                     /* Expression: btype
                                         * Referenced by: '<S9>/psi_m'
                                         */
-  real_T deg2rad_Gain;                 /* Expression: pi/180
+  real_T deg2rad_Gain_h;               /* Expression: pi/180
                                         * Referenced by: '<S9>/deg2rad'
                                         */
   real_T Saturation_UpperSat;          /* Expression: 1e10
@@ -2152,9 +2246,9 @@ extern RT_MODEL_ctrl_custom_T *const ctrl_custom_M;
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_custom
- * Model version : 1.82
+ * Model version : 1.83
  * VeriStand Model Framework version : 2017.0.0.143 (2017)
- * Source generated on : Wed Aug 23 15:30:46 2017
+ * Source generated on : Fri Sep 01 13:39:07 2017
  *========================================================================*/
 #if !defined(NI_HEADER_ctrl_custom_h_)
 #define NI_HEADER_ctrl_custom_h_

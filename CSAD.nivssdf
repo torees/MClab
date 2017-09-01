@@ -10,7 +10,7 @@
 				<String>CSAD</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.95</String>
+				<String>1.0.0.99</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -3641,7 +3641,7 @@
 											</Properties>
 											<Errors />
 											<DefaultValue>
-												<Elem>0</Elem>
+												<Elem>0.5</Elem>
 											</DefaultValue>
 										</Channel>
 										<Channel Name="w_d_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
@@ -3656,7 +3656,7 @@
 											</Properties>
 											<Errors />
 											<DefaultValue>
-												<Elem>0</Elem>
+												<Elem>0.5</Elem>
 											</DefaultValue>
 										</Channel>
 										<Channel Name="w_d_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
@@ -3671,7 +3671,7 @@
 											</Properties>
 											<Errors />
 											<DefaultValue>
-												<Elem>0</Elem>
+												<Elem>0.5</Elem>
 											</DefaultValue>
 										</Channel>
 										<Channel Name="zeta_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
@@ -3686,7 +3686,7 @@
 											</Properties>
 											<Errors />
 											<DefaultValue>
-												<Elem>0</Elem>
+												<Elem>1</Elem>
 											</DefaultValue>
 										</Channel>
 										<Channel Name="zeta_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
@@ -3701,7 +3701,7 @@
 											</Properties>
 											<Errors />
 											<DefaultValue>
-												<Elem>0</Elem>
+												<Elem>1</Elem>
 											</DefaultValue>
 										</Channel>
 										<Channel Name="zeta_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
@@ -3716,7 +3716,7 @@
 											</Properties>
 											<Errors />
 											<DefaultValue>
-												<Elem>0</Elem>
+												<Elem>1</Elem>
 											</DefaultValue>
 										</Channel>
 									</Section>
@@ -4335,10 +4335,10 @@
 									<Double>10000</Double>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>199141</I32>
+									<I32>242036</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3586339865.324584</Double>
+									<Double>3587110780.8657088</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -4371,7 +4371,7 @@
 									<Boolean>true</Boolean>
 								</Property>
 								<Property Name="MD5">
-									<String>394da5a0dc241eb19679620522b85024</String>
+									<String>fdcb209815a52bfec4b18abd86da2417</String>
 								</Property>
 								<Property Name="NIVeriStandServer Port">
 									<U32>6012</U32>
@@ -4385,7 +4385,7 @@
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_custom.out</RTDestination>
 										<SupportedTarget>VxWorks</SupportedTarget>
-										<MD5>394da5a0dc241eb19679620522b85024</MD5>
+										<MD5>fdcb209815a52bfec4b18abd86da2417</MD5>
 									</DependentFile>
 								</Property>
 								<Property Name="GlobalParameterScopes">

@@ -12,9 +12,9 @@
  *
  * Code generation for model "ctrl_custom".
  *
- * Model version              : 1.82
+ * Model version              : 1.83
  * Simulink Coder version : 8.11 (R2016b) 25-Aug-2016
- * C source code generated on : Wed Aug 23 15:30:47 2017
+ * C source code generated on : Fri Sep 01 13:39:08 2017
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -156,7 +156,7 @@ P_ctrl_custom_T ctrl_custom_P = {
                                         * Referenced by: '<Root>/psi_ref [deg]'
                                         */
   0.017453292519943295,                /* Expression: pi/180
-                                        * Referenced by: '<Root>/def2rad'
+                                        * Referenced by: '<Root>/deg2rad'
                                         */
   -1.0,                                /* Expression: width
                                         * Referenced by: '<S9>/x_m'
@@ -998,9 +998,9 @@ P_ctrl_custom_T ctrl_custom_P = {
  * NI VeriStand Model Framework code generation
  *
  * Model : ctrl_custom
- * Model version : 1.82
+ * Model version : 1.83
  * VeriStand Model Framework version : 2017.0.0.143 (2017)
- * Source generated on : Wed Aug 23 15:30:46 2017
+ * Source generated on : Fri Sep 01 13:39:07 2017
  *========================================================================*/
 #if defined VXWORKS || defined kNIOSLinux
 
