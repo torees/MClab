@@ -10,7 +10,7 @@
 				<String>CSAD</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.99</String>
+				<String>1.0.0.104</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -4335,10 +4335,10 @@
 									<Double>10000</Double>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>242036</I32>
+									<I32>250546</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3587110780.8657088</Double>
+									<Double>3587299154.9230142</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -4371,7 +4371,7 @@
 									<Boolean>true</Boolean>
 								</Property>
 								<Property Name="MD5">
-									<String>fdcb209815a52bfec4b18abd86da2417</String>
+									<String>98360a619fdc630b45927a3a6d9ec663</String>
 								</Property>
 								<Property Name="NIVeriStandServer Port">
 									<U32>6012</U32>
@@ -4385,7 +4385,7 @@
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_custom.out</RTDestination>
 										<SupportedTarget>VxWorks</SupportedTarget>
-										<MD5>fdcb209815a52bfec4b18abd86da2417</MD5>
+										<MD5>98360a619fdc630b45927a3a6d9ec663</MD5>
 									</DependentFile>
 								</Property>
 								<Property Name="GlobalParameterScopes">
@@ -4475,7 +4475,7 @@
 												<String>IMU/Acc_x</String>
 											</Property>
 											<Property Name="Index">
-												<I32>24</I32>
+												<I32>28</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -4490,7 +4490,7 @@
 												<String>IMU/Acc_y</String>
 											</Property>
 											<Property Name="Index">
-												<I32>25</I32>
+												<I32>29</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Hardware/Chassis/FPGA/RIO0/Input/IMU/Acc_y" />
@@ -4508,7 +4508,7 @@
 												<String>IMU/Acc_z</String>
 											</Property>
 											<Property Name="Index">
-												<I32>26</I32>
+												<I32>30</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Hardware/Chassis/FPGA/RIO0/Input/IMU/Acc_z" />
@@ -4526,7 +4526,7 @@
 												<String>IMU/Gyro_x</String>
 											</Property>
 											<Property Name="Index">
-												<I32>27</I32>
+												<I32>31</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Hardware/Chassis/FPGA/RIO0/Input/IMU/Gyro_x" />
@@ -4544,7 +4544,7 @@
 												<String>IMU/Gyro_y</String>
 											</Property>
 											<Property Name="Index">
-												<I32>28</I32>
+												<I32>32</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Hardware/Chassis/FPGA/RIO0/Input/IMU/Gyro_y" />
@@ -4562,7 +4562,7 @@
 												<String>IMU/Gyro_z</String>
 											</Property>
 											<Property Name="Index">
-												<I32>29</I32>
+												<I32>33</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Hardware/Chassis/FPGA/RIO0/Input/IMU/Gyro_z" />
@@ -4743,171 +4743,6 @@
 									<Description />
 									<Properties />
 									<Errors />
-									<Channel Name="k_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/k_x</String>
-											</Property>
-											<Property Name="Index">
-												<I32>3</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="k_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/k_y</String>
-											</Property>
-											<Property Name="Index">
-												<I32>8</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="k_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/k_psi</String>
-											</Property>
-											<Property Name="Index">
-												<I32>9</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="sigma_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/sigma_psi</String>
-											</Property>
-											<Property Name="Index">
-												<I32>10</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="sigma_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/sigma_x</String>
-											</Property>
-											<Property Name="Index">
-												<I32>12</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="sigma_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/sigma_y</String>
-											</Property>
-											<Property Name="Index">
-												<I32>15</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="mu_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/mu_x</String>
-											</Property>
-											<Property Name="Index">
-												<I32>11</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="kappa_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/kappa_y</String>
-											</Property>
-											<Property Name="Index">
-												<I32>14</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="mu_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/mu_y</String>
-											</Property>
-											<Property Name="Index">
-												<I32>13</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="kappa_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/kappa_psi</String>
-											</Property>
-											<Property Name="Index">
-												<I32>17</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="mu_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/mu_psi</String>
-											</Property>
-											<Property Name="Index">
-												<I32>16</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
 								</Section>
 								<Section Name="eta_QTM" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
 									<Description />
@@ -4920,7 +4755,7 @@
 												<String>eta_QTM/x_m</String>
 											</Property>
 											<Property Name="Index">
-												<I32>5</I32>
+												<I32>11</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Custom Devices/Oqus/X" />
@@ -4938,7 +4773,7 @@
 												<String>eta_QTM/y_m</String>
 											</Property>
 											<Property Name="Index">
-												<I32>6</I32>
+												<I32>12</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Custom Devices/Oqus/Y" />
@@ -4956,7 +4791,7 @@
 												<String>eta_QTM/psi_m</String>
 											</Property>
 											<Property Name="Index">
-												<I32>7</I32>
+												<I32>13</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Custom Devices/Oqus/Yaw" />
@@ -4984,7 +4819,7 @@
 												<String>Regulator 2 psi/sigma_psi</String>
 											</Property>
 											<Property Name="Index">
-												<I32>18</I32>
+												<I32>21</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -4999,7 +4834,7 @@
 												<String>Regulator 2 psi/k1_psi</String>
 											</Property>
 											<Property Name="Index">
-												<I32>19</I32>
+												<I32>22</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5014,22 +4849,7 @@
 												<String>Regulator 2 psi/k2_psi</String>
 											</Property>
 											<Property Name="Index">
-												<I32>20</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="mu_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Regulator 2 psi/mu_psi</String>
-											</Property>
-											<Property Name="Index">
-												<I32>21</I32>
+												<I32>23</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5044,7 +4864,7 @@
 												<String>Regulator 2 psi/nu_psi</String>
 											</Property>
 											<Property Name="Index">
-												<I32>22</I32>
+												<I32>25</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5052,14 +4872,264 @@
 											<Elem>0</Elem>
 										</DefaultValue>
 									</Channel>
-									<Channel Name="alpha_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+									<Channel Name="k0_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
 										<Description />
 										<Properties>
 											<Property Name="Model Path">
-												<String>Regulator 2 psi/alpha_psi</String>
+												<String>Regulator 2 psi/k0_psi</String>
 											</Property>
 											<Property Name="Index">
-												<I32>23</I32>
+												<I32>24</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="gamma_psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 psi/gamma_psi</String>
+											</Property>
+											<Property Name="Index">
+												<I32>26</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="reset" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 psi/reset</String>
+											</Property>
+											<Property Name="Index">
+												<I32>27</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+								</Section>
+								<Section Name="Regulator 2 x" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
+									<Description />
+									<Properties />
+									<Errors />
+									<Channel Name="sigma_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 x/sigma_x</String>
+											</Property>
+											<Property Name="Index">
+												<I32>3</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="k1_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 x/k1_x</String>
+											</Property>
+											<Property Name="Index">
+												<I32>4</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="k2_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 x/k2_x</String>
+											</Property>
+											<Property Name="Index">
+												<I32>5</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="k0_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 x/k0_x</String>
+											</Property>
+											<Property Name="Index">
+												<I32>6</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="nu_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 x/nu_x</String>
+											</Property>
+											<Property Name="Index">
+												<I32>7</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="gamma_x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 x/gamma_x</String>
+											</Property>
+											<Property Name="Index">
+												<I32>8</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="reset" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 x/reset</String>
+											</Property>
+											<Property Name="Index">
+												<I32>9</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+								</Section>
+								<Section Name="Regulator 2 y" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
+									<Description />
+									<Properties />
+									<Errors />
+									<Channel Name="sigma_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 y/sigma_y</String>
+											</Property>
+											<Property Name="Index">
+												<I32>14</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="k1_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 y/k1_y</String>
+											</Property>
+											<Property Name="Index">
+												<I32>15</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="k2_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 y/k2_y</String>
+											</Property>
+											<Property Name="Index">
+												<I32>16</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="k0_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 y/k0_y</String>
+											</Property>
+											<Property Name="Index">
+												<I32>17</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="nu_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 y/nu_y</String>
+											</Property>
+											<Property Name="Index">
+												<I32>18</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="gamma_y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 y/gamma_y</String>
+											</Property>
+											<Property Name="Index">
+												<I32>19</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
+									<Channel Name="reset" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Regulator 2 y/reset</String>
+											</Property>
+											<Property Name="Index">
+												<I32>20</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5120,7 +5190,7 @@
 											<String>psi_ref [deg]</String>
 										</Property>
 										<Property Name="Index">
-											<I32>4</I32>
+											<I32>10</I32>
 										</Property>
 									</Properties>
 									<Errors />
@@ -5194,7 +5264,7 @@
 												<String>Output/alpha1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>37</I32>
+												<I32>35</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5209,7 +5279,7 @@
 												<String>Output/alpha2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>38</I32>
+												<I32>36</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5224,7 +5294,7 @@
 												<String>Output/alpha3</String>
 											</Property>
 											<Property Name="Index">
-												<I32>39</I32>
+												<I32>37</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5239,7 +5309,7 @@
 												<String>Output/alpha4</String>
 											</Property>
 											<Property Name="Index">
-												<I32>40</I32>
+												<I32>38</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5254,7 +5324,7 @@
 												<String>Output/alpha5</String>
 											</Property>
 											<Property Name="Index">
-												<I32>41</I32>
+												<I32>39</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5269,7 +5339,7 @@
 												<String>Output/alpha6</String>
 											</Property>
 											<Property Name="Index">
-												<I32>42</I32>
+												<I32>40</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5284,7 +5354,7 @@
 												<String>Output/u1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>43</I32>
+												<I32>41</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5299,7 +5369,7 @@
 												<String>Output/u2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>44</I32>
+												<I32>42</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5314,7 +5384,7 @@
 												<String>Output/u3</String>
 											</Property>
 											<Property Name="Index">
-												<I32>45</I32>
+												<I32>43</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5329,7 +5399,7 @@
 												<String>Output/u4</String>
 											</Property>
 											<Property Name="Index">
-												<I32>46</I32>
+												<I32>44</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5344,7 +5414,7 @@
 												<String>Output/u5</String>
 											</Property>
 											<Property Name="Index">
-												<I32>47</I32>
+												<I32>45</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5359,7 +5429,7 @@
 												<String>Output/u6</String>
 											</Property>
 											<Property Name="Index">
-												<I32>48</I32>
+												<I32>46</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5372,96 +5442,6 @@
 									<Description />
 									<Properties />
 									<Errors />
-									<Channel Name="x_tilde" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/x_tilde</String>
-											</Property>
-											<Property Name="Index">
-												<I32>31</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="y_tilde" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/y_tilde</String>
-											</Property>
-											<Property Name="Index">
-												<I32>32</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="psi_tilde" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/psi_tilde</String>
-											</Property>
-											<Property Name="Index">
-												<I32>33</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="X" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/X</String>
-											</Property>
-											<Property Name="Index">
-												<I32>34</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="Y" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/Y</String>
-											</Property>
-											<Property Name="Index">
-												<I32>35</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
-									<Channel Name="N" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
-										<Description />
-										<Properties>
-											<Property Name="Model Path">
-												<String>Consecutive compensator/N</String>
-											</Property>
-											<Property Name="Index">
-												<I32>36</I32>
-											</Property>
-										</Properties>
-										<Errors />
-										<DefaultValue>
-											<Elem>0</Elem>
-										</DefaultValue>
-									</Channel>
 								</Section>
 								<Channel Name="Output to Workspace" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
 									<Description />
@@ -5470,7 +5450,7 @@
 											<String>Output to Workspace</String>
 										</Property>
 										<Property Name="Index">
-											<I32>30</I32>
+											<I32>34</I32>
 										</Property>
 									</Properties>
 									<Errors />
@@ -5497,10 +5477,10 @@
 									<Double>10000</Double>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>272389</I32>
+									<I32>272517</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3586958778.0120611</Double>
+									<Double>3586959167.6830158</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -5533,7 +5513,7 @@
 									<Boolean>true</Boolean>
 								</Property>
 								<Property Name="MD5">
-									<String>bdc3bec96df5926d7e7496a02e8bf9b8</String>
+									<String>e69480f967f84d2128b92066e64fc443</String>
 								</Property>
 								<Property Name="NIVeriStandServer Port">
 									<U32>6012</U32>
@@ -5547,7 +5527,7 @@
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\u2pwm.out</RTDestination>
 										<SupportedTarget>VxWorks</SupportedTarget>
-										<MD5>bdc3bec96df5926d7e7496a02e8bf9b8</MD5>
+										<MD5>e69480f967f84d2128b92066e64fc443</MD5>
 									</DependentFile>
 								</Property>
 								<Property Name="GlobalParameterScopes">

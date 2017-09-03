@@ -78,7 +78,7 @@ MAKEFILE_FILESEP = /
 CC           			= ccppc.exe
 
 MODEL           		= ctrl_custom
-MODULES         		= ctrl_custom_data.c ni_modelframework.c rtGetInf.c rtGetNaN.c rt_logging.c rt_nonfinite.c 
+MODULES         		= ctrl_custom_data.c ni_modelframework.c rtGetInf.c rtGetNaN.c rt_logging.c rt_nonfinite.c rt_zcfcn.c 
 MAKEFILE        		= ctrl_custom.mk
 MATLAB_ROOT     		= C:/Program Files/MATLAB/R2016b
 ALT_MATLAB_ROOT 		= C:/PROGRA~1/MATLAB/R2016b
@@ -91,7 +91,7 @@ S_FUNCTIONS_LIB 		=
 SOLVER          		= 
 NUMST           		= 2
 TID01EQ         		= 1
-NCSTATES        		= 6
+NCSTATES        		= 9
 BUILDARGS       		=  NIDEBUG=0 NIOPT="Default" OPTS="" ISPROTECTINGMODEL=NOTPROTECTING
 MULTITASKING    		= 0
 EXT_MODE        		= 0
